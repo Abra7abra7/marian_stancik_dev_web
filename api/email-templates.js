@@ -6,7 +6,11 @@ const PROFILE_IMG = 'https://www.marianstancik.dev/profile.webp';
 module.exports = {
 
   // ── Generate unified email shell ──
-  _shell(title, contentHtml) {
+  // persona: 'personal' (Marian Stancik, ✦ HERMES AGENT) or 'company' (ASCENTIA s.r.o., ✦ AI Agent Systems)
+  _shell(title, contentHtml, persona = 'personal') {
+    const isCompany = persona === 'company';
+    const headerName = isCompany ? 'ASCENTIA s.r.o.' : 'Marian Stancik';
+    const subtitle = isCompany ? '✦ AI AGENT SYSTEMS' : '✦ HERMES AGENT';
     return `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
@@ -45,9 +49,9 @@ body { background: #f0f0f5; }
 </style></head>
 <body><div class="email-wrapper">
   <div class="header">
-    <img src="${PROFILE_IMG}" alt="Marian Stancik">
-    <h1>Marian Stancik</h1>
-    <div class="subtitle">✦ HERMES AGENT</div>
+    <img src="${PROFILE_IMG}" alt="${headerName}">
+    <h1>${headerName}</h1>
+    <div class="subtitle">${subtitle}</div>
   </div>
   <div class="content">
     <h2>${title}</h2>
@@ -110,7 +114,7 @@ body { background: #f0f0f5; }
   <li>Faktúra bude doručená samostatne emailom</li>
 </ol>
 ${website ? `<p>Webstránka na analýzu: <a href="${website}" style="color:#CD7F32;">${website}</a></p>` : ''}`;
-    return this._shell(`✧ Potvrdenie objednávky: ${product}`, content);
+    return this._shell(`✧ Potvrdenie objednávky: ${product}`, content, 'company');
   },
 
   // ── CONTACT CONFIRMATION ──
@@ -139,7 +143,7 @@ ${message ? `<blockquote style="border-left:3px solid #CD7F32; padding:10px 15px
 </table>
 <p style="margin-top:16px;">Po pripísaní platby spustíme analýzu do 24 hodín.</p>
 <p style="margin:16px 0 0;"><a href="${pdfUrl}" style="display:inline-block; background:#CD7F32; color:#fff; text-decoration:none; padding:12px 28px; border-radius:6px; font-weight:600; font-size:14px;">Stiahnuť faktúru PDF</a></p>`;
-    return this._shell(`✧ FAKTÚRA č. ${invoiceNum}`, content);
+    return this._shell(`✧ FAKTÚRA č. ${invoiceNum}`, content, 'company');
   },
 
   // ── FOLLOW-UP ──

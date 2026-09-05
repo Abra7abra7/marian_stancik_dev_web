@@ -45,8 +45,8 @@ export default async function handler(req, res) {
       'x-api-key': apiKey
     };
 
-    // Helper: MCP session (supports html + text)
-    async function sendEmail(to, subject, text, html) {
+    // Helper: MCP session (supports html + text, inbox selection)
+    async function sendEmail(to, subject, text, html, inboxId = 'marianstancik@agentmail.to') {
       const initBody = JSON.stringify({
         jsonrpc: '2.0', id: '1', method: 'initialize',
         params: { protocolVersion: '2025-11-25', capabilities: {}, clientInfo: { name: 'hermes-crm', version: '1.0' } }
@@ -60,7 +60,7 @@ export default async function handler(req, res) {
 
       await fetch(url, { method: 'POST', headers: msgHeaders, body: JSON.stringify({ jsonrpc: '2.0', method: 'notifications/initialized' }) });
 
-      const args = { inboxId: 'marianstancik@agentmail.to', to: [to], subject, text };
+      const args = { inboxId, to: [to], subject, text };
       if (html) args.html = html;
 
       const sendBody = JSON.stringify({
@@ -100,7 +100,7 @@ export default async function handler(req, res) {
       const userHtml = emailTpl.orderConfirmation(name || email, prodName, price, website);
       const userText = emailTpl.orderConfirmationText(name || email, prodName, price, website, notes);
 
-      await sendEmail(email, userSubject, userText, userHtml).catch(e => console.error('Order user email failed:', e.message));
+      await sendEmail(email, userSubject, userText, userHtml, 'ascentia@agentmail.to').catch(e => console.error('Order user email failed:', e.message));
 
       const adminNotif = `🛒 NOVÁ OBJEDNÁVKA PRODUKTU — marianstancik.dev\nDátum: ${dateStr} ${timeStr}\nProdukt: ${prodName} (${price ? '€' + price : 'N/A'})\nEmail: ${email}\nWeb: ${website || 'N/A'}\nPoznámka: ${notes || 'Žiadna'}\nZdroj: ${source}\nStatus: Potvrdenie odoslané klientovi ✅`;
 
