@@ -1,0 +1,40 @@
+<svg viewBox="0 0 500 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradHex" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#002147" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#CD7F32" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="gradBronze" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8B86D"/>
+      <stop offset="40%" stop-color="#CD7F32"/>
+      <stop offset="100%" stop-color="#B87333"/>
+    </linearGradient>
+    <linearGradient id="gradText" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E8E8F0"/>
+      <stop offset="100%" stop-color="#A0A0B8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hexagon icon (scaled to fit left side) -->
+  <g transform="translate(12, 10) scale(0.85)">
+    <!-- Hexagon outline -->
+    <polygon points="60,10 108,37.5 108,92.5 60,120 12,92.5 12,37.5"
+             fill="none" stroke="url(#gradHex)" stroke-width="3"/>
+    <!-- Inner A letterform -->
+    <polygon points="60,35 82,88 73,88 68,75 52,75 47,88 38,88 60,35"
+             fill="#CD7F32"/>
+  </g>
+
+  <!-- ASCENTIA text -->
+  <text x="120" y="58" font-family="'Times New Roman', Georgia, serif"
+        font-size="36" font-weight="700" letter-spacing="8"
+        fill="url(#gradBronze)">ASCENTIA</text>
+
+  <!-- Tagline -->
+  <text x="120" y="80" font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="10" font-weight="300" letter-spacing="5"
+        fill="#CD7F32" opacity="0.6">TECHNICAL AI ENGINEERING</text>
+
+  <!-- Bronze divider -->
+  <line x1="120" y1="90" x2="380" y2="90" stroke="#CD7F32" stroke-width="0.5" opacity="0.3"/>
+</svg>

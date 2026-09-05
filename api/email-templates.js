@@ -1,16 +1,21 @@
-// Branded HTML email templates — uniform design with profile photo (report style)
-// Design: navy gradient header + round profile photo + bronze accents
+// Branded HTML email templates — report-style with persona-based visuals
+// personal: profile photo (circular) + Marian Stancik header
+// company: ASCENTIA logo (rectangular) + company header
 
 const PROFILE_IMG = 'https://www.marianstancik.dev/profile.webp';
+const LOGO_IMG = 'https://www.marianstancik.dev/logo-ascentia.png';
 
 module.exports = {
 
-  // ── Generate unified email shell ──
-  // persona: 'personal' (Marian Stancik, ✦ HERMES AGENT) or 'company' (ASCENTIA s.r.o., ✦ AI Agent Systems)
+  // persona: 'personal' (Marian + profile photo) or 'company' (ASCENTIA + logo)
   _shell(title, contentHtml, persona = 'personal') {
     const isCompany = persona === 'company';
     const headerName = isCompany ? 'ASCENTIA s.r.o.' : 'Marian Stancik';
     const subtitle = isCompany ? '✦ AI AGENT SYSTEMS' : '✦ HERMES AGENT';
+    const headerImg = isCompany ? LOGO_IMG : PROFILE_IMG;
+    const headerImgStyle = isCompany
+      ? 'width:auto; height:52px; border:none; border-radius:0; object-fit:contain; margin-bottom:8px;'
+      : 'width:64px; height:64px; border-radius:50%; border:3px solid #CD7F32; object-fit:cover; margin-bottom:8px;';
     return `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
@@ -18,7 +23,7 @@ module.exports = {
 body { background: #f0f0f5; }
 .email-wrapper { max-width: 600px; margin: 0 auto; background: #ffffff; }
 .header { background: linear-gradient(135deg, #002147 0%, #1a3a5c 100%); padding: 32px 40px 24px; text-align: center; }
-.header img { width: 64px; height: 64px; border-radius: 50%; border: 3px solid #CD7F32; object-fit: cover; margin-bottom: 8px; }
+.header img { ${headerImgStyle} }
 .header h1 { color: #ffffff; font-size: 20px; font-weight: 600; letter-spacing: 0.3px; }
 .header .subtitle { color: #CD7F32; font-size: 13px; font-weight: 400; letter-spacing: 2px; margin-top: 2px; }
 .content { padding: 32px 40px; color: #2d2d2d; font-size: 14px; line-height: 1.7; }
@@ -28,6 +33,10 @@ body { background: #f0f0f5; }
 .content p { margin: 0 0 14px; }
 .content ul { margin: 0 0 14px; padding-left: 20px; }
 .content li { margin-bottom: 6px; }
+.data-table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 13px; }
+.data-table th { background: #002147; color: #fff; padding: 8px 12px; text-align: left; font-weight: 500; }
+.data-table td { padding: 8px 12px; border-bottom: 1px solid #eee; }
+.data-table tr:nth-child(even) td { background: #fafafe; }
 .divider { height: 3px; background: #CD7F32; margin: 0 40px; }
 .signature { padding: 20px 40px 28px; color: #555; font-size: 13px; line-height: 1.6; }
 .signature strong { color: #002147; }
@@ -35,10 +44,6 @@ body { background: #f0f0f5; }
 .signature .sig-text { overflow: hidden; }
 .footer { background: #f8f8f8; padding: 16px 40px; color: #999; font-size: 11px; line-height: 1.5; text-align: left; }
 .footer strong { color: #777; }
-.data-table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 13px; }
-.data-table th { background: #002147; color: #fff; padding: 8px 12px; text-align: left; font-weight: 500; }
-.data-table td { padding: 8px 12px; border-bottom: 1px solid #eee; }
-.data-table tr:nth-child(even) td { background: #fafafe; }
 @media (max-width: 480px) {
   .header { padding: 24px 20px 18px; }
   .content { padding: 24px 20px; }
@@ -49,7 +54,7 @@ body { background: #f0f0f5; }
 </style></head>
 <body><div class="email-wrapper">
   <div class="header">
-    <img src="${PROFILE_IMG}" alt="${headerName}">
+    <img src="${headerImg}" alt="${headerName}">
     <h1>${headerName}</h1>
     <div class="subtitle">${subtitle}</div>
   </div>
@@ -78,23 +83,16 @@ body { background: #f0f0f5; }
   // ── NEWSLETTER WELCOME ──
   welcome(name = '', source = 'web') {
     const content = `<p>Ahoj${name ? ' ' + name : ''},</p>
-<p>Ďakujem za prihlásenie k odberu noviniek. Posielam ti pravidelné súhrny z AI sveta bez zbytočného šumu.</p>
+<p>Ďakujem za prihlásenie k odberu noviniek. Posielam ti pravidelné súhrny z AI sveta.</p>
 <h3>Čo môžeš očakávať</h3>
 <ul>
-  <li><strong>AI Agent Systems</strong> — multi-agent orchestration, MCP servery a Hermes v praxi</li>
-  <li><strong>UAV &amp; Edge AI</strong> — hardvérové stavby, počítačové videnie v reálnom čase</li>
+  <li><strong>AI Agent Systems</strong> — multi-agent orchestration, MCP servery</li>
+  <li><strong>UAV &amp; Edge AI</strong> — hardvérové stavby, počítačové videnie</li>
   <li><strong>EU AI Act &amp; Compliance</strong> — praktické zhrnutia regulácií</li>
   <li><strong>Building in Public</strong> — kódové ukážky a architektúry</li>
 </ul>
-<table class="data-table" cellpadding="0" cellspacing="0">
-  <tr>
-    <td style="padding:12px; text-align:center;"><div style="font-size:22px; font-weight:700; color:#002147;">Blog</div><div style="font-size:11px; color:#8888a0; text-transform:uppercase; letter-spacing:1px; margin-top:2px;">marianstancik.dev</div></td>
-    <td style="padding:12px; text-align:center;"><div style="font-size:22px; font-weight:700; color:#002147;">GitHub</div><div style="font-size:11px; color:#8888a0; text-transform:uppercase; letter-spacing:1px; margin-top:2px;">Abra7abra7</div></td>
-    <td style="padding:12px; text-align:center;"><div style="font-size:22px; font-weight:700; color:#002147;">Telegram</div><div style="font-size:11px; color:#8888a0; text-transform:uppercase; letter-spacing:1px; margin-top:2px;">DM</div></td>
-  </tr>
-</table>
-<p style="margin-top:16px;">👉 <a href="https://marianstancik.dev/blog" style="color:#CD7F32; font-weight:600;">Pozri najnovšie články</a></p>`;
-    return this._shell('Vitaj v newslettri', content);
+<p>👉 <a href="https://marianstancik.dev/blog" style="color:#CD7F32; font-weight:600;">Pozri najnovšie články</a></p>`;
+    return this._shell('Vitaj v newslettri', content, 'personal');
   },
 
   // ── ORDER CONFIRMATION ──
@@ -123,13 +121,13 @@ ${website ? `<p>Webstránka na analýzu: <a href="${website}" style="color:#CD7F
 <p>ďakujem za tvoju správu. Prijal som ju a zvyčajne odpovedám do 24 hodín.</p>
 ${message ? `<blockquote style="border-left:3px solid #CD7F32; padding:10px 15px; margin:15px 0; color:#555; font-style:italic;">${message}</blockquote>` : ''}
 <p>Ak ide o urgentný projekt, kľudne mi napíš priamo.</p>`;
-    return this._shell('✧ Potvrdenie prijatia správy', content);
+    return this._shell('✧ Potvrdenie prijatia správy', content, 'personal');
   },
 
   // ── INVOICE ──
   invoice(name, product, price, invoiceNum, pdfUrl) {
     const content = `<p>Ahoj ${name},</p>
-<p>v prílohe tohto emailu nájdeš faktúru za objednávku <strong>${product}</strong>.</p>
+<p>v prílohe tohto emailu nájdeš faktúru za <strong>${product}</strong>.</p>
 <h3>Faktúra ${invoiceNum}</h3>
 <table class="data-table" cellpadding="0" cellspacing="0">
   <tr><th>Položka</th><th>Suma</th></tr>
@@ -149,15 +147,15 @@ ${message ? `<blockquote style="border-left:3px solid #CD7F32; padding:10px 15px
   // ── FOLLOW-UP ──
   followup() {
     const content = `<p>Ahoj,</p>
-<p>odkedy si sa prihlásil k odberu, pribudlo niekoľko nových článkov na blogu:</p>
+<p>odkedy si sa prihlásil k odberu, pribudlo niekoľko nových článkov:</p>
 <table class="data-table" cellpadding="0" cellspacing="0">
   <tr><th style="width:30px;"></th><th>Článok</th></tr>
-  <tr><td>→</td><td><a href="https://marianstancik.dev/blog" style="color:#002147; text-decoration:none; font-weight:500;">Hermes Agent — autonómna AI na VPS s MCP servermi</a></td></tr>
+  <tr><td>→</td><td><a href="https://marianstancik.dev/blog" style="color:#002147; text-decoration:none; font-weight:500;">Hermes Agent — autonómna AI na VPS</a></td></tr>
   <tr><td>→</td><td><a href="https://marianstancik.dev/blog" style="color:#002147; text-decoration:none; font-weight:500;">EU AI Act — praktický sprievodca compliance</a></td></tr>
-  <tr><td>→</td><td><a href="https://marianstancik.dev/blog" style="color:#002147; text-decoration:none; font-weight:500;">Edge AI na drone — počítačové videnie v reálnom čase</a></td></tr>
+  <tr><td>→</td><td><a href="https://marianstancik.dev/blog" style="color:#002147; text-decoration:none; font-weight:500;">Edge AI na drone — počítačové videnie</a></td></tr>
 </table>
 <p>👉 <a href="https://marianstancik.dev/blog" style="color:#CD7F32; font-weight:600;">Pozri celý blog</a></p>`;
-    return this._shell('✧ Čo sa udialo za posledný týždeň', content);
+    return this._shell('✧ Čo sa udialo za posledný týždeň', content, 'personal');
   },
 
   // ── PAYMENT REMINDER ──
@@ -169,117 +167,33 @@ ${message ? `<blockquote style="border-left:3px solid #CD7F32; padding:10px 15px
   <tr><th style="width:80px;">IBAN</th><td>SK78 1100 0000 0027 0129 7133</td></tr>
   <tr><th>BIC</th><td>FIOZSKBAXXX</td></tr>
 </table>
-<p>Po pripísaní platby spustíme technickú analýzu do 24 hodín.</p>`;
-    return this._shell('✧ Pripomienka úhrady faktúry', content);
+<p>Po pripísaní platby spustíme analýzu do 24 hodín.</p>`;
+    return this._shell('✧ Pripomienka úhrady faktúry', content, 'company');
   },
 
   // ── PLAIN TEXT FALLBACKS ──
-  welcomeText(name = '') {
-    return `MARIAN STANCIK — HERMES AGENT
-─────────────────────────
-
-Vitaj v newslettri! 👋
-
-Ďakujem za prihlásenie. Posielam ti pravidelné novinky z AI sveta bez zbytočného šumu.
-
-ČO MÔŽEŠ OČAKÁVAŤ:
-• AI Agent Systems — multi-agent orchestration, MCP servery
-• UAV & Edge AI — hardvérové stavby, computer vision
-• EU AI Act & Compliance — praktické zhrnutia regulácií
-• Building in Public — kódové ukážky a architektúry
-
-Blog: https://marianstancik.dev/blog
-GitHub: https://github.com/Abra7abra7
-
-S pozdravom,
-Marian Stancik — Hermes Agent`;
+  welcomeText() {
+    return `MARIAN STANCIK — HERMES AGENT\n\nVitaj v newslettri!\n\nBlog: https://marianstancik.dev/blog\n\nS pozdravom, Marian Stancik — Hermes Agent`;
   },
 
   orderConfirmationText(name, product, price, website = '', notes = '') {
-    return `MARIAN STANCIK — HERMES AGENT
-─────────────────────────
-
-Ahoj ${name},
-
-Ďakujem za objednávku: ${product} (${price ? '€' + price : 'Na mieru'}).
-
-ĎALŠIE KROKY:
-1. Objednávka zaevidovaná
-2. Technická analýza do 24h
-3. Report do 48h
-4. Faktúra samostatne
-
-Web: ${website || 'Zadaj v odpovedi'}
-${notes ? `Poznámka: ${notes}` : ''}
-
-S pozdravom,
-Marian Stancik — Hermes Agent`;
+    return `ASCENTIA s.r.o. — AI AGENT SYSTEMS\n\nAhoj ${name},\n\nĎakujem za objednávku: ${product} (${price ? '€' + price : 'Na mieru'}).\n\nWeb: ${website || 'Zadaj v odpovedi'}\n\nS pozdravom, Marian Stancik — ASCENTIA s.r.o.`;
   },
 
   contactConfirmationText(name = '', message = '') {
-    return `MARIAN STANCIK — HERMES AGENT
-─────────────────────────
-
-Ahoj${name ? ' ' + name : ''},
-
-Správu som prijal. Odpovedám do 24 hodín.
-${message ? `\nTvoja správa: "${message}"` : ''}
-
-S pozdravom,
-Marian Stancik — Hermes Agent`;
+    return `MARIAN STANCIK — HERMES AGENT\n\nAhoj${name ? ' ' + name : ''},\n\nSprávu som prijal.\n\nS pozdravom, Marian Stancik — Hermes Agent`;
   },
 
   invoiceText(name, product, price, invoiceNum, pdfUrl) {
-    return `MARIAN STANCIK — HERMES AGENT
-─────────────────────────
-
-FAKTÚRA č. ${invoiceNum}
-
-Ahoj ${name},
-
-Faktúra za ${product} (€${price}).
-
-Stiahnuť PDF: ${pdfUrl}
-
-Platobné údaje:
-IBAN: SK78 1100 0000 0027 0129 7133
-BIC: FIOZSKBAXXX
-VS: ${String(invoiceNum).replace(/[^0-9]/g, '').slice(-6) || '000001'}
-
-S pozdravom,
-Marian Stancik — Hermes Agent`;
+    const vs = String(invoiceNum).replace(/[^0-9]/g, '').slice(-6) || '000001';
+    return `ASCENTIA s.r.o. — AI AGENT SYSTEMS\n\nFAKTÚRA č. ${invoiceNum}\n\nAhoj ${name},\nFaktúra za ${product} (€${price}).\n\nStiahnuť PDF: ${pdfUrl}\n\nIBAN: SK78 1100 0000 0027 0129 7133\nBIC: FIOZSKBAXXX\nVS: ${vs}\n\n--\nASCENTIA s.r.o.`;
   },
 
   followupText() {
-    return `MARIAN STANCIK — HERMES AGENT
-─────────────────────────
-
-Ahoj,
-
-odkedy si sa prihlásil, pribudli nové články:
-
-• Hermes Agent — autonómna AI na VPS
-• EU AI Act — praktický sprievodca compliance
-• Edge AI na drone — počítačové videnie
-
-Blog: https://marianstancik.dev/blog
-
-S pozdravom,
-Marian Stancik — Hermes Agent`;
+    return `MARIAN STANCIK — HERMES AGENT\n\nAhoj,\n\nodkedy si sa prihlásil, pribudli nové články na blogu.\n\nBlog: https://marianstancik.dev/blog\n\nS pozdravom, Marian Stancik — Hermes Agent`;
   },
 
   paymentReminderText(name, product) {
-    return `MARIAN STANCIK — HERMES AGENT
-─────────────────────────
-
-Ahoj ${name},
-
-Pripomínam úhradu faktúry za ${product}.
-
-IBAN: SK78 1100 0000 0027 0129 7133
-BIC: FIOZSKBAXXX
-
-S pozdravom,
-Marian Stancik — Hermes Agent`;
+    return `ASCENTIA s.r.o. — AI AGENT SYSTEMS\n\nAhoj ${name},\n\nPripomíname úhradu faktúry za ${product}.\n\nIBAN: SK78 1100 0000 0027 0129 7133\nBIC: FIOZSKBAXXX\n\n--\nASCENTIA s.r.o.`;
   },
 };
