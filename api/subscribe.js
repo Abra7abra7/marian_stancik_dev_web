@@ -73,6 +73,22 @@ export default async function handler(req, res) {
       }
     }
 
+    // ── CRM: forward to Google Sheets webhook ──
+    const CRM_URL = process.env.CRM_WEBHOOK_URL || 'https://api.marianstancik.dev/crm/';
+    const CRM_KEY = process.env.CRM_WEBHOOK_KEY || '';
+    async function crmToSheets(entryType, data) {
+      if (!CRM_KEY) return;
+      try {
+        await fetch(CRM_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-CRM-Key': CRM_KEY },
+          body: JSON.stringify({ type: entryType, ...data }),
+        });
+      } catch (e) {
+        console.error('CRM webhook error:', e.message);
+      }
+    }
+
     const sep = '─'.repeat(44);
 
     // ─────────────────────────────────────────────────────────────
@@ -125,6 +141,8 @@ ${sep}`;
 
       await sendEmail('marianstancik@agentmail.to', `[OBJEDNÁVKA] ${prodName} — ${email}`, adminNotif).catch(e => console.error('Order admin notif failed:', e.message));
 
+      await crmToSheets('order', { email, name, product, price, website, notes, source, status: 'new' }).catch(e => console.error('CRM order failed:', e.message));
+
       return res.status(200).json({ status: 'ok', type: 'order', email, product: prodName });
     }
 
@@ -165,6 +183,8 @@ Zdroj:   ${source}
 ${sep}`;
 
       await sendEmail('marianstancik@agentmail.to', `[SPRÁVA] ${name || email}`, adminNotif).catch(e => console.error('Contact admin notif failed:', e.message));
+
+      await crmToSheets('contact', { email, name, message, source }).catch(e => console.error('CRM contact failed:', e.message));
 
       return res.status(200).json({ status: 'ok', type: 'contact', email });
     }
@@ -211,7 +231,9 @@ ${sep}`;
 
     await sendEmail('marianstancik@agentmail.to', `[NEWSLETTER] ${email}`, adminNotif).catch(e => console.error('Newsletter admin notif failed:', e.message));
 
-    return res.status(200).json({ status: 'ok', type: 'newsletter', email, welcome_sent: true });
+          await crmToSheets('lead', { email, name, source, status: 'active', gdpr: 'yes' }).catch(e => console.error('CRM lead failed:', e.message));
+
+      return res.status(200).json({ status: 'ok', type: 'newsletter', email, welcome_sent: true });
 
   } catch (e) {
     console.error('API error:', e.message);
