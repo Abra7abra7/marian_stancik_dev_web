@@ -3,7 +3,7 @@
 // company: ASCENTIA logo (rectangular) + company header
 
 const PROFILE_IMG = 'https://www.marianstancik.dev/profile.webp';
-const LOGO_IMG = 'https://www.marianstancik.dev/logo-ascentia.png';
+const LOGO_IMG = 'https://www.marianstancik.dev/logo-ascentia.webp';
 
 module.exports = {
 
