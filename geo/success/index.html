@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Confirmed — Marian Stancik</title>
+<style>
+body{font-family:Inter,sans-serif;background:#08080F;color:#F0F0F5;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;}
+.card{background:rgba(18,18,30,0.65);border:1px solid rgba(205,127,50,0.2);border-radius:18px;padding:48px;max-width:480px;text-align:center;margin:20px;}
+h1{color:#CD7F32;font-size:28px;}
+.check{font-size:64px;margin-bottom:10px;}
+.note{color:#8888A0;font-size:14px;line-height:1.6;}
+.btn{display:inline-block;margin-top:20px;padding:12px 32px;background:#CD7F32;color:#08080F;text-decoration:none;border-radius:8px;font-weight:700;}
+</style>
+</head>
+<body>
+<div class="card" id="main-card">
+<div class="check">✅</div>
+<h1>Order Confirmed!</h1>
+<p id="status-text">Your order is being processed.</p>
+<p class="note" id="detail-text">You'll receive the PDF report within 48 hours.</p>
+<a href="https://marianstancik.dev" class="btn">← Back to Home</a>
+</div>
+<script>
+const params = new URLSearchParams(window.location.search);
+const oid = params.get('order_id');
+if (oid) {
+  document.getElementById('status-text').textContent = 'Order #' + oid.slice(0,8) + ' confirmed!';
+  document.getElementById('detail-text').innerHTML = 'Your GEO audit will arrive at your inbox within <strong>48 hours</strong>.';
+}
+</script>
+</body>
+</html>

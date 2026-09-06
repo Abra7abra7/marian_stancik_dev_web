@@ -713,7 +713,7 @@ const STRIPE_LINKS = {
 };
 
 let currentCheckoutProduct = '';
-let currentCheckoutPrice = 150;
+let currentCheckoutPrice = 199;
 
 function openStripeCheckout(title, price, linkKey) {
   currentCheckoutProduct = title;
@@ -739,7 +739,7 @@ function handleStripeRedirect(e) {
   btn.textContent = 'Redirecting to Stripe Checkout...';
   btn.disabled = true;
 
-  // Submit lead data to API in background
+  // Submit order to GEO pipeline and redirect to Stripe
   fetch('/api/subscribe', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -751,11 +751,33 @@ function handleStripeRedirect(e) {
       website: url,
       notes: notes
     })
-  }).catch(() => {}).finally(() => {
-    const liveLink = STRIPE_LINKS[currentCheckoutProduct] || 'https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800';
-    // Append customer email as prefilled_email parameter to Stripe Checkout
-    const targetUrl = liveLink + (email ? `?prefilled_email=${encodeURIComponent(email)}` : '');
-    window.location.href = targetUrl;
+  }).catch(() => {}).then(() => {
+    // Also create order in geo-pipeline
+    const productIds = {
+      'AI GEO Audit': 'geo-audit',
+      'AI Web Readiness Scan': 'web-readiness',
+      'Full Web Audit (GEO + Readiness)': 'full-combo'
+    };
+    const pid = productIds[currentCheckoutProduct] || 'geo-audit';
+    
+    fetch('https://geo.marianstancik.dev/geo/order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        product_id: pid,
+        client_name: email.split('@')[0],
+        client_email: email,
+        client_url: url,
+        notes: notes
+      })
+    }).then(r => r.json()).then(order => {
+      const liveLink = order.stripe_url || STRIPE_LINKS[currentCheckoutProduct] || 'https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800';
+      const successUrl = `https://marianstancik.dev/geo/success?order_id=${order.order_id}`;
+      window.location.href = liveLink;
+    }).catch(() => {
+      const liveLink = STRIPE_LINKS[currentCheckoutProduct] || 'https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800';
+      window.location.href = liveLink;
+    });
   });
 }
 </script>
