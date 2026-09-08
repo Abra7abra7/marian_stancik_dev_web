@@ -116,14 +116,14 @@ footer a:hover{color:#CD7F32}
 </head>
 <body>
 <nav aria-label="Blog navigation">
-  <div class="nav-inner">
-    <a href="/" aria-label="Marian Stancik home"><span style="font-size:1.1rem">←</span> Home</a>
+  <div class="nav-inner" style="max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;">
+    <a href="/" style="color:#9A8A78;text-decoration:none;font-size:0.85rem;"><span style="font-size:1.1rem">←</span> Home</a>
     <div style="display:flex;align-items:center;gap:16px;">
-      <a href="/blog">Blog</a>
+      <a href="/blog" style="color:#9A8A78;text-decoration:none;font-size:0.85rem;">Blog</a>
       <div style="display:flex;gap:4px;background:rgba(255,255,255,0.06);padding:2px 4px;border-radius:100px;font-size:0.72rem;font-weight:600;">
-        <a href="/blog/posts/2026-08-20-ai-act-compliance" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">EN</a>
+        <a href="/blog/posts/2026-08-20-ai-act-compliance" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">EN</a>
         <a href="/blog/posts/sk/2026-08-20-ai-act-compliance" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">SK</a>
-        <a href="/blog/posts/de/2026-08-20-ai-act-compliance" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">DE</a>
+        <a href="/blog/posts/de/2026-08-20-ai-act-compliance" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">DE</a>
         <a href="/blog/posts/pl/2026-08-20-ai-act-compliance" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">PL</a>
       </div>
     </div>
@@ -132,7 +132,7 @@ footer a:hover{color:#CD7F32}
 <div class="container">
 <article class="post-header">
 <div class="badge">Law & AI Compliance</div>
-<h1>AI Act Compliance for Small AI Companies & Startups <span class="ai-badge" style="display:inline-block;padding:2px 10px;border-radius:3px;font-size:0.65rem;font-weight:600;background:rgba(205,127,50,0.12);color:#CD7F32;border:1px solid rgba(205,127,50,0.25);letter-spacing:1px;text-transform:uppercase;margin-left:0.5rem;vertical-align:middle;">AI-generated</span></h1>
+<h1>EU AI Act Compliance für kleine KI-Unternehmen</h1>
 <div class="post-meta">
 <span>August 20, 2026</span>
 <span>·</span>
@@ -142,54 +142,17 @@ footer a:hover{color:#CD7F32}
 </div>
 </article>
 
-<div class="post-content">
-<p><strong>The EU AI Act is fully in force. For big tech, compliance means hiring expensive consulting firms. For startups and small teams, it often feels like an existential roadblock. But it doesn't have to be.</strong></p>
-
-<p>I approach compliance with a single rule: <strong>Legal-by-Design</strong>. If you bake legal requirements directly into your software architecture, compliance is automatic, zero-friction, and audit-ready.</p>
-
-<h2>1. The Four AI Act Risk Categories</h2>
-
-<p>Before touching your codebase or drafting terms, you must classify your AI system under the European Union AI Act hierarchy:</p>
-
+<div class="post-content"><p><strong>Der EU AI Act ist in Kraft. Für Startups und kleine Entwicklungsteams bedeutet dies: Compliance muss von Anfang an in die Software-Architektur integriert werden (Legal-by-Design).</strong></p>
+<h2>1. Die vier Risikoklassen des EU AI Act</h2>
 <ul>
-<li><strong>Unacceptable Risk (Prohibited):</strong> Real-time biometric surveillance in public spaces, social scoring, cognitive behavioral manipulation. Complete ban.</li>
-<li><strong>High-Risk (Annex III):</strong> AI in critical infrastructure, recruitment, credit scoring, law enforcement, education evaluation. Requires conformity assessments, strict logging, and quality management.</li>
-<li><strong>Specific Transparency Risk:</strong> Chatbots, AI agent avatars, deepfakes, synthetic media. Requires clear disclosure to end users.</li>
-<li><strong>Minimal / Low Risk:</strong> Spam filters, AI recommendation engines, code assistants, internal agent workflow orchestrators. Minimal obligations.</li>
+  <li><strong>Unannehmbares Risiko (Verboten):</strong> Social Scoring, biometrische Fernidentifikation im öffentlichen Raum.</li>
+  <li><strong>Hohes Risiko:</strong> KI in kritischer Infrastruktur, HR-Tools, Kreditwürdigkeitsprüfung. Erfordert Konformitätsbewertungen und Dokumentation.</li>
+  <li><strong>Spezifisches Transparenzrisiko:</strong> Chatbots, KI-Avatare, synthetische Medien (Kennzeichnungspflicht nach Art. 50).</li>
+  <li><strong>Minimales Risiko:</strong> Spamfilter, Code-Assistenten, Workflow-Agenten.</li>
 </ul>
-
-<div class="callout">
-<strong>Key Insight for Startups:</strong> Over 85% of early-stage SaaS and agent tools fall into the <em>Specific Transparency</em> or <em>Minimal Risk</em> tiers. Do not overcomplicate what requires only transparent watermarking and clear consent!
+<h2>2. Legal-by-Design Leitplanken für Agenten</h2>
+<p>Deterministisches Logging aller Tool-Aufrufe, PII-Filterung vor externen LLM-API-Aufrufen und Human-in-the-Loop Freigaben bei kritischen Transaktionen.</p></div>
 </div>
-
-<h2>2. The Legal-by-Design Blueprint for Autonomous Agents</h2>
-
-<p>When building agents that interact with external APIs, databases, or human users, implement these four architectural guardrails:</p>
-
-<h3>A. Deterministic Audit Logging</h3>
-<p>Every autonomous action — tool execution, outbound API request, decision branching — must be written to an immutable log with UTC timestamp, system prompt version, and user context. If a dispute or audit arises, you can mathematically prove the system state.</p>
-
-<h3>B. Prompt & Output Boundary Controls</h3>
-<p>Implement guardrail filters (via regex or lightweight local classification) before passing user data to LLM providers. Ensure PII (Personally Identifiable Information) is scrubbed in compliance with GDPR Article 6 & Article 9.</p>
-
-<h3>C. Human-in-the-Loop Thresholds</h3>
-<p>For high-consequence operations (financial transactions, contract generation, automated email blasts), configure automated approval prompts before final commit. This satisfies the EU AI Act oversight requirements.</p>
-
-<h2>3. Automated Compliance Checklist</h2>
-
-<ol>
-<li><strong>Data Governance:</strong> Document your training and fine-tuning datasets, licensing terms, and copyright compliance.</li>
-<li><strong>Transparency Notice:</strong> Explicitly state in your UI that the user is interacting with an autonomous AI system.</li>
-<li><strong>Cybersecurity Standards:</strong> Ensure prompt injection defenses, API rate limiting, and encrypted secret storage.</li>
-<li><strong>Post-Market Monitoring:</strong> Establish an automated feedback loop to flag model drift, hallucinations, and safety violations.</li>
-</ol>
-
-<h2>Conclusion: Compliance as a Competitive Advantage</h2>
-
-<p>Companies that treat compliance as an afterthought get crushed by regulatory friction. Companies that engineer compliance into their developer tools and agents earn enterprise trust on day one.</p>
-</div>
-</div>
-
 <footer>
 <p class="ai-disclaimer" style="font-size:0.8rem; color:#9A8A78; margin-bottom:0.5rem; border-top:1px solid rgba(205,127,50,0.15); padding-top:1rem;">🤖 <strong>AI-generated</strong> — This article was generated with the assistance of an autonomous AI agent (Hermes Agent by Nous Research) and reviewed by Marian Stancik before publication. <a href="/disclaimer" style="color:#CD7F32;">Full disclaimer</a>.</p>
 <p>© 2026 <a href="/">Marian Stancik</a> — <a href="../../index.html">marianstancik.dev</a></p>

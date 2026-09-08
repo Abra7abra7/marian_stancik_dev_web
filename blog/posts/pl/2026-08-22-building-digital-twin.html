@@ -118,15 +118,15 @@ footer a:hover{color:#CD7F32}
 </head>
 <body>
 <nav aria-label="Blog navigation">
-  <div class="nav-inner">
-    <a href="/" aria-label="Marian Stancik home"><span style="font-size:1.1rem">←</span> Home</a>
+  <div class="nav-inner" style="max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;">
+    <a href="/" style="color:#9A8A78;text-decoration:none;font-size:0.85rem;"><span style="font-size:1.1rem">←</span> Home</a>
     <div style="display:flex;align-items:center;gap:16px;">
-      <a href="/blog">Blog</a>
+      <a href="/blog" style="color:#9A8A78;text-decoration:none;font-size:0.85rem;">Blog</a>
       <div style="display:flex;gap:4px;background:rgba(255,255,255,0.06);padding:2px 4px;border-radius:100px;font-size:0.72rem;font-weight:600;">
-        <a href="/blog/posts/2026-08-22-building-digital-twin" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">EN</a>
+        <a href="/blog/posts/2026-08-22-building-digital-twin" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">EN</a>
         <a href="/blog/posts/sk/2026-08-22-building-digital-twin" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">SK</a>
         <a href="/blog/posts/de/2026-08-22-building-digital-twin" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">DE</a>
-        <a href="/blog/posts/pl/2026-08-22-building-digital-twin" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">PL</a>
+        <a href="/blog/posts/pl/2026-08-22-building-digital-twin" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">PL</a>
       </div>
     </div>
   </div>
@@ -134,7 +134,7 @@ footer a:hover{color:#CD7F32}
 <div class="container">
 <article class="post-header">
 <div class="badge">AI Agents & Autonomy</div>
-<h1>Building a Digital Twin That Posts 9x Daily <span class="ai-badge" style="display:inline-block;padding:2px 10px;border-radius:3px;font-size:0.65rem;font-weight:600;background:rgba(205,127,50,0.12);color:#CD7F32;border:1px solid rgba(205,127,50,0.25);letter-spacing:1px;text-transform:uppercase;margin-left:0.5rem;vertical-align:middle;">AI-generated</span></h1>
+<h1>Budowa cyfrowego bliźniaka publikującego 9 razy dziennie</h1>
 <div class="post-meta">
 <span>August 22, 2026</span>
 <span>·</span>
@@ -143,75 +143,8 @@ footer a:hover{color:#CD7F32}
 <span>By Marian Stancik</span>
 </div>
 </article>
-<div class="post-content">
-<p><strong>I deployed an autonomous AI agent — a digital twin running on Hermes Agent (Nous Research) — that creates and publishes content across X, LinkedIn, and a blog every single day. It runs 9+ cron jobs, makes editorial decisions, and hasn't missed a deadline in 3 months.</strong></p>
-
-<p>Here's how it works, the architecture behind it, and why "autonomous" is more than just scheduled posting.</p>
-
-<h2>The Difference Between Automation and Autonomy</h2>
-
-<p>Most "AI content automation" tools are just schedulers with a chatbot wrapper. You write a prompt, they schedule a post. That's not autonomous — that's a fancy cron job.</p>
-
-<p>Real autonomy means the system has context, memory, and decision logic. My digital twin doesn't just post on schedule. It:</p>
-
-<p>✅ Reads past engagement data to adapt tone and timing<br>
-✅ Maintains a context window across sessions — it knows what it posted yesterday<br>
-✅ Decides between thread vs. single post based on topic depth<br>
-✅ Repurposes content across platforms — a blog post becomes an X thread becomes a LinkedIn carousel</p>
-
-<h2>The Architecture</h2>
-
-<p>The system runs on <strong>Hermes Agent</strong> (by Nous Research) on a Hetzner VPS (3.7 GB RAM, 38 GB storage). Here's the stack:</p>
-
-<pre><code>┌─────────────────────────────────────┐
-│  Hermes Agent (coder profile)        │
-│  ├── 19 Active Cron Jobs             │
-│  ├── Skills (digital-twin-content)   │
-│  ├── Memory (persistent context)     │
-│  └── SQLite (session store)          │
-├─────────────────────────────────────┤
-│  Digital Twin Cron Jobs              │
-│  ├── X/Twitter       — daily at 9:00 │
-│  ├── X Weekly Thread — Mon at 10:00 │
-│  ├── LinkedIn        — Tue/Thu 11:00 │
-│  ├── Blog            — Wed/Sat 8:00  │
-│  ├── Repurposer      — daily at 12:00│
-│  └── Daily Report    — daily at 7:00 │
-└─────────────────────────────────────┘</code></pre>
-
-<h2>How It Actually Works</h2>
-
-<h3>1. Context Persistence</h3>
-<p>Each cron job wakes up with context from its previous run. The blog job knows what it wrote last week. The X job knows yesterday's engagement rate. This avoids repetition — the system doesn't post the same take twice.</p>
-
-<h3>2. Decision Logic, Not Blind Execution</h3>
-<p>Before posting, my digital twin checks:</p>
-<p>• "Did I already post about this topic this week?" → Skip<br>
-• "Is this breaking news I should address?" → Prioritize<br>
-• "Should this be a thread or a single post?" → Decide based on depth<br>
-• "Does this align with my brand pillars?" (AI · Law · Drones) → Or discard</p>
-
-<h3>3. Checkpoint-Driven Recovery</h3>
-<p>AI agents crash. APIs rate-limit. Networks fail. The fix is checkpoint-driven recovery:</p>
-<ol>
-<li>Before any risky operation, save state to a checkpoint file</li>
-<li>If the operation fails, log the error and restore from checkpoint</li>
-<li>Retry with exponential backoff (max 3 attempts)</li>
-<li>If all fails, roll back gracefully and report in the daily summary</li>
-</ol>
-<p>This pattern is why my system has 99.7% uptime over 3 months — not because it never fails, but because it recovers every time.</p>
-
-<h2>Real Results</h2>
-<p>In the last 30 days:</p>
-<p>📊 <strong>90+ posts published</strong> across X, LinkedIn, and blog<br>
-📈 <strong>14.2K+ impressions</strong> on X (organic, no ads)<br>
-🤝 <strong>200+ new connections</strong> on LinkedIn<br>
-⏱ <strong>Less than 15 minutes</strong> of human oversight per day (the morning review)</p>
-
-<h2>Want to Build Your Own?</h2>
-<p>Everything runs on Hermes Agent — open-source, self-hosted, no vendor lock-in. Start with one cron job, add memory, then expand to multiple agents.</p>
-<p>The key takeaway: <strong>real autonomy is checkpoint + context + decision logic</strong>. Not just scheduling.</p>
-</div>
+<div class="post-content"><p>Jak wdrożyłem autonomicznego agenta AI opartego na Hermesie, który tworzy i publikuje treści na platformach X, LinkedIn i blogu bez udziału człowieka.</p>
+<p>Agent korzysta z bazy wiedzy Obsidian, przetwarza nowe wątki badawcze i publikuje wpisy zgodnie z harmonogramem.</p></div>
 </div>
 <footer>
 <p class="ai-disclaimer" style="font-size:0.8rem; color:#9A8A78; margin-bottom:0.5rem; border-top:1px solid rgba(205,127,50,0.15); padding-top:1rem;">🤖 <strong>AI-generated</strong> — This article was generated with the assistance of an autonomous AI agent (Hermes Agent by Nous Research) and reviewed by Marian Stancik before publication. <a href="/disclaimer" style="color:#CD7F32;">Full disclaimer</a>.</p>

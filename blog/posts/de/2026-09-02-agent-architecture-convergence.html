@@ -119,20 +119,17 @@
 </head>
 <body class="post-page">
 
-<nav aria-label="Main navigation">
-  <div class="nav-container">
-    <a href="/" class="nav-logo" aria-label="marianstancik.dev home">
-      <div class="brand-mark" aria-hidden="true"><img src="/profile.webp" alt="Marian Stancik" width="28" height="28" class="brand-avatar"></div>
-      <span class="nav-logo-text">marian<span class="highlight">stancik</span><span class="tld">.dev</span></span>
-    </a>
-    <div class="nav-right">
-      <div class="lang-switcher" aria-label="Language selector">
-        <a href="/blog/posts/2026-09-02-agent-architecture-convergence" class="lang-btn ">EN</a>
-        <a href="/blog/posts/sk/2026-09-02-agent-architecture-convergence" class="lang-btn ">SK</a>
-        <a href="/blog/posts/de/2026-09-02-agent-architecture-convergence" class="lang-btn active">DE</a>
-        <a href="/blog/posts/pl/2026-09-02-agent-architecture-convergence" class="lang-btn ">PL</a>
+<nav aria-label="Blog navigation">
+  <div class="nav-inner" style="max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;">
+    <a href="/" style="color:#9A8A78;text-decoration:none;font-size:0.85rem;"><span style="font-size:1.1rem">←</span> Home</a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="/blog" style="color:#9A8A78;text-decoration:none;font-size:0.85rem;">Blog</a>
+      <div style="display:flex;gap:4px;background:rgba(255,255,255,0.06);padding:2px 4px;border-radius:100px;font-size:0.72rem;font-weight:600;">
+        <a href="/blog/posts/2026-09-02-agent-architecture-convergence" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">EN</a>
+        <a href="/blog/posts/sk/2026-09-02-agent-architecture-convergence" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">SK</a>
+        <a href="/blog/posts/de/2026-09-02-agent-architecture-convergence" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">DE</a>
+        <a href="/blog/posts/pl/2026-09-02-agent-architecture-convergence" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">PL</a>
       </div>
-      <a href="/blog" class="nav-link">← Alle Beiträge</a>
     </div>
   </div>
 </nav>
@@ -149,34 +146,14 @@
     <div class="post-tags"><span>KI-Agenten</span><span>Autonome Systeme</span><span>Architektur</span><span>AOS</span><span>Control Plane</span></div>
   </header>
 
-  <article class="post-content">
-<p>In den letzten sechs Monaten haben drei völlig unabhängige Entwicklungsteams ihre Referenzarchitekturen für autonome KI-Agenten veröffentlicht: <strong>NVIDIA (AVO)</strong>, das <strong>AOS-Projekt</strong> und das <strong>Auton-Framework</strong>. Obwohl sie für unterschiedliche Anwendungsbereiche entwickelt wurden, sind alle drei zu exakt demselben Grundmuster konvergiert: <strong>einem Zwei-Ebenen-System (Two-Plane Architecture), das Governance von der Ausführung trennt</strong>.</p>
-
-<p>Dies ist kein Zufall. Es ist das unvermeidliche Ergebnis, wenn man versucht, autonome Agenten 24/7 in Produktionsumgebungen stabil zu betreiben.</p>
-
+  <article class="post-content"><p>In den letzten sechs Monaten haben drei unabhängige Entwicklungsteams ihre Referenzarchitekturen für autonome KI-Agenten veröffentlicht: <strong>NVIDIA (AVO)</strong>, das <strong>AOS-Projekt</strong> und das <strong>Auton-Framework</strong>. Alle drei sind zu exakt demselben Grundmuster konvergiert: <strong>einem Zwei-Ebenen-System (Two-Plane Architecture), das Governance von der Ausführung trennt</strong>.</p>
 <h2>Die Zwei Ebenen im Detail</h2>
-
-<h3>1. Die Steuerungsebene (Control Plane / Governance)</h3>
-<p>Die Steuerungsebene definiert <em>WAS</em> getan werden darf und welche Leitplanken gelten. Sie enthält:
-<ul>
-  <li><strong>Zustands- und Speicherverwaltung:</strong> Persistente Wissensgraphen (z. B. Obsidian Markdown Vaults oder SQLite).</li>
-  <li><strong>Policy & Guardrails:</strong> Sicherheitsregeln, EU AI Act Konformität, Budgetlimits.</li>
-  <li><strong>Watchdog & Supervisor:</strong> Überwachung von Schleifen, Deadlocks und Erkennung von Halluzinationen.</li>
-</ul>
-</p>
-
-<h3>2. Die Ausführungsebene (Runtime / Execution Plane)</h3>
-<p>Die Ausführungsebene steuert <em>WIE</em> die Aufgaben umgesetzt werden:
-<ul>
-  <li><strong>Model Context Protocol (MCP) Server:</strong> Werkzeugaufrufe, API-Schnittstellen, Dateisystemzugriff.</li>
-  <li><strong>Dynamisches Modell-Routing:</strong> Zuweisung von Sub-Aufgaben an DeepSeek, Claude 3.5 Sonnet oder GPT-4o.</li>
-  <li><strong>Fehlerbehandlung & Retry-Logik:</strong> Isolierte Wiederholungsversuche ohne Kontrollverlust.</li>
-</ul>
-</p>
-
-<h2>Warum monolithische Agenten scheitern</h2>
-<p>Wenn Steuerung und Ausführung in einer einzigen Prompt-Schleife vermischt werden, führt jede Fehlentscheidung des Modells zum Systemstillstand. Die strikte Trennung garantiert Ausfallsicherheit und Auditierbarkeit.</p>
-</article>
+<h3>1. Die Steuerungsebene (Control Plane)</h3>
+<p>Verwaltet Richtlinien, Sicherheitslimits, EU AI Act Konformität und persistente Speicherstrukturen (Obsidian Vaults, SQLite). Sie bestimmt, WAS erlaubt ist.</p>
+<h3>2. Die Ausführungsebene (Runtime Plane)</h3>
+<p>Führt Werkzeugaufrufe über das Model Context Protocol (MCP) aus, steuert dynamisches Modell-Routing und isoliert Fehler. Sie bestimmt, WIE Aufgaben gelöst werden.</p>
+<h2>Fazit</h2>
+<p>Monolithische Agenten scheitern an Fehlentscheidungen in Endlosschleifen. Die Trennung in Steuerungs- und Ausführungsebene garantiert Produktionsstabilität.</p></article>
 </main>
 
 <footer>

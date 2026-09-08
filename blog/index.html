@@ -3,78 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — Marian Stancik | AI Agents & Autonomous Systems</title>
-<meta name="description" content="Thoughts and technical breakdowns on autonomous AI agents, regulatory awareness (EU AI Act, GDPR), and hardware engineering. By Marian Stancik.">
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<title>Blog — Marian Stancik | AI Agents, Law &amp; UAV Systems</title>
+<meta name="description" content="Technical articles on autonomous AI agents, legal-by-design compliance (EU AI Act &amp; GDPR), and custom UAV hardware engineering.">
+<meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.marianstancik.dev/blog">
-<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
 <link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog">
 <link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog">
+<link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/blog">
+<link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/blog">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=4">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=4">
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=4">
 <link rel="shortcut icon" href="/favicon.ico?v=4">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=4">
 <meta name="theme-color" content="#08080F">
-<meta property="og:title" content="Blog — Marian Stancik | AI Agents & Autonomous Systems">
-<meta property="og:description" content="AI agents, autonomous systems, EU AI Act & regulatory awareness, hardware engineering.">
-<meta property="og:url" content="https://www.marianstancik.dev/blog">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://www.marianstancik.dev/profile.webp">
-<meta property="og:locale" content="en_US">
-<meta property="og:locale:alternate" content="sk_SK">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@marian_s_ai">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {"@type":"Person","@id":"https://www.marianstancik.dev/#person","name":"Marian Stancik","url":"https://www.marianstancik.dev"},
-    {"@type":"Blog","@id":"https://www.marianstancik.dev/blog#blog","url":"https://www.marianstancik.dev/blog","name":"Marian Stancik Blog","description":"AI agents, autonomous systems, EU AI Act & regulatory awareness, hardware engineering","publisher":{"@id":"https://www.marianstancik.dev/#person"}}
-  ]
-}
-</script>
 
 <link rel="stylesheet" href="/css/main.css">
-<script defer src="https://api.marianstancik.dev/script.js" data-website-id="ec1c0df8-e51f-4236-9ad0-e3992f0b1637"></script>
 <style>
 .blog-page { min-height: 100vh; display: flex; flex-direction: column; }
-.blog-hero { padding: 64px 0 32px; }
-.post-list { display: flex; flex-direction: column; gap: 20px; padding: 24px 0 80px; flex: 1; }
-.post-item {
-  background: var(--color-bg-card, rgba(18,18,30,0.65));
-  border: 1px solid var(--color-border, rgba(255,255,255,0.06));
-  border-radius: var(--radius-md, 12px);
-  padding: 28px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  text-decoration: none;
-  display: block;
-  position: relative;
-  overflow: hidden;
-}
-.post-item::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 3px; height: 100%;
-  background: linear-gradient(180deg, var(--color-primary, #CD7F32), var(--color-accent, #E8B86D));
-  opacity: 0; transition: opacity 0.3s;
-}
-.post-item:hover { background: var(--color-bg-card-hover, rgba(26,26,42,0.85)); border-color: var(--color-border-hover, rgba(205,127,50,0.35)); transform: translateY(-3px); }
-.post-item:hover::before { opacity: 1; }
-.post-item:hover h2 { color: var(--color-accent, #E8B86D); }
-.post-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
-.post-date { font-size: 0.72rem; color: var(--color-text-muted, #9A8A78); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
-.post-read { font-size: 0.72rem; color: var(--color-primary, #CD7F32); }
-.post-item h2 { font-size: 1.25rem; font-weight: 600; color: var(--color-text, #F0F0F5); margin-bottom: 8px; line-height: 1.35; transition: color 0.3s; }
-.post-item p { font-size: 0.9rem; color: var(--color-text-muted, #9A8A78); line-height: 1.6; }
-.post-tags { display: flex; gap: 6px; margin-top: 16px; flex-wrap: wrap; }
-.post-tags span {
-  font-size: 0.65rem; padding: 3px 10px; border-radius: 100px;
-  background: rgba(205,127,50,0.08); color: var(--color-accent, #E8B86D);
-  border: 1px solid rgba(205,127,50,0.15);
-}
-.posts-sk { display: none; }
+.blog-hero { padding: 60px 0 32px; text-align: center; }
+.blog-hero .badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 14px; border-radius: 100px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(205,127,50,0.1); color: var(--color-accent, #E8B86D); border: 1px solid rgba(205,127,50,0.25); margin-bottom: 16px; }
+.blog-hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; color: var(--color-text, #F0F0F5); margin: 0 0 12px; }
+.blog-hero h1 span { color: var(--color-primary, #CD7F32); }
+.blog-hero p { color: var(--color-text-muted, #9A8A78); font-size: 1rem; max-width: 580px; margin: 0 auto; }
+.post-list { max-width: 740px; margin: 0 auto; padding: 0 24px 80px; width: 100%; }
+.post-item { display: block; background: var(--color-bg-card, rgba(18,18,30,0.65)); border: 1px solid var(--color-border, rgba(255,255,255,0.06)); border-radius: 12px; padding: 24px; margin-bottom: 20px; text-decoration: none; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.post-item:hover { border-color: var(--color-border-hover, rgba(205,127,50,0.35)); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+.post-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.78rem; color: var(--color-text-muted, #9A8A78); }
+.post-date { text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.post-item h2 { font-size: 1.25rem; font-weight: 600; color: var(--color-text, #F0F0F5); margin: 0 0 8px; line-height: 1.35; }
+.post-item p { font-size: 0.88rem; color: #B0B0C8; margin: 0 0 14px; line-height: 1.55; }
+.post-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.post-tags span { font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; background: rgba(205,127,50,0.08); color: var(--color-accent, #E8B86D); border: 1px solid rgba(205,127,50,0.15); }
 </style>
 </head>
 <body class="blog-page">
@@ -99,128 +61,228 @@
 
 <div class="container">
   <header class="blog-hero">
-    <div class="badge" id="blogBadge">✦ Engineering & Thought Log</div>
-    <h1 id="blogTitle">Articles & <span>Insights</span></h1>
-    <p class="section-intro" id="blogSubtitle">Autonomous AI agents, legal-by-design frameworks (AI Act & GDPR), and UAV engineering.</p>
+    <div class="badge" id="blogBadge">✦ Engineering &amp; Thought Log</div>
+    <h1 id="blogTitle">Articles &amp; <span>Insights</span></h1>
+    <p class="section-intro" id="blogSubtitle">Autonomous AI agents, legal-by-design frameworks (AI Act &amp; GDPR), and UAV engineering.</p>
   </header>
 
   <main class="post-list" id="postContainer">
-
-    <!-- ===== EN POSTS ===== -->
-    <div class="posts-en" id="postsEn">
-      <a href="/blog/posts/2026-09-05-nvidia-pair-local-agent-network" class="post-item">
+    <!-- EN POSTS -->
+    <div id="postsEn" class="posts-group">
+      <a href="/blog/posts/2026-09-05-nvidia-pair-local-agent-network" class="post-item" lang="en">
         <div class="post-top"><span class="post-date">September 5, 2026</span><span class="post-read">9 min read</span></div>
         <h2>Designing Your Local Agent Network for NVIDIA PAIR — Distributed Inference Across Devices</h2>
         <p>NVIDIA PAIR turns idle home PCs into a distributed inference cluster for AI agents. How to design a local agent network with tiered routing, multi-device parallelism, and Hermes Agent.</p>
         <div class="post-tags"><span>NVIDIA PAIR</span><span>Local AI</span><span>AI Agents</span><span>Distributed Inference</span><span>Hermes Agent</span></div>
       </a>
-      <a href="/blog/posts/2026-09-02-agent-architecture-convergence" class="post-item">
+      <a href="/blog/posts/2026-09-02-agent-architecture-convergence" class="post-item" lang="en">
         <div class="post-top"><span class="post-date">September 2, 2026</span><span class="post-read">8 min read</span></div>
         <h2>The Convergence of Agent Architectures: Why Everyone Is Building the Same Two-Plane System</h2>
-        <p>NVIDIA AVO, the AOS reference architecture, and the Auton framework all converged on the same architectural pattern: a two-plane design separating governance from execution for production autonomous agents.</p>
+        <p>NVIDIA AVO, the AOS reference architecture, and the Auton framework all converged on the same pattern: a two-plane design separating governance from execution for production autonomous agents.</p>
         <div class="post-tags"><span>AI Agents</span><span>Autonomous Systems</span><span>Agent Architecture</span><span>AOS</span><span>Control Plane</span></div>
       </a>
-      <a href="/blog/posts/2026-08-27-nvidia-avo-autonomous-agents" class="post-item">
+      <a href="/blog/posts/2026-08-27-nvidia-avo-autonomous-agents" class="post-item" lang="en">
         <div class="post-top"><span class="post-date">August 27, 2026</span><span class="post-read">6 min read</span></div>
         <h2>NVIDIA AVO: When Autonomous Agents Run for 7 Days and Beat Expert Engineers</h2>
         <p>NVIDIA's AVO architecture ran autonomously for 7 days, optimized GPU kernels beyond FlashAttention-4, and scored 100% on ARC-AGI-3. System design > model choice.</p>
         <div class="post-tags"><span>AI Agents</span><span>Autonomous Systems</span><span>NVIDIA</span><span>Hermes Agent</span></div>
       </a>
-      <a href="/blog/posts/2026-08-26-agent-driven-company" class="post-item">
+      <a href="/blog/posts/2026-08-26-agent-driven-company" class="post-item" lang="en">
         <div class="post-top"><span class="post-date">August 26, 2026</span><span class="post-read">6 min read</span></div>
         <h2>From Solo Founder to Agent-Driven Company with 19 Autonomous Cron Jobs</h2>
         <p>How I built 19 autonomous AI cron jobs on a €3.79/mo VPS for content, CRM, legal monitoring, and system health — all agent-driven with 99.7% uptime.</p>
-        <div class="post-tags"><span>AI Agents</span><span>Hermes Agent</span><span>Autonomous Systems</span><span>Cron Jobs</span></div>
+        <div class="post-tags"><span>AI Agents</span><span>Hermes Agent</span><span>Autonomous Systems</span><span>Cron Jobs</span><span>VPS Infrastructure</span></div>
       </a>
-      <a href="/blog/posts/2026-08-25-web-performance-optimization" class="post-item">
+      <a href="/blog/posts/2026-08-25-web-performance-optimization" class="post-item" lang="en">
         <div class="post-top"><span class="post-date">August 25, 2026</span><span class="post-read">5 min read</span></div>
         <h2>Web Performance Optimization: How I Cut Page Size by 61%</h2>
-        <p>A technical walkthrough of reducing HTML page weight from 86KB to 34KB by externalizing CSS, JS, and images for better Lighthouse scores.</p>
-        <div class="post-tags"><span>Web Performance</span><span>Lighthouse</span><span>Core Web Vitals</span></div>
+        <p>A technical walkthrough of reducing HTML page weight from 86KB to 34KB and achieving 100 PageSpeed with external CSS, JS, WebP, and non-blocking WebGL.</p>
+        <div class="post-tags"><span>Web Performance</span><span>Lighthouse</span><span>Core Web Vitals</span><span>CSS Optimization</span><span>HTML Optimization</span></div>
       </a>
-      <a href="/blog/posts/2026-08-22-building-digital-twin" class="post-item">
+      <a href="/blog/posts/2026-08-22-building-digital-twin" class="post-item" lang="en">
         <div class="post-top"><span class="post-date">August 22, 2026</span><span class="post-read">4 min read</span></div>
         <h2>Building a Digital Twin That Posts 9x Daily</h2>
-        <p>How I deploy an autonomous AI agent on Hermes Agent that creates and publishes content across X, LinkedIn, and blog without human intervention.</p>
+        <p>How I built an autonomous AI agent with Hermes that creates and publishes content across X, LinkedIn, and blog without human intervention.</p>
         <div class="post-tags"><span>AI Agents</span><span>Hermes</span><span>Automation</span></div>
       </a>
-      <a href="/blog/posts/2026-08-20-ai-act-compliance" class="post-item">
+      <a href="/blog/posts/2026-08-20-ai-act-compliance" class="post-item" lang="en">
         <div class="post-top"><span class="post-date">August 20, 2026</span><span class="post-read">6 min read</span></div>
         <h2>AI Act Compliance for Small AI Companies</h2>
         <p>Practical legal-by-design framework for startups building AI products in the EU. From risk assessment to automated audit-ready documentation.</p>
         <div class="post-tags"><span>AI Act</span><span>GDPR</span><span>Compliance</span><span>Law</span></div>
       </a>
-      <a href="/blog/posts/2026-08-17-autonomous-drone-missions" class="post-item">
+      <a href="/blog/posts/2026-08-17-autonomous-drone-missions" class="post-item" lang="en">
         <div class="post-top"><span class="post-date">August 17, 2026</span><span class="post-read">5 min read</span></div>
         <h2>Autonomous Drone Missions with ArduPilot & Python</h2>
         <p>Building a production-grade UAV system with Pixhawk, ArduPilot, and Python-based mission planning for automated multi-waypoint flights.</p>
-        <div class="post-tags"><span>Drones</span><span>ArduPilot</span><span>UAV</span></div>
+        <div class="post-tags"><span>Drones</span><span>ArduPilot</span><span>UAV</span><span>PX4</span></div>
       </a>
     </div>
 
-    <!-- ===== SK POSTS ===== -->
-    <div class="posts-sk" id="postsSk">
+    <!-- SK POSTS -->
+    <div id="postsSk" class="posts-group" style="display:none;">
       <a href="/blog/posts/sk/2026-09-05-nvidia-pair-local-agent-network" class="post-item" lang="sk">
         <div class="post-top"><span class="post-date">5. september 2026</span><span class="post-read">9 min čítania</span></div>
         <h2>Navrhovanie lokálnej agentovej siete pre NVIDIA PAIR — Distribuovaná inferencia naprieč zariadeniami</h2>
         <p>NVIDIA PAIR mení nečinné domáce PC na distribuovaný inferenčný cluster pre AI agentov. Ako navrhnúť lokálnu agentovú sieť s viacúrovňovým smerovaním a Hermes Agent.</p>
-        <div class="post-tags"><span>NVIDIA PAIR</span><span>Lokálna AI</span><span>AI Agenti</span><span>Distribuovaná inferencia</span><span>Hermes Agent</span></div>
+        <div class="post-tags"><span>NVIDIA PAIR</span><span>Local AI</span><span>AI Agents</span><span>Distributed Inference</span><span>Hermes Agent</span></div>
       </a>
       <a href="/blog/posts/sk/2026-09-02-agent-architecture-convergence" class="post-item" lang="sk">
         <div class="post-top"><span class="post-date">2. september 2026</span><span class="post-read">8 min čítania</span></div>
         <h2>Konvergencia agentových architektúr: Prečo všetci stavajú rovnaký dvojúrovňový systém</h2>
-        <p>NVIDIA AVO, AOS referenčná architektúra a framework Auton — všetky konvergovali na rovnakom dvojúrovňovom vzore:</p>
-        <div class="post-tags"><span>AI Agenty</span><span>Autonómne systémy</span><span>Agentová architektúra</span><span>AOS</span><span>Riadiaca vrstva</span></div>
+        <p>NVIDIA AVO, AOS referenčná architektúra a Auton framework sa zhodli na rovnakom vzore: dvojúrovňový dizajn oddeľujúci riadenie od vykonávania pre produkčné autonómne agenty.</p>
+        <div class="post-tags"><span>AI Agents</span><span>Autonomous Systems</span><span>Agent Architecture</span><span>AOS</span><span>Control Plane</span></div>
       </a>
       <a href="/blog/posts/sk/2026-08-27-nvidia-avo-autonomous-agents" class="post-item" lang="sk">
         <div class="post-top"><span class="post-date">27. august 2026</span><span class="post-read">6 min čítania</span></div>
         <h2>NVIDIA AVO: Keď autonómne agenty bežia 7 dní a prekonajú expertov</h2>
         <p>Architektúra AVO od NVIDIA bežala autonómne 7 dní, optimalizovala GPU jadrá a dosiahla 100% na ARC-AGI-3. Systémový dizajn > výber modelu.</p>
-        <div class="post-tags"><span>AI Agenty</span><span>Autonómne systémy</span><span>NVIDIA</span></div>
+        <div class="post-tags"><span>AI Agents</span><span>Autonomous Systems</span><span>NVIDIA</span><span>Hermes Agent</span></div>
       </a>
       <a href="/blog/posts/sk/2026-08-26-agent-driven-company" class="post-item" lang="sk">
         <div class="post-top"><span class="post-date">26. august 2026</span><span class="post-read">6 min čítania</span></div>
-        <h2>Od sólo foundera k agent-riadenej spoločnosti s 19 autonómnymi cron jobmi</h2>
+        <h2>Od sólo foundera k agent-riadeniu spoločnosti s 19 autonómnymi cron jobmi</h2>
         <p>Ako som postavil 19 autonómnych AI cron jobov na VPS za €3,79/mesiac na obsah, CRM, právny monitoring a systém — všetko agent-driven s 99,7% uptime.</p>
-        <div class="post-tags"><span>AI Agenty</span><span>Hermes Agent</span><span>Autonómne systémy</span></div>
+        <div class="post-tags"><span>AI Agents</span><span>Hermes Agent</span><span>Autonomous Systems</span><span>Cron Jobs</span><span>VPS Infrastructure</span></div>
       </a>
       <a href="/blog/posts/sk/2026-08-25-web-performance-optimization" class="post-item" lang="sk">
         <div class="post-top"><span class="post-date">25. august 2026</span><span class="post-read">5 min čítania</span></div>
         <h2>Optimalizácia výkonu webu: Ako som znížil veľkosť stránok o 61 %</h2>
         <p>Technický postup zníženia veľkosti HTML z 86 KB na 34 KB a dosiahnutie PageSpeed 100 cez externé CSS, JS, WebP a neblokujúci WebGL.</p>
-        <div class="post-tags"><span>Web Performance</span><span>Lighthouse</span><span>Core Web Vitals</span></div>
+        <div class="post-tags"><span>Web Performance</span><span>Lighthouse</span><span>Core Web Vitals</span><span>CSS Optimization</span><span>HTML Optimization</span></div>
       </a>
       <a href="/blog/posts/sk/2026-08-22-building-digital-twin" class="post-item" lang="sk">
         <div class="post-top"><span class="post-date">22. august 2026</span><span class="post-read">4 min čítania</span></div>
-        <h2>Digitálne dvojča, ktoré publikuje 9× denne</h2>
+        <h2>Stavba digitálneho dvojčaťa, ktoré publikuje 9× denne</h2>
         <p>Ako som postavil autonómneho AI agenta cez Hermes, ktorý tvorí a publikuje obsah na X, LinkedIn a blog 24/7 bez zásahu človeka.</p>
-        <div class="post-tags"><span>AI Agenty</span><span>Hermes</span><span>Automatizácia</span></div>
+        <div class="post-tags"><span>AI Agents</span><span>Hermes</span><span>Automation</span></div>
       </a>
       <a href="/blog/posts/sk/2026-08-20-ai-act-compliance" class="post-item" lang="sk">
         <div class="post-top"><span class="post-date">20. august 2026</span><span class="post-read">6 min čítania</span></div>
         <h2>Súlad s EU AI Act pre malé AI firmy a startupy</h2>
         <p>Praktický legal-by-design framework pre startupy budujúce AI v EÚ. Od klasifikácie rizík až po automatizovanú technickú dokumentáciu.</p>
-        <div class="post-tags"><span>AI Act</span><span>GDPR</span><span>Compliance</span><span>Právo</span></div>
+        <div class="post-tags"><span>AI Act</span><span>GDPR</span><span>Compliance</span><span>Law</span></div>
       </a>
       <a href="/blog/posts/sk/2026-08-17-autonomous-drone-missions" class="post-item" lang="sk">
         <div class="post-top"><span class="post-date">17. august 2026</span><span class="post-read">5 min čítania</span></div>
         <h2>Autonómne misie dronov s ArduPilotom a Pythonom</h2>
         <p>Stavba taktického UAV systému s ArduPilotom, Pixhawkom a Pythonom pre autonómne lety a palubné neurónové počítačové videnie.</p>
-        <div class="post-tags"><span>Drony</span><span>ArduPilot</span><span>UAV</span></div>
+        <div class="post-tags"><span>Drones</span><span>ArduPilot</span><span>UAV</span><span>PX4</span></div>
       </a>
     </div>
 
+    <!-- DE POSTS -->
+    <div id="postsDe" class="posts-group" style="display:none;">
+      <a href="/blog/posts/de/2026-09-05-nvidia-pair-local-agent-network" class="post-item" lang="de">
+        <div class="post-top"><span class="post-date">5. September 2026</span><span class="post-read">9 Min. Lesezeit</span></div>
+        <h2>Lokales Agenten-Netzwerk für NVIDIA PAIR — Verteilte Inferenz über Geräte</h2>
+        <p>NVIDIA PAIR verwandelt ungenutzte PCs in ein verteiltes Inferenz-Cluster für KI-Agenten. Multi-Device-Parallelität und Hermes Agent.</p>
+        <div class="post-tags"><span>NVIDIA PAIR</span><span>Local AI</span><span>AI Agents</span><span>Distributed Inference</span><span>Hermes Agent</span></div>
+      </a>
+      <a href="/blog/posts/de/2026-09-02-agent-architecture-convergence" class="post-item" lang="de">
+        <div class="post-top"><span class="post-date">2. September 2026</span><span class="post-read">8 Min. Lesezeit</span></div>
+        <h2>Die Konvergenz der Agenten-Architekturen: Warum alle das gleiche Zwei-Ebenen-System bauen</h2>
+        <p>NVIDIA AVO, die AOS-Referenzarchitektur und Auton einigten sich auf das gleiche Muster: Trennung von Governance und Ausführung.</p>
+        <div class="post-tags"><span>AI Agents</span><span>Autonomous Systems</span><span>Agent Architecture</span><span>AOS</span><span>Control Plane</span></div>
+      </a>
+      <a href="/blog/posts/de/2026-08-27-nvidia-avo-autonomous-agents" class="post-item" lang="de">
+        <div class="post-top"><span class="post-date">27. August 2026</span><span class="post-read">6 Min. Lesezeit</span></div>
+        <h2>NVIDIA AVO: Wenn autonome Agenten 7 Tage laufen und Top-Ingenieure schlagen</h2>
+        <p>Die AVO-Architektur von NVIDIA lief 7 Tage autonom, optimierte GPU-Kernel über FlashAttention-4 hinaus und erzielte 100 % bei ARC-AGI-3.</p>
+        <div class="post-tags"><span>AI Agents</span><span>Autonomous Systems</span><span>NVIDIA</span><span>Hermes Agent</span></div>
+      </a>
+      <a href="/blog/posts/de/2026-08-26-agent-driven-company" class="post-item" lang="de">
+        <div class="post-top"><span class="post-date">26. August 2026</span><span class="post-read">6 Min. Lesezeit</span></div>
+        <h2>Vom Solo-Gründer zum agentengesteuerten Unternehmen mit 19 autonomen Cron-Jobs</h2>
+        <p>Wie ich 19 autonome KI-Cron-Jobs auf einem 3,79 €/Monat VPS für Content, CRM, Recht und Systemüberwachung gebaut habe — 99,7 % Uptime.</p>
+        <div class="post-tags"><span>AI Agents</span><span>Hermes Agent</span><span>Autonomous Systems</span><span>Cron Jobs</span><span>VPS Infrastructure</span></div>
+      </a>
+      <a href="/blog/posts/de/2026-08-25-web-performance-optimization" class="post-item" lang="de">
+        <div class="post-top"><span class="post-date">25. August 2026</span><span class="post-read">5 Min. Lesezeit</span></div>
+        <h2>Web-Performance-Optimierung: Wie ich die Seitengröße um 61 % reduziert habe</h2>
+        <p>Technischer Leitfaden zur Reduzierung des HTML-Gewichts von 86 KB auf 34 KB und Erreichen von 100 PageSpeed mit WebP und WebGL.</p>
+        <div class="post-tags"><span>Web Performance</span><span>Lighthouse</span><span>Core Web Vitals</span><span>CSS Optimization</span><span>HTML Optimization</span></div>
+      </a>
+      <a href="/blog/posts/de/2026-08-22-building-digital-twin" class="post-item" lang="de">
+        <div class="post-top"><span class="post-date">22. August 2026</span><span class="post-read">4 Min. Lesezeit</span></div>
+        <h2>Aufbau eines digitalen Zwillings, der 9-mal täglich postet</h2>
+        <p>Wie ich einen autonomen KI-Agenten mit Hermes gebaut habe, der Inhalte auf X, LinkedIn und Blog ohne menschliches Eingreifen erstellt.</p>
+        <div class="post-tags"><span>AI Agents</span><span>Hermes</span><span>Automation</span></div>
+      </a>
+      <a href="/blog/posts/de/2026-08-20-ai-act-compliance" class="post-item" lang="de">
+        <div class="post-top"><span class="post-date">20. August 2026</span><span class="post-read">6 Min. Lesezeit</span></div>
+        <h2>EU AI Act Compliance für kleine KI-Unternehmen & Startups</h2>
+        <p>Praktischer Legal-by-Design-Leitfaden für Startups in der EU. Von der Risikobewertung bis zur automatisierten technischen Dokumentation.</p>
+        <div class="post-tags"><span>AI Act</span><span>GDPR</span><span>Compliance</span><span>Law</span></div>
+      </a>
+      <a href="/blog/posts/de/2026-08-17-autonomous-drone-missions" class="post-item" lang="de">
+        <div class="post-top"><span class="post-date">17. August 2026</span><span class="post-read">5 Min. Lesezeit</span></div>
+        <h2>Autonome Drohnenmissionen mit ArduPilot & Python</h2>
+        <p>Bau eines taktischen UAV-Systems mit Pixhawk, ArduPilot und Python-Missionsplanung für automatisierte Flüge und Edge-KI.</p>
+        <div class="post-tags"><span>Drones</span><span>ArduPilot</span><span>UAV</span><span>PX4</span></div>
+      </a>
+    </div>
+
+    <!-- PL POSTS -->
+    <div id="postsPl" class="posts-group" style="display:none;">
+      <a href="/blog/posts/pl/2026-09-05-nvidia-pair-local-agent-network" class="post-item" lang="pl">
+        <div class="post-top"><span class="post-date">5 września 2026</span><span class="post-read">9 min czytania</span></div>
+        <h2>Projektowanie Lokalnej Sieci Agentów dla NVIDIA PAIR — Rozproszona Inferencja Między Urządzeniami</h2>
+        <p>NVIDIA PAIR zamienia bezczynne komputery domowe w rozproszony klaster inferencyjny dla agentów AI. Warstwowy routing i Hermes Agent.</p>
+        <div class="post-tags"><span>NVIDIA PAIR</span><span>Local AI</span><span>AI Agents</span><span>Distributed Inference</span><span>Hermes Agent</span></div>
+      </a>
+      <a href="/blog/posts/pl/2026-09-02-agent-architecture-convergence" class="post-item" lang="pl">
+        <div class="post-top"><span class="post-date">2 września 2026</span><span class="post-read">8 min czytania</span></div>
+        <h2>Konwergencja Architektur Agentów: Dlaczego wszyscy budują ten sam dwupoziomowy system</h2>
+        <p>NVIDIA AVO, architektura referencyjna AOS i Auton framework przyjęły ten sam wzorzec: oddzielenie zarządzania od wykonania.</p>
+        <div class="post-tags"><span>AI Agents</span><span>Autonomous Systems</span><span>Agent Architecture</span><span>AOS</span><span>Control Plane</span></div>
+      </a>
+      <a href="/blog/posts/pl/2026-08-27-nvidia-avo-autonomous-agents" class="post-item" lang="pl">
+        <div class="post-top"><span class="post-date">27 sierpnia 2026</span><span class="post-read">6 min czytania</span></div>
+        <h2>NVIDIA AVO: Kiedy autonomiczni agenci działają przez 7 dni i przewyższają inżynierów</h2>
+        <p>Architektura NVIDIA AVO działała autonomicznie przez 7 dni, optymalizując jądra GPU i osiągając 100% na ARC-AGI-3.</p>
+        <div class="post-tags"><span>AI Agents</span><span>Autonomous Systems</span><span>NVIDIA</span><span>Hermes Agent</span></div>
+      </a>
+      <a href="/blog/posts/pl/2026-08-26-agent-driven-company" class="post-item" lang="pl">
+        <div class="post-top"><span class="post-date">26 sierpnia 2026</span><span class="post-read">6 min czytania</span></div>
+        <h2>Od jednoosobowego foundera do firmy sterowanej agentami z 19 autonomicznymi zadaniami cron</h2>
+        <p>Jak zbudowałem 19 autonomicznych zadań cron na VPS za 3,79 €/mies. do obsługi treści, CRM, prawa i monitoringu z 99,7% uptime.</p>
+        <div class="post-tags"><span>AI Agents</span><span>Hermes Agent</span><span>Autonomous Systems</span><span>Cron Jobs</span><span>VPS Infrastructure</span></div>
+      </a>
+      <a href="/blog/posts/pl/2026-08-25-web-performance-optimization" class="post-item" lang="pl">
+        <div class="post-top"><span class="post-date">25 sierpnia 2026</span><span class="post-read">5 min czytania</span></div>
+        <h2>Optymalizacja wydajności sieci: Jak zmniejszyłem rozmiar stron o 61%</h2>
+        <p>Przewodnik techniczny redukcji wagi HTML z 86 KB do 34 KB i osiągnięcia PageSpeed 100 z WebP i nieblokującym WebGL.</p>
+        <div class="post-tags"><span>Web Performance</span><span>Lighthouse</span><span>Core Web Vitals</span><span>CSS Optimization</span><span>HTML Optimization</span></div>
+      </a>
+      <a href="/blog/posts/pl/2026-08-22-building-digital-twin" class="post-item" lang="pl">
+        <div class="post-top"><span class="post-date">22 sierpnia 2026</span><span class="post-read">4 min czytania</span></div>
+        <h2>Budowa cyfrowego bliźniaka publikującego 9 razy dziennie</h2>
+        <p>Jak zbudowałem autonomicznego agenta AI z Hermesem, który tworzy i publikuje treści na X, LinkedIn i blogu 24/7.</p>
+        <div class="post-tags"><span>AI Agents</span><span>Hermes</span><span>Automation</span></div>
+      </a>
+      <a href="/blog/posts/pl/2026-08-20-ai-act-compliance" class="post-item" lang="pl">
+        <div class="post-top"><span class="post-date">20 sierpnia 2026</span><span class="post-read">6 min czytania</span></div>
+        <h2>Zgodność z EU AI Act dla małych firm AI i startupów</h2>
+        <p>Praktyczny framework legal-by-design dla startupów tworzących produkty AI w UE. Od oceny ryzyka po dokumentację techniczną.</p>
+        <div class="post-tags"><span>AI Act</span><span>GDPR</span><span>Compliance</span><span>Law</span></div>
+      </a>
+      <a href="/blog/posts/pl/2026-08-17-autonomous-drone-missions" class="post-item" lang="pl">
+        <div class="post-top"><span class="post-date">17 sierpnia 2026</span><span class="post-read">5 min czytania</span></div>
+        <h2>Autonomiczne misje dronów z ArduPilotem i Pythonem</h2>
+        <p>Budowa taktycznego systemu UAV z ArduPilotem, Pixhawkiem i Pythonem do lotów wielopunktowych i pokładowego widzenia AI.</p>
+        <div class="post-tags"><span>Drones</span><span>ArduPilot</span><span>UAV</span><span>PX4</span></div>
+      </a>
+    </div>
   </main>
 </div>
 
 <footer>
-  <div class="container">
-    <p>© 2026 <a href="/">ASCENTIA s.r.o.</a> — <a href="/">marianstancik.dev</a></p>
-    <p style="font-size:0.7rem;color:#8A7A6A;line-height:1.6;">ASCENTIA s.r.o. · Klincová 37/B, 821 08 Bratislava-Ružinov · IČO: 51858959 · DIČ: 2120816071 · <a href="mailto:marianstancik@agentmail.to" style="color:#CD7F32;">marianstancik@agentmail.to</a><br>
-    <a href="/privacy" style="color:#CD7F32;">Privacy</a> · <a href="/terms" style="color:#CD7F32;">Terms</a> · <a href="/disclaimer" style="color:#CD7F32;">Disclaimer</a> · ⚖️ EU AI Act Art. 50</p>
+  <div class="container" style="text-align:center; padding:32px 24px; border-top:1px solid rgba(255,255,255,0.06); font-size:0.75rem; color:#8A7A6A;">
+    <p>© 2026 Marian Stancik — <a href="/" style="color:#CD7F32;">marianstancik.dev</a></p>
+    <p style="margin-top:8px;">ASCENTIA s.r.o. · Klincová 37/B, 821 08 Bratislava · <a href="mailto:marianstancik@agentmail.to" style="color:#CD7F32;">marianstancik@agentmail.to</a></p>
   </div>
 </footer>
-
 
 <script src="/js/i18n.js?v=20260908_v2"></script>
 </body>

@@ -117,15 +117,15 @@ footer a:hover{color:#CD7F32}
 </head>
 <body>
 <nav aria-label="Blog navigation">
-  <div class="nav-inner">
-    <a href="/" aria-label="Marian Stancik home"><span style="font-size:1.1rem">←</span> Home</a>
+  <div class="nav-inner" style="max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;">
+    <a href="/" style="color:#9A8A78;text-decoration:none;font-size:0.85rem;"><span style="font-size:1.1rem">←</span> Home</a>
     <div style="display:flex;align-items:center;gap:16px;">
-      <a href="/blog">Blog</a>
+      <a href="/blog" style="color:#9A8A78;text-decoration:none;font-size:0.85rem;">Blog</a>
       <div style="display:flex;gap:4px;background:rgba(255,255,255,0.06);padding:2px 4px;border-radius:100px;font-size:0.72rem;font-weight:600;">
-        <a href="/blog/posts/2026-08-17-autonomous-drone-missions" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">EN</a>
+        <a href="/blog/posts/2026-08-17-autonomous-drone-missions" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">EN</a>
         <a href="/blog/posts/sk/2026-08-17-autonomous-drone-missions" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">SK</a>
         <a href="/blog/posts/de/2026-08-17-autonomous-drone-missions" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">DE</a>
-        <a href="/blog/posts/pl/2026-08-17-autonomous-drone-missions" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">PL</a>
+        <a href="/blog/posts/pl/2026-08-17-autonomous-drone-missions" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">PL</a>
       </div>
     </div>
   </div>
@@ -133,7 +133,7 @@ footer a:hover{color:#CD7F32}
 <div class="container">
 <article class="post-header">
 <div class="badge">Drones & UAV Engineering</div>
-<h1>Autonomous Drone Missions with ArduPilot & Python <span class="ai-badge" style="display:inline-block;padding:2px 10px;border-radius:3px;font-size:0.65rem;font-weight:600;background:rgba(205,127,50,0.12);color:#CD7F32;border:1px solid rgba(205,127,50,0.25);letter-spacing:1px;text-transform:uppercase;margin-left:0.5rem;vertical-align:middle;">AI-generated</span></h1>
+<h1>Autonomiczne misje dronów z ArduPilotem i Pythonem</h1>
 <div class="post-meta">
 <span>August 17, 2026</span>
 <span>·</span>
@@ -143,93 +143,9 @@ footer a:hover{color:#CD7F32}
 </div>
 </article>
 
-<div class="post-content">
-<p><strong>Building a truly autonomous UAV requires bridging custom-soldered flight hardware with real-time embedded companion intelligence. Here is the engineering breakdown of building a 1500g tactical multi-rotor UAV from raw components to ArduPilot mission automation and Raspberry Pi 5 edge AI guidance.</strong></p>
-
-<p>As an A1/A3 certified pilot with €2.6M Coverdrone insurance (working toward STS certification) and Defence Product Manager in the defence industry, I build UAVs from the circuit board up — analyzing structural components, hand-soldering high-current ESCs, and deploying autonomous neural vision.</p>
-
-<h2>1. Component Analysis & Hardware Assembly</h2>
-
-<p>Every reliable UAV starts with meticulous hardware selection and soldering discipline:</p>
-
-<ul>
-<li><strong>Carbon Fiber Airframe:</strong> 1500g tactical quad frame engineered for high torsional rigidity, payload capacity, and vibration isolation.</li>
-<li><strong>Power Distribution & Soldering:</strong> Precision hand-soldering of high-gauge silicone wiring, XT60/XT90 power harnesses, and individual Electronic Speed Controllers (ESCs) rated for high peak burst currents without voltage sagging.</li>
-<li><strong>Flight Controller & Sensors:</strong> Pixhawk 6C autopilot isolated on silicone dampeners, paired with dual Here3+ CAN GPS/compass units and optical flow rangefinders for GPS-denied precision holding.</li>
-<li><strong>Companion Computer:</strong> Raspberry Pi 5 mounted on a dedicated 5V/5A BEC power line, communicating over high-speed UART telemetry via MAVLink.</li>
-</ul>
-
-<h2>2. Software Evolution: From Betaflight to ArduPilot & GCS</h2>
-
-<p>Our flight software pipeline evolved through distinct operational stages:</p>
-
-<ol>
-<li><strong>Phase 1 — Betaflight (Manual Tuning & Dynamic Response):</strong> We started with Betaflight to calibrate motor timing, PID response loops, and manual flight characteristics for agile handling.</li>
-<li><strong>Phase 2 — ArduPilot Migration (Pixhawk 6C):</strong> Transferred the platform to ArduPilot Copter for mission-grade autonomous navigation, multi-sensor EKF3 sensor fusion, and robust failsafes.</li>
-<li><strong>Phase 3 — Ground Control (QGroundControl & Mission Planner):</strong> Utilizing QGroundControl for intuitive field telemetry and Mission Planner for complex waypoint grid mapping, geofencing, and sensor calibration.</li>
-<li><strong>Phase 4 — Onboard Edge AI (Raspberry Pi 5):</strong> Deploying lightweight neural vision models on Raspberry Pi 5 to process live camera feeds and send real-time offset corrections back to Pixhawk over MAVLink for automated target guidance.</li>
-</ol>
-
-<pre><code>┌─────────────────────────────────────────────────────────┐
-│  Onboard Companion Computer (Raspberry Pi 5)            │
-│  └── Python Mission Script & Edge Neural Vision Models  │
-│         │                                               │
-│         │ (MAVLink over High-Speed UART / 921600 baud)  │
-│         ▼                                               │
-│  Flight Autopilot (Pixhawk 6C / ArduPilot Copter)       │
-│  ├── Dual CAN GPS / Compass (Here3+)                    │
-│  ├── 4x High-Current DShot ESCs & Brushless Motors      │
-│  └── Optical Flow & Lidar Rangefinder                   │
-└─────────────────────────────────────────────────────────┘</code></pre>
-
-<h2>3. Python Autonomous Mission Architecture</h2>
-
-<p>Using the MAVLink protocol, the Raspberry Pi 5 companion computer autonomously commands vehicle modes, initiates guided takeoffs, and routes dynamic waypoints:</p>
-
-<pre><code>from dronekit import connect, VehicleMode, LocationGlobalRelative
-import time
-
-# Connect to Pixhawk via onboard serial UART
-vehicle = connect('/dev/ttyAMA0', baud=921600, wait_ready=True)
-
-def arm_and_takeoff(target_altitude):
-    print("Executing pre-arm safety diagnostics...")
-    while not vehicle.is_armable:
-        time.sleep(1)
-        
-    print("Switching to GUIDED mode and arming motors...")
-    vehicle.mode = VehicleMode("GUIDED")
-    vehicle.armed = True
-    
-    while not vehicle.armed:
-        time.sleep(1)
-        
-    print(f"Autonomous takeoff to {target_altitude}m...")
-    vehicle.simple_takeoff(target_altitude)
-    
-    while True:
-        alt = vehicle.location.global_relative_frame.alt
-        if alt >= target_altitude * 0.95:
-            print("Target altitude attained — initializing mission waypoints.")
-            break
-        time.sleep(1)</code></pre>
-
-<h2>4. Regulatory Compliance & EASA Safety Standards</h2>
-
-<p>Autonomous UAV operations in the EU must satisfy strict EASA (European Union Aviation Safety Agency) risk classifications (SORA / PDRA). Every autonomous mission protocol enforces:</p>
-
-<ul>
-<li><strong>Hardware Geofencing:</strong> Hard maximum altitude (120m AGL) and horizontal coordinate boundaries enforced at the autopilot firmware level.</li>
-<li><strong>Automated Return-to-Launch (RTL):</strong> Instant failsafe triggered on battery depletion (< 25%), telemetry timeout (> 3s), or companion script heartbeat loss.</li>
-<li><strong>Acoustic & Vision Redundancy:</strong> Continuous telemetry logging for flight auditing and post-mission analysis.</li>
-</ul>
-
-<h2>Conclusion</h2>
-
-<p>Bridging custom physical hardware engineering with autonomous edge AI is the cornerstone of modern tactical UAV systems. By combining meticulous hand assembly, ArduPilot stability, and onboard Raspberry Pi 5 neural inference, we deliver systems capable of operating in the most demanding real-world defense and industrial environments.</p>
+<div class="post-content"><p>Budowa węglowego quada 1500g z ArduPilotem, Pixhawkiem i planowaniem misji w Pythonie z wykorzystaniem pokładowej wizji komputerowej na Raspberry Pi 5.</p>
+<p>Dron łączy precyzyjną nawigację wielopunktową z przetwarzaniem obrazu w czasie rzeczywistym na urządzeniu brzegowym.</p></div>
 </div>
-</div>
-
 <footer>
 <p class="ai-disclaimer" style="font-size:0.8rem; color:#9A8A78; margin-bottom:0.5rem; border-top:1px solid rgba(205,127,50,0.15); padding-top:1rem;">🤖 <strong>AI-generated</strong> — This article was generated with the assistance of an autonomous AI agent (Hermes Agent by Nous Research) and reviewed by Marian Stancik before publication. <a href="/disclaimer" style="color:#CD7F32;">Full disclaimer</a>.</p>
 <p>© 2026 <a href="/">Marian Stancik</a> — <a href="../../index.html">marianstancik.dev</a></p>

@@ -125,14 +125,14 @@ footer a:hover{color:#CD7F32}
 <body>
 
 <nav aria-label="Blog navigation">
-  <div class="nav-inner">
-    <a href="/" aria-label="Marian Stancik home"><span style="font-size:1.1rem">←</span> Home</a>
+  <div class="nav-inner" style="max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;">
+    <a href="/" style="color:#9A8A78;text-decoration:none;font-size:0.85rem;"><span style="font-size:1.1rem">←</span> Home</a>
     <div style="display:flex;align-items:center;gap:16px;">
-      <a href="/blog">Blog</a>
+      <a href="/blog" style="color:#9A8A78;text-decoration:none;font-size:0.85rem;">Blog</a>
       <div style="display:flex;gap:4px;background:rgba(255,255,255,0.06);padding:2px 4px;border-radius:100px;font-size:0.72rem;font-weight:600;">
-        <a href="/blog/posts/2026-08-25-web-performance-optimization" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">EN</a>
+        <a href="/blog/posts/2026-08-25-web-performance-optimization" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">EN</a>
         <a href="/blog/posts/sk/2026-08-25-web-performance-optimization" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">SK</a>
-        <a href="/blog/posts/de/2026-08-25-web-performance-optimization" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">DE</a>
+        <a href="/blog/posts/de/2026-08-25-web-performance-optimization" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">DE</a>
         <a href="/blog/posts/pl/2026-08-25-web-performance-optimization" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">PL</a>
       </div>
     </div>
@@ -149,7 +149,7 @@ footer a:hover{color:#CD7F32}
   <span>5 Min. Lesezeit</span>
 </div>
 
-<h1>Web Performance Optimization: How I Cut Page Size by 61% <span class="ai-badge" style="display:inline-block;padding:2px 10px;border-radius:3px;font-size:0.65rem;font-weight:600;background:rgba(205,127,50,0.12);color:#CD7F32;border:1px solid rgba(205,127,50,0.25);letter-spacing:1px;text-transform:uppercase;margin-left:0.5rem;vertical-align:middle;">AI-generated</span></h1>
+<h1>Web-Performance-Optimierung: Wie ich die Seitengröße um 61 % reduzierte</h1>
 
 <p>Yesterday my Lighthouse score was mediocre. Pages were 86KB of inline everything. After one afternoon of systematic optimization — externalizing CSS and JS, WebP conversion, preconnect hints — every page dropped to 13-34KB. Here's exactly how I did it for marianstancik.dev.</p>
 

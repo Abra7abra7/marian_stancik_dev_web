@@ -120,20 +120,17 @@
 </head>
 <body class="post-page">
 
-<nav aria-label="Main navigation">
-  <div class="nav-container">
-    <a href="/" class="nav-logo" aria-label="marianstancik.dev home">
-      <div class="brand-mark" aria-hidden="true"><img src="/profile.webp" alt="Marian Stancik" width="28" height="28" class="brand-avatar"></div>
-      <span class="nav-logo-text">marian<span class="highlight">stancik</span><span class="tld">.dev</span></span>
-    </a>
-    <div class="nav-right">
-      <div class="lang-switcher" aria-label="Language selector">
-        <a href="/blog/posts/2026-09-05-nvidia-pair-local-agent-network" class="lang-btn ">EN</a>
-        <a href="/blog/posts/sk/2026-09-05-nvidia-pair-local-agent-network" class="lang-btn ">SK</a>
-        <a href="/blog/posts/de/2026-09-05-nvidia-pair-local-agent-network" class="lang-btn active">DE</a>
-        <a href="/blog/posts/pl/2026-09-05-nvidia-pair-local-agent-network" class="lang-btn ">PL</a>
+<nav aria-label="Blog navigation">
+  <div class="nav-inner" style="max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;">
+    <a href="/" style="color:#9A8A78;text-decoration:none;font-size:0.85rem;"><span style="font-size:1.1rem">←</span> Home</a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="/blog" style="color:#9A8A78;text-decoration:none;font-size:0.85rem;">Blog</a>
+      <div style="display:flex;gap:4px;background:rgba(255,255,255,0.06);padding:2px 4px;border-radius:100px;font-size:0.72rem;font-weight:600;">
+        <a href="/blog/posts/2026-09-05-nvidia-pair-local-agent-network" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">EN</a>
+        <a href="/blog/posts/sk/2026-09-05-nvidia-pair-local-agent-network" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">SK</a>
+        <a href="/blog/posts/de/2026-09-05-nvidia-pair-local-agent-network" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">DE</a>
+        <a href="/blog/posts/pl/2026-09-05-nvidia-pair-local-agent-network" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">PL</a>
       </div>
-      <a href="/blog" class="nav-link">← Alle Beiträge</a>
     </div>
   </div>
 </nav>
@@ -150,43 +147,25 @@
     <div class="post-tags"><span>NVIDIA PAIR</span><span>Lokale KI</span><span>KI-Agenten</span><span>Verteilte Inferenz</span><span>Hermes Agent</span></div>
   </header>
 
-  <article class="post-content">
-<p>Auf der IFA 2026 in Berlin hat <strong>NVIDIA PAIR — Personal AI Router</strong> vorgestellt, ein kostenloses Open-Source-Tool, das ungenutzte PCs im lokalen Netzwerk erkennt und Inferenzanfragen auf diese verteilt. Ein einzelner Agent kann fünf Sub-Agenten starten, die parallel auf drei Rechnern laufen, anstatt in einer Warteschlange auf einer einzigen GPU zu warten. NVIDIAs Benchmarks zeigen eine 2,04-fache Beschleunigung — 18 Minuten auf einem Gerät wurden auf 8 Minuten und 48 Sekunden bei der Verteilung auf drei Geräte reduziert.</p>
+  <article class="post-content"><p>Auf der IFA 2026 in Berlin hat <strong>NVIDIA PAIR — Personal AI Router</strong> vorgestellt, ein kostenloses Open-Source-Tool, das ungenutzte PCs im lokalen Netzwerk erkennt und Inferenzanfragen auf diese verteilt. Ein einzelner Agent kann fünf Sub-Agenten starten, die parallel auf drei Rechnern laufen, anstatt in einer Warteschlange auf einer einzigen GPU zu warten. NVIDIAs Benchmarks zeigen eine 2,04-fache Beschleunigung — 18 Minuten auf einem Gerät wurden auf 8 Minuten und 48 Sekunden bei der Verteilung auf drei Geräte reduziert.</p>
 
 <p>Dies verändert unsere Sichtweise auf lokale KI-Agenten. Der Engpass war nie die reine Rechenleistung — es war die Auslastung. Mehr als die Hälfte der Haushalte verfügt über zwei oder mehr PCs, und die meisten stehen während des Arbeitstages ungenutzt da. PAIR verwandelt diese latente Kapazität in ein verteiltes Inferenz-Cluster, das man einmal konfiguriert und dann vergisst.</p>
 
 <p>Ich betreibe meine Agenten-Infrastruktur auf einem Hetzner VPS, aber die Architekturmuster für ein verteiltes Agentennetzwerk sind identisch, egal ob man lokal oder in der Cloud deployt. Hier erfahren Sie, was PAIR leistet, wie es in die moderne Zwei-Ebenen-Architektur passt und wie Sie Ihr eigenes Multi-Device-Netzwerk aufbauen.</p>
 
 <h2>Was NVIDIA PAIR wirklich ist</h2>
-
 <p>PAIR ist kein verteiltes Trainings-Framework und poolt keinen GPU-Speicher für ein einzelnes Riesenmodell. Es ist ein <strong>Load Balancer auf Anfrage-Ebene für lokale Inferenz</strong>.</p>
-
 <p>Jeder verbundene PC betreibt seinen eigenen lokalen KI-Stack (Ollama oder LM Studio mit lokalen Modellen). PAIR erkennt verfügbare Rechner im LAN, überwacht deren Auslastung und leitet einzelne Anfragen an das am besten geeignete Gerät weiter. Wenn ein Gerät beitritt oder das Netzwerk verlässt, passt sich PAIR vollautomatisch an.</p>
-
 <p>Die zentrale Designentscheidung von NVIDIA: PAIR arbeitet auf der Ebene von <strong>Agenten-Aufgaben</strong>, nicht auf der Ebene einzelner Token-Aufrufe. Ein Agent, der mehrere Sub-Agenten spawnt, kann die Inferenzanfragen jedes Sub-Agenten auf verschiedene Geräte verteilen. Das ist <strong>Parallelität auf Agentenebene</strong>.</p>
-
 <blockquote>„PAIR ist ein persönlicher KI-Router, der KI-Inferenz intelligent über alle Geräte im lokalen Netzwerk verteilt. Er fasst nicht mehrere PCs zu einem zusammen, sondern verteilt Aufgaben an verfügbare Ressourcen.“ — NVIDIA, IFA 2026</blockquote>
 
 <h2>Architekturmuster für Multi-Device-Inferenz</h2>
-
-<h3>Muster 1: Parallelität auf Aufgabenebene (Nativer PAIR-Modus)</h3>
+<h3>Muster 1: Parallelität auf Aufgabenebene</h3>
 <p>Ein koordinierender Agent empfängt eine komplexe Anfrage, zerlegt sie in unabhängige Teilaufgaben und delegiert sie an Sub-Agenten. Die Inferenz jedes Sub-Agenten läuft parallel auf einem anderen Rechner.</p>
-
-<h3>Muster 2: Gestaffeltes Modell-Routing (Tiered Routing)</h3>
-<p>Unterschiedliche Geräte betreiben unterschiedliche Modelle nach Leistungsfähigkeit:
-<ul>
-  <li><strong>Desktop (RTX 4090):</strong> Tiefes Reasoning, Code-Generierung, Synthese (Qwen 2.5 32B, DeepSeek R1 Distill)</li>
-  <li><strong>Laptop (RTX 4070):</strong> Schnelle Extraktion, Zusammenfassungen, Tool-Validierung (Llama 3.3 8B)</li>
-  <li><strong>Mini-PC / Mac Mini:</strong> Klassifizierung, Routing, Guardrails (Qwen 2.5 1.5B)</li>
-</ul>
-</p>
-
+<h3>Muster 2: Gestaffeltes Modell-Routing</h3>
+<p>Unterschiedliche Geräte betreiben unterschiedliche Modelle nach Leistungsfähigkeit: Desktop (RTX 4090) für tiefes Reasoning, Laptop (RTX 4070) für schnelle Extraktionen, Mini-PC für Klassifizierung und Routing.</p>
 <h3>Muster 3: Lokaler + Cloud Hybrid-Modus</h3>
-<p>Lokale Geräte übernehmen datensensible Aufgaben, interne Dokumente und Routinen. Wenn die lokale Kapazität erschöpft ist oder maximale Reasoning-Tiefe benötigt wird, springen Cloud-APIs (DeepSeek V3, Claude 3.5 Sonnet) nahtlos ein.</p>
-
-<h2>Fazit & Ausblick</h2>
-<p>NVIDIA PAIR zeigt deutlich, wohin sich autonome Systeme entwickeln: weg von monolithischen Chatbots hin zu verteilten, agentengesteuerten Netzwerken. Systemdesign und Orchestrierung schlagen reine Modellgröße.</p>
-</article>
+<p>Lokale Geräte übernehmen datensensible Aufgaben und interne Dokumente. Bei komplexen Reasoning-Schritten greift der Agent transparent auf Cloud-Modelle (DeepSeek V3, Claude 3.5 Sonnet) zurück.</p></article>
 </main>
 
 <footer>

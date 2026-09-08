@@ -1247,4 +1247,4 @@ for root, dirs, files in os.walk(BASE_DIR):
                     f.write(new_content)
                 print(f"[+] Updated i18n script cache bust in: {os.path.relpath(fpath, BASE_DIR)}")
 
-print("\n[✓] All i18n components synchronized successfully!")
+    print("\n[+] All i18n components synchronized successfully!")
