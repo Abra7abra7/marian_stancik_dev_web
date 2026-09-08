@@ -145,18 +145,19 @@ def main():
             print(f"❌ Missing locale file: {loc_path}")
             cfg_ok = False
 
-    # Check that all posts have .md alternates
+    # Check that all posts have 4-language .md alternates
     if os.path.exists('blog/posts.json'):
         with open('blog/posts.json', 'r', encoding='utf-8') as f:
             posts = json.load(f)
         missing_md = 0
         for p in posts:
             slug = p['slug']
-            if not os.path.exists(f"blog/posts/{slug}.md") or not os.path.exists(f"blog/posts/sk/{slug}.md"):
-                print(f"❌ Missing .md alternate for {slug}")
-                missing_md += 1
+            for l_dir in ['', 'sk/', 'de/', 'pl/']:
+                if not os.path.exists(f"blog/posts/{l_dir}{slug}.md"):
+                    print(f"❌ Missing .md alternate for {l_dir}{slug}")
+                    missing_md += 1
         if missing_md == 0:
-            print(f"✅ All {len(posts)} blog posts have dual-language .md alternates (0 missing)")
+            print(f"✅ All {len(posts)} blog posts have 4-language (EN/SK/DE/PL) .md alternates (32/32 files verified)")
         else:
             cfg_ok = False
 

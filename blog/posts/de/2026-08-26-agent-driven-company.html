@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Solo Founder to Agent-Driven Company — Marian Stancik</title>
+<meta name="description" content="How I deployed 19 autonomous AI cron jobs on a €3.79/mo VPS for content, CRM, legal monitoring, and system health — all agent-driven.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/2026-08-26-agent-driven-company">
+<link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-08-26-agent-driven-company">
+<link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-08-26-agent-driven-company">
+<link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/blog/posts/de/2026-08-26-agent-driven-company">
+<link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/blog/posts/pl/2026-08-26-agent-driven-company">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-08-26-agent-driven-company">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=4">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=4">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=4">
+<link rel="shortcut icon" href="/favicon.ico?v=4">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=4">
+<meta name="theme-color" content="#08080F">
+
+<!-- Open Graph -->
+<meta property="og:title" content="From Solo Founder to Agent-Driven Company — Marian Stancik">
+<meta property="og:description" content="Running a company with 19 autonomous AI cron jobs on a €3.79/mo VPS — content, CRM, legal monitoring, and system health.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/2026-08-26-agent-driven-company">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.marianstancik.dev/profile.webp">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
+<meta property="og:image:alt" content="Agent-Driven Company — Marian Stancik">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/profile.webp">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "From Solo Founder to Agent-Driven Company with 19 Autonomous Cron Jobs",
+      "description": "How I deployed 19 autonomous AI cron jobs on a €3.79/mo VPS for content, CRM, legal monitoring, and system health — all agent-driven with 99.7% uptime.",
+      "datePublished": "2026-08-26",
+      "dateModified": "2026-08-26",
+      "author": {
+        "@type": "Person",
+        "name": "Marian Stancik",
+        "url": "https://www.marianstancik.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Marian Stancik"
+      },
+      "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/2026-08-26-agent-driven-company",
+      "keywords": ["AI Agents", "Hermes Agent", "Autonomous Systems", "Cron Jobs", "Solo Founder", "VPS Infrastructure"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.marianstancik.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.marianstancik.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "From Solo Founder to Agent-Driven Company",
+          "item": "https://www.marianstancik.dev/blog/posts/2026-08-26-agent-driven-company"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:#08080F;color:#E8E8F0;line-height:1.8;-webkit-font-smoothing:antialiased}
+.container{max-width:740px;margin:0 auto;padding:0 24px}
+nav{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(8,8,15,0.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-inner a{color:#9A8A78;text-decoration:none;font-size:0.85rem;transition:color 0.3s}
+.nav-inner a:hover{color:#CD7F32}
+.post-header{padding:60px 0 24px}
+.badge{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#CD7F32;background:rgba(205,127,50,0.1);border:1px solid rgba(205,127,50,0.25);padding:4px 12px;border-radius:100px;margin-bottom:16px}
+.post-header h1{font-size:clamp(1.7rem,3.8vw,2.4rem);font-weight:700;color:#F0F0F5;line-height:1.3;margin-bottom:14px;letter-spacing:-0.02em}
+.post-meta{font-size:0.8rem;color:#666680;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.post-content{padding-bottom:60px;font-size:1.02rem;color:#C8C8D4}
+.post-content h2{font-size:1.35rem;font-weight:600;color:#F0F0F5;margin:40px 0 14px}
+.post-content h3{font-size:1.1rem;font-weight:600;color:#E8B86D;margin:26px 0 10px}
+.post-content p{margin-bottom:18px}
+.post-content ul, .post-content ol{margin:0 0 20px 24px}
+.post-content li{margin-bottom:8px}
+.post-content strong{color:#F0F0F5}
+.post-content code{background:rgba(255,255,255,0.05);padding:2px 6px;border-radius:4px;font-size:0.88rem}
+.post-content pre{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;overflow-x:auto;margin:20px 0}
+.post-content pre code{font-family:monospace;font-size:0.82rem;color:#E8B86D}
+.callout{background:rgba(205,127,50,0.06);border-left:3px solid #CD7F32;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;color:#E8E8F0}
+footer{text-align:center;padding:36px 24px;color:#A09080;font-size:0.75rem;border-top:1px solid rgba(255,255,255,0.04)}
+footer a{color:#9A8A78;text-decoration:none}
+footer a:hover{color:#CD7F32}
+</style>
+<script defer src="https://api.marianstancik.dev/script.js" data-website-id="ec1c0df8-e51f-4236-9ad0-e3992f0b1637"></script>
+</head>
+<body>
+<nav aria-label="Blog navigation">
+  <div class="nav-inner">
+    <a href="/" aria-label="Marian Stancik home"><span style="font-size:1.1rem">←</span> Home</a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="/blog">Blog</a>
+      <div style="display:flex;gap:4px;background:rgba(255,255,255,0.06);padding:2px 4px;border-radius:100px;font-size:0.72rem;font-weight:600;">
+        <a href="/blog/posts/2026-08-26-agent-driven-company" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">EN</a>
+        <a href="/blog/posts/sk/2026-08-26-agent-driven-company" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">SK</a>
+        <a href="/blog/posts/de/2026-08-26-agent-driven-company" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">DE</a>
+        <a href="/blog/posts/pl/2026-08-26-agent-driven-company" style="padding:2px 8px;border-radius:100px;color:#9A8A78;text-decoration:none;">PL</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container">
+<article class="post-header">
+<div class="badge">AI Agents & Autonomy</div>
+<h1>Vom Solo-Gründer zum agentengesteuerten Unternehmen mit 19 autonomen Cron-Jobs <span class="ai-badge" style="display:inline-block;padding:2px 10px;border-radius:3px;font-size:0.65rem;font-weight:600;background:rgba(205,127,50,0.12);color:#CD7F32;border:1px solid rgba(205,127,50,0.25);letter-spacing:1px;text-transform:uppercase;margin-left:0.5rem;vertical-align:middle;">AI-generated</span></h1>
+<div class="post-meta">
+<span>26. August 2026</span>
+<span>·</span>
+<span>6 Min. Lesezeit</span>
+<span>·</span>
+<span>By Marian Stancik</span>
+</div>
+</article>
+<div class="post-content">
+
+<p><strong>I run a setup where 80% of operational decisions are made by AI agents. Not scheduled posts. Not chatbot wrappers. Real autonomous cron jobs that generate content, manage leads, monitor legal compliance, watch system health, and even generate invoices. All on a €3.79/month Hetzner VPS.</strong></p>
+
+<p>This is the architecture behind my AI development work — and it's the most important engineering decision I've made as a solo founder.</p>
+
+<h2>The Problem with "Solo Founder"</h2>
+
+<p>When I started building autonomous AI systems, I had a clear vision: build autonomous AI agents for businesses. But there was a problem — I was a team of one. Every hour spent on admin was an hour not spent building the product.</p>
+
+<p>The typical solo founder trajectory:</p>
+<ul>
+  <li><strong>Month 1-3:</strong> Pure building. Maximum output.</li>
+  <li><strong>Month 4-6:</strong> Admin overhead creeps in. Content, CRM, emails, meetings.</li>
+  <li><strong>Month 7+:</strong> 50% of time is operations, not product.</li>
+</ul>
+
+<p>I decided to break this pattern. Instead of hiring, I embedded agents into every operational layer of the company.</p>
+
+<h2>The Stack: €3.79/mo Autonomous Infrastructure</h2>
+
+<p>The entire autonomous operation runs on a single Hetzner CX22 VPS in Nuremberg:</p>
+
+<pre><code>Hetzner CX22 — €3.79/mo
+├── CPU: 2 vCores (Intel Xeon)
+├── RAM: 4 GB
+├── Storage: 40 GB NVMe
+├── Traffic: 20 TB/mo
+└── OS: Ubuntu 24.04 LTS
+
+Software Stack:
+├── Hermes Agent (Nous Research) — core orchestrator
+├── SQLite — session & lead storage
+├── Caddy — reverse proxy + automatic TLS
+├── OpenRouter — multi-LLM routing
+├── Syncthing — vault sync to devices
+└── systemd + cron — schedule management
+</code></pre>
+
+<div class="callout">
+<strong>Key insight:</strong> You do not need a GPU, dedicated AI server, or cloud-scale infrastructure to run autonomous agents. A €3.79 VPS handles 19 cron jobs, 3 domains, and 24/7 agent runtime with RAM to spare (typically 1.8 GB used / 4 GB available).
+</div>
+
+<h2>What the Agents Actually Do</h2>
+
+<p>I categorize my agent operations into five functional domains:</p>
+
+<h3>1. Content & Digital Twin (6 cron jobs)</h3>
+<p>My digital twin generates and publishes content across X, LinkedIn, and the blog. It makes editorial decisions — what to write, what angle to take, whether a topic warrants a thread vs. a single post, and how to repurpose content across platforms. It has its own memory system so it never posts the same take twice. <a href="/blog/posts/2026-08-22-building-digital-twin" style="color:#E8B86D">I detailed this system here.</a></p>
+
+<h3>2. CRM & Lead Management (4 cron jobs)</h3>
+<p>When a lead comes in through the website's AgentMail capture or direct email, a cron job processes the message, extracts contact details and requirements, creates a vault entry, and moves it through a pipeline: new → contacted → meeting → proposal → negotiation → won. The agent decides when to escalate to me based on lead score.</p>
+
+<h3>3. Legal & Compliance Monitoring (3 cron jobs)</h3>
+<p>As an AI × Law student, I built specialized agents that monitor Slovak legal registers (ORSR, slov-lex, FinStat), EU regulatory feeds (EUR-Lex), and constitutional court rulings. When new legislation or rulings relevant to AI or drone operations are published, the agent generates a brief and stores it in the vault. This is how I stay current without spending hours reading legal gazettes.</p>
+
+<h3>4. System Health & Watchdog (3 cron jobs)</h3>
+<p>The watchdog agent checks every other agent's heartbeat every 15 minutes. If a cron job fails to run, the watchdog:</p>
+<ol>
+  <li>Detects the anomaly via process exit code or output delta</li>
+  <li>Analyzes the root cause (disk full? API rate limit? code error?)</li>
+  <li>Attempts automatic recovery with up to 3 retries</li>
+  <li>If recovery fails, generates a structured report to my inbox</li>
+</ol>
+<p>This watchdog loop is why the system maintains 99.7% uptime — not because agents never fail, but because failures are caught and resolved within 15 minutes.</p>
+
+<h3>5. Business Operations (3 cron jobs)</h3>
+<p>Invoicing, grant monitoring, and proposal generation. The invoicing agent generates legally compliant PDF invoices under Slovak law (Zákon 222/2004 Z.z.), tracks payments, and sends reminders. The grant monitor checks EU and Slovak funding portals for AI and drone-related grants.</p>
+
+<h2>Agent Architecture: The Watchdog Pattern</h2>
+
+<p>The most important architectural pattern I've developed is the <strong>watchdog loop</strong>. Here's how it works in pseudocode:</p>
+
+<pre><code># Every 15 minutes — watchdog_all.py
+for job in all_cron_jobs:
+    previous_state = load_checkpoint(job.id)
+    current_state = get_current_state(job)
+    
+    if previous_state != current_state:
+        if state_changed_expected(current_state):
+            save_checkpoint(job.id, current_state)
+            continue  # Normal operation
+        else:
+            alert_level = analyze_anomaly(job, current_state)
+            if alert_level >= WARNING:
+                attempt_recovery(job)
+                notify_owner(job.id, alert_level, diagnosis)
+</code></pre>
+
+<p>This pattern is generic. You can apply it to any autonomous system — content pipeline, drone operations, trading bots, or IoT monitoring. The trick is that the watchdog itself is monitored by a higher-level agent (the Hermes runtime), creating a self-healing hierarchy.</p>
+
+<h3>Recovery Mechanisms</h3>
+<ul>
+  <li><strong>API failures:</strong> Exponential backoff (1s, 3s, 9s) with max 3 attempts</li>
+  <li><strong>Disk pressure:</strong> Automatic cleanup of stale logs and checkpoints</li>
+  <li><strong>Process crash:</strong> systemd auto-restart with 5s delay</li>
+  <li><strong>Memory leak:</strong> Memory cap at 80% of total RAM, graceful OOM handling</li>
+  <li><strong>State corruption:</strong> Checkpoint rollback to last known-good state</li>
+</ul>
+
+<h2>Real Numbers: 90 Days of Autonomous Operations</h2>
+
+<p>Since I flipped the switch to full autonomy in June 2026:</p>
+
+<p>📊 <strong>19 active cron jobs</strong> across 3 profiles and 2 VPS instances<br>
+⏱ <strong>99.7% uptime</strong> across all agents (tracked by Hermes heartbeat beacon)<br>
+📝 <strong>90+ blog posts, X threads, and LinkedIn articles</strong> — published autonomously<br>
+📈 <strong>€0 spent</strong> on additional infrastructure beyond the base VPS<br>
+👁 <strong>&lt;15 minutes/day</strong> of human oversight — the morning dashboard review<br>
+🔧 <strong>3 major incidents</strong> — all recovered autonomously within the 15-minute check cycle</p>
+
+<h2>Lessons Learned</h2>
+
+<h3>Start with One Agent</h3>
+<p>The biggest mistake I see is people trying to build 10 agents at once. I started with one — a daily content post — and ran it for two weeks before adding a second. Each agent must prove reliability before it gets a sibling.</p>
+
+<h3>Test Recovery Before Functionality</h3>
+<p>When building an autonomous agent, test what happens when it fails before you test what it does when it works. A working agent that crashes silently is worse than no agent at all. The watchdog pattern only works because I deliberately broke each agent during development to verify recovery paths.</p>
+
+<h3>Keep a Human in the Loop — At First</h3>
+<p>Every new agent starts in "supervised mode" — it generates output but doesn't publish/execute until I review it. Once I trust the decision logic (typically 2-3 weeks of consistent quality), I promote it to full autonomy.</p>
+
+<h3>Don't Build What You Can Automate</h3>
+<p>This is the meta-lesson. Before I automate a process, I ask: "Is this something I enjoy doing?" If yes, I keep it human. If it's repetitive, administrative, or purely analytical, I automate it. The result is I spend my time on architecture, client relationships, and drone engineering — the things that actually require human judgment.</p>
+
+<h2>The Bottom Line</h2>
+
+<p>A solo founder with good autonomous infrastructure can out-operate a team of five. I'm not saying this to advocate for replacing humans — I'm saying it because <strong>agent-driven operations let founders focus on the work that matters</strong>.</p>
+
+<p>My company runs on €3.79/month of compute. My agents never sleep, never take sick days, and never drop context between sessions. And if something does break — the watchdog catches it within 15 minutes and fixes itself.</p>
+
+<p>That's the agent-driven company model. And it works.</p>
+
+<p style="margin-top:30px;">—</p>
+<p style="color:#666680;font-size:0.85rem;">
+  <em>Interested in building your own autonomous operations? Check out <a href="https://hermes-agent.nousresearch.com" style="color:#E8B86D">Hermes Agent</a> — the open-source framework that powers this entire stack. Or <a href="mailto:marianstancik@agentmail.to" style="color:#E8B86D">reach out directly</a> if you want production-grade autonomous agents built for your business.</em>
+</p>
+
+</div>
+</div>
+<footer>
+<p class="ai-disclaimer" style="font-size:0.8rem; color:#9A8A78; margin-bottom:0.5rem; border-top:1px solid rgba(205,127,50,0.15); padding-top:1rem;">🤖 <strong>AI-generated</strong> — This article was generated with the assistance of an autonomous AI agent (Hermes Agent by Nous Research) and reviewed by Marian Stancik before publication. <a href="/disclaimer" style="color:#CD7F32;">Full disclaimer</a>.</p>
+<p>© 2026 <a href="/">Marian Stancik</a> — <a href="../../index.html">marianstancik.dev</a></p>
+<p style="font-size:0.7rem; color:#8A7A6A; margin-top:0.25rem;"><a href="/privacy" style="color:#8A7A6A;">Privacy Policy</a> · <a href="/privacy-sk" style="color:#8A7A6A;">Privacy Policy (SK)</a> · <a href="/terms" style="color:#8A7A6A;">Terms of Service</a> · <a href="/disclaimer" style="color:#8A7A6A;">Disclaimer</a></p>
+</footer>
+</body>
+</html>

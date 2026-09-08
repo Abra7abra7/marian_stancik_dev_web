@@ -109,6 +109,10 @@ def sync_blog_markdown_files():
         en_md = os.path.join(POSTS_DIR, f"{slug}.md")
         sk_html = os.path.join(POSTS_SK_DIR, f"{slug}.html")
         sk_md = os.path.join(POSTS_SK_DIR, f"{slug}.md")
+        de_html = os.path.join(POSTS_DIR, 'de', f"{slug}.html")
+        de_md = os.path.join(POSTS_DIR, 'de', f"{slug}.md")
+        pl_html = os.path.join(POSTS_DIR, 'pl', f"{slug}.html")
+        pl_md = os.path.join(POSTS_DIR, 'pl', f"{slug}.md")
         
         if os.path.exists(en_html):
             with open(en_html, 'r', encoding='utf-8') as f:
@@ -125,6 +129,22 @@ def sync_blog_markdown_files():
             with open(sk_md, 'w', encoding='utf-8') as f:
                 f.write(md)
             print(f"  [SK] Created sk/{slug}.md")
+
+        if os.path.exists(de_html):
+            with open(de_html, 'r', encoding='utf-8') as f:
+                content = f.read()
+            md = extract_markdown_from_html(content, p.get('titleDe', p['title']), p['date'], p.get('excerptDe', p['excerpt']))
+            with open(de_md, 'w', encoding='utf-8') as f:
+                f.write(md)
+            print(f"  [DE] Created de/{slug}.md")
+
+        if os.path.exists(pl_html):
+            with open(pl_html, 'r', encoding='utf-8') as f:
+                content = f.read()
+            md = extract_markdown_from_html(content, p.get('titlePl', p['title']), p['date'], p.get('excerptPl', p['excerpt']))
+            with open(pl_md, 'w', encoding='utf-8') as f:
+                f.write(md)
+            print(f"  [PL] Created pl/{slug}.md")
 
 def sync_llms_txt(config):
     print("Generating llms.txt & llms-full.txt...")
@@ -269,30 +289,24 @@ def sync_sitemap(config):
         xml.append('  </url>')
         
     for post in posts:
-        en_url = f"https://www.marianstancik.dev/blog/posts/{post['slug']}"
-        sk_url = f"https://www.marianstancik.dev/blog/posts/sk/{post['slug']}"
+        slug = post['slug']
+        en_url = f"https://www.marianstancik.dev/blog/posts/{slug}"
+        sk_url = f"https://www.marianstancik.dev/blog/posts/sk/{slug}"
+        de_url = f"https://www.marianstancik.dev/blog/posts/de/{slug}"
+        pl_url = f"https://www.marianstancik.dev/blog/posts/pl/{slug}"
         
-        # EN Post
-        xml.append('  <url>')
-        xml.append(f'    <loc>{en_url}</loc>')
-        xml.append(f'    <xhtml:link rel="alternate" hreflang="en" href="{en_url}"/>')
-        xml.append(f'    <xhtml:link rel="alternate" hreflang="sk" href="{sk_url}"/>')
-        xml.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{en_url}"/>')
-        xml.append(f'    <lastmod>{post.get("date", today)}</lastmod>')
-        xml.append('    <changefreq>monthly</changefreq>')
-        xml.append('    <priority>0.7</priority>')
-        xml.append('  </url>')
-        
-        # SK Post
-        xml.append('  <url>')
-        xml.append(f'    <loc>{sk_url}</loc>')
-        xml.append(f'    <xhtml:link rel="alternate" hreflang="en" href="{en_url}"/>')
-        xml.append(f'    <xhtml:link rel="alternate" hreflang="sk" href="{sk_url}"/>')
-        xml.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{en_url}"/>')
-        xml.append(f'    <lastmod>{post.get("date", today)}</lastmod>')
-        xml.append('    <changefreq>monthly</changefreq>')
-        xml.append('    <priority>0.7</priority>')
-        xml.append('  </url>')
+        for lang_code, url in [('en', en_url), ('sk', sk_url), ('de', de_url), ('pl', pl_url)]:
+            xml.append('  <url>')
+            xml.append(f'    <loc>{url}</loc>')
+            xml.append(f'    <xhtml:link rel="alternate" hreflang="en" href="{en_url}"/>')
+            xml.append(f'    <xhtml:link rel="alternate" hreflang="sk" href="{sk_url}"/>')
+            xml.append(f'    <xhtml:link rel="alternate" hreflang="de" href="{de_url}"/>')
+            xml.append(f'    <xhtml:link rel="alternate" hreflang="pl" href="{pl_url}"/>')
+            xml.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{en_url}"/>')
+            xml.append(f'    <lastmod>{post.get("date", today)}</lastmod>')
+            xml.append('    <changefreq>monthly</changefreq>')
+            xml.append('    <priority>0.7</priority>')
+            xml.append('  </url>')
         
     xml.append('</urlset>')
     

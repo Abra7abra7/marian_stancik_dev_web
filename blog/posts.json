@@ -20,7 +20,19 @@
       "Hermes Agent"
     ],
     "readTime": "9 min read",
-    "readTimeSk": "9 min čítania"
+    "readTimeSk": "9 min čítania",
+    "titleDe": "Lokales Agenten-Netzwerk für NVIDIA PAIR — Verteilte Inferenz über Geräte",
+    "titlePl": "Projektowanie Lokalnej Sieci Agentów dla NVIDIA PAIR — Rozproszona Inferencja Między Urządzeniami",
+    "excerptDe": "NVIDIA PAIR verwandelt ungenutzte PCs in ein verteiltes Inferenz-Cluster für KI-Agenten. Multi-Device-Parallelität und Hermes Agent.",
+    "excerptPl": "NVIDIA PAIR zamienia bezczynne komputery domowe w rozproszony klaster inferencyjny dla agentów AI. Warstwowy routing i Hermes Agent.",
+    "displayDateDe": "5. September 2026",
+    "displayDatePl": "5 września 2026",
+    "readTimeDe": "9 Min. Lesezeit",
+    "readTimePl": "9 min czytania",
+    "urlDe": "blog/posts/de/2026-09-05-nvidia-pair-local-agent-network",
+    "urlPl": "blog/posts/pl/2026-09-05-nvidia-pair-local-agent-network",
+    "blogUrlDe": "posts/de/2026-09-05-nvidia-pair-local-agent-network",
+    "blogUrlPl": "posts/pl/2026-09-05-nvidia-pair-local-agent-network"
   },
   {
     "slug": "2026-09-02-agent-architecture-convergence",
@@ -43,7 +55,19 @@
       "Control Plane"
     ],
     "readTime": "8 min read",
-    "readTimeSk": "8 min čítania"
+    "readTimeSk": "8 min čítania",
+    "titleDe": "Die Konvergenz der Agenten-Architekturen: Warum alle das gleiche Zwei-Ebenen-System bauen",
+    "titlePl": "Konwergencja Architektur Agentów: Dlaczego wszyscy budują ten sam dwupoziomowy system",
+    "excerptDe": "NVIDIA AVO, die AOS-Referenzarchitektur und Auton einigten sich auf das gleiche Muster: Trennung von Governance und Ausführung.",
+    "excerptPl": "NVIDIA AVO, architektura referencyjna AOS i Auton framework przyjęły ten sam wzorzec: oddzielenie zarządzania od wykonania.",
+    "displayDateDe": "2. September 2026",
+    "displayDatePl": "2 września 2026",
+    "readTimeDe": "8 Min. Lesezeit",
+    "readTimePl": "8 min czytania",
+    "urlDe": "blog/posts/de/2026-09-02-agent-architecture-convergence",
+    "urlPl": "blog/posts/pl/2026-09-02-agent-architecture-convergence",
+    "blogUrlDe": "posts/de/2026-09-02-agent-architecture-convergence",
+    "blogUrlPl": "posts/pl/2026-09-02-agent-architecture-convergence"
   },
   {
     "slug": "2026-08-27-nvidia-avo-autonomous-agents",
@@ -65,7 +89,19 @@
       "Hermes Agent"
     ],
     "readTime": "6 min read",
-    "readTimeSk": "6 min čítania"
+    "readTimeSk": "6 min čítania",
+    "titleDe": "NVIDIA AVO: Wenn autonome Agenten 7 Tage laufen und Top-Ingenieure schlagen",
+    "titlePl": "NVIDIA AVO: Kiedy autonomiczni agenci działają przez 7 dni i przewyższają inżynierów",
+    "excerptDe": "Die AVO-Architektur von NVIDIA lief 7 Tage autonom, optimierte GPU-Kernel über FlashAttention-4 hinaus und erzielte 100 % bei ARC-AGI-3.",
+    "excerptPl": "Architektura NVIDIA AVO działała autonomicznie przez 7 dni, optymalizując jądra GPU i osiągając 100% na ARC-AGI-3.",
+    "displayDateDe": "27. August 2026",
+    "displayDatePl": "27 sierpnia 2026",
+    "readTimeDe": "6 Min. Lesezeit",
+    "readTimePl": "6 min czytania",
+    "urlDe": "blog/posts/de/2026-08-27-nvidia-avo-autonomous-agents",
+    "urlPl": "blog/posts/pl/2026-08-27-nvidia-avo-autonomous-agents",
+    "blogUrlDe": "posts/de/2026-08-27-nvidia-avo-autonomous-agents",
+    "blogUrlPl": "posts/pl/2026-08-27-nvidia-avo-autonomous-agents"
   },
   {
     "slug": "2026-08-26-agent-driven-company",
@@ -88,7 +124,19 @@
       "VPS Infrastructure"
     ],
     "readTime": "6 min read",
-    "readTimeSk": "6 min čítania"
+    "readTimeSk": "6 min čítania",
+    "titleDe": "Vom Solo-Gründer zum agentengesteuerten Unternehmen mit 19 autonomen Cron-Jobs",
+    "titlePl": "Od jednoosobowego foundera do firmy sterowanej agentami z 19 autonomicznymi zadaniami cron",
+    "excerptDe": "Wie ich 19 autonome KI-Cron-Jobs auf einem 3,79 €/Monat VPS für Content, CRM, Recht und Systemüberwachung gebaut habe — 99,7 % Uptime.",
+    "excerptPl": "Jak zbudowałem 19 autonomicznych zadań cron na VPS za 3,79 €/mies. do obsługi treści, CRM, prawa i monitoringu z 99,7% uptime.",
+    "displayDateDe": "26. August 2026",
+    "displayDatePl": "26 sierpnia 2026",
+    "readTimeDe": "6 Min. Lesezeit",
+    "readTimePl": "6 min czytania",
+    "urlDe": "blog/posts/de/2026-08-26-agent-driven-company",
+    "urlPl": "blog/posts/pl/2026-08-26-agent-driven-company",
+    "blogUrlDe": "posts/de/2026-08-26-agent-driven-company",
+    "blogUrlPl": "posts/pl/2026-08-26-agent-driven-company"
   },
   {
     "slug": "2026-08-25-web-performance-optimization",
@@ -111,7 +159,19 @@
       "HTML Optimization"
     ],
     "readTime": "5 min read",
-    "readTimeSk": "5 min čítania"
+    "readTimeSk": "5 min čítania",
+    "titleDe": "Web-Performance-Optimierung: Wie ich die Seitengröße um 61 % reduziert habe",
+    "titlePl": "Optymalizacja wydajności sieci: Jak zmniejszyłem rozmiar stron o 61%",
+    "excerptDe": "Technischer Leitfaden zur Reduzierung des HTML-Gewichts von 86 KB auf 34 KB und Erreichen von 100 PageSpeed mit WebP und WebGL.",
+    "excerptPl": "Przewodnik techniczny redukcji wagi HTML z 86 KB do 34 KB i osiągnięcia PageSpeed 100 z WebP i nieblokującym WebGL.",
+    "displayDateDe": "25. August 2026",
+    "displayDatePl": "25 sierpnia 2026",
+    "readTimeDe": "5 Min. Lesezeit",
+    "readTimePl": "5 min czytania",
+    "urlDe": "blog/posts/de/2026-08-25-web-performance-optimization",
+    "urlPl": "blog/posts/pl/2026-08-25-web-performance-optimization",
+    "blogUrlDe": "posts/de/2026-08-25-web-performance-optimization",
+    "blogUrlPl": "posts/pl/2026-08-25-web-performance-optimization"
   },
   {
     "slug": "2026-08-22-building-digital-twin",
@@ -132,7 +192,19 @@
       "Automation"
     ],
     "readTime": "4 min read",
-    "readTimeSk": "4 min čítania"
+    "readTimeSk": "4 min čítania",
+    "titleDe": "Aufbau eines digitalen Zwillings, der 9-mal täglich postet",
+    "titlePl": "Budowa cyfrowego bliźniaka publikującego 9 razy dziennie",
+    "excerptDe": "Wie ich einen autonomen KI-Agenten mit Hermes gebaut habe, der Inhalte auf X, LinkedIn und Blog ohne menschliches Eingreifen erstellt.",
+    "excerptPl": "Jak zbudowałem autonomicznego agenta AI z Hermesem, który tworzy i publikuje treści na X, LinkedIn i blogu 24/7.",
+    "displayDateDe": "22. August 2026",
+    "displayDatePl": "22 sierpnia 2026",
+    "readTimeDe": "4 Min. Lesezeit",
+    "readTimePl": "4 min czytania",
+    "urlDe": "blog/posts/de/2026-08-22-building-digital-twin",
+    "urlPl": "blog/posts/pl/2026-08-22-building-digital-twin",
+    "blogUrlDe": "posts/de/2026-08-22-building-digital-twin",
+    "blogUrlPl": "posts/pl/2026-08-22-building-digital-twin"
   },
   {
     "slug": "2026-08-20-ai-act-compliance",
@@ -154,7 +226,19 @@
       "Law"
     ],
     "readTime": "6 min read",
-    "readTimeSk": "6 min čítania"
+    "readTimeSk": "6 min čítania",
+    "titleDe": "EU AI Act Compliance für kleine KI-Unternehmen & Startups",
+    "titlePl": "Zgodność z EU AI Act dla małych firm AI i startupów",
+    "excerptDe": "Praktischer Legal-by-Design-Leitfaden für Startups in der EU. Von der Risikobewertung bis zur automatisierten technischen Dokumentation.",
+    "excerptPl": "Praktyczny framework legal-by-design dla startupów tworzących produkty AI w UE. Od oceny ryzyka po dokumentację techniczną.",
+    "displayDateDe": "20. August 2026",
+    "displayDatePl": "20 sierpnia 2026",
+    "readTimeDe": "6 Min. Lesezeit",
+    "readTimePl": "6 min czytania",
+    "urlDe": "blog/posts/de/2026-08-20-ai-act-compliance",
+    "urlPl": "blog/posts/pl/2026-08-20-ai-act-compliance",
+    "blogUrlDe": "posts/de/2026-08-20-ai-act-compliance",
+    "blogUrlPl": "posts/pl/2026-08-20-ai-act-compliance"
   },
   {
     "slug": "2026-08-17-autonomous-drone-missions",
@@ -176,6 +260,18 @@
       "PX4"
     ],
     "readTime": "5 min read",
-    "readTimeSk": "5 min čítania"
+    "readTimeSk": "5 min čítania",
+    "titleDe": "Autonome Drohnenmissionen mit ArduPilot & Python",
+    "titlePl": "Autonomiczne misje dronów z ArduPilotem i Pythonem",
+    "excerptDe": "Bau eines taktischen UAV-Systems mit Pixhawk, ArduPilot und Python-Missionsplanung für automatisierte Flüge und Edge-KI.",
+    "excerptPl": "Budowa taktycznego systemu UAV z ArduPilotem, Pixhawkiem i Pythonem do lotów wielopunktowych i pokładowego widzenia AI.",
+    "displayDateDe": "17. August 2026",
+    "displayDatePl": "17 sierpnia 2026",
+    "readTimeDe": "5 Min. Lesezeit",
+    "readTimePl": "5 min czytania",
+    "urlDe": "blog/posts/de/2026-08-17-autonomous-drone-missions",
+    "urlPl": "blog/posts/pl/2026-08-17-autonomous-drone-missions",
+    "blogUrlDe": "posts/de/2026-08-17-autonomous-drone-missions",
+    "blogUrlPl": "posts/pl/2026-08-17-autonomous-drone-missions"
   }
 ]

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Die Konvergenz der Agenten-Architekturen: Warum alle das gleiche Zwei-Ebenen-System bauen — Marian Stancik</title>
+<meta name="description" content="NVIDIA AVO, the AOS reference architecture, and the Auton framework all converged on the same architectural pattern: a two-plane design separating governance from execution for production autonomous agents.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/2026-09-02-agent-architecture-convergence">
+<link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-09-02-agent-architecture-convergence">
+<link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-09-02-agent-architecture-convergence">
+<link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/blog/posts/de/2026-09-02-agent-architecture-convergence">
+<link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/blog/posts/pl/2026-09-02-agent-architecture-convergence">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-09-02-agent-architecture-convergence">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=4">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=4">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=4">
+<link rel="shortcut icon" href="/favicon.ico?v=4">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=4">
+<meta name="theme-color" content="#08080F">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Convergence of Agent Architectures: Why Everyone Is Building the Same Two-Plane System — Marian Stancik">
+<meta property="og:description" content="NVIDIA AVO, the AOS reference architecture, and the Auton framework all converged on the same architectural pattern: a two-plane design separating governance from execution for production autonomous agents.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/2026-09-02-agent-architecture-convergence">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.marianstancik.dev/profile-big.webp">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
+<meta property="og:image:alt" content="Agent Architecture Convergence — Marian Stancik">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/profile-big.webp">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "The Convergence of Agent Architectures: Why Everyone Is Building the Same Two-Plane System",
+      "description": "NVIDIA AVO, the AOS reference architecture, and the Auton framework all converged on the same architectural pattern: separating control/governance from runtime/coordination for production autonomous agents.",
+      "datePublished": "2026-09-02",
+      "dateModified": "2026-09-02",
+      "author": {
+        "@type": "Person",
+        "name": "Marian Stancik",
+        "url": "https://www.marianstancik.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Marian Stancik"
+      },
+      "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/2026-09-02-agent-architecture-convergence",
+      "keywords": ["AI Agents", "Autonomous Systems", "Agent Architecture", "AOS", "Control Plane", "Hermes Agent"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.marianstancik.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.marianstancik.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Agent Architecture Convergence",
+          "item": "https://www.marianstancik.dev/blog/posts/2026-09-02-agent-architecture-convergence"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="/css/main.css">
+<script defer src="https://api.marianstancik.dev/script.js" data-website-id="ec1c0df8-e51f-4236-9ad0-e3992f0b1637"></script>
+<style>
+.post-page { min-height: 100vh; display: flex; flex-direction: column; }
+.post-article { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; flex: 1; width: 100%; box-sizing: border-box; }
+.post-header { margin-bottom: 36px; }
+.post-back { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--color-primary, #CD7F32); text-decoration: none; margin-bottom: 20px; font-weight: 500; }
+.post-back:hover { color: var(--color-accent, #E8B86D); }
+.post-meta-top { display: flex; gap: 16px; align-items: center; font-size: 0.8rem; color: var(--color-text-muted, #9A8A78); margin-bottom: 12px; }
+.post-meta-top time { text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+.post-header h1 { font-size: 2.2rem; line-height: 1.25; color: var(--color-text, #F0F0F5); margin: 0 0 16px; font-weight: 700; }
+.post-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+.post-tags span { font-size: 0.7rem; padding: 4px 12px; border-radius: 100px; background: rgba(205,127,50,0.08); color: var(--color-accent, #E8B86D); border: 1px solid rgba(205,127,50,0.15); }
+.post-content { color: var(--color-text, #F0F0F5); line-height: 1.8; font-size: 1.02rem; }
+.post-content h2 { font-size: 1.45rem; color: var(--color-text, #F0F0F5); margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--color-border, rgba(255,255,255,0.06)); }
+.post-content h3 { font-size: 1.15rem; color: var(--color-accent, #E8B86D); margin: 28px 0 12px; }
+.post-content p { margin: 0 0 20px; color: #D0D0E0; }
+.post-content strong { color: var(--color-text, #F0F0F5); }
+.post-content ul, .post-content ol { margin: 0 0 24px; padding-left: 24px; color: #D0D0E0; }
+.post-content li { margin-bottom: 8px; }
+.post-content blockquote { border-left: 3px solid var(--color-primary, #CD7F32); background: rgba(205,127,50,0.04); padding: 16px 20px; margin: 24px 0; border-radius: 0 8px 8px 0; color: #E0E0F0; }
+.post-content code { background: rgba(255,255,255,0.06); padding: 2px 7px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', 'Fira Code', monospace; color: var(--color-accent, #E8B86D); }
+.post-content pre { background: var(--color-bg-secondary, #0D0D18); border: 1px solid var(--color-border, rgba(255,255,255,0.06)); border-radius: 8px; padding: 20px; overflow-x: auto; margin: 24px 0; }
+.post-content pre code { background: none; padding: 0; color: #E0E0F0; }
+.post-content a { color: var(--color-primary, #CD7F32); text-decoration: underline; text-underline-offset: 3px; }
+.post-content a:hover { color: var(--color-accent, #E8B86D); }
+.post-lang-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(205,127,50,0.1); border: 1px solid rgba(205,127,50,0.25); border-radius: 100px; padding: 4px 14px; font-size: 0.78rem; color: var(--color-accent, #E8B86D); text-decoration: none; margin-bottom: 20px; }
+.post-lang-pill:hover { background: rgba(205,127,50,0.2); }
+.ai-disclaimer { margin-top: 48px; padding: 16px 20px; background: rgba(205,127,50,0.05); border: 1px solid rgba(205,127,50,0.15); border-radius: 8px; font-size: 0.82rem; color: var(--color-text-muted, #9A8A78); }
+</style>
+</head>
+<body class="post-page">
+
+<nav aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="/" class="nav-logo" aria-label="marianstancik.dev home">
+      <div class="brand-mark" aria-hidden="true"><img src="/profile.webp" alt="Marian Stancik" width="28" height="28" class="brand-avatar"></div>
+      <span class="nav-logo-text">marian<span class="highlight">stancik</span><span class="tld">.dev</span></span>
+    </a>
+    <div class="nav-right">
+      <a href="/blog/posts/sk/2026-09-02-agent-architecture-convergence" class="post-lang-pill" style="margin-bottom:0;" title="Prepnúť do slovenčiny">🇸🇰 Slovenská verzia</a>
+      <a href="/blog" class="nav-link">← All Articles</a>
+    </div>
+  </div>
+</nav>
+
+<main class="post-article">
+  <header class="post-header">
+    <a href="/blog" class="post-back">← Back to Blog</a>
+    <div class="post-meta-top">
+      <time datetime="2026-09-02">September 2, 2026</time>
+      <span>·</span>
+      <span>8 Min. Lesezeit</span>
+    </div>
+    <h1>Die Konvergenz der Agenten-Architekturen: Warum alle das gleiche Zwei-Ebenen-System bauen</h1>
+    <div class="post-tags">
+      <span>AI Agents</span>
+      <span>Autonomous Systems</span>
+      <span>Agent Architecture</span>
+      <span>AOS</span>
+      <span>Control Plane</span>
+    </div>
+  </header>
+
+  <article class="post-content">
+
+    <p>Over the last three months, three independent research efforts — <strong>NVIDIA's AVO</strong>, the <strong>AOS reference architecture</strong> (arXiv 2608.03214), and the <strong>Auton Agentic AI Framework</strong> (arXiv 2602.23720) — converged on the same core architectural pattern for production autonomous agents. A two-plane design that separates <em>control and governance</em> from <em>runtime and coordination</em>.</p>
+
+    <p>This is not a coincidence. It is the field maturing.</p>
+
+    <p>When independent teams working on GPU kernel optimization, interactive reasoning benchmarks, and enterprise agent governance independently arrive at the same architectural split, you are looking at an emerging standard. The names differ — AVO calls it "supervision loop + agent loop," AOS calls it "Control & Governance Plane + Runtime & Coordination Plane," Auton calls it "Cognitive Blueprint + Runtime Engine" — but the structural division is identical across all three.</p>
+
+    <p>Here is what the two-plane architecture is, why it matters for anyone deploying agents in production, and how to build your own.</p>
+
+    <h2>The Pattern, Named Differently by Each Team</h2>
+
+    <p>Each effort uses different terminology, but the structural split is the same:</p>
+
+    <table style="width:100%;border-collapse:collapse;margin:24px 0;font-size:0.92rem;">
+      <thead>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+          <th style="padding:8px;text-align:left;color:var(--color-accent,#E8B86D);">Framework</th>
+          <th style="padding:8px;text-align:left;color:var(--color-accent,#E8B86D);">Plane 1 — Control</th>
+          <th style="padding:8px;text-align:left;color:var(--color-accent,#E8B86D);">Plane 2 — Runtime</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:8px;color:var(--color-text,#F0F0F5);"><strong>NVIDIA AVO</strong></td>
+          <td style="padding:8px;color:#D0D0E0;">Supervision loop + policy enforcement</td>
+          <td style="padding:8px;color:#D0D0E0;">Agent loop + persistent memory + tool interface</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:8px;color:var(--color-text,#F0F0F5);"><strong>AOS Paper</strong></td>
+          <td style="padding:8px;color:#D0D0E0;">Control & Governance: intent, policy, trust, audit</td>
+          <td style="padding:8px;color:#D0D0E0;">Runtime & Coordination: lifecycle, routing, memory, scheduling</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;color:var(--color-text,#F0F0F5);"><strong>Auton Framework</strong></td>
+          <td style="padding:8px;color:#D0D0E0;">Cognitive Blueprint + constraint manifold</td>
+          <td style="padding:8px;color:#D0D0E0;">Runtime Engine + MCP integration + parallel execution</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The names vary, but the semantic split is the same: one plane answers <em>what should happen</em>, the other answers <em>how to make it happen</em>. The control plane is the source of truth for intent, policy, and authority. The runtime plane is the execution substrate that translates those decisions into coordinated action across agents, tools, models, and memory systems.</p>
+
+    <h2>Why Two Planes?</h2>
+
+    <p>Current agent systems collapse control logic and execution logic into a single LLM call. The model decides <em>and</em> acts in one shot. This works for single-turn chatbots. It breaks for multi-day autonomous operations where you need audit trails, policy enforcement, recovery from failure, and human oversight.</p>
+
+    <p>The AOS paper makes the case formally, defining what belongs in each plane.</p>
+
+    <p><strong>The Control & Governance Plane owns:</strong></p>
+    <ul>
+      <li><strong>Intent:</strong> what the user actually wants, not what the model inferred from ambiguous context</li>
+      <li><strong>Policy:</strong> permitted actions, resource budgets, safety constraints, allowed tool categories</li>
+      <li><strong>Trust and authority:</strong> delegated scope, credential management, revocation chain</li>
+      <li><strong>Confidence:</strong> does the accumulated evidence support proceeding with this action?</li>
+      <li><strong>Auditability:</strong> who authorized what, when, with which evidence, and under what constraints</li>
+      <li><strong>Human oversight:</strong> stop buttons, approval gates, escalation paths, override controls</li>
+      <li><strong>State reconciliation:</strong> when observed state diverges from authorized state, cancel or escalate</li>
+    </ul>
+
+    <p><strong>The Runtime & Coordination Plane owns:</strong></p>
+    <ul>
+      <li><strong>Agent lifecycle:</strong> spawn, schedule, pause, resume, terminate sub-agents and workers</li>
+      <li><strong>Model routing:</strong> select and dispatch to the optimal model per task type and budget</li>
+      <li><strong>Tool execution:</strong> call MCP servers, validate responses against schemas, handle errors and retries</li>
+      <li><strong>Memory coordination:</strong> episodic, semantic, procedural context delivery across sessions</li>
+      <li><strong>Workflow progress:</strong> state machines, retry policies, circuit breakers, timeout enforcement</li>
+      <li><strong>Telemetry emission:</strong> what actually happened, with what latency, at what cost</li>
+    </ul>
+
+    <p>The separation matters because <strong>these planes scale differently</strong>. The control plane is throughput-light but correctness-critical — one bad policy decision corrupts everything downstream. The runtime plane is throughput-heavy but failure-tolerant — a failed tool call retries, a misrouted model call wastes compute but does not violate policy. Running them in the same process means you cannot scale one without the other, and you cannot audit without replaying execution.</p>
+
+    <p>NVIDIA AVO's 7-day autonomous GPU kernel optimization run demonstrates this in practice. The main agent (runtime) decides what to inspect, change, test, and evaluate. The supervisor (control) monitors for stagnation, resource budget violations, and unproductive cycles. When the search plateaus, the supervisor redirects. The control plane does not need to understand GPU kernel optimization — it only needs to detect that progress has stopped and trigger a corrective action.</p>
+
+    <h2>The Three Mechanisms Everyone Agrees On</h2>
+
+    <p>Across all three architectures, three mechanisms emerge as non-negotiable for production-grade autonomous agents.</p>
+
+    <h3>1. Persistent Memory Beyond the Context Window</h3>
+
+    <p>Every architecture agrees: an agent that resets to zero at the end of each context window cannot sustain long-horizon work. LLMs are stateless across sessions — when the context window fills or the session terminates, all session-specific experience is lost unless explicitly preserved.</p>
+
+    <p>AVO uses a persistent store for code changes, compiler outputs, profiler results, and accumulated reasoning across 7-day runs. The AOS paper defines four state types — intended state, authorized state, observed state, and resulting state — that survive across invocations and form the basis for audit and reconciliation. The Auton framework introduces a reflector-driven consolidation protocol, inspired by biological hippocampal replay, that compresses episodic experience into semantic and procedural memory during idle cycles.</p>
+
+    <p>Implementation pattern: store structured state in SQLite or a vector database. When the context window approaches capacity, the runtime plane writes a checkpoint. The control plane validates the resulting state against policy before the next cycle begins. This turns the context window limitation from a bug into a feature — each window becomes a bounded atomic unit of work.</p>
+
+    <h3>2. Supervision and Constraint-Based Guardrails</h3>
+
+    <p>All three architectures reject the idea that prompt engineering alone can keep agents safe at production scale. Prompt-based safety is brittle, ungovernable, and produces no audit trail. The alternatives each team built are structurally similar.</p>
+
+    <p>NVIDIA AVO uses a dedicated supervisor process that runs in parallel with the main agent. Its only job is detecting stagnation — repeated error patterns, plateauing metrics, unproductive cycles — and triggering redirection. The supervisor does not need to understand the domain. It needs a clear definition of "stuck" and an escalation path.</p>
+
+    <p>The Auton framework introduces a constraint manifold — a formally defined subspace of the action space onto which the agent's policy is projected <em>before</em> action emission. Safety is enforced by construction, not by post-hoc filtering. Privilege escalation and unsafe operations are structurally impossible within the manifold.</p>
+
+    <blockquote>"Safety enforcement is not delegated to prompt engineering or post-hoc output filtering. Instead, constraints are expressed as code-level specifications, ensuring that privilege escalation and unsafe operations are excluded by construction." — Auton Agentic AI Framework (arXiv 2602.23720)</blockquote>
+
+    <p>The AOS paper goes further, defining reconciliation controllers that continuously compare observed state against authorized state. When they diverge — the agent exceeded its budget, accessed a restricted tool, or operated outside its delegated scope — the controller cancels the operation, isolates the agent, and escalates to a human. This is not a guardrail prompt. It is a deterministic control loop.</p>
+
+    <p>This maps directly to what I deploy: watchdog cron jobs and Python monitor scripts that check for stagnation and budget overruns. A 50-line Python script that kills a task when it exceeds its iteration budget is infinitely more reliable than any prompt-based guardrail. The constraint-manifold approach suggests we should push this further — define the allowed action space in code, not in prompts.</p>
+
+    <h3>3. Typed, Discoverable Tool Interfaces</h3>
+
+    <p>All three frameworks use typed tool interfaces bound through the Model Context Protocol (MCP) or an equivalent. The evolution from unstructured prompt patterns to typed tool registries mirrors the evolution from REST without schema to OpenAPI — and the industry is at the same inflection point.</p>
+
+    <p>The AOS paper explicitly calls tool registries "the agentic analogue of API gateways" — they enumerate, version, and access-control every tool available to the agent. The Auton framework makes MCP integration its primary external interface, treating tools as typed contracts with input/output schemas and preconditions. AVO's tool interface is the most constrained of the three, precisely because its GPU kernel optimization domain demands strict schema validation for compiler flags, profiler parameters, and test configurations.</p>
+
+    <p>The practical implication: if your agent calls tools via free-text prompts, you have an integration, not an architecture. You cannot audit tool usage, validate tool output, or enforce tool access policies without a typed interface layer. MCP is emerging as the standard for this layer — the tool registry, as the AOS paper notes, is "where the agent meets the enterprise."</p>
+
+    <h2>From Architectural Pattern to Compliance Architecture</h2>
+
+    <p>The convergence is not just technically interesting. It directly maps to regulatory requirements that took effect in August 2026.</p>
+
+    <p>The EU AI Act requires exactly the capabilities a two-plane architecture provides as built-in structural properties, not as bolt-on documentation exercises:</p>
+
+    <ul>
+      <li><strong>Article 9 — Risk management:</strong> the control plane's policy enforcement and constraint-based guardrails implement risk mitigation by construction</li>
+      <li><strong>Article 12 — Record-keeping:</strong> the control plane already logs every authorization decision, every delegation, every policy override — these are not separate compliance records, they are the system's native audit trail</li>
+      <li><strong>Article 13 — Transparency:</strong> the control plane can reconstruct <em>why</em> a decision was made by replaying the authorized state before action, the policy that governed it, and the resulting state after execution</li>
+      <li><strong>Article 14 — Human oversight:</strong> the control plane's stop button, approval gates, and escalation paths are native architectural elements, not afterthoughts</li>
+    </ul>
+
+    <p>The May 2026 Digital Omnibus agreement clarified that multi-agent systems are treated as a single regulated system. This makes the two-plane architecture even more relevant: the control plane governs the entire multi-agent cluster, not individual agents. The runtime plane executes across the cluster. Compliance applies to the system, not to each agent independently.</p>
+
+    <p>Systems without a separate control plane will struggle to demonstrate any of this. Audit trails bolted onto a monolithic agent architecture produce records that say what happened but not why — and the "why" is what the AI Act demands.</p>
+
+    <h2>Building Your Own Two-Plane Stack</h2>
+
+    <p>Here is the practical deployment pattern I use, which mirrors the emerging standard. It runs on a Hetzner CX33 VPS at €8.49/month and currently executes 19 autonomous cron jobs with 99.7% uptime.</p>
+
+    <p><strong>Control Plane (runs on Hermes Agent + cron):</strong></p>
+    <ul>
+      <li><strong>Policy-as-code</strong> in AGENTS.md files — declares what each agent can and cannot do, its permitted tool set, and its budget limits</li>
+      <li><strong>Watchdog cron + monitor scripts</strong> — detect stagnation, iteration overruns, and policy violations; restart, redirect, or escalate</li>
+      <li><strong>Checkpoint validation</strong> — verify resulting state against authorized state before the next execution cycle</li>
+      <li><strong>SQLite audit log</strong> — every authorization, every delegation, every failure, with structured metadata for replay</li>
+    </ul>
+
+    <p><strong>Runtime Plane (runs on MCP servers + OpenRouter):</strong></p>
+    <ul>
+      <li><strong>MCP tool servers</strong> — typed, discoverable, versioned interfaces. Each tool declares its input schema, output schema, and access requirements up front</li>
+      <li><strong>OpenRouter dynamic routing</strong> — select the optimal model per task type. Cheap models for routine classification, frontier models for complex reasoning</li>
+      <li><strong>SQLite memory</strong> — episodic store for session history, semantic store for knowledge triples, procedural store for successful tool chains</li>
+      <li><strong>Parallel execution via cognitive map-reduce</strong> — independent tool calls execute concurrently, bounding total runtime by the critical path rather than the sum of all steps</li>
+    </ul>
+
+    <p>This is not a hypothetical architecture. The same principles that NVIDIA applied to 7-day GPU kernel optimization apply at this scale — just with a smaller budget and a shorter horizon.</p>
+
+    <p>The key difference from a monolithic approach: when a cron job fails, the control plane knows it failed, knows which policy it violated, and knows whether to retry, escalate, or shut down. The runtime plane does not need to make that decision. It just reports the failure. This separation of concerns is what makes autonomous operation maintainable without 24/7 human supervision.</p>
+
+    <h2>The Emerging Standard</h2>
+
+    <p>The AOS paper captures the convergence best: <em>"AOS does not declare one interpretation invalid. It provides a layered model in which each implementation can state which responsibilities it supplies."</em></p>
+
+    <p>The agent architecture landscape is standardizing around this two-plane design. Whether you operate at NVIDIA's scale — 7-day GPU kernel optimization runs on DGX B200 clusters — or at the scale of a single VPS running 19 cron jobs, the architectural pattern is the same. Persistent memory, constraint-based guardrails, and typed tool interfaces are non-negotiable mechanisms. Control and governance separate from runtime and coordination.</p>
+
+    <p>The convergence is happening faster than most builders realize. Three independent teams, three different problem domains, one architectural answer. Build on the pattern. The industry is converging whether or not individual builders have noticed yet.</p>
+
+    <div class="ai-disclaimer">
+      🤖 <strong>AI-generated</strong> — This article was generated with the assistance of an autonomous AI agent (Hermes Agent by Nous Research) and reviewed by Marian Stancik before publication. <a href="/disclaimer">Full disclaimer</a>.
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="container" style="max-width:780px;margin:0 auto;padding:24px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+    <p style="margin:0;font-size:0.8rem;color:#9A8A78;">© 2026 <a href="/" style="color:#CD7F32;">Marian Stancik</a> — <a href="/" style="color:#CD7F32;">marianstancik.dev</a></p>
+    <div style="font-size:0.75rem;color:#8A7A6A;display:flex;gap:12px;">
+      <a href="/privacy" style="color:#8A7A6A;">Privacy Policy</a>
+      <a href="/privacy-sk" style="color:#8A7A6A;">Privacy Policy (SK)</a>
+      <a href="/terms" style="color:#8A7A6A;">Terms of Service</a>
+      <a href="/disclaimer" style="color:#8A7A6A;">Disclaimer</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projektowanie Lokalnej Sieci Agentów dla NVIDIA PAIR — Rozproszona Inferencja Między Urządzeniami — Marian Stancik</title>
+<meta name="description" content="NVIDIA PAIR turns idle home PCs into a distributed inference cluster for AI agents. How to design a local agent network that routes tasks across multiple devices.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network">
+<link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network">
+<link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-09-05-nvidia-pair-local-agent-network">
+<link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/blog/posts/de/2026-09-05-nvidia-pair-local-agent-network">
+<link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/blog/posts/pl/2026-09-05-nvidia-pair-local-agent-network">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=4">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=4">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=4">
+<link rel="shortcut icon" href="/favicon.ico?v=4">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=4">
+<meta name="theme-color" content="#08080F">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Designing Your Local Agent Network for NVIDIA PAIR — Distributed Inference Across Devices — Marian Stancik">
+<meta property="og:description" content="NVIDIA PAIR turns idle home PCs into a distributed inference cluster for AI agents. A practical deep-dive on architecture, routing, and multi-device deployment.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.marianstancik.dev/profile-big.webp">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
+<meta property="og:image:alt" content="NVIDIA PAIR Local Agent Network — Marian Stancik">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/profile-big.webp">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Designing Your Local Agent Network for NVIDIA PAIR — Distributed Inference Across Devices",
+      "description": "NVIDIA PAIR turns idle home PCs into a distributed inference cluster for AI agents. How to design a local agent network that routes tasks across devices with Hermes Agent and OpenRouter.",
+      "datePublished": "2026-09-05",
+      "dateModified": "2026-09-05",
+      "author": {
+        "@type": "Person",
+        "name": "Marian Stancik",
+        "url": "https://www.marianstancik.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Marian Stancik"
+      },
+      "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network",
+      "keywords": ["NVIDIA PAIR", "Local AI", "AI Agents", "Distributed Inference", "Hermes Agent", "Model Routing", "NeMo Switchyard"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.marianstancik.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.marianstancik.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "NVIDIA PAIR Local Agent Network",
+          "item": "https://www.marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="/css/main.css">
+<script defer src="https://api.marianstancik.dev/script.js" data-website-id="ec1c0df8-e51f-4236-9ad0-e3992f0b1637"></script>
+<style>
+.post-page { min-height: 100vh; display: flex; flex-direction: column; }
+.post-article { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; flex: 1; width: 100%; box-sizing: border-box; }
+.post-header { margin-bottom: 36px; }
+.post-back { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--color-primary, #CD7F32); text-decoration: none; margin-bottom: 20px; font-weight: 500; }
+.post-back:hover { color: var(--color-accent, #E8B86D); }
+.post-meta-top { display: flex; gap: 16px; align-items: center; font-size: 0.8rem; color: var(--color-text-muted, #9A8A78); margin-bottom: 12px; }
+.post-meta-top time { text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+.post-header h1 { font-size: 2.2rem; line-height: 1.25; color: var(--color-text, #F0F0F5); margin: 0 0 16px; }
+.post-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+.post-tags span { font-size: 0.7rem; padding: 4px 12px; border-radius: 100px; background: rgba(205,127,50,0.08); color: var(--color-accent, #E8B86D); border: 1px solid rgba(205,127,50,0.15); }
+.post-content { color: var(--color-text, #F0F0F5); line-height: 1.8; font-size: 1.02rem; }
+.post-content h2 { font-size: 1.45rem; color: var(--color-text, #F0F0F5); margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--color-border, rgba(255,255,255,0.06)); }
+.post-content h3 { font-size: 1.15rem; color: var(--color-accent, #E8B86D); margin: 28px 0 12px; }
+.post-content p { margin: 0 0 20px; color: #D0D0E0; }
+.post-content strong { color: var(--color-text, #F0F0F5); }
+.post-content ul, .post-content ol { margin: 0 0 24px; padding-left: 24px; color: #D0D0E0; }
+.post-content li { margin-bottom: 8px; }
+.post-content blockquote { border-left: 3px solid var(--color-primary, #CD7F32); background: rgba(205,127,50,0.04); padding: 16px 20px; margin: 24px 0; border-radius: 0 8px 8px 0; color: #E0E0F0; }
+.post-content code { background: rgba(255,255,255,0.06); padding: 2px 7px; border-radius: 4px; font-size: 0.88em; font-family: 'JetBrains Mono', 'Fira Code', monospace; color: var(--color-accent, #E8B86D); }
+.post-content pre { background: var(--color-bg-secondary, #0D0D18); border: 1px solid var(--color-border, rgba(255,255,255,0.06)); border-radius: 8px; padding: 20px; overflow-x: auto; margin: 24px 0; }
+.post-content pre code { background: none; padding: 0; color: #E0E0F0; }
+.post-content a { color: var(--color-primary, #CD7F32); text-decoration: underline; text-underline-offset: 3px; }
+.post-content a:hover { color: var(--color-accent, #E8B86D); }
+.post-content hr { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 40px 0; }
+.post-lang-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(205,127,50,0.1); border: 1px solid rgba(205,127,50,0.25); border-radius: 100px; padding: 4px 14px; font-size: 0.78rem; color: var(--color-accent, #E8B86D); text-decoration: none; margin-bottom: 20px; }
+.post-lang-pill:hover { background: rgba(205,127,50,0.2); }
+.ai-disclaimer { margin-top: 48px; padding: 16px 20px; background: rgba(205,127,50,0.05); border: 1px solid rgba(205,127,50,0.15); border-radius: 8px; font-size: 0.82rem; color: var(--color-text-muted, #9A8A78); }
+</style>
+</head>
+<body class="post-page">
+
+<nav aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="/" class="nav-logo" aria-label="marianstancik.dev home">
+      <div class="brand-mark" aria-hidden="true"><img src="/profile.webp" alt="Marian Stancik" width="28" height="28" class="brand-avatar"></div>
+      <span class="nav-logo-text">marian<span class="highlight">stancik</span><span class="tld">.dev</span></span>
+    </a>
+    <div class="nav-right">
+      <a href="/blog/posts/sk/2026-09-05-nvidia-pair-local-agent-network" class="post-lang-pill" style="margin-bottom:0;" title="Prepnúť do slovenčiny">🇸🇰 Slovenská verzia</a>
+      <a href="/blog" class="nav-link">← All Articles</a>
+    </div>
+  </div>
+</nav>
+
+<main class="post-article">
+  <header class="post-header">
+    <a href="/blog" class="post-back">← Back to Blog</a>
+    <div class="post-meta-top">
+      <time datetime="2026-09-05">September 5, 2026</time>
+      <span>·</span>
+      <span>9 min czytania</span>
+    </div>
+    <h1>Projektowanie Lokalnej Sieci Agentów dla NVIDIA PAIR — Rozproszona Inferencja Między Urządzeniami</h1>
+    <div class="post-tags">
+      <span>NVIDIA PAIR</span>
+      <span>Local AI</span>
+      <span>AI Agents</span>
+      <span>Distributed Inference</span>
+      <span>Hermes Agent</span>
+    </div>
+  </header>
+
+  <article class="post-content">
+
+    <p>At IFA 2026 this week in Berlin, <strong>NVIDIA launched PAIR — Personal AI Router</strong>, a free open-source tool that discovers idle PCs on a local network and distributes inference requests across them. A single agent can spawn five sub-agents that run in parallel across three machines instead of queuing on one GPU. NVIDIA's benchmarks show a 2.04x speedup — 18 minutes on one device reduced to 8 minutes 48 seconds distributed across three.</p>
+
+    <p>This changes how we think about local AI agents. The bottleneck was never compute — it was utilization. Over half of US households have two or more PCs, and most sit idle through the workday. PAIR turns that latent capacity into a distributed inference cluster you configure once and forget.</p>
+
+    <p>I run my agent infrastructure on a Hetzner VPS, but the architectural patterns you need to design a distributed agent network are the same whether you deploy locally or in the cloud. Here is what PAIR does, how it fits into the emerging two-plane agent architecture, and a practical blueprint for setting up your own multi-device agent network.</p>
+
+    <h2>What NVIDIA PAIR Actually Is</h2>
+
+    <p>PAIR is not a distributed training framework. It is not a way to pool GPU memory from multiple devices to run one large model. It is a <strong>request-level load balancer for local inference</strong>.</p>
+
+    <p>Each connected PC runs its own local AI stack (Ollama or LM Studio with local models). PAIR discovers available devices on the local network, monitors their load and availability, and routes individual inference requests to the device best equipped to handle them. When a device joins or leaves the network — a laptop comes home, a desktop goes to sleep — PAIR adapts automatically.</p>
+
+    <p>The key design decision from NVIDIA: PAIR works at the agent task level, not at the individual model call level. An agent spawning multiple sub-agents can have each sub-agent's inference requests distributed across different devices. This is fundamentally different from running a single model call across multiple GPUs — it is <strong>agent-level parallelism</strong> that mirrors how a multi-agent system operates architecturally.</p>
+
+    <blockquote>"PAIR is a personal AI router that intelligently distributes AI inference across all devices on a local network. It does not combine multiple PCs into one bigger PC; instead, it distributes each inference request to devices that can handle it." — NVIDIA, IFA 2026</blockquote>
+
+    <p>PAIR supports GeForce RTX 20-series and later GPUs, RTX PRO Workstation GPUs, DGX Spark, and Apple M4 or newer silicon — covering the vast majority of modern personal computers.</p>
+
+    <h2>How PAIR Fits the Two-Plane Architecture</h2>
+
+    <p>My previous article covered the <a href="/blog/posts/2026-09-02-agent-architecture-convergence">convergence toward a two-plane agent architecture</a> — separating control/governance from runtime/coordination. PAIR slots cleanly into the runtime plane, specifically the model routing and parallel execution layers.</p>
+
+    <p>In the two-plane model:</p>
+    <ul>
+      <li><strong>Control Plane:</strong> Defines the task, sets policy boundaries, assigns sub-agents. Does not care where inference runs, only that results meet the quality threshold</li>
+      <li><strong>Runtime Plane:</strong> Decides which model, on which device, with which budget. PAIR lives here — it is the mechanism that translates "run these five sub-agents" into "sub-agent A → desktop RTX 4090, sub-agents B and C → laptop RTX 4070, sub-agents D and E → DGX Spark"</li>
+    </ul>
+
+    <p>This separation is why PAIR's architecture works: the control plane does not need to know about hardware topology. It delegates execution to the runtime plane, which uses PAIR to distribute inference. The abstraction keeps the agent logic clean while the infrastructure layer handles the complexity of multi-device orchestration.</p>
+
+    <p>The same principle applies in my stack. I run 19 cron-based agents on a Hetzner VPS with Hermes Agent. The control plane (AGENTS.md policy files + watchdog scripts) defines what each agent can do and what budget it has. The runtime plane (MCP servers + OpenRouter) decides which model to call for each task. Adding PAIR to this stack means the runtime plane can also decide <em>where</em> to run inference — local for sensitive data, cloud for heavy reasoning, distributed across devices for parallel sub-agent tasks.</p>
+
+    <h2>Three Architectural Patterns for Multi-Device Inference</h2>
+
+    <p>Based on NVIDIA's PAIR announcement and my experience running multi-model routing, I identify three patterns for integrating distributed inference into an agent stack. Each addresses a different use case.</p>
+
+    <h3>Pattern 1: Task-Level Parallelism (PAIR's Native Mode)</h3>
+
+    <p>This is what PAIR is designed for. A coordinating agent receives a complex request, decomposes it into independent sub-tasks, and dispatches each to a dedicated sub-agent. Each sub-agent's inference runs on a different device.</p>
+
+    <pre><code># Pseudocode for task-level parallelism with PAIR
+def coordinate_complex_task(user_request):
+    # Decompose into independent sub-tasks
+    sub_tasks = decompose(user_request)
+    # ["Research competitor pricing",
+    #  "Generate report structure",
+    #  "Analyze market trends",
+    #  "Draft executive summary",
+    #  "Validate against historical data"]
+
+    # Dispatch each to a sub-agent — PAIR routes inference
+    sub_agents = [spawn_sub_agent(task) for task in sub_tasks]
+
+    # PAIR distributes each sub-agent's inference
+    # to the least-loaded available device
+    # Device A (RTX 4090 desktop): sub_agents[0], sub_agents[2]
+    # Device B (RTX 4070 laptop):  sub_agents[1], sub_agents[3]
+    # Device C (DGX Spark):        sub_agents[4]
+
+    # Collect results in parallel
+    results = await gather([agent.run() for agent in sub_agents])
+    return synthesize(results)</code></pre>
+
+    <p>The key insight: PAIR handles routing transparently. The coordinating agent does not specify target devices — it spawns sub-agents, and PAIR discovers available devices, checks which models are installed, and routes inference to the optimal destination.</p>
+
+    <p>NVIDIA's benchmark shows this matters in practice. Five sub-agents running simultaneously on a single device took 18 minutes. Distributed across three devices via PAIR, the same workload completed in 8 minutes 48 seconds. That is not 3x faster — task decomposition overhead and communication costs cap the speedup — but nearly 2x on identical hardware is meaningful for any production workload.</p>
+
+    <h3>Pattern 2: Tiered Routing with NeMo Switchyard</h3>
+
+    <p>Released alongside PAIR, <strong>NVIDIA NeMo Switchyard</strong> is an open-source model routing library that intelligently directs each request to the most capable and cost-effective model. Combined with PAIR, this creates a three-tier routing architecture:</p>
+
+    <p><strong>Tier 1 — Local (via PAIR):</strong> Small local models (Llama 3.2, Phi-4, Nemotron 3 Nano) for routine classification, summarization, and low-risk tasks. Runs on any RTX PC on the local network. Zero latency, zero cost, fully private.</p>
+
+    <p><strong>Tier 2 — Local Premium (via PAIR):</strong> Larger local models (Nemotron 3.5 Lightning, DeepSeek Harness) for complex reasoning, code generation, and structured analysis. Routes to the most capable local device — DGX Spark for heavy workloads, RTX 5090 desktop for medium workloads.</p>
+
+    <p><strong>Tier 3 — Cloud (via OpenRouter):</strong> Frontier models (Claude Opus 5, GPT-5.6 Sol, DeepSeek V4-Flash) for the hardest problems: multi-step reasoning, creative synthesis, and tasks requiring specialized knowledge. Only called when local models cannot meet the quality threshold.</p>
+
+    <pre><code># Routing decision flow
+def route_request(request):
+    if request.complexity == LOW:
+        # Tier 1: Local, any available device
+        return pair_route("nemotron-3-nano")
+    elif request.complexity == MEDIUM:
+        # Tier 2: Local premium, best available device
+        return pair_route("nemotron-3.5-lightning", min_gpu="RTX-5090")
+    else:
+        # Tier 3: Cloud frontier model
+        return openrouter_route(request, model="claude-opus-5")</code></pre>
+
+    <p>This tiered approach is what I have been running with OpenRouter — cheap models for routine classification, expensive models for critical reasoning. PAIR + NeMo Switchyard extends the same principle to local hardware, giving you three cost tiers instead of two.</p>
+
+    <h3>Pattern 3: Security-Isolated Inference Zones</h3>
+
+    <p>At Fal.Con 2026 earlier this week, NVIDIA and CrowdStrike announced SafeMind — an agentic cybersecurity system built on NVIDIA Nemotron. A key architectural principle from that announcement: security controls should be enforced <strong>outside</strong> the agent, in the infrastructure layer.</p>
+
+    <p>PAIR enables this pattern naturally. If you have a dedicated PC on your network that never connects to the internet, you can configure PAIR to route sensitive inference — document processing, credential management, proprietary code analysis — exclusively to that isolated device. Other inference routes to less restricted machines.</p>
+
+    <p>This maps to the security profiles NVIDIA's safety team defined:</p>
+    <ul>
+      <li><strong>Isolated:</strong> Air-gapped PC, only PAIR-discovered, default-deny outbound</li>
+      <li><strong>Connected:</strong> Standard home PC, PAIR-discovered with task-scoped access</li>
+      <li><strong>Production:</strong> Dedicated hardware, human approval gates for high-impact operations</li>
+      <li><strong>Adversarial:</strong> Sandboxed environment, automatic quarantine on policy violation</li>
+    </ul>
+
+    <p>The architectural insight: by separating <em>where</em> inference runs from <em>which</em> agent calls it, PAIR turns device topology into a security control. The control plane assigns sensitivity labels to tasks. The runtime plane uses PAIR to route each task to a device authorized for that sensitivity level. This is the infrastructure-enforced security NVIDIA's OpenShell runtime provides — but running on your own hardware, with your own policies.</p>
+
+    <h2>Designing Your Own PAIR-Compatible Agent Stack</h2>
+
+    <p>PAIR is open source and available now for Windows, macOS, and Linux. Here is how to design a stack that takes full advantage of it.</p>
+
+    <h3>1. Start with a Coordinator Agent on a Stable Machine</h3>
+
+    <p>Your coordinator should run on a machine that stays on 24/7 — a home server, a dedicated desktop, or a VPS (PAIR works across networks, but local network latency is lower). This machine runs Hermes Agent (or your agent framework of choice) and acts as the entry point for all agent tasks.</p>
+
+    <p>The coordinator does not need to run inference itself. It decomposes tasks, spawns sub-agents, and delegates inference to PAIR-discovered devices. NVIDIA confirmed at IFA that Hermes Agent will get one-click local model setup on RTX GPUs, making this pairing even tighter.</p>
+
+    <h3>2. Configure Each Device with Ollama or LM Studio</h3>
+
+    <p>Every machine that will participate in the cluster needs a local inference runtime. Ollama is the simplest option — it handles model downloads, GPU detection, and provides a standard API. Each device installs the models appropriate for its hardware capabilities, not all devices need every model.</p>
+
+    <pre><code># Device A (RTX 4090 — high-end desktop)
+ollama pull nemotron-3.5-lightning
+ollama pull llama-3.2-8b
+ollama pull deepseek-v4-flash # if VRAM permits
+
+# Device B (RTX 4070 — laptop)
+ollama pull llama-3.2-8b
+ollama pull phi-4
+
+# Device C (DGX Spark — dedicated AI box)
+ollama pull nemotron-3.5-lightning
+ollama pull nemotron-3-nano</code></pre>
+
+    <p>PAIR discovers all three devices automatically. When a request comes in for nemotron-3.5-lightning, it routes to whichever device has that model installed and is least loaded.</p>
+
+    <h3>3. Implement Tiered Routing Logic in Your Coordinator</h3>
+
+    <p>The coordinator agent needs routing logic that mirrors the two-plane architecture. The control plane component tags each task with a complexity level and privacy sensitivity. The runtime plane component translates those tags into routing decisions.</p>
+
+    <pre><code>import os
+
+class DistributedAgentRuntime:
+    def __init__(self):
+        self.pair_api = "http://localhost:8899"  # PAIR API endpoint
+        self.openrouter_api = "https://openrouter.ai/api/v1"
+
+    def infer(self, task, complexity="low", sensitive=False):
+        if sensitive:
+            # Route only to isolated device
+            return self._pair_route(
+                task, model="llama-3.2-8b",
+                device_zone="isolated"
+            )
+        elif complexity == "low":
+            # Any local device, cheapest model
+            return self._pair_route(task, model="phi-4")
+        elif complexity == "high":
+            # Best local model first
+            try:
+                return self._pair_route(
+                    task, model="nemotron-3.5-lightning",
+                    min_gpu="RTX-5090"
+                )
+            except NoDeviceAvailable:
+                # Fallback to cloud
+                return self._cloud_route(
+                    task, model="claude-opus-5"
+                )
+
+    def _pair_route(self, task, **kwargs):
+        # Calls PAIR API to route inference to available device
+        pass
+
+    def _cloud_route(self, task, model):
+        # Calls OpenRouter for cloud inference
+        pass</code></pre>
+
+    <h3>4. Add a Local Model as Fallback for Cloud Outages</h3>
+
+    <p>One of the strongest use cases for PAIR is reliability. Cloud API outages are rare but real — I have seen OpenRouter, Anthropic, and OpenAI each go down at least once in the last six months. A local PAIR cluster ensures your agents keep running even when the cloud is unreachable.</p>
+
+    <p>Design your coordinator so that cloud calls have a timeout and fallback to local inference. The quality may be lower — a local phi-4 instead of Claude Opus — but the agent continues operating. For many autonomous tasks, degraded operation is infinitely better than a stopped pipeline.</p>
+
+    <h2>Where PAIR Changes the Economics of Running Agents</h2>
+
+    <p>The most interesting implication of PAIR is economic, not technical. NVIDIA Nemotron 3.5 Lightning delivers up to 4x faster output speed compared to models in its class, with 30% faster agentic task completion. Combined with PAIR, the cost per inference on existing hardware drops to essentially zero — you are using compute cycles that were already paid for and sitting idle.</p>
+
+    <p>NVIDIA's CrowdStrike partnership provides another data point. CrowdStrike's SafeMind models, built on Nemotron, deliver higher accuracy than leading frontier models at <strong>99% lower cost</strong>. The combination of Nemotron 3.5 Lightning for speed, NeMo Switchyard for routing, and PAIR for distribution means you can achieve frontier-quality results without frontier-model pricing.</p>
+
+    <p>For a solo founder or small team running autonomous agents, this changes the math. A PAIR cluster on existing hardware plus Nemotron models for routine tasks means you reserve cloud API calls only for the 10-20% of tasks that genuinely need frontier models. Everything else runs locally, at zero marginal cost, with no data leaving your network.</p>
+
+    <h2>The Missing Piece: What PAIR Does Not Yet Handle</h2>
+
+    <p>PAIR is currently at beta stage. A few gaps worth noting:</p>
+    <ul>
+      <li><strong>No cross-network support:</strong> PAIR works on a single local network. A VPS in Hetzner's Nuremberg data center cannot join a PAIR cluster with your home PC. This limits hybrid local+cloud deployments — for that, you still need OpenRouter or a separate routing layer</li>
+      <li><strong>No model pinning:</strong> PAIR routes to any device with the requested model. If you need a specific device for specific tasks (a workstation with specialized hardware), you need to implement device tagging in your coordinator</li>
+      <li><strong>No persistent state across devices:</strong> If sub-agent A runs on Device 1 and sub-agent B runs on Device 2, they share no memory. You need an external memory layer (SQLite, vector DB) that both devices can access</li>
+    </ul>
+
+    <p>All of these are solvable at the coordinator level. My Hermes Agent stack already handles cross-network routing via OpenRouter and shared memory via SQLite. Adding PAIR for local inference distribution fills the gap I have been wanting filled since I started running multi-agent systems: affordable, private, low-latency inference at scale on existing hardware.</p>
+
+    <h2>Building Toward the Autonomous Desktop</h2>
+
+    <p>NVIDIA's IFA announcements — PAIR, NeMo Switchyard, Nemotron 3.5 Lightning, and the RTX Spark N1X launching in October — represent a coherent vision: the personal computer becomes an autonomous agent execution hub. Not a thin client calling the cloud. Not a gaming machine that runs inference as a secondary task. A dedicated platform where agents run continuously, distribute work across your devices, and escalate to the cloud only when necessary.</p>
+
+    <p>This aligns with what I have been building with Hermes Agent on my VPS. The same architectural patterns — task decomposition, tiered routing, persistent memory, typed tool interfaces — work across all scales. The difference is that with PAIR, the "runtime plane" now extends beyond a single machine into the devices you already own.</p>
+
+    <p>The industry is converging on a clear architectural standard. My previous article covered the two-plane design separating control from execution. This article extends that pattern to distributed execution across devices. The next article will cover something else entirely — the field is moving fast enough that there is always a new pattern emerging.</p>
+
+    <div class="ai-disclaimer">
+      🤖 <strong>AI-generated</strong> — This article was generated with the assistance of an autonomous AI agent (Hermes Agent by Nous Research) and reviewed by Marian Stancik before publication. <a href="/disclaimer">Full disclaimer</a>.
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="container" style="max-width:780px;margin:0 auto;padding:24px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+    <p style="margin:0;font-size:0.8rem;color:#9A8A78;">© 2026 <a href="/" style="color:#CD7F32;">Marian Stancik</a> — <a href="/" style="color:#CD7F32;">marianstancik.dev</a></p>
+    <div style="font-size:0.75rem;color:#8A7A6A;display:flex;gap:12px;">
+      <a href="/privacy" style="color:#8A7A6A;">Privacy Policy</a>
+      <a href="/privacy-sk" style="color:#8A7A6A;">Privacy Policy (SK)</a>
+      <a href="/terms" style="color:#8A7A6A;">Terms of Service</a>
+      <a href="/disclaimer" style="color:#8A7A6A;">Disclaimer</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

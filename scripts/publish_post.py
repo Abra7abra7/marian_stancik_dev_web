@@ -583,28 +583,20 @@ def main():
         json.dump(posts, f, indent=2, ensure_ascii=False)
     print(f"[+] Updated manifest: {POSTS_JSON} ({len(posts)} total posts)")
 
-    # 3. Update sitemap.xml
-    update_sitemap(slug)
-
-    # 4. Update llms.txt & llms-full.txt
-    if os.path.exists(LLMS_TXT):
-        with open(LLMS_TXT, 'r', encoding='utf-8') as f:
-            llms_content = f.read()
-        article_link = f"https://www.marianstancik.dev/{relative_url_en}"
-        if article_link not in llms_content:
-            new_item = f"\n- [{args.title}]({article_link}): {args.excerpt}\n"
-            if "## Optional" in llms_content:
-                llms_content = llms_content.replace("## Optional", f"{new_item}\n## Optional")
-            else:
-                llms_content += new_item
-            with open(LLMS_TXT, 'w', encoding='utf-8') as f:
-                f.write(llms_content)
-            print(f"[+] Updated llms.txt knowledge graph")
+    # 4. Trigger full 4-language sync
+    try:
+        from sync_site import main as run_site_sync
+        run_site_sync()
+        print("[+] Triggered automatic 4-language sync and sitemap update")
+    except Exception as e:
+        print(f"[!] Warning: Site sync failed: {e}")
 
     # 5. Instant IndexNow Ping
     published_urls = [
         f"https://www.marianstancik.dev/{relative_url_en}",
-        f"https://www.marianstancik.dev/{relative_url_sk}"
+        f"https://www.marianstancik.dev/{relative_url_sk}",
+        f"https://www.marianstancik.dev/blog/posts/de/{slug}",
+        f"https://www.marianstancik.dev/blog/posts/pl/{slug}"
     ]
     ping_search_engines(published_urls)
 
