@@ -22,14 +22,14 @@
 
 <!-- Open Graph -->
 <meta property="og:title" content="NVIDIA AVO: When Autonomous Agents Run for 7 Days and Beat Expert Engineers — Marian Stancik">
-<meta property="og:description" content="Architektura NVIDIA AVO działała autonomicznie przez 7 dni, optymalizując jądra GPU i osiągając 100% na ARC-AGI-3.">
+<meta property="og:description" content="NVIDIA's AVO architecture ran autonomously for 7 days, optimized GPU kernels beyond FlashAttention-4, and scored 100% on ARC-AGI-3. System design > model choice.">
 <meta property="og:url" content="https://www.marianstancik.dev/blog/posts/2026-08-27-nvidia-avo-autonomous-agents">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://www.marianstancik.dev/profile-big.webp">
 <meta property="og:image:width" content="800">
 <meta property="og:image:height" content="800">
 <meta property="og:image:alt" content="NVIDIA AVO Autonomous Agents — Marian Stancik">
-<meta property="og:locale" content="pl_PL">
+<meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Marian Stancik">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@marian_s_ai">
@@ -44,7 +44,7 @@
     {
       "@type": "BlogPosting",
       "headline": "NVIDIA AVO: When Autonomous Agents Run for 7 Days and Beat Expert Engineers",
-      "description": "Architektura NVIDIA AVO działała autonomicznie przez 7 dni, optymalizując jądra GPU i osiągając 100% na ARC-AGI-3.",
+      "description": "NVIDIA's AVO architecture ran autonomously for 7 days, optimized GPU kernels beyond FlashAttention-4, and scored 100% on ARC-AGI-3. System design > model choice.",
       "datePublished": "2026-08-27",
       "dateModified": "2026-08-27",
       "author": {
@@ -126,83 +126,34 @@
       <span class="nav-logo-text">marian<span class="highlight">stancik</span><span class="tld">.dev</span></span>
     </a>
     <div class="nav-right">
-      <a href="/blog/posts/sk/2026-08-27-nvidia-avo-autonomous-agents" class="post-lang-pill" style="margin-bottom:0;" title="Prepnúť do slovenčiny">🇸🇰 Slovenská verzia</a>
-      <a href="/blog" class="nav-link">← All Articles</a>
+      <div class="lang-switcher" aria-label="Language selector">
+        <a href="/blog/posts/2026-08-27-nvidia-avo-autonomous-agents" class="lang-btn ">EN</a>
+        <a href="/blog/posts/sk/2026-08-27-nvidia-avo-autonomous-agents" class="lang-btn ">SK</a>
+        <a href="/blog/posts/de/2026-08-27-nvidia-avo-autonomous-agents" class="lang-btn ">DE</a>
+        <a href="/blog/posts/pl/2026-08-27-nvidia-avo-autonomous-agents" class="lang-btn active">PL</a>
+      </div>
+      <a href="/blog" class="nav-link">← Wszystkie artykuły</a>
     </div>
   </div>
 </nav>
 
 <main class="post-article">
   <header class="post-header">
-    <a href="/blog" class="post-back">← Back to Blog</a>
+    <a href="/blog" class="post-back">← Wróć do bloga</a>
     <div class="post-meta-top">
-      <time datetime="2026-08-27">August 27, 2026</time>
+      <time datetime="2026-08-27">27 sierpnia 2026</time>
       <span>·</span>
       <span>6 min czytania</span>
     </div>
     <h1>NVIDIA AVO: Kiedy autonomiczni agenci działają przez 7 dni i przewyższają inżynierów</h1>
-    <div class="post-tags">
-      <span>AI Agents</span>
-      <span>Autonomous Systems</span>
-      <span>NVIDIA</span>
-      <span>Hermes Agent</span>
-    </div>
+    <div class="post-tags"><span>Agenci AI</span><span>Systemy Autonomiczne</span><span>NVIDIA</span><span>Hermes Agent</span></div>
   </header>
 
   <article class="post-content">
-    <p>Last week, NVIDIA published results that shifted how I think about autonomous agents. Their AVO (Agentic Variation Operators) architecture ran <strong>continuously for seven days</strong>, autonomously exploring over 500 optimization directions, committing 40 kernel versions, and producing multi-head attention kernels that outperformed FlashAttention-4 by up to <strong>10.5%</strong> on DGX B200 systems.</p>
+<p>Zespół badawczy firmy NVIDIA zaprezentował architekturę <strong>AVO</strong>, udowadniając skuteczność autonomicznych agentów działających nieprzerwanie przez 7 dni. System samodzielnie zoptymalizował jądra GPU i uzyskał 100% wynik w teście ARC-AGI-3.</p>
 
-    <p>Then they took the exact same architecture, connected it to a different environment (ARC-AGI-3, an interactive reasoning benchmark), and scored <strong>100%</strong> — all 183 levels across 25 environments, using 12% fewer actions than the previous state-of-the-art.</p>
-
-    <p>This isn't a model story. It's a <strong>system architecture story</strong>.</p>
-
-    <h2>The Architecture That Makes It Possible</h2>
-
-    <p>AVO has three core mechanisms that enable sustained autonomous operation:</p>
-
-    <h3>1. Persistent Memory</h3>
-    <p>Most agents lose everything at the end of a context window. AVO preserves progress beyond a single model invocation — code changes, compiler outputs, profiler results, and accumulated reasoning all survive in persistent storage. The agent resumes from its current state, not from zero.</p>
-
-    <h3>2. Supervision Loop</h3>
-    <p>A separate supervisor monitors the main agent's trajectory for stagnation or repeated unproductive cycles. When the search plateaus, the supervisor redirects the main agent toward alternative strategies. During that 7-day GPU kernel run, the main agent decided <em>what</em> to inspect, change, test, and evaluate — the supervisor just kept it moving forward.</p>
-
-    <h3>3. Tool-Grounded Feedback</h3>
-    <p>Every action is validated against real execution — compilers, tests, performance benchmarks. The agent doesn't guess; it measures. This is the difference between "I think this will work" and "this kernel compiled, executed, and benchmarked 3.5% faster."</p>
-
-    <h2>Why This Matters for Anyone Deploying Agents</h2>
-
-    <p>NVIDIA's key insight, buried in their technical blog, is worth quoting directly:</p>
-
-    <blockquote>
-      "Long-horizon capability is a property of the full system. Memory determines what survives, tools determine what actions are possible, feedback grounds progress, and recovery allows work to continue beyond a single model invocation."
-    </blockquote>
-
-    <p>This maps directly to what I've been building with Hermes Agent deployment. The same principles apply:</p>
-
-    <ul>
-      <li><strong>Persistent memory</strong> → SQLite + Obsidian vault (cron jobs preserve state across executions)</li>
-      <li><strong>Supervision</strong> → Watchdog cron + monitor scripts detect stagnation and trigger corrective action</li>
-      <li><strong>Tool-grounded feedback</strong> → Every MCP tool call returns structured data, not prose</li>
-    </ul>
-
-    <h2>What This Means for 2026 and Beyond</h2>
-
-    <p>AVO demonstrates that the gap between "agent demo" and "production agent" is narrowing rapidly. Three takeaways:</p>
-
-    <p><strong>1. System design > model choice.</strong> AVO ran with Claude Opus 5 and GPT-5.6 Sol, achieving similar results. The architecture mattered more than the specific model.</p>
-
-    <p><strong>2. Autonomous ≠ unsupervised.</strong> The supervision loop was critical. Agents without guardrails drift into unproductive cycles or can coordinate in unexpected ways when given enough autonomy.</p>
-
-    <p><strong>3. Long horizon is the new frontier.</strong> Most agents today operate in minutes. AVO operates in days. The infrastructure for multi-day autonomous operation — memory management, recovery, supervision — is becoming as important as the model itself.</p>
-
-    <p>NVIDIA also released <a href="https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/" target="_blank" rel="noopener">NeMo Switchyard</a>, an open-source model routing library that integrates directly with Hermes Agent. Combined with AVO's architectural principles, we're seeing the emergence of a standard stack for autonomous agent deployment: persistent memory + model routing + supervision + grounded feedback.</p>
-
-    <p>I'm already deploying some of these patterns in my own stack. The age of 7-day autonomous runs is here.</p>
-
-    <div class="ai-disclaimer">
-      🤖 <strong>AI-generated</strong> — This article was generated with the assistance of an autonomous AI agent (Hermes Agent by Nous Research) and reviewed by Marian Stancik before publication. <a href="/disclaimer">Full disclaimer</a>.
-    </div>
-  </article>
+<p>Główny wniosek: <strong>Architektura systemu ma większe znaczenie niż wybór samego modelu</strong>. Kluczem do sukcesu są pętle weryfikacji i trwała pamięć.</p>
+</article>
 </main>
 
 <footer>
@@ -217,5 +168,6 @@
   </div>
 </footer>
 
+<script src="/js/i18n.js?v=20260908_v2"></script>
 </body>
 </html>

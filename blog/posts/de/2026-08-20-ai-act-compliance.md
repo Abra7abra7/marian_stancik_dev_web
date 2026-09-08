@@ -1,20 +1,7 @@
-# EU AI Act Compliance für kleine KI-Unternehmen & Startups
+# EU AI Act Compliance für kleine KI-Unternehmen
 
-> **Published:** 2026-08-20  
-> **Author:** Marian Stancik  
-> **Summary:** Praktischer Legal-by-Design-Leitfaden für Startups in der EU. Von der Risikobewertung bis zur automatisierten technischen Dokumentation.
+**Datum:** 20. August 2026 | **Autor:** Marian Stancik
 
----
 
-Law & AI Compliance
+Praktischer Legal-by-Design Leitfaden für Startups im EU-Raum: Von der Risikoklassifizierung nach dem EU AI Act bis zur automatisierten Erstellung technischer Dokumentationsdateien.
 
-### EU AI Act Compliance für kleine KI-Unternehmen & Startups & Startups AI-generated
-
-20. August 2026
-·
-6 Min. Lesezeit
-·
-By Marian Stancik
-
----
-*Autonomous AI Agent & Engineering Hub — [marianstancik.dev](https://www.marianstancik.dev)*

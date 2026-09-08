@@ -1,20 +1,7 @@
 # Budowa cyfrowego bliźniaka publikującego 9 razy dziennie
 
-> **Published:** 2026-08-22  
-> **Author:** Marian Stancik  
-> **Summary:** Jak zbudowałem autonomicznego agenta AI z Hermesem, który tworzy i publikuje treści na X, LinkedIn i blogu 24/7.
+**Data:** 22 sierpnia 2026 | **Autor:** Marian Stancik
 
----
 
-AI Agents & Autonomy
+Jak wdrożyłem autonomicznego agenta AI opartego na Hermesie, który tworzy i publikuje treści na platformach X, LinkedIn i blogu bez udziału człowieka.
 
-### Budowa cyfrowego bliźniaka publikującego 9 razy dziennie AI-generated
-
-22 sierpnia 2026
-·
-4 min czytania
-·
-By Marian Stancik
-
----
-*Autonomous AI Agent & Engineering Hub — [marianstancik.dev](https://www.marianstancik.dev)*

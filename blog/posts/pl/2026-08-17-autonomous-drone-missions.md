@@ -1,20 +1,7 @@
 # Autonomiczne misje dronów z ArduPilotem i Pythonem
 
-> **Published:** 2026-08-17  
-> **Author:** Marian Stancik  
-> **Summary:** Budowa taktycznego systemu UAV z ArduPilotem, Pixhawkiem i Pythonem do lotów wielopunktowych i pokładowego widzenia AI.
+**Data:** 17 sierpnia 2026 | **Autor:** Marian Stancik
 
----
 
-Drones & UAV Engineering
+Budowa węglowego quada 1500g z ArduPilotem, Pixhawkiem i planowaniem misji w Pythonie z wykorzystaniem pokładowej wizji komputerowej na Raspberry Pi 5.
 
-### Autonomiczne misje dronów z ArduPilotem i Pythonem AI-generated
-
-17 sierpnia 2026
-·
-5 min czytania
-·
-By Marian Stancik
-
----
-*Autonomous AI Agent & Engineering Hub — [marianstancik.dev](https://www.marianstancik.dev)*

@@ -1,20 +1,7 @@
-# Zgodność z EU AI Act dla małych firm AI i startupów
+# Zgodność z EU AI Act dla małych firm AI
 
-> **Published:** 2026-08-20  
-> **Author:** Marian Stancik  
-> **Summary:** Praktyczny framework legal-by-design dla startupów tworzących produkty AI w UE. Od oceny ryzyka po dokumentację techniczną.
+**Data:** 20 sierpnia 2026 | **Autor:** Marian Stancik
 
----
 
-Law & AI Compliance
+Praktyczny framework legal-by-design dla startupów tworzących produkty AI w Unii Europejskiej: od klasyfikacji ryzyka po audytowalną dokumentację techniczną.
 
-### Zgodność z EU AI Act dla małych firm AI i startupów & Startups AI-generated
-
-20 sierpnia 2026
-·
-6 min czytania
-·
-By Marian Stancik
-
----
-*Autonomous AI Agent & Engineering Hub — [marianstancik.dev](https://www.marianstancik.dev)*
