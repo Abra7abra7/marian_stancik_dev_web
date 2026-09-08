@@ -1,6 +1,7 @@
 # marian-stancik-web — Personal Brand Website & Autonomous Engineering Hub
 
 **Owner:** Marian Stancik  
+**Version:** `v1.0.0` (Production Release)  
 **Domain:** https://marianstancik.dev (Production on Vercel)  
 **Apex Domain Support:** https://marianstancik.dev & https://www.marianstancik.dev  
 **Repo:** https://github.com/Abra7abra7/marian_stancik_dev_web  
@@ -40,44 +41,96 @@ The platform is engineered at the convergence of three foundational pillars:
 
 ---
 
-## 3. Centralized Configuration Engine (`site.config.json` & `locales/`)
+## 3. Centralized Configuration & 4-Language i18n Matrix (`EN`, `SK`, `DE`, `PL`)
 
-All site metadata, product definitions, Stripe pricing, social handles, and multilingual dictionaries are managed centrally from a **Single Source of Truth**:
+All site metadata, product definitions, Stripe pricing, social handles, and multilingual dictionaries are managed centrally:
 
-- **Central Config:** [`site.config.json`](file:///site.config.json)
-  - `site`: Base domain, contact email, default language, active language matrix (`en`, `sk`, `de`, `pl`).
-  - `profile`: Identity, localized roles, taglines, social channels, and geographic coordinates.
-  - `products`: 4 core products (AI GEO Audit €150, Web Readiness Scan €200, Full Web Audit €300, Custom Autonomous Agent €500 deposit) with Stripe test and live links.
-- **Modular Locales:** [`locales/`](file:///locales/)
-  - `locales/en.json` (English — primary international)
-  - `locales/sk.json` (Slovak — native domestic)
-  - `locales/de.json` (German — DACH market)
-  - `locales/pl.json` (Polish — CEE market)
-- **Synchronization Engine:** [`scripts/sync_site.py`](file:///scripts/sync_site.py) reads the configuration, syncs markdown alternates, rebuilds `llms.txt`, `llms-full.txt`, and generates `sitemap.xml`.
+```
+├── site.config.json            # Central Single Source of Truth
+├── locales/
+│   ├── en.json                 # English (Primary International)
+│   ├── sk.json                 # Slovak (Native Domestic)
+│   ├── de.json                 # German (DACH Market)
+│   └── pl.json                 # Polish (CEE Market)
+└── js/i18n.js                  # Zero-build High-Performance i18n Client Engine
+```
 
----
-
-## 4. Site Architecture & Page Topology
-
-**Navigation:** Home | About | Products | Blog | Contact.  
-(Drones marked as hobby engineering project. Expertise and Skills accessible via footer/About).
-
-| Page | URL | Purpose & Core Content |
-|:-----|:----|:-----------------------|
-| **Home** | `/` (`index.html`) | Hero: "I build AI agents that run your processes" + 4 products + dynamic blog preview + lead capture |
-| **About** | `/about` (`about.html`) | Bio: AI agent developer + Hermes Autonomous Agent Runtime Cockpit widget + 4-layer stack timeline |
-| **Products** | `/services` (`services.html`) | 4 products with instant Stripe checkout & Schema.org `Service`/`Offer` JSON-LD |
-| **Products SK** | `/services-sk` (`services-sk.html`) | Slovak localized products page with Stripe checkout modal & direct invoice ordering |
-| **Blog** | `/blog` (`blog/index.html`) | Static blog archive + dynamic JSON client fetching + real-time language switcher |
-| **Blog Posts (EN)** | `/blog/posts/*.html` | 6 standalone technical articles + synchronized `.md` markdown alternates |
-| **Blog Posts (SK)** | `/blog/posts/sk/*.html` | 6 synchronized Slovak translations + bidirectional hreflang links + `.md` alternates |
-| **Drones** | `/drones` (`drones.html`) | Hobby project — build specs + hobby disclaimer. Not a commercial product. |
-| **Contact** | `/contact` (`contact.html`) | Lead capture + social links + order inquiry handoff |
-| **Privacy / Terms** | `/privacy`, `/terms`, `/disclaimer` | GDPR, Terms of Service, and compliance documentation |
+### i18n DOM Mapping Conventions
+1. **Element Mapping:** Any element with `id="KEY"` or `data-i18n="KEY"` automatically receives text or HTML from the active locale dictionary.
+2. **Protected Containers:** Structural layout tags (`SECTION`, `MAIN`, `NAV`, `HEADER`, `FOOTER`, `BODY`, `HTML`) without explicit `data-i18n` are protected from accidental text overwrites.
+3. **Safe Visibility (`.fade-in`):** `.fade-in` elements default to `opacity: 1; transform: translateY(0);` in CSS with progressive enhancement via `initScrollObserver()` so that content is never hidden if JS is delayed.
+4. **Client-Side Event Bus:** Language switching triggers a `languageChanged` custom DOM event and stores preference in `localStorage.getItem('ms_lang')`.
 
 ---
 
-## 5. Design System & Tokens (`css/main.css`)
+## 4. Repository Structure & File Topology
+
+```
+.
+├── index.html                  # Homepage (Hero, Products, About, Dynamic Blog, FAQ, Lead Form)
+├── about.html                  # About Marian Stancik + Hermes Runtime Cockpit + Evolution Timeline
+├── services.html               # 4 AI Products & Audits (EN) + Stripe Checkout Modals
+├── services-sk.html            # 4 AI Products & Audits (SK)
+├── skills.html                 # AI & Engineering Capabilities
+├── expertise.html              # Core Focus & Domain Architecture
+├── drones.html                 # Tactical UAV & Edge Robotics (Hobby Project)
+├── contact.html                # Contact Hub & Direct Booking Inquiry
+├── privacy.html / privacy-sk   # GDPR & Data Privacy Documentation
+├── terms.html / disclaimer.html # Terms of Service & EU AI Act Art. 50 Disclaimers
+│
+├── api/
+│   └── subscribe.js            # Serverless Lead Capture -> AgentMail MCP JSON-RPC 2.0
+│
+├── blog/
+│   ├── index.html              # Blog Archive with Instant 4-Language Switcher
+│   ├── posts.json              # Synchronized Article Metadata in 4 Languages
+│   └── posts/
+│       ├── *.html & *.md       # Standalone English Articles + Markdown Alternates
+│       ├── sk/*.html & *.md    # Standalone Slovak Articles + Markdown Alternates
+│       ├── de/*.html & *.md    # Standalone German Articles + Markdown Alternates
+│       └── pl/*.html & *.md    # Standalone Polish Articles + Markdown Alternates
+│
+├── css/
+│   └── main.css                # Bronze Neural Design Tokens, Responsive Grid & Components
+├── js/
+│   ├── i18n.js                 # Centralized 4-Language Translation & DOM Switcher
+│   └── three-bg.js             # High-Performance Vanilla Three.js Neural Web Background
+│
+└── scripts/
+    ├── publish_post.py         # Autonomous Blog Generator (4 Languages + IndexNow + Sitemap)
+    ├── sync_site.py            # Site Config Sync Engine (sitemap.xml, llms.txt, alternates)
+    ├── fix_i18n_complete.py    # i18n Engine & HTML Sync Rebuild Script
+    ├── verify_site.py          # 8-Tier Automated Production Verification Suite
+    └── test_all_channels.py    # Live API & Channel Integration Test Script
+```
+
+---
+
+## 5. Autonomous Blog Publishing Pipeline (`scripts/publish_post.py`)
+
+The automated pipeline generates production-ready articles across all 4 active languages:
+
+```mermaid
+flowchart TD
+    Idea[Topic & Brief] --> Engine[publish_post.py Engine]
+    Engine --> EN[blog/posts/{slug}.html + .md]
+    Engine --> SK[blog/posts/sk/{slug}.html + .md]
+    Engine --> DE[blog/posts/de/{slug}.html + .md]
+    Engine --> PL[blog/posts/pl/{slug}.html + .md]
+    Engine --> Meta[Update blog/posts.json]
+    Engine --> Sitemap[Rebuild sitemap.xml & llms.txt]
+    Engine --> IndexNow[Ping IndexNow API: Bing / Yandex / Seznam]
+```
+
+### CLI Usage:
+```bash
+# Publish a new article in all 4 languages simultaneously:
+python scripts/publish_post.py "Article Title" --category "AI Agents" --tags "Agents,MCP,Automation"
+```
+
+---
+
+## 6. Design System & Tokens (`css/main.css`)
 
 All visual interfaces adhere strictly to the design system tokens defined in [`css/main.css`](file:///css/main.css):
 
@@ -98,37 +151,25 @@ All visual interfaces adhere strictly to the design system tokens defined in [`c
 }
 ```
 
-### Spacing & Layout Tokens
+### Spacing & Accessibility Tokens
 - Spacing: `--space-xs: 4px;` | `--space-sm: 8px;` | `--space-md: 16px;` | `--space-lg: 24px;` | `--space-xl: 48px;` | `--space-2xl: 90px;`
 - Radius: `--radius-sm: 6px;` | `--radius-md: 12px;` | `--radius-lg: 18px;` | `--radius-full: 9999px;`
 - Accessibility: `--min-tap-target: 44px;` for all mobile buttons and interactive anchors.
 
 ---
 
-## 6. Generative Engine Optimization (GEO) & LLMO Blueprint
+## 7. Generative Engine Optimization (GEO) & LLMO Blueprint
 
 To guarantee instant, authoritative discovery and citations across AI engines (**Perplexity, ChatGPT Search, Claude, Google SGE, Grok**):
 
-### 1. `llms.txt` & `llms-full.txt` Knowledge Graphs (llmstxt.org v2 Standard)
-* Root files strictly following the [llmstxt.org](https://llmstxt.org/) specification.
-* Every single resource is a valid Markdown link: `- [Title](https://domain/path): Description`.
-* Contains all 6 technical articles, core pages, and detailed product/service descriptions.
-
-### 2. Dual-Language Markdown Alternates (`.md` Endpoints)
-* Every HTML page and blog post provides a clean markdown version (`index.html.md`, `blog/posts/*.md`, `blog/posts/sk/*.md`).
-* Advertised via HTTP Link header: `Link: </blog/posts/$1.md>; rel="alternate"; type="text/markdown"` and `Link: </llms.txt>; rel="describedby"`.
-
-### 3. Comprehensive AI Crawler Access in `robots.txt`
-* Explicitly white-lists all production and experimental AI search spiders (GPTBot, ChatGPT-User, ClaudeBot, anthropic-ai, PerplexityBot, Google-Extended, Applebot-Extended, CCBot, Bravebot, Meta-ExternalAgent, Cohere-ai, Diffbot, OAI-SearchBot).
-
-### 4. Schema.org JSON-LD Hierarchy
-* **`Person` & `Organization` Schemas:** Rich `sameAs` array, `knowsAbout`, `jobTitle`, `image`.
-* **`Service` & `Offer` Schemas:** Embedded on `/services` and `/services-sk` with precise EUR pricing (€150, €200, €300, €500).
-* **`FAQPage` Schema:** Structured Question/Answer pairs embedded directly on key pages.
+1. **`llms.txt` & `llms-full.txt` (llmstxt.org v2 Standard):** Clean Markdown links with summaries of all articles, products, and pages.
+2. **Dual-Language Markdown Alternates (`.md` Endpoints):** Every HTML page and blog post provides a clean markdown version (`*.md`) advertised via HTTP Link headers.
+3. **AI Crawler White-Listing (`robots.txt`):** Explicitly grants access to GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended, CCBot, Bravebot, Meta-ExternalAgent, Cohere-ai, Diffbot, and OAI-SearchBot.
+4. **Schema.org JSON-LD Hierarchy:** Rich `@graph` containing `Person`, `Organization`, `WebSite`, `Service`, `Offer`, and `FAQPage` schemas with precise pricing (€199, €200, €300, €500).
 
 ---
 
-## 7. Backend Architecture & Security (`/api/subscribe`)
+## 8. Backend Architecture & Security (`/api/subscribe`)
 
 The serverless API is deployed on Vercel and connects directly to **AgentMail MCP** for asynchronous processing:
 
@@ -150,24 +191,27 @@ flowchart LR
 
 ---
 
-## 8. Automated Verification Matrix
+## 9. Automated Verification Suite (`scripts/verify_site.py`)
 
-Run the 7-tier verification script before any deployment:
+Run the 8-tier verification script before any deployment:
 ```bash
 python scripts/verify_site.py
 ```
 
 ### Test Tiers
-1. **L0 — Syntax & Modules:** `node --check js/i18n.js` and `node --check js/three-bg.js`.
+1. **L0 — JS Syntax Check:** `node --check js/i18n.js` and `node --check js/three-bg.js`.
 2. **L1 — Security & Anonymization Sweep:** Regex scan ensuring zero confidential company names.
-3. **L2 — HTML & Link Integrity:** Validates root-relative links, OpenGraph tags, and JSON-LD syntax across all pages.
-4. **L3 — Design Token Adherence:** Checks `:root` token presence in `css/main.css`.
+3. **L2 — HTML Meta & Link Integrity:** Validates root-relative links, OpenGraph tags, and JSON-LD syntax across all pages.
+4. **L3 — Design Tokens & CSS Validation:** Checks `:root` token presence in `css/main.css`.
 5. **L4 — AI Discovery & GEO:** Validates `<link rel="alternate" href="/llms.txt">` and AI crawler permissions in `robots.txt`.
 6. **L5 — API Health Check:** Validates live HTTP 200 response from `/api/subscribe`.
 7. **L6 — Config, Locales & Markdown Integrity:** Validates `site.config.json`, all 4 `locales/*.json` files, and guarantees zero missing `.md` blog alternates.
+8. **L7 — 4-Language Parity Check:** Verifies 100% dictionary key parity across `en.json`, `sk.json`, `de.json`, and `pl.json`.
 
-### Live Channel Integration Test
-To run a live test of all email channels, lead capture, and Stripe payment links:
-```bash
-python scripts/test_all_channels.py
-```
+---
+
+## 10. GitOps & Release Procedures
+
+- **Branching Model:** Trunk-based GitOps on `main`.
+- **Production Tag:** `v1.0.0`
+- **Deployment Trigger:** Every push to `main` triggers automatic Vercel build & edge deployment.
