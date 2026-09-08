@@ -221,29 +221,7 @@
   </div>
 </footer>
 
-<script>
-const i18n = {
-  en: { home: '← Home', badge: '✦ Engineering & Thought Log', title: 'Articles & <span>Insights</span>', subtitle: 'Autonomous AI agents, legal-by-design frameworks (AI Act & GDPR), and UAV engineering.' },
-  sk: { home: '← Domov', badge: '✦ Technický & Odborný Blog', title: 'Články & <span>Poznatky</span>', subtitle: 'Autonómni AI agenti, legal-by-design rámce (AI Act & GDPR) a inžinierstvo dronov.' }
-};
-let currentLang = localStorage.getItem('ms_lang') || 'en';
 
-function setBlogLang(lang) {
-  currentLang = lang;
-  localStorage.setItem('ms_lang', lang);
-  const dict = i18n[lang];
-  document.getElementById('blogHomeLink').textContent = dict.home;
-  document.getElementById('blogBadge').innerHTML = dict.badge;
-  document.getElementById('blogTitle').innerHTML = dict.title;
-  document.getElementById('blogSubtitle').textContent = dict.subtitle;
-  document.getElementById('blogBtnEn').classList.toggle('active', lang === 'en');
-  document.getElementById('blogBtnSk').classList.toggle('active', lang === 'sk');
-  document.getElementById('postsEn').style.display = lang === 'en' ? 'block' : 'none';
-  document.getElementById('postsSk').style.display = lang === 'sk' ? 'block' : 'none';
-  document.documentElement.lang = lang;
-}
-
-document.addEventListener('DOMContentLoaded', () => { setBlogLang(currentLang); });
-</script>
+<script src="/js/i18n.js?v=20260908_v2"></script>
 </body>
 </html>

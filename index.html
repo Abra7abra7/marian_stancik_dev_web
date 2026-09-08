@@ -252,8 +252,8 @@
       </span>
     </div>
     <div class="hero-links">
-      <a href="/services" class="btn-primary hero-cta">✦ See Products</a>
-      <a href="/contact">Start a Conversation →</a>
+      <a href="/services" class="btn-primary hero-cta" id="heroCta">✦ See Products</a>
+      <a href="/contact" id="heroContact">Start a Conversation →</a>
     </div>
     <div class="glow-line"></div>
     <div class="scroll-indicator">
@@ -365,31 +365,31 @@
 <!-- === FAQ === -->
 <section id="faq" aria-label="Frequently Asked Questions">
   <div class="container">
-    <div class="section-label fade-in">✦ FAQ</div>
-    <h2 class="fade-in">Frequently Asked Questions</h2>
+    <div class="section-label fade-in" id="faqLabel">✦ FAQ</div>
+    <h2 class="fade-in" id="faqHeading">Frequently Asked Questions</h2>
 
     <div class="faq-list fade-in">
       <details class="faq-item" open>
-        <summary class="faq-question"><span>Who is Marian Stancik?</span><div class="faq-icon">+</div></summary>
-        <div class="faq-answer">
-          <strong>Marian Stancik</strong> builds autonomous AI agents for creative founders and businesses. He specializes in custom AI agent development, AI web audits (GEO and technical readiness), and multi-agent orchestration using the Hermes Agent framework. He also studies law at PF UK and builds drones as a hobby.
+        <summary class="faq-question"><span id="faq1q">Who is Marian Stancik?</span><div class="faq-icon">+</div></summary>
+        <div class="faq-answer" id="faq1a">
+          <strong>Marian Stancik</strong> builds autonomous AI agents for creative founders and businesses. He specializes in custom AI agent development, AI web audits (GEO and technical readiness), and multi-agent orchestration using the Hermes Agent framework. His law studies inform regulatory awareness for building regulatory-ready systems. Hardware engineering is a hobby that demonstrates edge AI skills.
         </div>
       </details>
       <details class="faq-item">
-        <summary class="faq-question"><span>What does an AI GEO Audit check?</span><div class="faq-icon">+</div></summary>
-        <div class="faq-answer">
+        <summary class="faq-question"><span id="faq2q">What does an AI GEO Audit check?</span><div class="faq-icon">+</div></summary>
+        <div class="faq-answer" id="faq2a">
           An AI GEO Audit checks if your website is visible to AI search engines like Perplexity, ChatGPT Search, Claude, and Google SGE. It verifies <strong>llms.txt</strong>, <strong>robots.txt</strong>, <strong>JSON-LD</strong> structured data, <strong>OpenGraph</strong> tags, <strong>hreflang</strong>, page speed, and overall AI discoverability. <strong>€199</strong> — one-time audit, report in 48 hours.
         </div>
       </details>
       <details class="faq-item">
-        <summary class="faq-question"><span>What is the AI Web Readiness Scan?</span><div class="faq-icon">+</div></summary>
-        <div class="faq-answer">
+        <summary class="faq-question"><span id="faq3q">What is the AI Web Readiness Scan?</span><div class="faq-icon">+</div></summary>
+        <div class="faq-answer" id="faq3a">
           The AI Web Readiness Scan is a <strong>technical check by an AI agent</strong> that verifies whether your website has the required documents and structures — Privacy Policy, GDPR consent, Terms of Service, Disclaimer, AI Act disclosure, and cookie compliance. <strong>This is not legal advice</strong> — just a technical checklist. <strong>€200</strong> — one-time scan, report in 48 hours.
         </div>
       </details>
       <details class="faq-item">
-        <summary class="faq-question"><span>Does Marian provide legal advice?</span><div class="faq-icon">+</div></summary>
-        <div class="faq-answer">
+        <summary class="faq-question"><span id="faq4q">Does Marian provide legal advice?</span><div class="faq-icon">+</div></summary>
+        <div class="faq-answer" id="faq4a">
           <strong>No.</strong> Marian studies law, he is not a lawyer. He does not provide legal advice, legal services, or compliance consulting. His AI agents perform <strong>technical checks only</strong> — they verify whether documents and structures exist, not whether they are legally correct. Clients must consult a qualified lawyer for legal matters.
         </div>
       </details>
@@ -411,7 +411,7 @@
       <input type="hidden" name="gdpr_consent" value="1">
       <label style="display:flex;align-items:center;gap:8px;font-size:0.75rem;color:#9A8A78;margin:8px 0;">
         <input type="checkbox" name="gdpr_consent_check" required aria-label="GDPR consent">
-        <span>I agree to the <a href="/privacy" style="color:#CD7F32;text-decoration:underline;">Privacy Policy</a> and consent to processing my email for newsletter updates.</span>
+        <span id="leadConsentText">I agree to the <a href="/privacy" style="color:#CD7F32;text-decoration:underline;">Privacy Policy</a> and consent to processing my email for newsletter updates.</span>
       </label>
       <button type="submit" id="subscribeBtn">Subscribe</button>
     </form>
@@ -519,6 +519,6 @@
 </div>
 
 <script type="module" src="/js/three-bg.js"></script>
-<script src="/js/i18n.js"></script>
+<script src="/js/i18n.js?v=20260908_v2"></script>
 </body>
 </html>
