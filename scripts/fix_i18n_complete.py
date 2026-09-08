@@ -856,11 +856,6 @@ TRANSLATIONS["sk"] = {
     "fCol3Title": "Kontakt",
     "fNavHome": "Domov",
     "fNavAbout": "O mne",
-    "fNavExp": "Odbornosť",
-    "fNavProj": "Projekty",
-    "fNavConn": "Kontakt",
-    "fNavBlog": "Blog",
-    "fNavSkills": "Zručnosti",
     "fNavServices": "Produkty",
     "fNavProducts": "Produkty",
     "fMotto": "Stavaj lepšie. Zostaň v súlade so zákonom.",
@@ -869,7 +864,7 @@ TRANSLATIONS["sk"] = {
 }
 
 # Generate js/i18n.js
-js_content = f"""// Marian Stancik Personal Brand — Centralized Multilingual Engine (EN, SK, DE, PL)
+js_content = f"""// Marian Stancik Personal Brand — Centralized Multilingual Engine (EN, SK, DE, PL) v5
 // Zero-build, Lighthouse 100, Instant DOM Switching
 
 const translations = {json.dumps(TRANSLATIONS, indent=2, ensure_ascii=False)};
@@ -902,7 +897,7 @@ window.currentLang = currentLang;
 function applyTranslations() {{
   const d = translations[currentLang] || translations.en;
   
-  // Update button active classes across any lang switcher
+  // 1. Update button active classes across any lang switcher
   const langButtons = {{
     'en': document.querySelectorAll('#btnEn, .btn-lang-en, [data-lang-btn="en"]'),
     'sk': document.querySelectorAll('#btnSk, .btn-lang-sk, [data-lang-btn="sk"]'),
@@ -917,6 +912,18 @@ function applyTranslations() {{
     }});
   }});
 
+  // 2. Instant blog index pre-rendered post group switcher
+  const enGroup = document.getElementById('postsEn');
+  const skGroup = document.getElementById('postsSk');
+  const deGroup = document.getElementById('postsDe');
+  const plGroup = document.getElementById('postsPl');
+  if (enGroup && skGroup && deGroup && plGroup) {{
+    enGroup.style.display = currentLang === 'en' ? 'block' : 'none';
+    skGroup.style.display = currentLang === 'sk' ? 'block' : 'none';
+    deGroup.style.display = currentLang === 'de' ? 'block' : 'none';
+    plGroup.style.display = currentLang === 'pl' ? 'block' : 'none';
+  }}
+
   document.documentElement.lang = currentLang;
   if (d.docTitle) document.title = d.docTitle;
   
@@ -929,7 +936,7 @@ function applyTranslations() {{
   const ogDescEl = document.querySelector('meta[property="og:description"]');
   if (ogDescEl && d.ogDesc) ogDescEl.setAttribute('content', d.ogDesc);
 
-  // Generic Update: any element with data-i18n matching key
+  // 3. Generic Update: any element with data-i18n matching key
   document.querySelectorAll('[data-i18n]').forEach(el => {{
     const key = el.getAttribute('data-i18n');
     if (d[key] !== undefined) {{
@@ -942,11 +949,17 @@ function applyTranslations() {{
     }}
   }});
 
-  // Generic Update: any element with ID matching key in dictionary
+  // 4. Protected Layout Containers List
+  const PROTECTED_TAGS = ['SECTION', 'MAIN', 'NAV', 'HEADER', 'FOOTER', 'BODY', 'HTML'];
+
+  // Generic Update: any element with ID matching key in dictionary (skipping structural containers)
   Object.keys(d).forEach(key => {{
     const val = d[key];
     const el = document.getElementById(key);
     if (el) {{
+      if (PROTECTED_TAGS.includes(el.tagName) && !el.hasAttribute('data-i18n')) {{
+        return;
+      }}
       if (typeof val === 'string' && val.includes('<') && val.includes('>')) {{
         el.innerHTML = val;
       }} else {{
@@ -1001,6 +1014,17 @@ async function loadDynamicPostsHome() {{
 }}
 
 async function renderBlogIndexPosts() {{
+  const enGroup = document.getElementById('postsEn');
+  const skGroup = document.getElementById('postsSk');
+  const deGroup = document.getElementById('postsDe');
+  const plGroup = document.getElementById('postsPl');
+  if (enGroup && skGroup && deGroup && plGroup) {{
+    enGroup.style.display = currentLang === 'en' ? 'block' : 'none';
+    skGroup.style.display = currentLang === 'sk' ? 'block' : 'none';
+    deGroup.style.display = currentLang === 'de' ? 'block' : 'none';
+    plGroup.style.display = currentLang === 'pl' ? 'block' : 'none';
+    return;
+  }}
   const container = document.getElementById('postContainer');
   if (!container) return;
   try {{
@@ -1220,8 +1244,8 @@ with open(os.path.join(BASE_DIR, 'index.html'), 'w', encoding='utf-8') as f:
     f.write(html)
 print("[+] Successfully updated index.html IDs")
 
-# Update all HTML files with cache-busted <script src="/js/i18n.js?v=20260908_v2">
-CACHE_BUST_SCRIPT = '<script src="/js/i18n.js?v=20260908_v2"></script>'
+# Update all HTML files with cache-busted <script src="/js/i18n.js?v=20260908_v5">
+CACHE_BUST_SCRIPT = '<script src="/js/i18n.js?v=20260908_v5"></script>'
 
 for root, dirs, files in os.walk(BASE_DIR):
     if '.git' in root or '.system_generated' in root:
