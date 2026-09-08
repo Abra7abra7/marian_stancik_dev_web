@@ -1004,26 +1004,56 @@ async function renderBlogIndexPosts() {
   } catch(e){}
 }
 
+// Scroll / Fade-in Observer
+function initScrollObserver() {
+  const elements = document.querySelectorAll('.fade-in');
+  elements.forEach(el => el.classList.add('visible'));
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
+
+    elements.forEach(el => observer.observe(el));
+
+    if (document.body) {
+      const mutObs = new MutationObserver(() => {
+        document.querySelectorAll('.fade-in:not(.visible)').forEach(el => {
+          el.classList.add('visible');
+          observer.observe(el);
+        });
+      });
+      mutObs.observe(document.body, { childList: true, subtree: true });
+    }
+  }
+}
+
 // Initialize
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
+    initScrollObserver();
     applyTranslations();
     if ('requestIdleCallback' in window) {
       requestIdleCallback(loadDynamicPostsHome);
       requestIdleCallback(renderBlogIndexPosts);
     } else {
-      setTimeout(loadDynamicPostsHome, 100);
-      setTimeout(renderBlogIndexPosts, 100);
+      setTimeout(loadDynamicPostsHome, 50);
+      setTimeout(renderBlogIndexPosts, 50);
     }
   });
 } else {
+  initScrollObserver();
   applyTranslations();
   if ('requestIdleCallback' in window) {
     requestIdleCallback(loadDynamicPostsHome);
     requestIdleCallback(renderBlogIndexPosts);
   } else {
-    setTimeout(loadDynamicPostsHome, 100);
-    setTimeout(renderBlogIndexPosts, 100);
+    setTimeout(loadDynamicPostsHome, 50);
+    setTimeout(renderBlogIndexPosts, 50);
   }
 }
 

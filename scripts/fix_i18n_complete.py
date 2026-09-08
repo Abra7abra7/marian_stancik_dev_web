@@ -1077,26 +1077,56 @@ async function renderBlogIndexPosts() {{
   }} catch(e){{}}
 }}
 
+// Scroll / Fade-in Observer
+function initScrollObserver() {{
+  const elements = document.querySelectorAll('.fade-in');
+  elements.forEach(el => el.classList.add('visible'));
+
+  if ('IntersectionObserver' in window) {{
+    const observer = new IntersectionObserver((entries) => {{
+      entries.forEach(entry => {{
+        if (entry.isIntersecting) {{
+          entry.target.classList.add('visible');
+        }}
+      }});
+    }}, {{ threshold: 0.05, rootMargin: '0px 0px 50px 0px' }});
+
+    elements.forEach(el => observer.observe(el));
+
+    if (document.body) {{
+      const mutObs = new MutationObserver(() => {{
+        document.querySelectorAll('.fade-in:not(.visible)').forEach(el => {{
+          el.classList.add('visible');
+          observer.observe(el);
+        }});
+      }});
+      mutObs.observe(document.body, {{ childList: true, subtree: true }});
+    }}
+  }}
+}}
+
 // Initialize
 if (document.readyState === 'loading') {{
   document.addEventListener('DOMContentLoaded', () => {{
+    initScrollObserver();
     applyTranslations();
     if ('requestIdleCallback' in window) {{
       requestIdleCallback(loadDynamicPostsHome);
       requestIdleCallback(renderBlogIndexPosts);
     }} else {{
-      setTimeout(loadDynamicPostsHome, 100);
-      setTimeout(renderBlogIndexPosts, 100);
+      setTimeout(loadDynamicPostsHome, 50);
+      setTimeout(renderBlogIndexPosts, 50);
     }}
   }});
 }} else {{
+  initScrollObserver();
   applyTranslations();
   if ('requestIdleCallback' in window) {{
     requestIdleCallback(loadDynamicPostsHome);
     requestIdleCallback(renderBlogIndexPosts);
   }} else {{
-    setTimeout(loadDynamicPostsHome, 100);
-    setTimeout(renderBlogIndexPosts, 100);
+    setTimeout(loadDynamicPostsHome, 50);
+    setTimeout(renderBlogIndexPosts, 50);
   }}
 }}
 
@@ -1244,8 +1274,8 @@ with open(os.path.join(BASE_DIR, 'index.html'), 'w', encoding='utf-8') as f:
     f.write(html)
 print("[+] Successfully updated index.html IDs")
 
-# Update all HTML files with cache-busted <script src="/js/i18n.js?v=20260908_v5">
-CACHE_BUST_SCRIPT = '<script src="/js/i18n.js?v=20260908_v5"></script>'
+# Update all HTML files with cache-busted <script src="/js/i18n.js?v=20260908_v6">
+CACHE_BUST_SCRIPT = '<script src="/js/i18n.js?v=20260908_v6"></script>'
 
 for root, dirs, files in os.walk(BASE_DIR):
     if '.git' in root or '.system_generated' in root:
