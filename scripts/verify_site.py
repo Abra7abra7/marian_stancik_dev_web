@@ -164,6 +164,31 @@ def main():
     if cfg_ok:
         print("✅ Config & Markdown checks passed")
 
+    print("\n========================================")
+    print(" 8. I18N 4-LANGUAGE PARITY CHECK")
+    print("========================================")
+    if os.path.exists('js/i18n.js'):
+        with open('js/i18n.js', 'r', encoding='utf-8') as f:
+            js_code = f.read()
+        match = re.search(r'const translations = ({[\s\S]*?});\s*\n\s*let currentLang', js_code)
+        if match:
+            t = json.loads(match.group(1))
+            en_keys = set(t.get('en', {}).keys())
+            print(f"Total dictionary keys: {len(en_keys)}")
+            parity_ok = True
+            for lang in ['sk', 'de', 'pl']:
+                l_keys = set(t.get(lang, {}).keys())
+                missing = en_keys - l_keys
+                if missing:
+                    print(f"❌ {lang.upper()} missing keys: {missing}")
+                    parity_ok = False
+                else:
+                    print(f"✅ {lang.upper()} parity: 100% ({len(l_keys)}/{len(en_keys)} keys present)")
+            if parity_ok:
+                print("✅ Full 4-language i18n parity verified")
+        else:
+            print("❌ Could not parse translations dictionary from js/i18n.js")
+
 if __name__ == '__main__':
     main()
 
