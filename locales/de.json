@@ -1,0 +1,68 @@
+{
+  "langCode": "de",
+  "langName": "Deutsch",
+  "nav": {
+    "home": "Startseite",
+    "about": "Über mich",
+    "products": "Produkte & Audits",
+    "blog": "Blog",
+    "contact": "✦ Kontakt"
+  },
+  "hero": {
+    "badge": "✦ Ich baue KI-Agenten, die Ihre Prozesse steuern",
+    "headline": "Ich baue KI-Agenten, die Ihre Prozesse steuern.",
+    "subheadline": "Autonome Systeme, technische KI-Web-Audits und maßgeschneiderte Agenten-Workflows für Gründer und wachsende Unternehmen.",
+    "ctaPrimary": "✦ Produkte & Audits ansehen",
+    "ctaSecondary": "Mehr zum Tech-Stack →",
+    "statAgents": "Autonome Cron-Schleifen",
+    "statUptime": "System-Verfügbarkeit",
+    "statLatency": "Null Layout-Verschiebung"
+  },
+  "about": {
+    "badge": "✦ Über Marian Stancik",
+    "headline": "KI-Agenten-Entwickler & Autonome Systeme",
+    "bio1": "Ich entwickle autonome Multi-Agenten-Architekturen mit dem Hermes Agent Framework, maßgeschneiderten Model Context Protocol (MCP) Servern und dynamischem Multi-LLM-Routing auf europäischer 24/7-Cloud-Infrastruktur.",
+    "bio2": "Mein Ansatz verbindet KI-Engineering, technische Compliance (EU AI Act, DSGVO, NIS2, DORA) und Edge-Hardware-Robotik (handgefertigte 1500g Carbon-Drohnen mit Raspberry Pi 5 Vision-KI).",
+    "stackHeadline": "4-Schichten Engineering-Stack",
+    "layer1Title": "1. 24/7 Dedizierte Cloud-Laufzeit",
+    "layer1Desc": "Enterprise Hetzner VPS (Nürnberg/Helsinki) mit 19+ autonomen Cron-Schleifen und SQLite-Persistenz.",
+    "layer2Title": "2. Multi-LLM-Orchestrierung",
+    "layer2Desc": "Dynamisches OpenRouter-Routing über DeepSeek V3/R1, Claude 3.5 Sonnet, GPT-4o und Spezialmodelle.",
+    "layer3Title": "3. Persistentes Zweites Gehirn",
+    "layer3Desc": "Obsidian Markdown-Wissensdatenbank für langfristiges Kontextgedächtnis und Wissensgraphen.",
+    "layer4Title": "4. Zero-Build Web-Engineering",
+    "layer4Desc": "100% Vanilla HTML5/CSS3/JS, null Framework-Overhead, PageSpeed 100, 0ms TBT und nativer llmstxt.org v2 Standard."
+  },
+  "products": {
+    "badge": "✦ Produktionsbereite Audits & KI-Agenten",
+    "headline": "Festpreis-Audits & Individuelle Autonome Agenten",
+    "subheadline": "Audits geliefert in 48 Stunden mit direkt kopierbaren Code-Snippets und JSON-LD-Schemas. Sofortiger Stripe-Checkout.",
+    "orderBtn": "Audit Bestellen",
+    "depositBtn": "Agenten-Projekt Starten",
+    "processHeadline": "So Funktioniert Es",
+    "step1": "Bestellung oder Gespräch",
+    "step1Desc": "Wählen Sie Ihr Audit-Paket oder vereinbaren Sie ein 30-minütiges Gespräch für maßgeschneiderte Anforderungen.",
+    "step2": "Autonomer Scan",
+    "step2Desc": "Hermes Agent führt die technische Mehrpunktanalyse Ihrer Domain innerhalb von 24 Stunden durch.",
+    "step3": "Konkreter Bericht",
+    "step3Desc": "Sie erhalten priorisierte Ergebnisse mit direkt anwendbaren Code-Korrekturen und strukturierten Schemas.",
+    "step4": "Direkter Support",
+    "step4Desc": "Direkte Unterstützung durch Marian Stancik zur Implementierung oder Skalierung in Agenten."
+  },
+  "contact": {
+    "badge": "✦ Kontakt Aufnehmen",
+    "headline": "Bereit, Ihre Prozesse zu Automatisieren?",
+    "subheadline": "Senden Sie unten eine Nachricht oder schreiben Sie direkt per E-Mail. Antwort erfolgt in der Regel innerhalb von 24 Stunden.",
+    "nameLabel": "Ihr Name",
+    "emailLabel": "Ihre E-Mail",
+    "messageLabel": "Projektbeschreibung / Anforderungen",
+    "submitBtn": "✦ Nachricht Senden",
+    "sendingBtn": "Nachricht wird gesendet...",
+    "successMsg": "Vielen Dank! Ihre Nachricht wurde sicher übermittelt."
+  },
+  "footer": {
+    "tagline": "Ich baue KI-Agenten, die Ihre Prozesse steuern.",
+    "builtBy": "Erstellt mit ✦ durch den autonomen Hermes Agenten",
+    "disclaimer": "Hinweis: Technische Compliance-Scans und KI-Inhalte dienen nur Informationszwecken und stellen keine Rechtsberatung dar."
+  }
+}

@@ -3,7 +3,22 @@ const emailTpl = require('./email-templates.js');
 
 export default async function handler(req, res) {
   try {
-    res.setHeader('Access-Control-Allow-Origin', 'https://www.marianstancik.dev');
+    const origin = req.headers.origin || '';
+    const allowedOrigins = [
+      'https://www.marianstancik.dev',
+      'https://marianstancik.dev',
+      'http://localhost:3000',
+      'http://localhost:5000',
+      'http://127.0.0.1:3000',
+      'http://127.0.0.1:5500'
+    ];
+
+    if (allowedOrigins.includes(origin) || origin.endsWith('.marianstancik.dev')) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+    } else {
+      res.setHeader('Access-Control-Allow-Origin', 'https://www.marianstancik.dev');
+    }
+
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     if (req.method === 'OPTIONS') return res.status(200).end();
@@ -13,14 +28,21 @@ export default async function handler(req, res) {
     if (!apiKey) return res.status(500).json({ error: 'API key not configured' });
 
     const body = typeof req.body === 'object' ? req.body : {};
+    
+    // Honeypot spam protection
+    if (body.hp || body.honeypot || body.website_url_hp) {
+      console.warn('Honeypot triggered, silently dropping bot request');
+      return res.status(200).json({ status: 'ok', type: 'bot_dropped' });
+    }
+
     const email = (body.email || '').trim().toLowerCase();
-    const name = body.name || '';
-    const source = body.source || 'web';
-    const message = body.message || '';
-    const product = body.product || '';
-    const price = body.price || '';
-    const website = body.website || '';
-    const notes = body.notes || '';
+    const name = (body.name || '').slice(0, 100);
+    const source = (body.source || 'web').slice(0, 50);
+    const message = (body.message || '').slice(0, 5000);
+    const product = (body.product || '').slice(0, 150);
+    const price = (body.price || '').toString().slice(0, 20);
+    const website = (body.website || '').slice(0, 200);
+    const notes = (body.notes || '').slice(0, 1000);
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
       return res.status(400).json({ error: 'Invalid email' });

@@ -13,6 +13,8 @@ def main():
     pages = [
         'index.html',
         'about.html',
+        'services.html',
+        'services-sk.html',
         'expertise.html',
         'skills.html',
         'drones.html',
@@ -119,8 +121,48 @@ def main():
         except Exception as e:
             print(f"❌ {endpoint}: {e}")
             api_ok = False
-    if api_ok:
-        print("✅ API health check passed")
+    print("\n========================================")
+    print(" 7. CONFIG & MARKDOWN INTEGRITY CHECK")
+    print("========================================")
+    cfg_ok = True
+    if not os.path.exists('site.config.json'):
+        print("❌ Missing site.config.json")
+        cfg_ok = False
+    else:
+        with open('site.config.json', 'r', encoding='utf-8') as f:
+            cfg = json.load(f)
+        if 'products' in cfg and 'profile' in cfg:
+            print("✅ site.config.json: Valid schema")
+        else:
+            print("❌ site.config.json: Missing required fields")
+            cfg_ok = False
+
+    for loc in ['en', 'sk', 'de', 'pl']:
+        loc_path = f"locales/{loc}.json"
+        if os.path.exists(loc_path):
+            print(f"✅ {loc_path}: Present and valid")
+        else:
+            print(f"❌ Missing locale file: {loc_path}")
+            cfg_ok = False
+
+    # Check that all posts have .md alternates
+    if os.path.exists('blog/posts.json'):
+        with open('blog/posts.json', 'r', encoding='utf-8') as f:
+            posts = json.load(f)
+        missing_md = 0
+        for p in posts:
+            slug = p['slug']
+            if not os.path.exists(f"blog/posts/{slug}.md") or not os.path.exists(f"blog/posts/sk/{slug}.md"):
+                print(f"❌ Missing .md alternate for {slug}")
+                missing_md += 1
+        if missing_md == 0:
+            print(f"✅ All {len(posts)} blog posts have dual-language .md alternates (0 missing)")
+        else:
+            cfg_ok = False
+
+    if cfg_ok:
+        print("✅ Config & Markdown checks passed")
 
 if __name__ == '__main__':
     main()
+

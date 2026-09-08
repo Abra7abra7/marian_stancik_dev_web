@@ -554,6 +554,19 @@ def main():
         f.write(html_out_sk)
     print(f"[+] Created SK article: {html_filepath_sk}")
 
+    # Generate .md markdown alternates
+    try:
+        from sync_site import extract_markdown_from_html
+        md_en = extract_markdown_from_html(html_out_en, args.title, pub_date, args.excerpt)
+        with open(os.path.join(POSTS_DIR, f"{slug}.md"), 'w', encoding='utf-8') as f:
+            f.write(md_en)
+        md_sk = extract_markdown_from_html(html_out_sk, args.title_sk, pub_date, args.excerpt_sk)
+        with open(os.path.join(POSTS_SK_DIR, f"{slug}.md"), 'w', encoding='utf-8') as f:
+            f.write(md_sk)
+        print(f"[+] Created .md markdown alternates for {slug}")
+    except Exception as e:
+        print(f"[!] Warning: Could not generate markdown alternates: {e}")
+
     # 2. Update blog/posts.json
     posts = []
     if os.path.exists(POSTS_JSON):

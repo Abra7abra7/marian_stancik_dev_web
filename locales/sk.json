@@ -1,0 +1,68 @@
+{
+  "langCode": "sk",
+  "langName": "Slovenčina",
+  "nav": {
+    "home": "Domov",
+    "about": "O mne",
+    "products": "Produkty & Audity",
+    "blog": "Blog",
+    "contact": "✦ Kontakt"
+  },
+  "hero": {
+    "badge": "✦ Staviam AI agentov, ktorí riadia vaše procesy",
+    "headline": "Staviam AI agentov, ktorí riadia vaše procesy.",
+    "subheadline": "Autonómne systémy, technické AI audity a zákazkové agentické pracovné toky pre kreatívnych zakladateľov a rastúce firmy.",
+    "ctaPrimary": "✦ Pozrieť Produkty & Audity",
+    "ctaSecondary": "Viac o technológiách →",
+    "statAgents": "Autonómnych Cron Slučiek",
+    "statUptime": "Dostupnosť Systému",
+    "statLatency": "Nulový Layout Shift"
+  },
+  "about": {
+    "badge": "✦ O Marianovi Stančíkovi",
+    "headline": "Vývojár AI agentov a autonómnych systémov",
+    "bio1": "Navrhujem a nasadzujem autonómne multi-agentové architektúry pomocou frameworku Hermes Agent, vlastných Model Context Protocol (MCP) serverov a dynamického smerovania modelov na 24/7 dedikovanej európskej cloud infraštruktúre.",
+    "bio2": "Moje pôsobenie prepája softvérové AI inžinierstvo, technickú pripravenosť na regulácie (EU AI Act, GDPR, NIS2, DORA) a edge hardvérovú robotiku (vlastnoručne stavané 1500g karbónové drony s palubným neurónovým videním na Raspberry Pi 5).",
+    "stackHeadline": "4-Vrstvový Inžiniersky Stack",
+    "layer1Title": "1. 24/7 Dedikovaný Cloud Runtime",
+    "layer1Desc": "Podnikový Hetzner VPS (Norimberg/Helsinki) prevádzkujúci 19+ autonómnych Hermes Agent slučiek riadených cronom so SQLite perzistenciou.",
+    "layer2Title": "2. Multi-LLM Orchestrácia",
+    "layer2Desc": "Dynamické OpenRouter smerovanie naprieč modelmi DeepSeek V3/R1, Claude 3.5 Sonnet, GPT-4o a špecializovanými modelmi.",
+    "layer3Title": "3. Perzistentný Druhý Mozog",
+    "layer3Desc": "Obsidian Markdown báza znalostí poskytujúca dlhodobú kontextovú pamäť, syntézu výskumu a znalostné grafy.",
+    "layer4Title": "4. Zero-Build Webové Inžinierstvo",
+    "layer4Desc": "100% Vanilla HTML5/CSS3/JS, nulový runtime overhead frameworkov, PageSpeed 100, 0ms TBT a natívny llmstxt.org v2 štandard."
+  },
+  "products": {
+    "badge": "✦ Produkčné Audity & AI Agenty",
+    "headline": "Pevné Ceny Auditov & Zákazkoví Autonómni Agenti",
+    "subheadline": "Audity doručené do 48 hodín s konkrétnymi, skopírovateľnými kódovými opravami a JSON-LD schémami. Okamžitý Stripe checkout.",
+    "orderBtn": "Objednať Audit",
+    "depositBtn": "Začať Projekt Agenta",
+    "processHeadline": "Ako Prebieha Spolupráca",
+    "step1": "Objednávka alebo Hovor",
+    "step1Desc": "Vyberte si balíček auditu alebo si dohodnite 30-minútový hovor pre agenta na mieru.",
+    "step2": "Autonómny Sken",
+    "step2Desc": "Hermes Agent vykoná viacbodovú technickú analýzu vašej domény do 24 hodín.",
+    "step3": "Výsledný Report",
+    "step3Desc": "Získate prioritizované zistenia s priamo použiteľnými kódovými opravami a schémami.",
+    "step4": "Priama Podpora",
+    "step4Desc": "Priama konzultácia s Marianom Stančíkom pre implementáciu opráv alebo škálovanie do agentov."
+  },
+  "contact": {
+    "badge": "✦ Spojme sa",
+    "headline": "Pripravení Automatizovať Vaše Procesy?",
+    "subheadline": "Pošlite správu cez formulár nižšie alebo napíšte priamo na e-mail. Zvyčajne odpovedám do 24 hodín.",
+    "nameLabel": "Vaše Meno",
+    "emailLabel": "Váš E-mail",
+    "messageLabel": "Popis projektu / Vaše potreby",
+    "submitBtn": "✦ Odoslať Správu",
+    "sendingBtn": "Odosielam správu...",
+    "successMsg": "Ďakujem! Vaša správa bola úspešne odoslaná."
+  },
+  "footer": {
+    "tagline": "Staviam AI agentov, ktorí riadia vaše procesy.",
+    "builtBy": "Vytvorené s ✦ autonómnym Hermes Agentom",
+    "disclaimer": "Upozornenie: Technické skeny pripravenosti a AI obsah slúžia výhradne na informačné účely a nepredstavujú právne poradenstvo."
+  }
+}

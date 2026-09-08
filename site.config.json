@@ -1,0 +1,152 @@
+{
+  "site": {
+    "name": "Marian Stancik",
+    "domain": "https://www.marianstancik.dev",
+    "apexDomain": "https://marianstancik.dev",
+    "email": "marianstancik@agentmail.to",
+    "defaultLanguage": "en",
+    "languages": [
+      { "code": "en", "name": "English", "dir": "" },
+      { "code": "sk", "name": "Slovenčina", "dir": "sk" },
+      { "code": "de", "name": "Deutsch", "dir": "de" },
+      { "code": "pl", "name": "Polski", "dir": "pl" }
+    ]
+  },
+  "profile": {
+    "name": "Marian Stancik",
+    "avatar": "/profile.webp",
+    "avatarBig": "/profile-big.webp",
+    "roles": {
+      "en": "AI Agent Developer & Autonomous Systems Builder",
+      "sk": "Vývojár AI agentov a autonómnych systémov",
+      "de": "KI-Agenten-Entwickler & Autonome Systeme",
+      "pl": "Deweloper Agentów AI i Systemów Autonomicznych"
+    },
+    "tagline": {
+      "en": "I build AI agents that run your processes.",
+      "sk": "Staviam AI agentov, ktorí riadia vaše procesy.",
+      "de": "Ich baue KI-Agenten, die Ihre Prozesse steuern.",
+      "pl": "Buduję agentów AI, którzy zarządzają Twoimi procesami."
+    },
+    "socials": {
+      "x": "https://x.com/marian_s_ai",
+      "youtube": "https://www.youtube.com/@marian_ai",
+      "github": "https://github.com/Abra7abra7",
+      "linkedin": "https://www.linkedin.com/in/marian-stancik-924b41298/",
+      "threads": "https://www.threads.net/@marian_stancik"
+    },
+    "geo": {
+      "city": "Bratislava",
+      "country": "Slovakia",
+      "countryCode": "SK",
+      "coordinates": {
+        "latitude": 48.1486,
+        "longitude": 17.1077
+      }
+    }
+  },
+  "products": [
+    {
+      "id": "geo-audit",
+      "price": 150,
+      "currency": "EUR",
+      "title": {
+        "en": "AI GEO Audit",
+        "sk": "AI GEO Audit",
+        "de": "KI-GEO-Audit",
+        "pl": "Audyt AI GEO"
+      },
+      "subtitle": {
+        "en": "For Perplexity, ChatGPT, Claude & Google SGE visibility",
+        "sk": "Pre viditeľnosť v Perplexity, ChatGPT, Claude a Google SGE",
+        "de": "Für Sichtbarkeit in Perplexity, ChatGPT, Claude & Google SGE",
+        "pl": "Dla widoczności w Perplexity, ChatGPT, Claude i Google SGE"
+      },
+      "delivery": {
+        "en": "Delivered in 48 hours · PDF Report + Code snippets",
+        "sk": "Doručenie do 48 hodín · PDF report + kódové ukážky",
+        "de": "Lieferung in 48 Stunden · PDF-Bericht + Code-Snippets",
+        "pl": "Dostawa w 48 godzin · Raport PDF + fragmenty kodu"
+      },
+      "stripeTestUrl": "https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800",
+      "stripeLiveUrl": "https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800"
+    },
+    {
+      "id": "web-readiness",
+      "price": 200,
+      "currency": "EUR",
+      "title": {
+        "en": "AI Web Readiness Scan",
+        "sk": "AI Scan Pripravenosti Webu",
+        "de": "KI-Web-Readiness-Scan",
+        "pl": "Skan Gotowości Sieciowej AI"
+      },
+      "subtitle": {
+        "en": "Technical compliance checklist: GDPR, Terms, AI Act disclosure & Cookies",
+        "sk": "Technický checklist: GDPR, Podmienky, AI Act označenie a Cookies",
+        "de": "Technischer Compliance-Check: DSGVO, AGB, KI-Gesetz & Cookies",
+        "pl": "Techniczna lista kontrolna: RODO, Regulamin, Ustawa o AI i Cookies"
+      },
+      "delivery": {
+        "en": "Delivered in 48 hours · Automated report + Remediation checklist",
+        "sk": "Doručenie do 48 hodín · Automatizovaný report + checklist opráv",
+        "de": "Lieferung in 48 Stunden · Automatisierter Bericht + Checkliste",
+        "pl": "Dostawa w 48 godzin · Zautomatyzowany raport + lista poprawek"
+      },
+      "stripeTestUrl": "https://buy.stripe.com/test_28E6oJesU80O9cx4SV28801",
+      "stripeLiveUrl": "https://buy.stripe.com/test_28E6oJesU80O9cx4SV28801"
+    },
+    {
+      "id": "full-combo",
+      "price": 300,
+      "currency": "EUR",
+      "featured": true,
+      "title": {
+        "en": "Full Web Audit (GEO + Readiness)",
+        "sk": "Kompletný Web Audit (GEO + Pripravenosť)",
+        "de": "Vollständiges Web-Audit (GEO + Readiness)",
+        "pl": "Pełny Audyt Sieciowy (GEO + Gotowość)"
+      },
+      "subtitle": {
+        "en": "Both audits combined: Complete AI search discoverability + regulatory readiness",
+        "sk": "Kombinácia oboch auditov: Kompletná AI viditeľnosť + technická pripravenosť",
+        "de": "Beide Audits kombiniert: Vollständige KI-Sichtbarkeit + Compliance",
+        "pl": "Połączenie obu audytów: Pełna widoczność AI + gotowość regulacyjna"
+      },
+      "delivery": {
+        "en": "Delivered in 48 hours · Complete dual report + 30-min strategy call",
+        "sk": "Doručenie do 48 hodín · Kompletný duálny report + 30-min konzultácia",
+        "de": "Lieferung in 48 Stunden · Vollständiger Doppelbericht + 30-Min. Call",
+        "pl": "Dostawa w 48 godzin · Kompletny podwójny raport + 30-min rozmowa"
+      },
+      "stripeTestUrl": "https://buy.stripe.com/test_8x27sN70s4OC88tdpr28802",
+      "stripeLiveUrl": "https://buy.stripe.com/test_8x27sN70s4OC88tdpr28802"
+    },
+    {
+      "id": "custom-agent",
+      "price": 500,
+      "currency": "EUR",
+      "isDeposit": true,
+      "title": {
+        "en": "Custom Autonomous Agent",
+        "sk": "Autonómny AI Agent na Mieru",
+        "de": "Individueller Autonomer KI-Agent",
+        "pl": "Dedykowany Autonomiczny Agent AI"
+      },
+      "subtitle": {
+        "en": "Hermes Agent loops, custom MCP tools, cron pipelines & C2 Telegram bridges",
+        "sk": "Hermes Agent slučky, vlastné MCP nástroje, cron pipeline a C2 Telegram mosty",
+        "de": "Hermes-Agent-Schleifen, MCP-Tools, Cron-Pipelines & Telegram-Bridges",
+        "pl": "Pętle Agenta Hermes, narzędzia MCP, potoki cron i integracje Telegram"
+      },
+      "delivery": {
+        "en": "Deposit €500 · 30-min discovery call included · Full spec before development",
+        "sk": "Záloha €500 · V cene 30-min discovery call · Kompletná špecifikácia pred vývojom",
+        "de": "Anzahlung €500 · Inklusive 30-Min. Discovery-Call · Vollständige Spezifikation",
+        "pl": "Zaliczka €500 · W cenie 30-min rozmowa wstępna · Pełna specyfikacja"
+      },
+      "stripeTestUrl": "https://buy.stripe.com/test_aFaaEZ1G880O88tdpr28803",
+      "stripeLiveUrl": "https://buy.stripe.com/test_aFaaEZ1G880O88tdpr28803"
+    }
+  ]
+}

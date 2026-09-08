@@ -1,37 +1,37 @@
-# llms.txt — Marian Stancik
-> AI Agent Developer building autonomous systems that run your processes.
+# Marian Stancik
 
-## Marian Stancik
+> I build AI agents that run your processes.
 
-Marian Stancik builds autonomous AI agent ecosystems (Hermes Agent, MCP), hardware engineering (hand-built UAV with Raspberry Pi 5 edge AI), and regulatory-aware architectures (EU AI Act, GDPR, NIS2, DORA).
+Marian Stancik builds autonomous agent ecosystems (Hermes Agent, MCP), hand-soldered tactical UAV edge AI drones (ArduPilot, Raspberry Pi 5), and legal-by-design compliance architectures (EU AI Act, GDPR, NIS2, DORA).
 
-- [Home](https://www.marianstancik.dev): I build AI agents that run your processes.
-- [About](https://www.marianstancik.dev/about): Autonomous agent systems, regulatory context, and hardware engineering.
-- [Products](https://www.marianstancik.dev/services): AI GEO Audit €150, Web Readiness Scan €200, Full Web Audit €300, Custom AI Agent from €500.
-- [Expertise](https://www.marianstancik.dev/expertise): Detailed spec matrices across primary skill: Autonomous AI Agents.
-- [Skills](https://www.marianstancik.dev/skills): Full-stack AI agent development — Hermes Agent, MCP, VPS infrastructure, regulatory awareness.
-- [Blog](https://www.marianstancik.dev/blog): Technical articles on autonomous AI workflows, regulatory awareness (EU AI Act, GDPR), and robotics.
-- [Contact](https://www.marianstancik.dev/contact): Let's build your AI agent.
-- [Drones](https://www.marianstancik.dev/drones): Hobby project — hand-built 1500g carbon UAV with ArduPilot + RPi5 edge AI.
+## Core Pages
 
-## Blog Posts
+- [Home](https://www.marianstancik.dev/): High-impact hero, autonomous agent stats, live 24/7 cron orchestrations, and connect channels.
+- [About](https://www.marianstancik.dev/about): Technical bio, 4-layer engineering stack (Hetzner VPS, OpenRouter, Obsidian, Zero-build Web), and career timeline.
+- [Products & Audits](https://www.marianstancik.dev/services): 4 production-ready products (AI GEO Audit €150, Web Readiness Scan €200, Full Web Audit €300, Custom Agent from €500).
+- [Tactical UAV Systems](https://www.marianstancik.dev/drones): Hand-soldered 1500g carbon quadcopter, ArduPilot Copter autopilot, Raspberry Pi 5 edge vision AI (Hobby project).
+- [Blog](https://www.marianstancik.dev/blog): Technical articles on autonomous AI workflows, legal-by-design compliance (AI Act, GDPR), and robotics.
+- [Contact](https://www.marianstancik.dev/contact): Direct lead capture, communication channels, and social profiles.
 
-- [Agent Architecture Convergence: Hermes, MCP, OpenRouter in 2026](https://www.marianstancik.dev/blog/posts/2026-09-02-agent-architecture-convergence): Six levels of agent architecture maturity.
-- [Nvidia AVO: Autonomous Agent Infrastructure](https://www.marianstancik.dev/blog/posts/2026-08-27-nvidia-avo-autonomous-agents): Enterprise-grade orchestration of multi-agent systems.
-- [From Hobby to System: Building an Agent-Driven Company](https://www.marianstancik.dev/blog/posts/2026-08-26-agent-driven-company): Scaling from DIY tools to production agent architecture.
-- [Web Performance Optimization](https://www.marianstancik.dev/blog/posts/2026-08-25-web-performance-optimization): Lighthouse 100, 0ms TBT, zero-build vanilla stack.
-- [Building a Digital Twin of Yourself](https://www.marianstancik.dev/blog/posts/2026-08-22-building-digital-twin): AI agent that mirrors your expertise and decision patterns.
-- [EU AI Act: Technical Guide for AI Builders](https://www.marianstancik.dev/blog/posts/2026-08-20-ai-act-compliance): Practical regulatory awareness for startups and developers.
-- [Autonomous Drone Missions with Edge AI](https://www.marianstancik.dev/blog/posts/2026-08-17-autonomous-drone-missions): Technical breakdown of an autonomous UAV with onboard computer vision.
+## Technical Articles
 
-## Social
+- [Designing Your Local Agent Network for NVIDIA PAIR — Distributed Inference Across Devices](https://www.marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network): NVIDIA PAIR turns idle home PCs into a distributed inference cluster for AI agents. How to design a local agent network with tiered routing, multi-device parallelism, and Hermes Agent.
+- [The Convergence of Agent Architectures: Why Everyone Is Building the Same Two-Plane System](https://www.marianstancik.dev/blog/posts/2026-09-02-agent-architecture-convergence): NVIDIA AVO, the AOS reference architecture, and the Auton framework all converged on the same pattern: a two-plane design separating governance from execution for production autonomous agents.
+- [NVIDIA AVO: When Autonomous Agents Run for 7 Days and Beat Expert Engineers](https://www.marianstancik.dev/blog/posts/2026-08-27-nvidia-avo-autonomous-agents): NVIDIA's AVO architecture ran autonomously for 7 days, optimized GPU kernels beyond FlashAttention-4, and scored 100% on ARC-AGI-3. System design > model choice.
+- [From Solo Founder to Agent-Driven Company with 19 Autonomous Cron Jobs](https://www.marianstancik.dev/blog/posts/2026-08-26-agent-driven-company): How I built 19 autonomous AI cron jobs on a €3.79/mo VPS for content, CRM, legal monitoring, and system health — all agent-driven with 99.7% uptime.
+- [Web Performance Optimization: How I Cut Page Size by 61%](https://www.marianstancik.dev/blog/posts/2026-08-25-web-performance-optimization): A technical walkthrough of reducing HTML page weight from 86KB to 34KB and achieving 100 PageSpeed with external CSS, JS, WebP, and non-blocking WebGL.
+- [Building a Digital Twin That Posts 9x Daily](https://www.marianstancik.dev/blog/posts/2026-08-22-building-digital-twin): How I built an autonomous AI agent with Hermes that creates and publishes content across X, LinkedIn, and blog without human intervention.
+- [AI Act Compliance for Small AI Companies](https://www.marianstancik.dev/blog/posts/2026-08-20-ai-act-compliance): Practical legal-by-design framework for startups building AI products in the EU. From risk assessment to automated audit-ready documentation.
+- [Autonomous Drone Missions with ArduPilot & Python](https://www.marianstancik.dev/blog/posts/2026-08-17-autonomous-drone-missions): Building a production-grade UAV system with Pixhawk, ArduPilot, and Python-based mission planning for automated multi-waypoint flights.
 
-- [GitHub](https://github.com/Abra7abra7): Autonomous agent systems, MCP servers, web projects.
-- [YouTube](https://www.youtube.com/@marian_ai): Long-form video breakdowns of AI agents and autonomous systems.
-- [X / Twitter](https://x.com/marian_s_ai): Daily AI agent insights.
-- [LinkedIn](https://www.linkedin.com/in/marian-stancik): Professional network.
+## Optional
 
-## Other
-
-- [RSS Feed](https://www.marianstancik.dev/rss.xml)
-- [llms-full.txt](https://www.marianstancik.dev/llms-full.txt)
+- [Full LLM Knowledge Graph](https://www.marianstancik.dev/llms-full.txt): Comprehensive deep-context technical knowledge graph and Q&A dataset.
+- [Blog Posts Feed JSON](https://www.marianstancik.dev/blog/posts.json): Structured JSON archive of all published articles, dates, tags, and reading times.
+- [XML Sitemap](https://www.marianstancik.dev/sitemap.xml): Search engine indexing directory for all canonical website endpoints.
+- [RSS XML Feed](https://www.marianstancik.dev/rss.xml): Standard RSS syndication feed for autonomous web readers and crawlers.
+- [GitHub](https://github.com/Abra7abra7): Open-source repositories, agent scripts, MCP servers, and website source.
+- [X (Twitter)](https://x.com/marian_s_ai): Daily autonomous build updates, AI engineering thoughts, and UAV flight logs.
+- [YouTube](https://www.youtube.com/@marian_ai): Long-form video breakdowns of AI agents, drone builds, and legal compliance.
+- [LinkedIn](https://www.linkedin.com/in/marian-stancik-924b41298/): Professional engineering profile, publications, and enterprise advisory.
+- [Email](mailto:marianstancik@agentmail.to): Direct asynchronous agent-routed communication endpoint.

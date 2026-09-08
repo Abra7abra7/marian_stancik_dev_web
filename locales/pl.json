@@ -1,0 +1,68 @@
+{
+  "langCode": "pl",
+  "langName": "Polski",
+  "nav": {
+    "home": "Strona główna",
+    "about": "O mnie",
+    "products": "Produkty i Audyty",
+    "blog": "Blog",
+    "contact": "✦ Kontakt"
+  },
+  "hero": {
+    "badge": "✦ Buduję agentów AI, którzy zarządzają Twoimi procesami",
+    "headline": "Buduję agentów AI, którzy zarządzają Twoimi procesami.",
+    "subheadline": "Systemy autonomiczne, audyty techniczne AI i dedykowane przepływy pracy agentów dla przedsiębiorców i rozwijających się firm.",
+    "ctaPrimary": "✦ Zobacz Produkty i Audyty",
+    "ctaSecondary": "Więcej o technologii →",
+    "statAgents": "Autonomicznych Pętli Cron",
+    "statUptime": "Dostępność Systemu",
+    "statLatency": "Zero Przesunięć Układu"
+  },
+  "about": {
+    "badge": "✦ O Marianie Stanciku",
+    "headline": "Deweloper Agentów AI i Systemów Autonomicznych",
+    "bio1": "Projektuję i wdrażam autonomiczne architektury wieloagentowe przy użyciu frameworka Hermes Agent, dedykowanych serwerów Model Context Protocol (MCP) i dynamicznego routingu multi-LLM na europejskiej infrastrukturze chmurowej 24/7.",
+    "bio2": "Łączę inżynierię oprogramowania AI, gotowość regulacyjną (EU AI Act, RODO, NIS2, DORA) oraz robotykę brzegową (ręcznie budowane 1500g drony węglowe z pokładową wizją AI na Raspberry Pi 5).",
+    "stackHeadline": "4-Warstwowy Stack Inżynieryjny",
+    "layer1Title": "1. Dedykowane Środowisko Chmurowe 24/7",
+    "layer1Desc": "Enterprise Hetzner VPS (Norymberga/Helsinki) z 19+ autonomicznymi pętlami cron i bazą SQLite.",
+    "layer2Title": "2. Orkiestracja Multi-LLM",
+    "layer2Desc": "Dynamiczny routing OpenRouter między modelami DeepSeek V3/R1, Claude 3.5 Sonnet, GPT-4o i modelami domenowymi.",
+    "layer3Title": "3. Trwały Drugi Mózg",
+    "layer3Desc": "Baza wiedzy Obsidian Markdown zapewniająca długoterminową pamięć kontekstową i grafy wiedzy.",
+    "layer4Title": "4. Inżynieria Zero-Build Web",
+    "layer4Desc": "100% Czysty HTML5/CSS3/JS, zero narzutu frameworków, PageSpeed 100, 0ms TBT i standard llmstxt.org v2."
+  },
+  "products": {
+    "badge": "✦ Produkcyjne Audyty i Agenci AI",
+    "headline": "Stałe Ceny Audytów i Dedykowani Autonomiczni Agenci",
+    "subheadline": "Audyty dostarczane w 48 godzin z gotowymi do wklejenia fragmentami kodu i schematami JSON-LD. Natychmiastowy Stripe checkout.",
+    "orderBtn": "Zamów Audyt",
+    "depositBtn": "Rozpocznij Projekt Agenta",
+    "processHeadline": "Jak Wygląda Współpraca",
+    "step1": "Zamówienie lub Rozmowa",
+    "step1Desc": "Wybierz pakiet audytu lub umów 30-minutową rozmowę wprowadzającą dla dedykowanego projektu.",
+    "step2": "Autonomiczny Skan",
+    "step2Desc": "Agent Hermes przeprowadza wielopunktową analizę techniczną Twojej domeny w ciągu 24 godzin.",
+    "step3": "Konkretny Raport",
+    "step3Desc": "Otrzymujesz spriorytetyzowane wnioski z bezpośrednimi poprawkami kodu i schematami danych.",
+    "step4": "Bezpośrednie Wsparcie",
+    "step4Desc": "Konsultacje z Marianem Stancikiem w celu wdrożenia poprawek lub rozbudowy o agentów AI."
+  },
+  "contact": {
+    "badge": "✦ Skontaktuj się",
+    "headline": "Gotowy na Automatyzację Procesów?",
+    "subheadline": "Wyślij wiadomość przez formularz poniżej lub napisz bezpośrednio na e-mail. Odpowiedź zazwyczaj w ciągu 24 godzin.",
+    "nameLabel": "Twoje Imię",
+    "emailLabel": "Twój E-mail",
+    "messageLabel": "Opis projektu / Wymagania",
+    "submitBtn": "✦ Wyślij Wiadomość",
+    "sendingBtn": "Wysyłanie wiadomości...",
+    "successMsg": "Dziękuję! Twoja wiadomość została pomyślnie wysłana."
+  },
+  "footer": {
+    "tagline": "Buduję agentów AI, którzy zarządzają Twoimi procesami.",
+    "builtBy": "Zbudowane z ✦ przez autonomicznego Agenta Hermes",
+    "disclaimer": "Uwaga: Techniczne skany gotowości i treści AI mają charakter wyłącznie informacyjny i nie stanowią porady prawnej."
+  }
+}

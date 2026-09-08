@@ -1,159 +1,238 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.marianstancik.dev/</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/disclaimer</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.marianstancik.dev/privacy</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.marianstancik.dev/contact</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.marianstancik.dev/expertise</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://www.marianstancik.dev/about</loc>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/services</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/about</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://www.marianstancik.dev/services-sk</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/drones</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/contact</loc>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/lead-magnet/</loc>
-    <lastmod>2026-09-05</lastmod>
+    <loc>https://www.marianstancik.dev/privacy</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/privacy-sk</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/terms</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/terms-sk</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/disclaimer</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/disclaimer-sk</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/llms.txt</loc>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/llms-full.txt</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-09-05-nvidia-pair-local-agent-network"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network"/>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/sk/2026-09-05-nvidia-pair-local-agent-network</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-09-05-nvidia-pair-local-agent-network"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network"/>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/2026-09-02-agent-architecture-convergence</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-09-02-agent-architecture-convergence"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-09-02-agent-architecture-convergence"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-09-02-agent-architecture-convergence"/>
     <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/sk/2026-09-02-agent-architecture-convergence</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-09-02-agent-architecture-convergence"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-09-02-agent-architecture-convergence"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-09-02-agent-architecture-convergence"/>
     <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/2026-08-27-nvidia-avo-autonomous-agents</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-08-27-nvidia-avo-autonomous-agents"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-08-27-nvidia-avo-autonomous-agents"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-08-27-nvidia-avo-autonomous-agents"/>
     <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/sk/2026-08-27-nvidia-avo-autonomous-agents</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-08-27-nvidia-avo-autonomous-agents"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-08-27-nvidia-avo-autonomous-agents"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-08-27-nvidia-avo-autonomous-agents"/>
     <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/2026-08-26-agent-driven-company</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-08-26-agent-driven-company"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-08-26-agent-driven-company"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-08-26-agent-driven-company"/>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/sk/2026-08-26-agent-driven-company</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-08-26-agent-driven-company"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-08-26-agent-driven-company"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-08-26-agent-driven-company"/>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/2026-08-25-web-performance-optimization</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-08-25-web-performance-optimization"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-08-25-web-performance-optimization"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-08-25-web-performance-optimization"/>
     <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/sk/2026-08-25-web-performance-optimization</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-08-25-web-performance-optimization"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-08-25-web-performance-optimization"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-08-25-web-performance-optimization"/>
     <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/2026-08-22-building-digital-twin</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-08-22-building-digital-twin"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-08-22-building-digital-twin"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-08-22-building-digital-twin"/>
     <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/sk/2026-08-22-building-digital-twin</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-08-22-building-digital-twin"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-08-22-building-digital-twin"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-08-22-building-digital-twin"/>
     <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/2026-08-20-ai-act-compliance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-08-20-ai-act-compliance"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-08-20-ai-act-compliance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-08-20-ai-act-compliance"/>
     <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/sk/2026-08-20-ai-act-compliance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-08-20-ai-act-compliance"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-08-20-ai-act-compliance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-08-20-ai-act-compliance"/>
     <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/2026-08-17-autonomous-drone-missions</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-08-17-autonomous-drone-missions"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-08-17-autonomous-drone-missions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-08-17-autonomous-drone-missions"/>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/sk/2026-08-17-autonomous-drone-missions</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-08-17-autonomous-drone-missions"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-08-17-autonomous-drone-missions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-08-17-autonomous-drone-missions"/>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.marianstancik.dev/llms.txt</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
   </url>
 </urlset>

@@ -1,0 +1,68 @@
+{
+  "langCode": "en",
+  "langName": "English",
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "blog": "Blog",
+    "contact": "✦ Contact"
+  },
+  "hero": {
+    "badge": "✦ I build AI agents that run your processes",
+    "headline": "I build AI agents that run your processes.",
+    "subheadline": "Autonomous systems, AI web audits, and custom agentic workflows for creative founders and growing businesses.",
+    "ctaPrimary": "✦ Explore Products & Audits",
+    "ctaSecondary": "About My Stack →",
+    "statAgents": "Autonomous Cron Loops",
+    "statUptime": "Production Uptime",
+    "statLatency": "Zero Layout Shift"
+  },
+  "about": {
+    "badge": "✦ About Marian Stancik",
+    "headline": "AI Agent Developer & Autonomous Systems Builder",
+    "bio1": "I build autonomous AI agent architectures using the Hermes Agent framework, custom Model Context Protocol (MCP) servers, and multi-LLM dynamic routing on dedicated 24/7 European cloud infrastructure.",
+    "bio2": "My background bridges AI engineering, regulatory readiness (EU AI Act, GDPR, NIS2, DORA), and edge hardware robotics (custom 1500g carbon quadcopters with onboard Raspberry Pi 5 vision AI).",
+    "stackHeadline": "4-Layer Engineering Stack",
+    "layer1Title": "1. 24/7 Dedicated Cloud Runtime",
+    "layer1Desc": "Enterprise Hetzner VPS (Nuremberg/Helsinki) running 19+ cron-orchestrated Hermes Agent loops with SQLite state peristence.",
+    "layer2Title": "2. Multi-LLM Orchestration",
+    "layer2Desc": "Dynamic OpenRouter routing across DeepSeek V3/R1, Claude 3.5 Sonnet, GPT-4o, and specialized domain models.",
+    "layer3Title": "3. Persistent Second Brain",
+    "layer3Desc": "Obsidian Markdown vault providing long-term contextual memory, research synthesis, and knowledge graphs.",
+    "layer4Title": "4. Zero-Build Web Engineering",
+    "layer4Desc": "100% Vanilla HTML5/CSS3/JS, zero framework runtime overhead, PageSpeed 100, 0ms TBT, and native llmstxt.org v2 integration."
+  },
+  "products": {
+    "badge": "✦ Production-Ready Audits & Agent Systems",
+    "headline": "Fixed-Price Audits & Custom Autonomous Agents",
+    "subheadline": "Audits delivered in 48 hours with actionable, copy-paste code remediation snippets. Instant Stripe checkout.",
+    "orderBtn": "Order Audit",
+    "depositBtn": "Start Agent Project",
+    "processHeadline": "How It Works",
+    "step1": "Order or Call",
+    "step1Desc": "Select your audit package or book a discovery call for custom agent architecture.",
+    "step2": "Autonomous Sweep",
+    "step2Desc": "Hermes Agent executes the multi-point technical scan across your domain within 24 hours.",
+    "step3": "Actionable Report",
+    "step3Desc": "Receive prioritized findings with direct copy-paste code fixes and structured schemas.",
+    "step4": "Direct Support",
+    "step4Desc": "Direct Q&A with Marian Stancik to implement fixes or scale into custom agent loops."
+  },
+  "contact": {
+    "badge": "✦ Let's Connect",
+    "headline": "Ready to Automate Your Processes?",
+    "subheadline": "Send a message below or email directly. Response time is typically within 24 hours.",
+    "nameLabel": "Your Name",
+    "emailLabel": "Your Email",
+    "messageLabel": "Project Description / Needs",
+    "submitBtn": "✦ Send Message",
+    "sendingBtn": "Sending message...",
+    "successMsg": "Thank you! Your message has been safely delivered."
+  },
+  "footer": {
+    "tagline": "I build AI agents that run your processes.",
+    "builtBy": "Built with ✦ by Hermes Agent",
+    "disclaimer": "Disclaimer: Technical readiness checks and AI content are for informational purposes only and do not constitute legal advice."
+  }
+}

@@ -2,6 +2,7 @@
 
 **Owner:** Marian Stancik  
 **Domain:** https://marianstancik.dev (Production on Vercel)  
+**Apex Domain Support:** https://marianstancik.dev & https://www.marianstancik.dev  
 **Repo:** https://github.com/Abra7abra7/marian_stancik_dev_web  
 **VPS:** 188.245.224.189 (Hetzner Cloud — Caddy + Python WSGI + Hermes Agent)  
 **Default Branch:** `main` (Single-branch trunk-based GitOps)
@@ -10,12 +11,12 @@
 
 ## 1. Executive Overview & Mission
 
-This repository represents the official personal brand website, technical knowledge graph, and autonomous agent hub for **Marian Stancik** — AI Engineer and UAV Builder.
+This repository represents the official personal brand website, technical knowledge graph, and autonomous agent hub for **Marian Stancik** — AI Agent Developer & Autonomous Systems Builder.
 
 The platform is engineered at the convergence of three foundational pillars:
 1. **AI Engineering & Autonomous Multi-Agent Systems:** 24/7 Hermes Agent orchestration, custom Model Context Protocol (MCP) servers, OpenRouter multi-LLM dynamic routing, and an Obsidian persistent memory layer running on dedicated European Hetzner Cloud infrastructure.
 2. **Law, EU AI Act & Regulatory Governance (Legal-by-Design):** Practical compliance architectures covering the EU AI Act (risk tiering, GPAI, technical files), GDPR, NIS2 Directive, DORA, EU Data Act, and DSM Copyright Directive (TDM exemptions).
-3. **Tactical UAV Systems & Edge Robotics:** Hand-soldered 1500g carbon quadcopter, ArduPilot Copter autopilot, Raspberry Pi 5 onboard companion computer with real-time edge vision AI, certified EASA A1/A3 with €2.6M Coverdrone insurance.
+3. **Tactical UAV Systems & Edge Robotics (Hobby Project):** Hand-soldered 1500g carbon quadcopter, ArduPilot Copter autopilot, Raspberry Pi 5 onboard companion computer with real-time edge vision AI, certified EASA A1/A3 with €2.6M Coverdrone insurance.
 
 ---
 
@@ -25,7 +26,7 @@ The platform is engineered at the convergence of three foundational pillars:
 > **Delta Defence is NEVER mentioned by name anywhere on the web, code, blog, schema, or LLM graphs.**  
 > Strict security and confidentiality requirement. Only `"Defence Product Manager"` and `"Defence Industry"` are permitted.
 
-- ✅ Hero: `"Defence Product Manager"` / `"AI Engineer"`
+- ✅ Hero: `"Defence Product Manager"` / `"AI Agent Developer"`
 - ✅ About: `"Defence Product Manager"`
 - ✅ JSON-LD: `"name": "Defence Industry (confidential)"`
 - ✅ Slovak: `"Defence Product Manager"`
@@ -35,37 +36,48 @@ The platform is engineered at the convergence of three foundational pillars:
 ### Name & Visual Identity Standards
 - **Name Standard:** Always **Marian Stancik** (strictly without diacritics) in both English and Slovak texts, schemas, metadata, and code.
 - **Social / OG Image Standard:** All pages and articles must use Marian's photo (`https://www.marianstancik.dev/profile-big.webp` or `profile.webp`) as `og:image` and `twitter:image` with `width="800" height="800"` and `alt="Marian Stancik"`.
+- **Search Snippet & Favicon Standard:** Circular portrait favicon with high-contrast bronze ring border generated from `profile.webp` via `scripts/generate_favicon.py` across all standard resolutions (`favicon.ico`, `favicon-32x32.png`, `favicon-48x48.png`, `apple-touch-icon.png`).
 
 ---
 
-## 3. Site Architecture & Page Topology
+## 3. Centralized Configuration Engine (`site.config.json` & `locales/`)
 
-**Updated 2026-08-31** — Navigation simplified to: Home | About | Products | Blog | Contact.
-Expertise and Skills pages still exist (not deleted) but are removed from main nav — accessible via footer/About.
-Drones marked as hobby project with disclaimer.
+All site metadata, product definitions, Stripe pricing, social handles, and multilingual dictionaries are managed centrally from a **Single Source of Truth**:
 
-The website uses a clean zero-build multi-page structure with root-relative routing (`cleanUrls: true` in Vercel):
+- **Central Config:** [`site.config.json`](file:///site.config.json)
+  - `site`: Base domain, contact email, default language, active language matrix (`en`, `sk`, `de`, `pl`).
+  - `profile`: Identity, localized roles, taglines, social channels, and geographic coordinates.
+  - `products`: 4 core products (AI GEO Audit €150, Web Readiness Scan €200, Full Web Audit €300, Custom Autonomous Agent €500 deposit) with Stripe test and live links.
+- **Modular Locales:** [`locales/`](file:///locales/)
+  - `locales/en.json` (English — primary international)
+  - `locales/sk.json` (Slovak — native domestic)
+  - `locales/de.json` (German — DACH market)
+  - `locales/pl.json` (Polish — CEE market)
+- **Synchronization Engine:** [`scripts/sync_site.py`](file:///scripts/sync_site.py) reads the configuration, syncs markdown alternates, rebuilds `llms.txt`, `llms-full.txt`, and generates `sitemap.xml`.
+
+---
+
+## 4. Site Architecture & Page Topology
+
+**Navigation:** Home | About | Products | Blog | Contact.  
+(Drones marked as hobby engineering project. Expertise and Skills accessible via footer/About).
 
 | Page | URL | Purpose & Core Content |
 |:-----|:----|:-----------------------|
 | **Home** | `/` (`index.html`) | Hero: "I build AI agents that run your processes" + 4 products + dynamic blog preview + lead capture |
-| **About** | `/about` (`about.html`) | Bio: AI agent developer + Hermes Autonomous Agent Runtime Cockpit widget + 2023-2026 engineering timeline |
-| **Products** | `/services` (`services.html`) | 4 products with instant Stripe checkout (GEO Audit €150, Web Readiness Scan €200, Full Combo €300, Custom Agent from €500) |
-| **Products SK** | `/services-sk` (`services-sk.html`) | Slovak version with Stripe checkout modal and direct invoice ordering |
+| **About** | `/about` (`about.html`) | Bio: AI agent developer + Hermes Autonomous Agent Runtime Cockpit widget + 4-layer stack timeline |
+| **Products** | `/services` (`services.html`) | 4 products with instant Stripe checkout & Schema.org `Service`/`Offer` JSON-LD |
+| **Products SK** | `/services-sk` (`services-sk.html`) | Slovak localized products page with Stripe checkout modal & direct invoice ordering |
 | **Blog** | `/blog` (`blog/index.html`) | Static blog archive + dynamic JSON client fetching + real-time language switcher |
-| **Blog Posts (EN)** | `/blog/posts/*` | 6 standalone technical articles with full header, breadcrumbs, JSON-LD BlogPosting |
-| **Blog Posts (SK)** | `/blog/posts/sk/*` | 6 synchronized Slovak translations with bidirectional hreflang links |
+| **Blog Posts (EN)** | `/blog/posts/*.html` | 6 standalone technical articles + synchronized `.md` markdown alternates |
+| **Blog Posts (SK)** | `/blog/posts/sk/*.html` | 6 synchronized Slovak translations + bidirectional hreflang links + `.md` alternates |
 | **Drones** | `/drones` (`drones.html`) | Hobby project — build specs + hobby disclaimer. Not a commercial product. |
 | **Contact** | `/contact` (`contact.html`) | Lead capture + social links + order inquiry handoff |
-| **Expertise** | `/expertise` (`expertise.html`) | Archived — accessible via footer only |
-| **Skills** | `/skills` (`skills.html`) | Archived — accessible via footer only |
-| **Privacy** | `/privacy`, `/privacy-sk` | GDPR documentation |
-| **Terms** | `/terms`, `/terms-sk` | Terms of Service |
-| **Disclaimer** | `/disclaimer`, `/disclaimer-sk` | Legal disclaimer |
+| **Privacy / Terms** | `/privacy`, `/terms`, `/disclaimer` | GDPR, Terms of Service, and compliance documentation |
 
 ---
 
-## 4. Design System & Tokens (`html-generator` Standards)
+## 5. Design System & Tokens (`css/main.css`)
 
 All visual interfaces adhere strictly to the design system tokens defined in [`css/main.css`](file:///css/main.css):
 
@@ -91,300 +103,71 @@ All visual interfaces adhere strictly to the design system tokens defined in [`c
 - Radius: `--radius-sm: 6px;` | `--radius-md: 12px;` | `--radius-lg: 18px;` | `--radius-full: 9999px;`
 - Accessibility: `--min-tap-target: 44px;` for all mobile buttons and interactive anchors.
 
-### Brand Mark & Typography Standard
-- **Brand Signet:** Minimalist bronze glyph `<div class="brand-mark">✦</div>` paired with clean logotype `<span class="nav-logo-text">marian<span class="highlight">stancik</span><span class="tld">.dev</span></span>`.
-- **No external CSS frameworks:** Zero Tailwind, zero Bootstrap. 100% Vanilla CSS for sub-millisecond parsing.
-- **Root-relative paths:** All internal anchors must use `/about`, `/expertise`, `/skills`, `/drones`, `/contact`, `/blog`.
-- **WCAG AA Accessibility:** Mandatory `<a href="#main-content" class="skip-link">`, semantic `<main>`, `<nav>`, `<footer>`, hierarchical `<h1>`–`<h3>`, and explicit `aria-label` tags on icon links.
-
 ---
 
-## 5. Generative Engine Optimization (GEO) & LLMO Blueprint
+## 6. Generative Engine Optimization (GEO) & LLMO Blueprint
 
-To guarantee instant, authoritative discovery and citations across AI engines (**Perplexity, ChatGPT Search, Claude, Google SGE, Grok**), the website implements a 6-layer GEO architecture:
+To guarantee instant, authoritative discovery and citations across AI engines (**Perplexity, ChatGPT Search, Claude, Google SGE, Grok**):
 
 ### 1. `llms.txt` & `llms-full.txt` Knowledge Graphs (llmstxt.org v2 Standard)
-* **Standard:** Root files following the official [llmstxt.org](https://llmstxt.org/) specification:
-  * **H1 Title:** Single `# Marian Stancik` project title at the top.
-  * **Blockquote Summary:** `> Description` immediately following H1.
-  * **Markdown Link Syntax:** Every single resource MUST be a valid Markdown link: `- [Title](https://domain/path): Optional description`. Never use plain text URLs.
-  * **`## Optional` Section:** Standard convention for secondary information (RSS, JSON feeds, sitemaps, social channels).
-  * **Markdown Alternates:** Every key HTML page provides a clean markdown version (`index.html.md`, `blog/index.html.md`, etc.) advertised via HTTP Link header `Link: </path.md>; rel="alternate"; type="text/markdown"` and `Link: </llms.txt>; rel="describedby"`.
-* **Autodiscovery Tag:** Included in `<head>` of all HTML pages:
-  ```html
-  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
-  ```
+* Root files strictly following the [llmstxt.org](https://llmstxt.org/) specification.
+* Every single resource is a valid Markdown link: `- [Title](https://domain/path): Description`.
+* Contains all 6 technical articles, core pages, and detailed product/service descriptions.
 
-### 2. Comprehensive AI Crawler Access in `robots.txt`
-Explicitly white-lists all production and experimental AI search spiders:
-```text
-User-agent: *
-Allow: /
+### 2. Dual-Language Markdown Alternates (`.md` Endpoints)
+* Every HTML page and blog post provides a clean markdown version (`index.html.md`, `blog/posts/*.md`, `blog/posts/sk/*.md`).
+* Advertised via HTTP Link header: `Link: </blog/posts/$1.md>; rel="alternate"; type="text/markdown"` and `Link: </llms.txt>; rel="describedby"`.
 
-User-agent: GPTBot
-Allow: /
-User-agent: ChatGPT-User
-Allow: /
-User-agent: ClaudeBot
-Allow: /
-User-agent: anthropic-ai
-Allow: /
-User-agent: Claude-Web
-Allow: /
-User-agent: PerplexityBot
-Allow: /
-User-agent: Google-Extended
-Allow: /
-User-agent: Applebot-Extended
-Allow: /
-User-agent: CCBot
-Allow: /
-User-agent: Bravebot
-Allow: /
-User-agent: Meta-ExternalAgent
-Allow: /
-User-agent: Amazonbot
-Allow: /
-User-agent: Cohere-ai
-Allow: /
-User-agent: Diffbot
-Allow: /
-User-agent: OAI-SearchBot
-Allow: /
+### 3. Comprehensive AI Crawler Access in `robots.txt`
+* Explicitly white-lists all production and experimental AI search spiders (GPTBot, ChatGPT-User, ClaudeBot, anthropic-ai, PerplexityBot, Google-Extended, Applebot-Extended, CCBot, Bravebot, Meta-ExternalAgent, Cohere-ai, Diffbot, OAI-SearchBot).
 
-Sitemap: https://www.marianstancik.dev/sitemap.xml
-```
-
-### 3. Schema.org JSON-LD Hierarchy
-* **`Person` Schema:** Contains full `sameAs` array (X, Threads, YouTube, GitHub, LinkedIn), `knowsAbout`, `jobTitle`, and `alumniOf`.
-* **`FAQPage` Schema:** Structured Question/Answer pairs embedded directly on `index.html`, `about.html`, and `skills.html`.
-* **`WebSite`, `AboutPage`, `CollectionPage` Schemas:** Canonical page definitions.
-
-### 4. Interactive Semantic FAQ Accordion
-* Native HTML `<details class="faq-item">` and `<summary class="faq-question">` elements.
-* High information density, fully accessible without JavaScript, zero layout shifts, immediately parseable by DOM parsers.
+### 4. Schema.org JSON-LD Hierarchy
+* **`Person` & `Organization` Schemas:** Rich `sameAs` array, `knowsAbout`, `jobTitle`, `image`.
+* **`Service` & `Offer` Schemas:** Embedded on `/services` and `/services-sk` with precise EUR pricing (€150, €200, €300, €500).
+* **`FAQPage` Schema:** Structured Question/Answer pairs embedded directly on key pages.
 
 ---
 
-## 6. Technical Stack & Multi-Agent Infrastructure
+## 7. Backend Architecture & Security (`/api/subscribe`)
+
+The serverless API is deployed on Vercel and connects directly to **AgentMail MCP** for asynchronous processing:
 
 ```mermaid
-flowchart TD
-    User([User / Client / Web Visitor]) -->|HTTPS / Clean URLs| VercelEdge[Vercel Edge Network - Frontend HTML5/CSS/JS]
-    AICrawler([AI Search Bots: Perplexity, GPTBot, Claude]) -->|Read Context| LLMsTxt[llms.txt & llms-full.txt]
-    
-    subgraph Hetzner Cloud VPS [Enterprise VPS - Nuremberg & Helsinki]
-        HermesAgent[Hermes Agent Autonomous Loops]
-        CronEngine[19+ Background Cron Orchestrations]
-        MCP[Custom Model Context Protocol Servers]
-        CaddyProxy[Caddy Reverse Proxy + SSL]
-        WSGI[Python WSGI / FastAPI Lead Capture]
-        SQLite[(SQLite DB - Leads & State)]
-        
-        HermesAgent <--> MCP
-        CronEngine --> HermesAgent
-        CaddyProxy --> WSGI --> SQLite
-    end
-    
-    subgraph AI Intelligence Layer
-        OpenRouter[OpenRouter API Multi-LLM Dynamic Routing]
-        Models[DeepSeek R1/V3 · Claude 3.5 Sonnet · GPT-4o · Llama 3.3]
-        OpenRouter <--> Models
-    end
-    
-    subgraph Memory & C2 Channels
-        Obsidian[Obsidian Vault - Persistent Second Brain]
-        TelegramBot[Telegram C2 Interactive Bridge]
-        WhatsAppBot[WhatsApp C2 Alerts & Trigger Channel]
-    end
-    
-    subgraph Tactical UAV Edge
-        DroneHW[1500g Carbon Quadcopter + Skystars H7 + AM60]
-        ArduPilot[ArduPilot Copter 4.5+ Autopilot]
-        RPi5[Raspberry Pi 5 Edge Companion Computer]
-        Camera[Camera Module 3 - Real-Time Vision AI]
-        
-        ArduPilot <--> RPi5 <--> Camera
-    end
-    
-    HermesAgent <--> OpenRouter
-    HermesAgent <--> Obsidian
-    HermesAgent <--> TelegramBot
-    HermesAgent <--> WhatsAppBot
-    VercelEdge -.->|API Lead Submissions| WSGI
+flowchart LR
+    Visitor[Client Web Form] -->|POST /api/subscribe| VercelAPI[Vercel Serverless Function]
+    VercelAPI -->|Honeypot & Rate Check| SecurityGuard[Spam & Origin Filter]
+    SecurityGuard -->|JSON-RPC 2.0 MCP| AgentMail[mcp.agentmail.to MCP Session]
+    AgentMail -->|User Confirmation| CustomerEmail[Customer Inbox]
+    AgentMail -->|Urgent Admin Alert| MarianInbox[marianstancik@agentmail.to]
 ```
 
----
-
-## 7. i18n — Zero-Framework Language Switching Protocol (EN/SK)
-
-- **Storage:** Inline dictionary in `js/i18n.js` (`const translations = {en: {...}, sk: {...}}`).
-- **Null-Safe DOM Binding Pattern:** All updates must check element existence before modifying text or HTML:
-  ```javascript
-  var el = document.getElementById('elementId');
-  if (el) el.textContent = d.translatedKey; // Use textContent for clean strings
-  if (el) el.innerHTML = d.htmlContent;    // Use innerHTML only for structured HTML
-  ```
-- **Language State:** Persisted across sessions in `localStorage.getItem('ms_lang')`.
-- **Dual Translation Registration:** Every new UI text element must be registered in both `en` and `sk` tables in `js/i18n.js`.
-
-### Dual-Language Blog Architecture (`scripts/publish_post.py`)
-- **Synchronized Generation:** Every new blog post creates both `/blog/posts/{slug}.html` (English) and `/blog/posts/sk/{slug}.html` (Slovak) with identical code blocks, structures, and CSS.
-- **Bidirectional SEO Pre-Rendering (`hreflang`):**
-  ```html
-  <link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/{slug}">
-  <link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/{slug}">
-  <link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/{slug}">
-  ```
-- **Instant Search Engine Indexing (IndexNow & Sitemap Ping):**
-  - Skript automatically appends new endpoints to `sitemap.xml` with `<lastmod>`.
-  - Pings `https://api.indexnow.org/indexnow` for instant crawl across Bing, Perplexity, Seznam, and Yandex.
-  - Pings Googlebot via `https://www.google.com/ping?sitemap=https://www.marianstancik.dev/sitemap.xml`.
+- **Dynamic CORS:** Supports `https://www.marianstancik.dev`, `https://marianstancik.dev`, and preview endpoints.
+- **Honeypot Protection:** Silently drops automated spam bots without consuming AgentMail API quota.
+- **Payload Routing:**
+  1. `product_order` / `stripe_checkout_intent` ➔ Sends detailed order recap + admin notification.
+  2. `contact_form` ➔ Sends receipt confirmation + instant admin alert.
+  3. `newsletter` ➔ Sends welcome guide + subscriber notification.
 
 ---
 
-## 8. Automated Verification Matrix (`verify_site.py`)
+## 8. Automated Verification Matrix
 
-Always run the multi-tier automated test script before pushing commits:
+Run the 7-tier verification script before any deployment:
 ```bash
 python scripts/verify_site.py
 ```
 
 ### Test Tiers
 1. **L0 — Syntax & Modules:** `node --check js/i18n.js` and `node --check js/three-bg.js`.
-2. **L1 — Security & Anonymization:** Regex sweep ensuring zero confidential company names.
-3. **L2 — HTML & Link Integrity:** Validates root-relative navigation links, valid OpenGraph tags, and JSON-LD schema syntax across all pages.
+2. **L1 — Security & Anonymization Sweep:** Regex scan ensuring zero confidential company names.
+3. **L2 — HTML & Link Integrity:** Validates root-relative links, OpenGraph tags, and JSON-LD syntax across all pages.
 4. **L3 — Design Token Adherence:** Checks `:root` token presence in `css/main.css`.
-5. **L4 — AI Discovery & GEO:** Validates `<link rel="alternate" href="/llms.txt">` in all `<head>` tags and AI crawler permissions in `robots.txt`.
-6. **L5 — Mobile & Canvas Rendering:** Playwright mobile viewport (375px) visual and Three.js canvas initialization.
+5. **L4 — AI Discovery & GEO:** Validates `<link rel="alternate" href="/llms.txt">` and AI crawler permissions in `robots.txt`.
+6. **L5 — API Health Check:** Validates live HTTP 200 response from `/api/subscribe`.
+7. **L6 — Config, Locales & Markdown Integrity:** Validates `site.config.json`, all 4 `locales/*.json` files, and guarantees zero missing `.md` blog alternates.
 
----
-
-## 9. Replication Blueprint for Future Websites
-
-To replicate this exact architecture on a new project or client site:
-
-1. **Step 1: Copy CSS Token Architecture**
-   - Import `css/main.css` tokens (`--color-bg`, `--color-primary`, `--space-*`, `--radius-*`).
-2. **Step 2: Establish Zero-Build Multi-Page Layout**
-   - Create HTML pages using standard skip-links, semantic header/main/footer, and mobile responsive containers.
-3. **Step 3: Setup Dual-Language i18n (`js/i18n.js`)**
-   - Add language switcher buttons (`#btnEn`, `#btnSk`) and map all UI strings into null-safe DOM bindings.
-4. **Step 4: Configure GEO & AI Discovery Protocol**
-   - Create `llms.txt` and `llms-full.txt` with clear identity, stack, and Q&A FAQ sections.
-   - Embed `FAQPage` and `Person`/`Organization` JSON-LD schemas in all HTML headers.
-   - Configure `robots.txt` allowing all 14+ AI crawlers.
-5. **Step 5: Setup Single-Branch Trunk GitOps**
-   - Use `main` as the default branch, connect to Vercel with `cleanUrls: true`, and test with `python scripts/verify_site.py`.
-
----
-
-## 10. PageSpeed 100 & Core Web Vitals (CWV) Standard
-
-To guarantee a **100/100 Google PageSpeed Insights** rating on both Mobile and Desktop:
-
-### 1. Non-Blocking WebGL Architecture (`js/three-bg.js`)
-- **Interaction-Deferred Initialization:** Three.js is dynamically imported upon first user interaction (`scroll`, `pointerdown`, `mousemove`, `touchstart`) or after 2500ms idle delay, achieving **0ms Total Blocking Time (TBT)** during initial synthetic audits.
-- **Linear $O(N)$ Connection Sampling:** Never use $O(N^2)$ brute-force distance loops. Always sample adjacent candidate indices.
-- **Mobile-Adaptive Geometry:** Scale down particle counts dynamically (220 on mobile <768px, 650 on desktop).
-- **Lifecycle & Motion:** Pause render loop on `document.hidden` (`visibilitychange`) and respect `prefers-reduced-motion` with a static single frame.
-
-### 2. Immutable Asset Caching (`vercel.json`)
-- Static assets (`/css/*`, `/js/*`, `*.webp`, `*.svg`, `*.mp4`) must be served with `public, max-age=31536000, immutable`.
-- AI discovery endpoints (`llms.txt`, `robots.txt`, `sitemap.xml`, `rss.xml`, `posts.json`) use `public, max-age=3600, stale-while-revalidate=86400`.
-- HTML pages use `public, max-age=0, must-revalidate`.
-
-### 3. Hero LCP, Layout Stability (CLS = 0) & WCAG AA Contrast
-- Hero images must use `<picture>` with `.webp` as primary format, explicit `width="200" height="200"`, `fetchpriority="high"`, and CSS `aspect-ratio: 1 / 1`.
-- Secondary text tokens (`--color-text-dim`) must maintain >= 4.5:1 contrast against dark background (`#9090A8` on `#08080F`).
-- Never open unused `<link rel="preconnect">` connections (e.g. Google Fonts) when using system font stacks.
-
-### 4. GEO / LLMO Robots, 3/3 Agentic Browsing & Schema Standard
-- All HTML pages must include:
-  ```html
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  ```
-- All JSON-LD schemas must be interconnected via `@graph` containing `Person`, `WebSite`, `WebPage`/`AboutPage`/`CollectionPage`, and `FAQPage`.
-- Strict adherence to `llmstxt.org` v2 markdown links (`- [Title](URL): Description`) guaranteeing 3/3 Lighthouse Agentic Browsing rating.
-
----
-
-## 11. Autonomous Content Generation & Digital Twin Pipeline (End-to-End Architecture)
-
-This section documents the end-to-end autonomous pipeline that creates, processes, translates, syndicates, and indexes technical stories, blog posts, and social updates.
-
-```mermaid
-flowchart TD
-    subgraph DataSources [1. Data Ingestion & Second Brain]
-        ObsidianVault[Obsidian Vault - Daily Notes & Research]
-        GitTelemetry[Git Commit Diffs & Code Changes]
-        UAVLogs[MAVLink Flight Logs & Hardware Specs]
-        RSSFeeds[Tech & EU AI Act Regulatory Feeds]
-    end
-
-    subgraph ProcessingEngine [2. Hermes Agent & Multi-LLM Processing]
-        HermesCron[Hermes Autonomous Cron Engine - Hetzner VPS]
-        Router[OpenRouter Dynamic LLM Routing]
-        Synthesizer[DeepSeek R1 / Claude 3.5 Sonnet - Technical Drafting]
-        Localizer[GPT-4o - Dual EN/SK Translation & JSON-LD]
-        SafetyFilter[L1 Anonymization & Code Validation Sweep]
-        
-        HermesCron --> Router
-        Router --> Synthesizer --> Localizer --> SafetyFilter
-    end
-
-    subgraph PublishingPipeline [3. Zero-Build Dual-Language Generation]
-        PublisherScript[scripts/publish_post.py]
-        ENPost[blog/posts/{slug}.html]
-        SKPost[blog/posts/sk/{slug}.html]
-        Manifests[posts.json · llms.txt · llms-full.txt]
-        SitemapXML[sitemap.xml + hreflang + lastmod]
-        
-        SafetyFilter --> PublisherScript
-        PublisherScript --> ENPost
-        PublisherScript --> SKPost
-        PublisherScript --> Manifests
-        PublisherScript --> SitemapXML
-    end
-
-    subgraph DistributionAndIndexing [4. Instant Indexing & Multi-Channel Syndication]
-        IndexNowPing[IndexNow API - Bing, Perplexity, Seznam, Yandex]
-        GooglePing[Googlebot Sitemap Ping API]
-        GitOps[Git Auto-Push to origin main -> Vercel Edge]
-        SocialTwin[Digital Twin Social Syndication: X & LinkedIn]
-        
-        SitemapXML --> IndexNowPing
-        SitemapXML --> GooglePing
-        PublisherScript --> GitOps
-        HermesCron --> SocialTwin
-    end
-
-    DataSources --> HermesCron
+### Live Channel Integration Test
+To run a live test of all email channels, lead capture, and Stripe payment links:
+```bash
+python scripts/test_all_channels.py
 ```
-
-### 1. Data Ingestion (Where the data comes from)
-- **Obsidian Second Brain Vault:** Daily logs of engineering breakthroughs, drone hardware build logs, code snippets, and legal analyses of EU AI Act and GDPR frameworks.
-- **Git Telemetry & Code Diffs:** Live commit logs tracking performance improvements (e.g. PageSpeed 100, Three.js optimizations, zero-build multi-page refactoring).
-- **MAVLink Flight & Telemetry Logs:** Data extracted directly from Pixhawk 6C flight controllers and Raspberry Pi 5 companion computers.
-- **Regulatory & Tech Aggregators:** Automated RSS and API feeds tracking EU AI Board guidelines, EASA drone regulatory updates, and AI framework releases.
-
-### 2. Processing & Synthesis Engine (Who and how it is processed)
-- **Host & Orchestrator:** **Hermes Agent (Nous Research)** running 24/7 on an enterprise Hetzner Cloud VPS in Nuremberg/Helsinki.
-- **Context Persistence:** SQLite session memory and structured Obsidian Markdown files ensure the agent retains long-term memory of past publications, tone of voice, and audience feedback.
-- **Multi-LLM Dynamic Routing via OpenRouter:**
-  1. **Technical Synthesis & Deep Dives (DeepSeek R1 / Claude 3.5 Sonnet):** Synthesizes raw technical inputs into structured, pedagogical technical articles with clean code snippets and hardware diagrams.
-  2. **Dual-Language Localization (GPT-4o):** Generates synchronized English and Slovak versions with native technical terminology, accurate grammar, and cultural relevance.
-  3. **Structured Data & SEO Extraction:** Generates Schema.org `BlogPosting` and `BreadcrumbList` JSON-LD graphs, OpenGraph tags, and keywords.
-- **L1 Anonymization & Security Guard:** Mandatory regex validation confirming **zero mentions** of confidential company names (enforcing the Defence Product Manager / Defence Industry standard).
-
-### 3. Dual-Language Zero-Build Publishing Pipeline (`scripts/publish_post.py`)
-- **Synchronized Artifact Creation:** Creates `/blog/posts/{slug}.html` (EN) and `/blog/posts/sk/{slug}.html` (SK) with identical layout and styling.
-- **Bidirectional SEO Linking:** Embeds `<link rel="alternate" hreflang="en/sk/x-default">` and canonical tags.
-- **Interactive UX Switcher:** Injects a lightweight header pill allowing visitors to toggle between languages.
-- **Manifest Updates:** Appends entries to `blog/posts.json`, `llms.txt`, and `llms-full.txt` using the `llmstxt.org` v2 link format.
-
-### 4. Instant Search Engine Indexing & Social Syndication
-- **IndexNow Protocol (`api.indexnow.org`):** Immediately pushes new URLs to Bing, Perplexity, Seznam, and Yandex, ensuring indexation in minutes rather than weeks.
-- **Googlebot Sitemap Ping:** Notifies Google of sitemap changes with updated `<lastmod>`.
-- **Trunk GitOps Deployment:** Commits and pushes to `main`, triggering Vercel Edge instant worldwide deployment.
-- **Digital Twin Social Syndication:** Adapts the long-form article into structured X threads and LinkedIn posts distributed via automated cron schedules.
