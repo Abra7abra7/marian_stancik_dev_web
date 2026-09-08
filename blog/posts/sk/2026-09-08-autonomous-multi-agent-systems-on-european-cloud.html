@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autonómne multi-agentné systémy na európskom cloude — Marian Stancik</title>
+<meta name="description" content="Architektúra, GDPR dátová suverenita a 24/7 orchestrácia autonómnych agentov na európskej VPS infraštruktúre.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/sk/2026-09-08-autonomous-multi-agent-systems-on-european-cloud">
+<link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-09-08-autonomous-multi-agent-systems-on-european-cloud">
+<link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-09-08-autonomous-multi-agent-systems-on-european-cloud">
+<link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/blog/posts/de/2026-09-08-autonomous-multi-agent-systems-on-european-cloud">
+<link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/blog/posts/pl/2026-09-08-autonomous-multi-agent-systems-on-european-cloud">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-09-08-autonomous-multi-agent-systems-on-european-cloud">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#08080F">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Autonómne multi-agentné systémy na európskom cloude — Marian Stancik">
+<meta property="og:description" content="Architektúra, GDPR dátová suverenita a 24/7 orchestrácia autonómnych agentov na európskej VPS infraštruktúre.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/sk/2026-09-08-autonomous-multi-agent-systems-on-european-cloud">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.marianstancik.dev/profile.webp">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
+<meta property="og:image:alt" content="Autonómne multi-agentné systémy na európskom cloude">
+<meta property="og:locale" content="sk_SK">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/profile.webp">
+
+<!-- JSON-LD Structured Data with BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Autonómne multi-agentné systémy na európskom cloude",
+      "description": "Architektúra, GDPR dátová suverenita a 24/7 orchestrácia autonómnych agentov na európskej VPS infraštruktúre.",
+      "datePublished": "2026-09-08",
+      "dateModified": "2026-09-08",
+      "author": {
+        "@type": "Person",
+        "name": "Marian Stancik",
+        "url": "https://www.marianstancik.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Marian Stancik"
+      },
+      "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/sk/2026-09-08-autonomous-multi-agent-systems-on-european-cloud",
+      "keywords": ["Autonomous Agents", "Cloud", "Security", "EU AI Act"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Domov",
+          "item": "https://www.marianstancik.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.marianstancik.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Autonómne multi-agentné systémy na európskom cloude",
+          "item": "https://www.marianstancik.dev/blog/posts/sk/2026-09-08-autonomous-multi-agent-systems-on-european-cloud"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:#08080F;color:#E8E8F0;line-height:1.8;-webkit-font-smoothing:antialiased}
+.container{max-width:740px;margin:0 auto;padding:0 24px}
+nav{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(8,8,15,0.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-inner a{color:#8888A0;text-decoration:none;font-size:0.85rem;transition:color 0.3s}
+.nav-inner a:hover{color:#CD7F32}
+article{padding:48px 0 80px}
+.post-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:32px;font-size:0.78rem;color:#9090A8}
+.post-meta .tag{background:rgba(205,127,50,0.08);color:#E8B86D;padding:3px 10px;border-radius:100px;font-size:0.65rem;border:1px solid rgba(205,127,50,0.15)}
+h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:#F0F0F5;line-height:1.25;letter-spacing:-0.02em;margin-bottom:8px}
+h2{font-size:1.3rem;font-weight:600;color:#F0F0F5;margin:36px 0 12px;line-height:1.35}
+h3{font-size:1.05rem;font-weight:600;color:#D0D0E0;margin:24px 0 8px}
+p{color:#B0B0C8;margin-bottom:16px;font-size:0.95rem}
+a{color:#E8B86D;transition:color 0.3s}
+a:hover{color:#CD7F32}
+ul,ol{padding-left:20px;margin-bottom:16px;color:#B0B0C8;font-size:0.95rem}
+li{margin-bottom:6px}
+code{background:rgba(255,255,255,0.04);padding:2px 6px;border-radius:4px;font-size:0.85rem;color:#E8B86D;font-family:'Fira Code','Cascadia Code','JetBrains Mono',monospace}
+pre{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;overflow-x:auto;margin-bottom:20px;font-size:0.82rem;line-height:1.5}
+pre code{background:none;padding:0;color:#C8C8D8}
+.callout{background:rgba(205,127,50,0.06);border-left:3px solid #CD7F32;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;color:#E8E8F0}
+footer{padding:36px 24px;text-align:center;color:#9090A8;font-size:0.75rem;border-top:1px solid rgba(255,255,255,0.04)}
+footer a{color:#8888A0;text-decoration:none}
+footer a:hover{color:#CD7F32}
+@media(max-width:600px){article{padding:32px 0 60px}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Navigácia blogu">
+  <div class="nav-inner">
+    <a href="/" aria-label="Marian Stancik domov"><span style="font-size:1.1rem">←</span> Domov</a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="/blog">Blog</a>
+      <div style="display:flex;gap:4px;background:rgba(255,255,255,0.06);padding:2px 4px;border-radius:100px;font-size:0.72rem;font-weight:600;">
+        <a href="/blog/posts/2026-09-08-autonomous-multi-agent-systems-on-european-cloud" style="padding:2px 8px;border-radius:100px;color:#8888A0;text-decoration:none;">EN</a>
+        <a href="/blog/posts/sk/2026-09-08-autonomous-multi-agent-systems-on-european-cloud" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">SK</a>
+        <a href="/blog/posts/de/2026-09-08-autonomous-multi-agent-systems-on-european-cloud" style="padding:2px 8px;border-radius:100px;color:#8888A0;text-decoration:none;">DE</a>
+        <a href="/blog/posts/pl/2026-09-08-autonomous-multi-agent-systems-on-european-cloud" style="padding:2px 8px;border-radius:100px;color:#8888A0;text-decoration:none;">PL</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+<article>
+<div class="post-meta">
+  <span>8. september 2026</span>
+  <span class="tag">Autonomous Agents</span>
+  <span>6 min čítania</span>
+  <span>Marian Stancik</span>
+</div>
+
+<h1>Autonómne multi-agentné systémy na európskom cloude</h1>
+
+<div class="post-content">
+<p>Nasadenie autonómnych AI agentov vyžaduje dedikovanú a spoľahlivú európsku cloudovú infraštruktúru, ktorá zabezpečuje súlad s GDPR, NIS2 a EU AI Act, pričom udržiava minimálnu latenciu pri volaní externých nástrojov a MCP serverov.</p><h2>1. Infraštruktúra a dátová suverenita</h2><p>Prevádzka agentov na dedikovaných európskych VPS serveroch prináša deterministické vykonávanie, izolované pamäťové vrstvy a lokálnu perzistenciu bez vendor lock-in.</p>
+</div>
+</article>
+</div>
+
+<footer>
+  <p>© 2026 <a href="/">Marian Stancik</a> — <a href="/">www.marianstancik.dev</a></p>
+</footer>
+</body>
+</html>

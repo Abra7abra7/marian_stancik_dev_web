@@ -13,6 +13,7 @@
 
 ## Blog Articles
 
+- [Autonomous Multi-Agent Systems on European Cloud](https://www.marianstancik.dev/blog/posts/2026-09-08-autonomous-multi-agent-systems-on-european-cloud): Architecture, GDPR data sovereignty, and 24/7 orchestration of autonomous agents on European VPS infrastructure.
 - [Designing Your Local Agent Network for NVIDIA PAIR — Distributed Inference Across Devices](https://www.marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network): NVIDIA PAIR turns idle home PCs into a distributed inference cluster for AI agents. How to design a local agent network with tiered routing, multi-device parallelism, and Hermes Agent.
 - [The Convergence of Agent Architectures: Why Everyone Is Building the Same Two-Plane System](https://www.marianstancik.dev/blog/posts/2026-09-02-agent-architecture-convergence): NVIDIA AVO, the AOS reference architecture, and the Auton framework all converged on the same pattern: a two-plane design separating governance from execution for production autonomous agents.
 - [NVIDIA AVO: When Autonomous Agents Run for 7 Days and Beat Expert Engineers](https://www.marianstancik.dev/blog/posts/2026-08-27-nvidia-avo-autonomous-agents): NVIDIA's AVO architecture ran autonomously for 7 days, optimized GPU kernels beyond FlashAttention-4, and scored 100% on ARC-AGI-3. System design > model choice.
