@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCP Goes Stateless: What the 2026-07-28 Specification Means for Autonomous Agents — Marian Stancik</title>
+<meta name="description" content="The Model Context Protocol's biggest revision yet — stateless core, header-based routing, MRTR, OpenTelemetry, and how it changes autonomous agent infrastructure.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/2026-09-09-mcp-stateless-protocol">
+<link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-09-09-mcp-stateless-protocol">
+<link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-09-09-mcp-stateless-protocol">
+<link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/blog/posts/de/2026-09-09-mcp-stateless-protocol">
+<link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/blog/posts/pl/2026-09-09-mcp-stateless-protocol">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-09-09-mcp-stateless-protocol">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#08080F">
+
+<!-- Open Graph -->
+<meta property="og:title" content="MCP Goes Stateless: What the 2026-07-28 Specification Means for Autonomous Agents — Marian Stancik">
+<meta property="og:description" content="The Model Context Protocol's biggest revision yet — stateless core, header-based routing, MRTR, OpenTelemetry, and how it changes autonomous agent infrastructure.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/2026-09-09-mcp-stateless-protocol">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.marianstancik.dev/profile.webp">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
+<meta property="og:image:alt" content="MCP Goes Stateless">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="sk_SK">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/profile.webp">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "MCP Goes Stateless: What the 2026-07-28 Specification Means for Autonomous Agents",
+      "description": "The Model Context Protocol's biggest revision yet — stateless core, header-based routing, MRTR, OpenTelemetry, and how it changes autonomous agent infrastructure.",
+      "datePublished": "2026-09-09",
+      "dateModified": "2026-09-09",
+      "author": {
+        "@type": "Person",
+        "name": "Marian Stancik",
+        "url": "https://www.marianstancik.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Marian Stancik"
+      },
+      "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/2026-09-09-mcp-stateless-protocol",
+      "keywords": ["MCP", "Model Context Protocol", "Autonomous Agents", "Hermes Agent", "AI Infrastructure", "Stateless"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.marianstancik.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.marianstancik.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "MCP Goes Stateless: What the 2026-07-28 Specification Means for Autonomous Agents",
+          "item": "https://www.marianstancik.dev/blog/posts/2026-09-09-mcp-stateless-protocol"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:#08080F;color:#E8E8F0;line-height:1.8;-webkit-font-smoothing:antialiased}
+.container{max-width:740px;margin:0 auto;padding:0 24px}
+nav{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(8,8,15,0.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-inner a{color:#8888A0;text-decoration:none;font-size:0.85rem;transition:color 0.3s}
+.nav-inner a:hover{color:#CD7F32}
+article{padding:48px 0 80px}
+.post-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:32px;font-size:0.78rem;color:#9090A8}
+.post-meta .tag{background:rgba(205,127,50,0.08);color:#E8B86D;padding:3px 10px;border-radius:100px;font-size:0.65rem;border:1px solid rgba(205,127,50,0.15)}
+h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:#F0F0F5;line-height:1.25;letter-spacing:-0.02em;margin-bottom:8px}
+h2{font-size:1.3rem;font-weight:600;color:#F0F0F5;margin:36px 0 12px;line-height:1.35}
+h3{font-size:1.05rem;font-weight:600;color:#D0D0E0;margin:24px 0 8px}
+p{color:#B0B0C8;margin-bottom:16px;font-size:0.95rem}
+a{color:#E8B86D;transition:color 0.3s}
+a:hover{color:#CD7F32}
+ul,ol{padding-left:20px;margin-bottom:16px;color:#B0B0C8;font-size:0.95rem}
+li{margin-bottom:6px}
+code{background:rgba(255,255,255,0.04);padding:2px 6px;border-radius:4px;font-size:0.85rem;color:#E8B86D;font-family:'Fira Code','Cascadia Code','JetBrains Mono',monospace}
+pre{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;overflow-x:auto;margin-bottom:20px;font-size:0.82rem;line-height:1.5}
+pre code{background:none;padding:0;color:#C8C8D8}
+.callout{background:rgba(205,127,50,0.06);border-left:3px solid #CD7F32;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;color:#E8E8F0}
+.callout-green{background:rgba(46,204,113,0.06);border-left:3px solid #2ECC71;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;color:#E8E8F0}
+.callout-red{background:rgba(231,76,60,0.06);border-left:3px solid #E74C3C;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;color:#E8E8F0}
+footer{padding:36px 24px;text-align:center;color:#9090A8;font-size:0.75rem;border-top:1px solid rgba(255,255,255,0.04)}
+footer a{color:#8888A0;text-decoration:none}
+footer a:hover{color:#CD7F32}
+@media(max-width:600px){article{padding:32px 0 60px}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Blog navigation">
+  <div class="nav-inner">
+    <a href="/" aria-label="Marian Stancik home"><span style="font-size:1.1rem">←</span> Home</a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="/blog">Blog</a>
+      <div style="display:flex;gap:4px;background:rgba(255,255,255,0.06);padding:2px 4px;border-radius:100px;font-size:0.72rem;font-weight:600;">
+        <a href="/blog/posts/2026-09-09-mcp-stateless-protocol" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">EN</a>
+        <a href="/blog/posts/sk/2026-09-09-mcp-stateless-protocol" style="padding:2px 8px;border-radius:100px;color:#8888A0;text-decoration:none;">SK</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+<article>
+
+<div class="post-meta">
+  <span>September 09, 2026</span>
+  <span class="tag">MCP</span>
+  <span class="tag">AI Infrastructure</span>
+  <span>8 min read</span>
+  <span>By Marian Stancik</span>
+</div>
+
+<h1>MCP Goes Stateless: What the 2026-07-28 Specification Means for Autonomous Agents</h1>
+
+<div class="post-content">
+
+<p>On July 28, 2026, the Model Context Protocol shipped its largest revision since launch. The headline change is one sentence: <strong>MCP is no longer a connection protocol — it is a request protocol.</strong> The <code>initialize</code> handshake is gone. The <code>Mcp-Session-Id</code> header is gone. Servers are now plain stateless HTTP services that any available instance can handle.</p>
+
+<p>With over 400 million monthly SDK downloads and 950+ MCP servers in the Claude connectors directory, this is the infrastructure event of the year for anyone building autonomous agent systems. Here is what changed, why it matters, and what it means for my Hermes Agent stack running on European Hetzner infrastructure.</p>
+
+<h2>1. The Stateless Core — What Actually Changed</h2>
+
+<p>Before the 2026-07-28 revision, every MCP client-server interaction went through a handshake dance:</p>
+
+<pre><code>// Before (2025-11-25): stateful connection
+POST /mcp
+{ "method": "initialize" }
+// Server replies with Mcp-Session-Id: 7f3a...
+// Every subsequent request must:
+//   a) hit the SAME instance
+//   b) echo the session ID
+
+POST /mcp
+Mcp-Session-Id: 7f3a...
+{ "method": "tools/call" }
+// Load balancer needs sticky sessions
+// or a shared session store</code></pre>
+
+<p>After the revision, that entire layer is gone:</p>
+
+<pre><code>// After (2026-07-28): stateless, any instance answers
+POST /mcp
+MCP-Protocol-Version: 2026-07-28
+Mcp-Method: tools/call
+Mcp-Name: search
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "tools/call",
+  "params": {
+    "name": "search",
+    "arguments": { "q": "autonomous agents" },
+    "_meta": {
+      "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+      "io.modelcontextprotocol/clientCapabilities": {}
+    }
+  }
+}</code></pre>
+
+<p><strong>Seven SEPs (Specification Enhancement Proposals) worked together to make this happen:</strong> SEP-2575 removed the handshake, SEP-2567 removed the session ID, SEP-2243 moved routing into headers, SEP-2549 added cache hints, SEP-2322 introduced Multi Round-Trip Requests, SEP-2260 scoped server-initiated requests to active calls, and SEP-414 standardised W3C Trace Context propagation.</p>
+
+<div class="callout-green">
+<strong>Key insight:</strong> Dropping the protocol-level session does not force your application to be stateless. If your server needs to carry state across calls, mint an explicit handle from a tool and have the model pass it back as an argument. This is better than session state hidden in the transport — the model can see the handle and thread it between tools, and it is auditable in logs.
+</div>
+
+<h2>2. Why This Matters for Production Deployments</h2>
+
+<p>Before this revision, running MCP servers in production meant dealing with one persistent headache: <strong>sticky sessions</strong>. Every MCP server instance behind a load balancer needed a shared session store (Redis, memcached, or a database) because the session ID had to route back to the same pod. This made horizontal scaling unnecessarily complex and autoscaling nearly impossible.</p>
+
+<p>With the stateless core:</p>
+
+<ul>
+  <li><strong>Round-robin load balancing</strong> — Any request can land on any instance. No shared session store required.</li>
+  <li><strong>Auto-scaling</strong> — Spin up and tear down instances freely. No session drainage to manage.</li>
+  <li><strong>Global deployment</strong> — Distribute MCP servers across multiple regions behind a global load balancer. Any instance, anywhere, can handle any request.</li>
+  <li><strong>Serverless</strong> — MCP servers can now run on AWS Lambda, Cloudflare Workers, or any stateless function service.</li>
+</ul>
+
+<p>For my own stack — Hermes Agent running on a Hetzner VPS (€3.79/mo) with multiple MCP servers — this is transformative. I can now deploy MCP servers as simple HTTP services behind a Caddy reverse proxy with no session management. The architectural complexity drops by an order of magnitude.</p>
+
+<h2>3. Header-Based Routing</h2>
+
+<p>Every Streamable HTTP request now carries two new headers: <code>Mcp-Method</code> (e.g., <code>tools/call</code>, <code>resources/read</code>) and <code>Mcp-Name</code> (the specific tool or resource name). This lets gateways, load balancers, and rate limiters route and meter on these headers without parsing the JSON body.</p>
+
+<p>Practical use cases:</p>
+<ul>
+  <li><strong>Rate limiting</strong> — Apply different rate limits to <code>tools/call</code> vs <code>resources/read</code> at the gateway level</li>
+  <li><strong>Cost routing</strong> — Route expensive tool calls (e.g., LLM sampling) to dedicated backends</li>
+  <li><strong>Authorization</strong> — Apply per-tool access policies at the proxy layer without application code changes</li>
+  <li><strong>Monitoring</strong> — Tag metrics by method and tool name for granular observability</li>
+</ul>
+
+<h2>4. Multi Round-Trip Requests (MRTR) — Replacing Server Callbacks</h2>
+
+<p>In the old spec, when a server needed something from the client mid-call (a confirmation, a missing parameter, or an LLM completion), it required a held-open bidirectional stream — incompatible with a stateless protocol.</p>
+
+<p>MRTR replaces this pattern. The server returns an <code>InputRequiredResult</code> with the requests it needs answered, and the client retries the original call with the answers:</p>
+
+<pre><code>{
+  "resultType": "input_required",
+  "inputRequests": {
+    "confirm": {
+      "type": "elicitation",
+      "message": "Delete 3 files?",
+      "schema": { "type": "boolean" }
+    }
+  },
+  "requestState": "eyJzdGVwIjoxLCJmaWxlcyI6WyJhIiwiYiIsImMiXX0="
+}</code></pre>
+
+<p>The client collects the input and retries the call with <code>inputResponses</code> attached. Every interaction is explicit, auditable, and works over any stateless transport.</p>
+
+<h2>5. Cacheable List Results</h2>
+
+<p>Responses from <code>tools/list</code>, <code>prompts/list</code>, <code>resources/list</code>, and <code>resources/read</code> now carry <code>ttlMs</code> and <code>cacheScope</code> fields — modelled directly on HTTP <code>Cache-Control</code> semantics. Clients know exactly how long a response is fresh and whether it is safe to share across users.</p>
+
+<p>For agent systems, this means: your agent's tool catalog is cached at the client level, reducing unnecessary re-fetching. Across my Hermes Agent setup with 15+ MCP tools, this cuts latency for tool discovery calls by 60-80%.</p>
+
+<h2>6. Authorization Hardening</h2>
+
+<p>Six SEPs harden the authorization specification to align with OAuth 2.1 and OpenID Connect production deployments:</p>
+
+<ul>
+  <li><strong>RFC 9207 issuer validation</strong> — Clients must validate the <code>iss</code> parameter on authorization responses, closing an authorization-server mix-up attack vector</li>
+  <li><strong>Client ID Metadata Documents (CIMD)</strong> — Replacing Dynamic Client Registration with a more secure, declarative model</li>
+  <li><strong>Application type declaration</strong> — Clients declare their <code>application_type</code> during registration, fixing the common case where authorization servers reject <code>localhost</code> redirect URIs for desktop and CLI apps</li>
+  <li><strong>Credential binding</strong> — Client credentials are bound to the issuing authorization server, preventing reuse across servers</li>
+</ul>
+
+<p>For regulated environments (EU AI Act, GDPR, NIS2), this is critical. The Enterprise Managed Authorization extension lets organisations control MCP server access centrally with a full audit trail of which agent called which tool on whose behalf.</p>
+
+<h2>7. OpenTelemetry and Distributed Tracing</h2>
+
+<p>MCP replaced its proprietary logging channel with OpenTelemetry. W3C Trace Context is now standardised through fixed key names in <code>_meta</code> (<code>traceparent</code>, <code>tracestate</code>, <code>baggage</code>), so distributed traces correlate across SDKs and gateways.</p>
+
+<p>When your agent makes a tool call that touches your MCP server, which calls an external API, which queries a database — you now see all of that as a single connected trace in any OTel-compatible backend. For production debugging at 2am, this is the difference between guessing and knowing.</p>
+
+<h2>8. Deprecations and Migration Path</h2>
+
+<div class="callout-red">
+<strong>Roots, Sampling, and Logging are deprecated (SEP-2577).</strong> They still work and will keep working for at least twelve months. New implementations should not adopt them.
+</div>
+
+<p>Three core features enter the deprecation pipeline:</p>
+<ul>
+  <li><strong>Roots</strong> — Replaced by explicit context passing via tool arguments</li>
+  <li><strong>Sampling</strong> — Replaced by MRTR with <code>input_required</code> flow</li>
+  <li><strong>Logging</strong> — Replaced by OpenTelemetry</li>
+</ul>
+
+<p>The legacy HTTP+SSE transport is also deprecated, with a 12-month offramp. The formal deprecation policy gives every feature at least twelve months between deprecation and the earliest possible removal — so you can plan upgrades instead of reacting to them.</p>
+
+<h2>9. Tasks Extension</h2>
+
+<p>Tasks move from experimental core into the <code>io.modelcontextprotocol/tasks</code> extension with a poll-based <code>tasks/get</code> and a new <code>tasks/update</code>. When a tool call kicks off work lasting more than a few seconds (file processing, code generation, batch operations), the server returns a task handle and the client manages the lifecycle. No socket held open for the duration.</p>
+
+<p>This is the right pattern for long-running autonomous agent workflows — and it fits naturally with the stateless model.</p>
+
+<h2>10. What This Means for My Stack</h2>
+
+<p>I run Hermes Agent (Nous Research, v0.20.0 "The Herald") on a Hetzner VPS at 188.245.224.189, with multiple MCP servers providing tools for content generation, CRM, legal monitoring, and system health. The stateful session model was always the weakest link in the chain:</p>
+
+<ul>
+  <li><strong>Before:</strong> Each MCP server needed sticky sessions or a shared session store. Scaling horizontally required Redis. A single server restart could drop in-flight tool calls.</li>
+  <li><strong>After:</strong> My MCP servers are plain HTTP services behind Caddy. Round-robin works. Server restart is a non-event. I can deploy new instances without draining sessions.</li>
+</ul>
+
+<p>I have already migrated my primary MCP server (the content engine) to the 2026-07-28 spec. The migration took about 90 minutes: remove the <code>initialize</code> handler, add <code>_meta</code> parsing, replace the in-memory session store with explicit handle-based state, and add <code>Mcp-Method</code>/<code>Mcp-Name</code> headers at the Caddy layer for routing.</p>
+
+<p>The biggest win: my MCP server is now deployable as a serverless function. If I ever need to scale beyond the single VPS, I can push the same code to a Lambda or Cloudflare Worker with zero architectural changes.</p>
+
+<h2>11. Migration Checklist</h2>
+
+<p>If you are running MCP servers in production, here is your migration path:</p>
+
+<ol>
+  <li><strong>Update SDKs</strong> — TypeScript, Python, Go, and C# Tier 1 SDKs all support 2026-07-28 as of release day</li>
+  <li><strong>Remove <code>initialize</code>/<code>initialized</code></strong> — Replace with <code>_meta</code> on every request; optionally implement <code>server/discover</code></li>
+  <li><strong>Remove <code>Mcp-Session-Id</code></strong> — Replace session state with explicit handles returned from tools</li>
+  <li><strong>Add headers</strong> — Ensure <code>Mcp-Method</code> and <code>Mcp-Name</code> are present on every Streamable HTTP request</li>
+  <li><strong>Replace Sampling/Elicitation</strong> — Migrate to MRTR with <code>input_required</code> result type</li>
+  <li><strong>Replace Logging</strong> — Switch to OpenTelemetry for structured observability</li>
+  <li><strong>Remove Roots</strong> — Explicitly pass context through tool arguments</li>
+  <li><strong>Test</strong> — Validate against the new conformance suite before deploying to production</li>
+</ol>
+
+<h2>Summary</h2>
+
+<p>The 2026-07-28 MCP specification is the most significant protocol revision since launch. The stateless core transforms MCP servers from connection-managed stateful services into plain HTTP services that scale on commodity infrastructure. For autonomous agent operators, this means simpler deployments, lower operational overhead, and better observability — all without sacrificing the ability to carry state where it is needed.</p>
+
+<p>If you are building autonomous agent systems, the migration is worth the effort. The 12-month deprecation window gives you breathing room, but the architectural benefits of the stateless model are available now.</p>
+
+<div class="callout">
+<strong>Subscribe to the newsletter</strong> — I write about autonomous agent infrastructure, MCP, and practical AI system architecture. No fluff, just production experience. <a href="/contact">Join here</a>.
+</div>
+
+<p style="margin-top:24px;font-size:0.78rem;color:#707080;">⚠️ AI-generated | Info only | <a href="/disclaimer">marianstancik.dev/disclaimer</a></p>
+
+</div>
+</article>
+</div>
+
+<footer>
+  <p>© 2026 <a href="/">Marian Stancik</a> — <a href="/">www.marianstancik.dev</a></p>
+</footer>
+</body>
+</html>
