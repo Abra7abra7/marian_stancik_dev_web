@@ -4,7 +4,21 @@
     <title>Marian Stancik — Blog</title>
     <link>https://marianstancik.dev/blog/</link>
     <description>AI agents, autonomous systems, law & tech, and building in public.</description>
-    <lastBuildDate>2026-09-05</lastBuildDate>
+    <lastBuildDate>2026-09-09</lastBuildDate>
+    <item>
+      <title>MCP Goes Stateless: What the 2026-07-28 Specification Means for Autonomous Agents — Marian Stancik</title>
+      <link>https://marianstancik.dev/blog/posts/2026-09-09-mcp-stateless-protocol</link>
+      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-09-mcp-stateless-protocol</guid>
+      <pubDate>2026-09-09</pubDate>
+      <description>The Model Context Protocol's biggest revision yet — stateless core, header-based routing, MRTR, OpenTelemetry, and how it changes autonomous agent infrastructure.</description>
+    </item>
+    <item>
+      <title>Autonomous Multi-Agent Systems on European Cloud — Marian Stancik</title>
+      <link>https://marianstancik.dev/blog/posts/2026-09-08-autonomous-multi-agent-systems-on-european-cloud</link>
+      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-08-autonomous-multi-agent-systems-on-european-cloud</guid>
+      <pubDate>2026-09-08</pubDate>
+      <description>Architecture, GDPR data sovereignty, and 24/7 orchestration of autonomous agents on European VPS infrastructure.</description>
+    </item>
     <item>
       <title>Designing Your Local Agent Network for NVIDIA PAIR — Distributed Inference Across Devices — Marian Stancik</title>
       <link>https://marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network</link>
