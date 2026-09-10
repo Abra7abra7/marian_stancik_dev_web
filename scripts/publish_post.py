@@ -78,6 +78,8 @@ HTML_TEMPLATE_EN = """<!DOCTYPE html>
 <meta name="twitter:creator" content="@marian_s_ai">
 <meta name="twitter:image" content="https://www.marianstancik.dev/profile.webp">
 
+<meta name="ai-generated-content" content="true">
+
 <!-- JSON-LD Structured Data with BreadcrumbList -->
 <script type="application/ld+json">
 {{
@@ -99,7 +101,9 @@ HTML_TEMPLATE_EN = """<!DOCTYPE html>
         "name": "Marian Stancik"
       }},
       "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/{slug}",
-      "keywords": {tags_json}
+      "keywords": {tags_json},
+      "isBasedOn": "https://schema.org/AIGeneratedContent",
+      "creativeWorkStatus": "AIGenerated"
     }},
     {{
       "@type": "BreadcrumbList",
@@ -238,6 +242,8 @@ HTML_TEMPLATE_SK = """<!DOCTYPE html>
 <meta name="twitter:site" content="@marian_s_ai">
 <meta name="twitter:creator" content="@marian_s_ai">
 <meta name="twitter:image" content="https://www.marianstancik.dev/profile.webp">
+
+<meta name="ai-generated-content" content="true">
 
 <!-- JSON-LD Structured Data with BreadcrumbList -->
 <script type="application/ld+json">
@@ -400,6 +406,8 @@ HTML_TEMPLATE_DE = """<!DOCTYPE html>
 <meta name="twitter:creator" content="@marian_s_ai">
 <meta name="twitter:image" content="https://www.marianstancik.dev/profile.webp">
 
+<meta name="ai-generated-content" content="true">
+
 <!-- JSON-LD Structured Data with BreadcrumbList -->
 <script type="application/ld+json">
 {{
@@ -560,6 +568,8 @@ HTML_TEMPLATE_PL = """<!DOCTYPE html>
 <meta name="twitter:site" content="@marian_s_ai">
 <meta name="twitter:creator" content="@marian_s_ai">
 <meta name="twitter:image" content="https://www.marianstancik.dev/profile.webp">
+
+<meta name="ai-generated-content" content="true">
 
 <!-- JSON-LD Structured Data with BreadcrumbList -->
 <script type="application/ld+json">

@@ -7,3 +7,10 @@ test_screenshots/
 node_modules/
 __pycache__/
 *.pyc
+claude-seo/
+images/ig-test.png
+images/logo-ascentia.png
+images/profile-big.png
+claude-seo-audit/
+logo-ascentia.png
+profile-big.png
