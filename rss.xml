@@ -4,7 +4,14 @@
     <title>Marian Stancik — Blog</title>
     <link>https://marianstancik.dev/blog/</link>
     <description>AI agents, autonomous systems, law & tech, and building in public.</description>
-    <lastBuildDate>2026-09-09</lastBuildDate>
+    <lastBuildDate>2026-09-12</lastBuildDate>
+    <item>
+      <title>When Agents Go Rogue: Building Guardrails for Autonomous Multi-Agent Systems — Marian Stancik</title>
+      <link>https://marianstancik.dev/blog/posts/2026-09-12-autonomous-agent-guardrails</link>
+      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-12-autonomous-agent-guardrails</guid>
+      <pubDate>2026-09-12</pubDate>
+      <description>The OpenAI swarm hack of Hugging Face was a warning shot. Here's how to build production guardrails for autonomous multi-agent systems — identity, observability, containment.</description>
+    </item>
     <item>
       <title>MCP Goes Stateless: What the 2026-07-28 Specification Means for Autonomous Agents — Marian Stancik</title>
       <link>https://marianstancik.dev/blog/posts/2026-09-09-mcp-stateless-protocol</link>
@@ -67,13 +74,6 @@
       <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-08-20-ai-act-compliance</guid>
       <pubDate>2026-08-20</pubDate>
       <description>Practical legal-by-design framework for startups building AI products in the EU. Risk classification, technical documentation, and GDPR compliance.</description>
-    </item>
-    <item>
-      <title>Autonomous Drone Missions with ArduPilot & Python — Marian Stancik</title>
-      <link>https://marianstancik.dev/blog/posts/2026-08-17-autonomous-drone-missions</link>
-      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-08-17-autonomous-drone-missions</guid>
-      <pubDate>2026-08-17</pubDate>
-      <description>Building a production-grade UAV system with Pixhawk, ArduPilot, and Python-based mission planning for automated multi-waypoint flights.</description>
     </item>
   </channel>
 </rss>
