@@ -502,10 +502,10 @@
         <li><span class="check-icon">✓</span> <span><strong>Prioritizovaná matica opráv:</strong> presný zoznam kódových zmien pre AI vyhľadávače</span></li>
       </ul>
       <div class="pricing-actions">
-        <a href="https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800" target="_blank" rel="noopener" class="btn-stripe">
+        <button class="btn-stripe" style="border:none;cursor:pointer;width:100%;" onclick="openStripeCheckout('AI GEO Audit', 199, 'AI GEO Audit')">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2v-6h2v6zm-2-8c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
-          Kúpiť cez Stripe (€199) →
-        </a>
+          Objednať audit (€199) →
+        </button>
         <a href="/contact" class="btn-secondary-order">Alebo objednať na faktúru cez formulár →</a>
       </div>
     </div>
@@ -530,10 +530,10 @@
         <li><span class="check-icon">✓</span> <span><strong>Semaforový report (Zelená/Žltá/Červená)</strong> s odporúčaniami</span></li>
       </ul>
       <div class="pricing-actions">
-        <a href="https://buy.stripe.com/test_28E6oJesU80O9cx4SV28801" target="_blank" rel="noopener" class="btn-stripe">
+        <button class="btn-stripe" style="border:none;cursor:pointer;width:100%;" onclick="openStripeCheckout('AI Web Readiness Scan', 200, 'AI Web Readiness Scan')">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2v-6h2v6zm-2-8c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
-          Kúpiť cez Stripe (€200) →
-        </a>
+          Objednať scan (€200) →
+        </button>
         <a href="/contact" class="btn-secondary-order">Alebo objednať na faktúru cez formulár →</a>
       </div>
     </div>
@@ -559,10 +559,10 @@
         <li><span class="check-icon">✓</span> <span><strong>Expresné dodanie do 48 hodín</strong> priamo do e-mailu</span></li>
       </ul>
       <div class="pricing-actions">
-        <a href="https://buy.stripe.com/test_8x27sN70s4OC88tdpr28802" target="_blank" rel="noopener" class="btn-stripe">
+        <button class="btn-stripe" style="border:none;cursor:pointer;width:100%;" onclick="openStripeCheckout('Full Web Audit (GEO + Readiness)', 300, 'Full Web Audit (GEO + Readiness)')">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2v-6h2v6zm-2-8c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
-          Kúpiť cez Stripe (€300) →
-        </a>
+          Objednať balík (€300) →
+        </button>
         <a href="/contact" class="btn-secondary-order">Alebo objednať na faktúru cez formulár →</a>
       </div>
     </div>
@@ -688,7 +688,19 @@
           <label for="stripeNotes">Poznámka / Špecifické požiadavky (voliteľné)</label>
           <input type="text" id="stripeNotes" class="stripe-form-input" placeholder="napr. zameranie na EU AI Act, expresné dodanie">
         </div>
-        <button type="submit" class="btn-stripe" id="modalSubmitBtn" style="margin-top: 12px;">
+        <div class="stripe-form-group" style="margin-top: 14px; text-align: left;">
+          <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.78rem; color: #B0B0C5; cursor: pointer; line-height: 1.45;">
+            <input type="checkbox" id="stripeConsentTerms" required style="margin-top: 2px; accent-color: #CD7F32;">
+            <span>Súhlasím so <a href="/terms-sk" target="_blank" style="color: #CD7F32; text-decoration: underline;">Všeobecnými obchodnými podmienkami</a> a <a href="/privacy-sk" target="_blank" style="color: #CD7F32; text-decoration: underline;">Zásadami ochrany osobných údajov</a>.</span>
+          </label>
+        </div>
+        <div class="stripe-form-group" style="margin-top: 8px; text-align: left;">
+          <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.78rem; color: #B0B0C5; cursor: pointer; line-height: 1.45;">
+            <input type="checkbox" id="stripeConsentDigital" required style="margin-top: 2px; accent-color: #CD7F32;">
+            <span>Výslovne súhlasím so začatím poskytovania digitálnej služby pred uplynutím 14-dňovej lehoty a beriem na vedomie, že týmto strácam právo na odstúpenie od zmluvy podľa § 19 zákona č. 108/2024 Z. z.</span>
+          </label>
+        </div>
+        <button type="submit" class="btn-stripe" id="modalSubmitBtn" style="margin-top: 16px;">
           Potvrdiť objednávku (<span id="modalPriceVal">€199</span>) →
         </button>
       </form>
@@ -824,7 +836,9 @@ function handleStripeRedirect(e) {
       product: currentCheckoutProduct,
       price: currentCheckoutPrice,
       website: url,
-      notes: notes
+      notes: notes,
+      consent_terms: true,
+      consent_withdrawal_waiver: true
     })
   }).catch(() => {}).then(() => {
     const productIds = {

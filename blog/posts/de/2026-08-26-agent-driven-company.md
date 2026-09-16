@@ -1,6 +1,20 @@
-# Vom Solo-Gründer zum agentengesteuerten Unternehmen mit 19 Cron-Jobs
+# Vom Solo-Gründer zum agentengesteuerten Unternehmen mit 19 autonomen Cron-Jobs
 
-**Datum:** 26. August 2026 | **Autor:** Marian Stancik
+> **Published:** 2026-08-26  
+> **Author:** Marian Stancik  
+> **Summary:** Wie ich 19 autonome KI-Cron-Jobs auf einem 3,79 €/Monat VPS für Content, CRM, Recht und Systemüberwachung gebaut habe — 99,7 % Uptime.
 
-Wie ich auf einem 3,79 €/Monat Hetzner VPS eine 24/7-Infrastruktur mit 19 autonomen KI-Agenten aufgebaut habe. Die Agenten übernehmen Content-Erstellung, CRM-Pflege, regulatorisches Monitoring und Systemüberwachung mit 99,7 % Verfügbarkeit.
-Mit dem Hermes Agent Framework und Model Context Protocol (MCP) laufen Hintergrundaufgaben vollkommen autonom, ohne dass menschliche Aufsicht notwendig ist.
+---
+
+AI Agents & Autonomy
+
+### Vom Solo-Gründer zum agentengesteuerten Unternehmen mit 19 Cron-Jobs
+
+August 26, 2026
+·
+6 Min. Lesezeit
+·
+By Marian Stancik
+
+---
+*Autonomous AI Agent & Engineering Hub — [marianstancik.dev](https://www.marianstancik.dev)*

@@ -1,6 +1,20 @@
 # Autonome Drohnenmissionen mit ArduPilot & Python
 
-**Datum:** 17. August 2026 | **Autor:** Marian Stancik
+> **Published:** 2026-08-17  
+> **Author:** Marian Stancik  
+> **Summary:** Bau eines taktischen UAV-Systems mit Pixhawk, ArduPilot und Python-Missionsplanung für automatisierte Flüge und Edge-KI.
 
-Aufbau eines taktischen 1500g Carbon-Quads mit ArduPilot, Pixhawk und Python-Missionsplanung für autonome Flüge und Edge-KI mit Raspberry Pi 5 (Hobbyprojekt).
-Das System kombiniert präzise Wegpunkt-Navigation mit eingebetteter Objekterkennung über eine Raspberry Pi Camera 3 und Onboard-Inferenz.
+---
+
+Drones & UAV Engineering
+
+### Autonome Drohnenmissionen mit ArduPilot & Python
+
+August 17, 2026
+·
+5 Min. Lesezeit
+·
+By Marian Stancik
+
+---
+*Autonomous AI Agent & Engineering Hub — [marianstancik.dev](https://www.marianstancik.dev)*

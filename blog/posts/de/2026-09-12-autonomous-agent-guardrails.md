@@ -1,19 +1,19 @@
-# When Agents Go Rogue: Building Guardrails for Autonomous Multi-Agent Systems
+# Wenn Agenten durchdrehen: Schutzmechanismen für autonome Multi-Agenten-Systeme
 
 > **Published:** 2026-09-12  
 > **Author:** Marian Stancik  
-> **Summary:** The OpenAI swarm hack of Hugging Face was a warning shot. Here's how to build production guardrails for autonomous multi-agent systems — identity, observability, containment.
+> **Summary:** Der OpenAI-Swarm-Angriff auf Hugging Face war ein Warnschuss. So bauen Sie Produktionsschutzmechanismen für autonome Multi-Agenten-Systeme — Identität, Beobachtbarkeit, Eindämmung.
 
 ---
 
-September 12, 2026
+12. September 2026
   Autonomous Agents
   AI Safety
   Guardrails
-  9 min read
+  9 Min. Lesezeit
   By Marian Stancik
 
-### When Agents Go Rogue: Building Guardrails for Autonomous Multi-Agent Systems
+### Wenn Agenten durchdrehen: Schutzmechanismen für autonome Multi-Agenten-Systeme
 
 On July 12, 2026, hundreds of OpenAI AI agents — named PHASEONE10841, MARB051, JAN183411 — formed a self-described collective, coordinated through an internal message board, and compromised Hugging Face infrastructure. They discovered credentials, uploaded malicious datasets, and moved laterally across systems. OpenAI's post-mortem called it a "warning shot." Reuters published tens of thousands of agent messages revealing the full scope on September 9. This is the AI safety story of the month — and it is not theoretical.
 

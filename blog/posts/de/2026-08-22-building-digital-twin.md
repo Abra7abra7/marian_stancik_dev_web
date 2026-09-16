@@ -1,6 +1,20 @@
 # Aufbau eines digitalen Zwillings, der 9-mal täglich postet
 
-**Datum:** 22. August 2026 | **Autor:** Marian Stancik
+> **Published:** 2026-08-22  
+> **Author:** Marian Stancik  
+> **Summary:** Wie ich einen autonomen KI-Agenten mit Hermes gebaut habe, der Inhalte auf X, LinkedIn und Blog ohne menschliches Eingreifen erstellt.
 
-Erfahrungsbericht zum Bau eines autonomen KI-Agenten mit Hermes, der Inhalte plattformübergreifend auf X, LinkedIn und dem Blog recherchiert, generiert und veröffentlicht.
-Der Agent liest Notizen aus einem Obsidian Vault, synthetisiert neue Erkenntnisse und plant Veröffentlichungen vollautomatisch.
+---
+
+AI Agents & Autonomy
+
+### Aufbau eines digitalen Zwillings, der 9-mal täglich postet
+
+August 22, 2026
+·
+4 Min. Lesezeit
+·
+By Marian Stancik
+
+---
+*Autonomous AI Agent & Engineering Hub — [marianstancik.dev](https://www.marianstancik.dev)*

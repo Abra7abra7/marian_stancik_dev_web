@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
+# AI Content Signals (contentsignals.org)
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
 # AI Search & Crawlers (GEO / LLMO)
 User-agent: GPTBot
 Allow: /

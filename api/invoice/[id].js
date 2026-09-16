@@ -9,7 +9,8 @@ export default async function handler(req, res) {
   }
   
   const filename = id.endsWith('.pdf') ? id : `${id}.pdf`;
-  const vpsUrl = `http://188.245.224.189/assets/invoices/${filename}`;
+  const invoiceHost = process.env.INVOICE_HOST || 'https://api.marianstancik.dev';
+  const vpsUrl = `${invoiceHost}/assets/invoices/${filename}`;
   
   try {
     const response = await fetch(vpsUrl);
@@ -24,7 +25,8 @@ export default async function handler(req, res) {
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
     res.setHeader('Content-Length', pdfBuffer.length);
-    res.setHeader('Cache-Control', 'private, max-age=3600');
+    res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    res.setHeader('X-Robots-Tag', 'noindex, nofollow, noarchive');
     
     return res.status(200).send(pdfBuffer);
   } catch (e) {

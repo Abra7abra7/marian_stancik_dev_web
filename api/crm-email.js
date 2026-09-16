@@ -3,6 +3,7 @@
 import emailTpl from '../email-templates.js';
 
 const AGENTMAIL_API_KEY = process.env.AGENTMAIL_API_KEY;
+const CRM_WEBHOOK_KEY = process.env.CRM_WEBHOOK_KEY;
 const INVOICE_BASE = 'https://www.marianstancik.dev/api/invoice/';
 const INBOX_PERSONAL = 'marianstancik@agentmail.to';
 const INBOX_COMPANY = 'ascentia@agentmail.to';
@@ -10,7 +11,14 @@ const INBOX_COMPANY = 'ascentia@agentmail.to';
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'POST only' });
   
-  const { actions } = req.body;
+  // Security guard: protect endpoint against unauthorized access
+  const authHeader = req.headers['authorization'] || '';
+  const token = req.headers['x-crm-key'] || (authHeader.startsWith('Bearer ') ? authHeader.slice(7) : authHeader);
+  if (!CRM_WEBHOOK_KEY || token !== CRM_WEBHOOK_KEY) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
+  const { actions } = req.body || {};
   if (!Array.isArray(actions) || actions.length === 0) {
     return res.status(400).json({ error: 'Missing actions array' });
   }

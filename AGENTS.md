@@ -79,7 +79,9 @@ All site metadata, product definitions, Stripe pricing, social handles, and mult
 ├── terms.html / disclaimer.html # Terms of Service & EU AI Act Art. 50 Disclaimers
 │
 ├── api/
-│   └── subscribe.js            # Serverless Lead Capture -> AgentMail MCP JSON-RPC 2.0
+│   ├── subscribe.js            # Serverless Lead Capture -> AgentMail MCP JSON-RPC 2.0
+│   ├── crm-email.js            # Hermes CRM Dispatcher (Protected via CRM_WEBHOOK_KEY / x-crm-key)
+│   └── invoice/[id].js         # HTTPS Invoice Proxy -> api.marianstancik.dev (noindex, no-store)
 │
 ├── blog/
 │   ├── index.html              # Blog Archive with Instant 4-Language Switcher
@@ -99,6 +101,7 @@ All site metadata, product definitions, Stripe pricing, social handles, and mult
 └── scripts/
     ├── publish_post.py         # Autonomous Blog Generator (4 Languages + IndexNow + Sitemap)
     ├── sync_site.py            # Site Config Sync Engine (sitemap.xml, llms.txt, alternates)
+    ├── generate_missing_md.py  # Markdown Alternates Generator for all 4 languages
     ├── fix_i18n_complete.py    # i18n Engine & HTML Sync Rebuild Script
     ├── verify_site.py          # 8-Tier Automated Production Verification Suite
     └── test_all_channels.py    # Live API & Channel Integration Test Script
@@ -163,15 +166,18 @@ All visual interfaces adhere strictly to the design system tokens defined in [`c
 To guarantee instant, authoritative discovery and citations across AI engines (**Perplexity, ChatGPT Search, Claude, Google SGE, Grok**):
 
 1. **`llms.txt` & `llms-full.txt` (llmstxt.org v2 Standard):** Clean Markdown links with summaries of all articles, products, and pages.
-2. **Dual-Language Markdown Alternates (`.md` Endpoints):** Every HTML page and blog post provides a clean markdown version (`*.md`) advertised via HTTP Link headers.
-3. **AI Crawler White-Listing (`robots.txt`):** Explicitly grants access to GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended, CCBot, Bravebot, Meta-ExternalAgent, Cohere-ai, Diffbot, and OAI-SearchBot.
+2. **4-Language Markdown Alternates & Content Negotiation:** Every HTML page and blog post provides a clean markdown version (`*.md`) advertised via HTTP Link headers. Furthermore, `vercel.json` intercepts requests with `Accept: text/markdown` and transparently routes AI agents directly to `.md` endpoints (`Vary: Accept`).
+3. **AI Crawler White-Listing & Content-Signals (`robots.txt`):** Explicitly grants access to GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended, CCBot, Bravebot, Meta-ExternalAgent, Cohere-ai, Diffbot, and OAI-SearchBot while defining modern content licensing signals:
+   ```text
+   Content-Signal: ai-train=no, search=yes, ai-input=yes
+   ```
 4. **Schema.org JSON-LD Hierarchy:** Rich `@graph` containing `Person`, `Organization`, `WebSite`, `Service`, `Offer`, and `FAQPage` schemas with precise pricing (€199, €200, €300, €500).
 
 ---
 
-## 8. Backend Architecture & Security (`/api/subscribe`)
+## 8. Backend Architecture & Security (`/api`)
 
-The serverless API is deployed on Vercel and connects directly to **AgentMail MCP** for asynchronous processing:
+The serverless API is deployed on Vercel Edge/Node and connects to **AgentMail MCP** and dedicated Hetzner VPS services:
 
 ```mermaid
 flowchart LR
@@ -182,16 +188,34 @@ flowchart LR
     AgentMail -->|Urgent Admin Alert| MarianInbox[marianstancik@agentmail.to]
 ```
 
-- **Dynamic CORS:** Supports `https://www.marianstancik.dev`, `https://marianstancik.dev`, and preview endpoints.
+### Security & Endpoint Protection
+- **Dynamic CORS & Origin Guard:** Strictly validates `https://www.marianstancik.dev` and `https://marianstancik.dev`.
 - **Honeypot Protection:** Silently drops automated spam bots without consuming AgentMail API quota.
-- **Payload Routing:**
-  1. `product_order` / `stripe_checkout_intent` ➔ Sends detailed order recap + admin notification.
-  2. `contact_form` ➔ Sends receipt confirmation + instant admin alert.
-  3. `newsletter` ➔ Sends welcome guide + subscriber notification.
+- **Webhook Authentication (`/api/crm-email`):** Protected by mandatory shared secret `CRM_WEBHOOK_KEY` via `x-crm-key` or `Bearer` Authorization token. Unauthenticated requests are rejected immediately with HTTP 401.
+- **Encrypted Invoice Proxy (`/api/invoice/:id`):** Secure HTTPS proxy to backend VPS (`api.marianstancik.dev`) with `X-Robots-Tag: noindex, nofollow, noarchive` and `Cache-Control: private, no-store` to prevent invoice leakage to search engines.
+- **Zero Database Commits:** Strict `.gitignore` policy excluding all local database files (`*.db`, `*.sqlite`, `*.bak`, `.env*`).
+- **Security Headers (`vercel.json`):** Enforces HSTS (`Strict-Transport-Security: max-age=63072000; includeSubDomains; preload`), `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, and fine-grained Content Security Policy (CSP).
 
 ---
 
-## 9. Automated Verification Suite (`scripts/verify_site.py`)
+## 9. Legal Compliance & Consumer Protection (Act No. 108/2024 Coll. & GDPR)
+
+The platform adheres to strict EU and Slovak digital market standards:
+
+### Statutory Digital Content Waiver (§ 19 Act No. 108/2024 Coll.)
+When purchasing digital audits (GEO Audit, Web Scan, Combo):
+1. **Pre-Checkout Consent Modal:** Prevents accidental Stripe redirect before capturing essential customer information (client website URL).
+2. **Explicit 14-Day Right of Withdrawal Waiver:** The consumer must explicitly check:
+   > *"I explicitly consent to the commencement of digital service provision before the expiry of the statutory 14-day withdrawal period, and I acknowledge that by granting this consent, I lose the right of withdrawal under § 19 of Act No. 108/2024 Coll. once the service is fully provided."*
+3. **Mandatory Acceptance:** Both statutory waiver and Terms/Privacy checkboxes are required before the Stripe checkout session is initiated.
+
+### Cookieless EU Privacy Architecture
+- **Zero Third-Party Cookies:** Replaced all third-party tracking scripts with self-hosted, cookieless Umami Analytics running on European infrastructure (`api.marianstancik.dev`).
+- **No Cookie Banner Required:** Full compliance with GDPR Art. 6(1)(f) and the ePrivacy Directive without intrusive cookie popups or user tracking cookies.
+
+---
+
+## 10. Automated Verification Suite (`scripts/verify_site.py`)
 
 Run the 8-tier verification script before any deployment:
 ```bash
@@ -210,7 +234,7 @@ python scripts/verify_site.py
 
 ---
 
-## 10. GitOps & Release Procedures
+## 11. GitOps & Release Procedures
 
 - **Branching Model:** Trunk-based GitOps on `main`.
 - **Production Tag:** `v1.0.0`

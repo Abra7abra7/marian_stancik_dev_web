@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MCP Goes Stateless: What the 2026-07-28 Specification Means for Autonomous Agents — Marian Stancik</title>
-<meta name="description" content="The Model Context Protocol's biggest revision yet — stateless core, header-based routing, MRTR, OpenTelemetry, and how it changes autonomous agent infrastructure.">
+<title>MCP przechodzi na stan bezstanowy: Co specyfikacja 2026-07-28 oznacza dla autonomicznych agentów — Marian Stancik</title>
+<meta name="description" content="Największa rewizja Model Context Protocol — bezstanowy rdzeń, routing oparty na nagłówkach, MRTR, OpenTelemetry i jak zmienia infrastrukturę autonomicznych agentów.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/2026-09-09-mcp-stateless-protocol">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/pl/2026-09-09-mcp-stateless-protocol">
 <link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-09-09-mcp-stateless-protocol">
 <link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-09-09-mcp-stateless-protocol">
 <link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/blog/posts/de/2026-09-09-mcp-stateless-protocol">
@@ -21,9 +21,9 @@
 <meta name="theme-color" content="#08080F">
 
 <!-- Open Graph -->
-<meta property="og:title" content="MCP Goes Stateless: What the 2026-07-28 Specification Means for Autonomous Agents — Marian Stancik">
-<meta property="og:description" content="The Model Context Protocol's biggest revision yet — stateless core, header-based routing, MRTR, OpenTelemetry, and how it changes autonomous agent infrastructure.">
-<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/2026-09-09-mcp-stateless-protocol">
+<meta property="og:title" content="MCP przechodzi na stan bezstanowy: Co specyfikacja 2026-07-28 oznacza dla autonomicznych agentów">
+<meta property="og:description" content="Największa rewizja Model Context Protocol — bezstanowy rdzeń, routing oparty na nagłówkach, MRTR, OpenTelemetry i jak zmienia infrastrukturę autonomicznych agentów.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/pl/2026-09-09-mcp-stateless-protocol">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://www.marianstancik.dev/profile.webp">
 <meta property="og:image:width" content="800">
@@ -132,7 +132,7 @@ footer a:hover{color:#CD7F32}
     <div style="display:flex;align-items:center;gap:16px;">
       <a href="/blog">Blog</a>
       <div style="display:flex;gap:4px;background:rgba(255,255,255,0.06);padding:2px 4px;border-radius:100px;font-size:0.72rem;font-weight:600;">
-        <a href="/blog/posts/2026-09-09-mcp-stateless-protocol" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">EN</a> <a href="/blog/posts/sk/2026-09-09-mcp-stateless-protocol" style="padding:2px 8px;border-radius:100px;color:#8888A0;text-decoration:none;">SK</a> <a href="/blog/posts/de/2026-09-09-mcp-stateless-protocol" style="padding:2px 8px;border-radius:100px;color:#8888A0;text-decoration:none;">DE</a> <a href="/blog/posts/pl/2026-09-09-mcp-stateless-protocol" style="padding:2px 8px;border-radius:100px;color:#8888A0;text-decoration:none;">PL</a>
+        <a href="/blog/posts/2026-09-09-mcp-stateless-protocol" style="padding:2px 8px;border-radius:100px;color:#8888A0;text-decoration:none;">EN</a> <a href="/blog/posts/sk/2026-09-09-mcp-stateless-protocol" style="padding:2px 8px;border-radius:100px;color:#8888A0;text-decoration:none;">SK</a> <a href="/blog/posts/de/2026-09-09-mcp-stateless-protocol" style="padding:2px 8px;border-radius:100px;color:#8888A0;text-decoration:none;">DE</a> <a href="/blog/posts/pl/2026-09-09-mcp-stateless-protocol" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">PL</a>
       </div>
     </div>
   </div>
@@ -142,14 +142,14 @@ footer a:hover{color:#CD7F32}
 <article>
 
 <div class="post-meta">
-  <span>September 09, 2026</span>
+  <span>9 września 2026</span>
   <span class="tag">MCP</span>
   <span class="tag">AI Infrastructure</span>
-  <span>8 min read</span>
+  <span>8 min czytania</span>
   <span>By Marian Stancik</span>
 </div>
 
-<h1>MCP Goes Stateless: What the 2026-07-28 Specification Means for Autonomous Agents</h1>
+<h1>MCP przechodzi na stan bezstanowy: Co specyfikacja 2026-07-28 oznacza dla autonomicznych agentów</h1>
 
 <div class="post-content">
 
