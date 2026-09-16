@@ -254,20 +254,14 @@ def sync_sitemap(config):
     
     pages = [
         {"loc": "/", "priority": "1.0", "changefreq": "weekly"},
-        {"loc": "/about", "priority": "0.8", "changefreq": "monthly"},
+        {"loc": "/about", "priority": "0.9", "changefreq": "monthly"},
         {"loc": "/services", "priority": "0.9", "changefreq": "weekly"},
         {"loc": "/services-sk", "priority": "0.9", "changefreq": "weekly"},
         {"loc": "/drones", "priority": "0.7", "changefreq": "monthly"},
         {"loc": "/contact", "priority": "0.8", "changefreq": "monthly"},
         {"loc": "/blog/", "priority": "0.9", "changefreq": "weekly"},
-        {"loc": "/privacy", "priority": "0.3", "changefreq": "yearly"},
-        {"loc": "/privacy-sk", "priority": "0.3", "changefreq": "yearly"},
-        {"loc": "/terms", "priority": "0.3", "changefreq": "yearly"},
-        {"loc": "/terms-sk", "priority": "0.3", "changefreq": "yearly"},
-        {"loc": "/disclaimer", "priority": "0.3", "changefreq": "yearly"},
-        {"loc": "/disclaimer-sk", "priority": "0.3", "changefreq": "yearly"},
-        {"loc": "/llms.txt", "priority": "0.4", "changefreq": "monthly"},
-        {"loc": "/llms-full.txt", "priority": "0.4", "changefreq": "monthly"}
+        {"loc": "/llms.txt", "priority": "0.5", "changefreq": "monthly"},
+        {"loc": "/llms-full.txt", "priority": "0.5", "changefreq": "monthly"}
     ]
     
     posts = []
