@@ -4,7 +4,14 @@
     <title>Marian Stancik — Blog</title>
     <link>https://marianstancik.dev/blog/</link>
     <description>AI agents, autonomous systems, law & tech, and building in public.</description>
-    <lastBuildDate>2026-09-12</lastBuildDate>
+    <lastBuildDate>2026-09-16</lastBuildDate>
+    <item>
+      <title>10,000 Agents, 88 Hours, a \$1M Problem: What the Navier-Stokes Breakthrough Means for Multi-Agent Architecture — Marian Stancik</title>
+      <link>https://marianstancik.dev/blog/posts/2026-09-16-navier-stokes-agent-swarms</link>
+      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-16-navier-stokes-agent-swarms</guid>
+      <pubDate>2026-09-16</pubDate>
+      <description>OpenAI deployed 10,000 autonomous agents to solve the Navier-Stokes Millennium Problem in 88 hours. What this means for multi-agent architecture, agent orchestration, and the future of autonomous systems.</description>
+    </item>
     <item>
       <title>When Agents Go Rogue: Building Guardrails for Autonomous Multi-Agent Systems — Marian Stancik</title>
       <link>https://marianstancik.dev/blog/posts/2026-09-12-autonomous-agent-guardrails</link>
@@ -67,13 +74,6 @@
       <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-08-22-building-digital-twin</guid>
       <pubDate>2026-08-22</pubDate>
       <description>How I automated my personal brand across 6 platforms using Python, cron, and LLM orchestration without sacrificing authenticity.</description>
-    </item>
-    <item>
-      <title>AI Act Compliance for Small AI Companies — Marian Stancik</title>
-      <link>https://marianstancik.dev/blog/posts/2026-08-20-ai-act-compliance</link>
-      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-08-20-ai-act-compliance</guid>
-      <pubDate>2026-08-20</pubDate>
-      <description>Practical legal-by-design framework for startups building AI products in the EU. Risk classification, technical documentation, and GDPR compliance.</description>
     </item>
   </channel>
 </rss>
