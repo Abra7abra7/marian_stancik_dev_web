@@ -266,7 +266,9 @@ HTML_TEMPLATE_SK = """<!DOCTYPE html>
         "name": "Marian Stancik"
       }},
       "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/sk/{slug}",
-      "keywords": {tags_json}
+      "keywords": {tags_json},
+      "isBasedOn": "https://schema.org/AIGeneratedContent",
+      "creativeWorkStatus": "AIGenerated"
     }},
     {{
       "@type": "BreadcrumbList",
@@ -429,7 +431,9 @@ HTML_TEMPLATE_DE = """<!DOCTYPE html>
         "name": "Marian Stancik"
       }},
       "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/de/{slug}",
-      "keywords": {tags_json}
+      "keywords": {tags_json},
+      "isBasedOn": "https://schema.org/AIGeneratedContent",
+      "creativeWorkStatus": "AIGenerated"
     }},
     {{
       "@type": "BreadcrumbList",
@@ -592,7 +596,9 @@ HTML_TEMPLATE_PL = """<!DOCTYPE html>
         "name": "Marian Stancik"
       }},
       "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/pl/{slug}",
-      "keywords": {tags_json}
+      "keywords": {tags_json},
+      "isBasedOn": "https://schema.org/AIGeneratedContent",
+      "creativeWorkStatus": "AIGenerated"
     }},
     {{
       "@type": "BreadcrumbList",
