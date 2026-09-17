@@ -59,7 +59,7 @@ def test_api_product_order():
     payload = {
         "email": "test-buyer@marianstancik.dev",
         "product": "AI GEO Audit",
-        "price": "150",
+        "price": "199",
         "website": "https://example.com",
         "notes": "Automated test order verification",
         "source": "product_order"
@@ -79,7 +79,7 @@ def test_api_product_order():
 def test_stripe_links():
     print("\n--- 4. Testing Stripe Payment Links ---")
     stripe_links = [
-        ("AI GEO Audit (€150)", "https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800"),
+        ("AI GEO Audit (€199)", "https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800"),
         ("AI Web Readiness Scan (€200)", "https://buy.stripe.com/test_28E6oJesU80O9cx4SV28801"),
         ("Full Web Audit (€300)", "https://buy.stripe.com/test_8x27sN70s4OC88tdpr28802"),
         ("Custom Agent Deposit (€500)", "https://buy.stripe.com/test_aFaaEZ1G880O88tdpr28803")

@@ -204,6 +204,50 @@
   </div>
 </section>
 
+<!-- === DIRECT CONTACT FORM === -->
+<section id="contact-form-section" aria-label="Send a direct message" style="padding-top: 0;">
+  <div class="container">
+    <div class="section-label fade-in" id="contactFormLabel">✦ Send a Message</div>
+    <h2 class="fade-in" id="contactFormHeading" style="font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: 12px;">Write directly to Marian</h2>
+    <p class="section-intro fade-in" id="contactFormIntro" style="margin-bottom: 32px; max-width: 620px;">
+      Have a question about AI agents, compliance, or a custom project? Send a direct message below.
+    </p>
+    
+    <div class="fade-in" style="max-width: 580px; margin: 0 auto; background: rgba(18, 18, 30, 0.65); border: 1px solid rgba(205, 127, 50, 0.2); border-radius: 16px; padding: 32px 28px; box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4); text-align: left;">
+      <form id="contactForm" style="display: flex; flex-direction: column; gap: 18px;">
+        <!-- Honeypot -->
+        <input type="text" name="website_url_hp" id="contactHp" style="display:none;" tabindex="-1" autocomplete="off">
+        
+        <div>
+          <label for="contactName" id="contactNameLabel" style="display:block; font-size: 0.85rem; color: #D0D0E0; margin-bottom: 6px; font-weight: 500;">Your Name</label>
+          <input type="text" id="contactName" name="name" required placeholder="Name or Company" style="width: 100%; box-sizing: border-box; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: #F0F0F5; font-family: inherit; font-size: 0.9rem; outline: none; transition: border-color 0.3s;">
+        </div>
+        
+        <div>
+          <label for="contactEmail" id="contactEmailLabel" style="display:block; font-size: 0.85rem; color: #D0D0E0; margin-bottom: 6px; font-weight: 500;">Email Address</label>
+          <input type="email" id="contactEmail" name="email" required placeholder="your@email.com" style="width: 100%; box-sizing: border-box; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: #F0F0F5; font-family: inherit; font-size: 0.9rem; outline: none; transition: border-color 0.3s;">
+        </div>
+        
+        <div>
+          <label for="contactMessage" id="contactMessageLabel" style="display:block; font-size: 0.85rem; color: #D0D0E0; margin-bottom: 6px; font-weight: 500;">Message</label>
+          <textarea id="contactMessage" name="message" rows="4" required placeholder="Describe your project or inquiry..." style="width: 100%; box-sizing: border-box; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: #F0F0F5; font-family: inherit; font-size: 0.9rem; outline: none; transition: border-color 0.3s; resize: vertical;"></textarea>
+        </div>
+        
+        <label style="display:flex; align-items:flex-start; gap:8px; font-size:0.78rem; color:#9A8A78; line-height: 1.4; cursor: pointer;">
+          <input type="checkbox" id="contactGdpr" required style="margin-top: 2px;">
+          <span id="contactGdprLabel">I agree to the processing of personal data in accordance with the <a href="/privacy" style="color:#CD7F32; text-decoration:underline;">Privacy Policy</a>.</span>
+        </label>
+        
+        <button type="submit" id="contactSubmitBtn" class="btn-primary" style="width: 100%; justify-content: center; padding: 14px 20px; font-size: 0.95rem; cursor: pointer; border: none; border-radius: 8px; font-weight: 700; background: linear-gradient(135deg, #CD7F32, #E8B86D); color: #08080F; transition: opacity 0.3s, transform 0.2s;">
+          Send Message →
+        </button>
+        
+        <div id="contactStatus" class="lead-status" style="text-align: center; margin-top: 4px;" role="alert"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- === BOOKING SECTION === -->
 <section id="booking" aria-label="Book a consultation">
   <div class="container">

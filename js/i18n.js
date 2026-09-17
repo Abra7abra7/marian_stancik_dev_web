@@ -176,6 +176,14 @@ const translations = {
     "connHeading": "Let's build something.",
     "connIntro": "Follow the build, read the blog, or reach out directly.",
     "connBlogText": "Blog",
+    "contactFormLabel": "✦ Send a Message",
+    "contactFormHeading": "Write directly to Marian",
+    "contactFormIntro": "Have a question about AI agents, compliance, or a custom project? Send a direct message below.",
+    "contactNameLabel": "Your Name",
+    "contactEmailLabel": "Email Address",
+    "contactMessageLabel": "Message",
+    "contactGdprLabel": "I agree to the processing of personal data for answering this inquiry in accordance with the <a href=\"/privacy\" style=\"color:#CD7F32;text-decoration:underline;\">Privacy Policy</a>.",
+    "contactSubmitBtn": "Send Message →",
     "bookLabel": "✉️ Get in touch",
     "bookHeading": "Let's talk about your project.",
     "bookIntro": "Write to <a href=\"mailto:marianstancik@agentmail.to\">marianstancik@agentmail.to</a>. Calendar booking is not offered — email is the contact channel.",
@@ -374,6 +382,14 @@ const translations = {
     "connHeading": "Lassen Sie uns etwas bauen.",
     "connIntro": "Folgen Sie dem Projekt, lesen Sie den Blog oder schreiben Sie direkt.",
     "connBlogText": "Blog",
+    "contactFormLabel": "✦ Nachricht senden",
+    "contactFormHeading": "Schreiben Sie direkt an Marian",
+    "contactFormIntro": "Haben Sie eine Frage zu KI-Agenten, Compliance oder einem Projekt? Senden Sie eine direkte Nachricht.",
+    "contactNameLabel": "Ihr Name",
+    "contactEmailLabel": "E-Mail-Adresse",
+    "contactMessageLabel": "Nachricht",
+    "contactGdprLabel": "Ich stimme der Verarbeitung personenbezogener Daten gemäß der <a href=\"/privacy\" style=\"color:#CD7F32;text-decoration:underline;\">Datenschutzerklärung</a> zu.",
+    "contactSubmitBtn": "Nachricht senden →",
     "bookLabel": "✉️ Kontakt aufnehmen",
     "bookHeading": "Lassen Sie uns über Ihr Projekt sprechen.",
     "bookIntro": "Schreiben Sie an <a href=\"mailto:marianstancik@agentmail.to\">marianstancik@agentmail.to</a>.",
@@ -572,6 +588,14 @@ const translations = {
     "connHeading": "Zbudujmy coś razem.",
     "connIntro": "Śledź projekt, czytaj bloga lub skontaktuj się bezpośrednio.",
     "connBlogText": "Blog",
+    "contactFormLabel": "✦ Wyślij wiadomość",
+    "contactFormHeading": "Napisz bezpośrednio do Mariana",
+    "contactFormIntro": "Masz pytanie dotyczące agentów AI, audytu lub własnego projektu? Wyślij wiadomość poniżej.",
+    "contactNameLabel": "Twoje imię",
+    "contactEmailLabel": "Adres e-mail",
+    "contactMessageLabel": "Wiadomość",
+    "contactGdprLabel": "Wyrażam zgodę na przetwarzanie danych osobowych w celu odpowiedzi na zapytanie zgodnie z <a href=\"/privacy\" style=\"color:#CD7F32;text-decoration:underline;\">Polityką Prywatności</a>.",
+    "contactSubmitBtn": "Wyślij wiadomość →",
     "bookLabel": "✉️ Skontaktuj się",
     "bookHeading": "Porozmawiajmy o Twoim projekcie.",
     "bookIntro": "Napisz na <a href=\"mailto:marianstancik@agentmail.to\">marianstancik@agentmail.to</a>.",
@@ -770,6 +794,14 @@ const translations = {
     "connHeading": "Poďme niečo postaviť.",
     "connIntro": "Sledujte stavbu, čítajte blog alebo ma kontaktujte priamo.",
     "connBlogText": "Blog",
+    "contactFormLabel": "✦ Odoslať správu",
+    "contactFormHeading": "Napíšte priamo Mariánovi",
+    "contactFormIntro": "Máte otázku k AI agentom, auditu, compliance alebo vlastnému projektu? Pošlite správu priamo cez formulár.",
+    "contactNameLabel": "Vaše meno",
+    "contactEmailLabel": "E-mailová adresa",
+    "contactMessageLabel": "Správa",
+    "contactGdprLabel": "Súhlasím so spracovaním osobných údajov za účelom vybavenia dopytu v súlade so <a href=\"/privacy-sk\" style=\"color:#CD7F32;text-decoration:underline;\">Zásadami ochrany osobných údajov</a>.",
+    "contactSubmitBtn": "Odoslať správu →",
     "bookLabel": "✉️ Napíšte mi",
     "bookHeading": "Poďme sa porozprávať o projekte.",
     "bookIntro": "Napíšte na <a href=\"mailto:marianstancik@agentmail.to\">marianstancik@agentmail.to</a>. Kalendárové rezervácie neposkytujem — primárnym kanálom je e-mail.",
@@ -1106,3 +1138,53 @@ document.getElementById('leadForm')?.addEventListener('submit', async function(e
   btn.disabled = false;
   btn.textContent = translations[currentLang]?.subscribeBtn || 'Subscribe';
 });
+
+// Contact form
+document.getElementById('contactForm')?.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('contactSubmitBtn');
+  const status = document.getElementById('contactStatus');
+  const name = document.getElementById('contactName')?.value.trim();
+  const email = document.getElementById('contactEmail')?.value.trim();
+  const message = document.getElementById('contactMessage')?.value.trim();
+  const hp = document.getElementById('contactHp')?.value;
+  
+  if (hp) return; // Silent honeypot drop
+  if (!email || !message) return;
+  
+  btn.disabled = true;
+  btn.textContent = '...';
+  status.textContent = '';
+  status.className = 'lead-status';
+  
+  try {
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+        source: 'contact_form'
+      })
+    });
+    const data = await res.json();
+    if (res.ok && data.status === 'ok') {
+      status.textContent = currentLang === 'sk' ? '✅ Správa úspešne odoslaná! Ozvem sa do 24 hodín.' :
+        (currentLang === 'de' ? '✅ Nachricht erfolgreich gesendet! Antwort innerhalb von 24h.' :
+        (currentLang === 'pl' ? '✅ Wiadomość wysłana! Odpowiem w ciągu 24h.' :
+        '✅ Message sent successfully! Fast reply within 24h.'));
+      status.className = 'lead-status lead-success';
+      document.getElementById('contactForm').reset();
+    } else {
+      status.textContent = '❌ ' + (data.error || 'Error sending message. Please try again.');
+      status.className = 'lead-status lead-error';
+    }
+  } catch (err) {
+    status.textContent = '❌ Network error. Write directly to marianstancik@agentmail.to';
+    status.className = 'lead-status lead-error';
+  }
+  btn.disabled = false;
+  btn.textContent = translations[currentLang]?.contactSubmitBtn || 'Send Message →';
+});
+
