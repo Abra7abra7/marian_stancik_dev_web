@@ -6,7 +6,7 @@
 
 - [Home](https://www.marianstancik.dev/): High-impact hero, autonomous agent stats, live 24/7 cron orchestrations, and connect channels.
 - [About](https://www.marianstancik.dev/about): Technical bio, 4-layer engineering stack (Hetzner VPS, OpenRouter, Obsidian, Zero-build Web), and career timeline.
-- [Products & Audits](https://www.marianstancik.dev/services): AI GEO Audit (€150), AI Web Readiness Scan (€200), Full Web Audit (€300), Custom Autonomous Agent (€500 deposit).
+- [Products & Audits](https://www.marianstancik.dev/services): AI GEO Audit (€199), AI Web Readiness Scan (€200), Full Web Audit (€300), Custom Autonomous Agent (€500 deposit).
 - [Tactical UAV Systems](https://www.marianstancik.dev/drones): Hand-soldered 1500g carbon quadcopter, ArduPilot Copter autopilot, Raspberry Pi 5 edge vision AI (Hobby project).
 - [Blog Archive](https://www.marianstancik.dev/blog): Technical articles on autonomous AI workflows, legal-by-design compliance (AI Act, GDPR), and robotics.
 - [Contact & Connect](https://www.marianstancik.dev/contact): Direct lead capture, communication channels, and social profiles.
@@ -44,7 +44,7 @@ His core differentiation is the intersection of three domains:
 
 ## Products & Fixed-Price Audits
 
-1. **AI GEO Audit (€150):** Deep evaluation of website discoverability across AI search engines (Perplexity, ChatGPT Search, Claude, Google SGE). Includes llms.txt validation, robots.txt crawl access, Schema.org @graph entity analysis, and instant copy-paste remediation snippets.
+1. **AI GEO Audit (€199):** Deep evaluation of website discoverability across AI search engines (Perplexity, ChatGPT Search, Claude, Google SGE). Includes llms.txt validation, robots.txt crawl access, Schema.org @graph entity analysis, and instant copy-paste remediation snippets.
 2. **AI Web Readiness Scan (€200):** Comprehensive automated technical checklist covering Privacy Policy, GDPR consent structures, Terms of Service, Disclaimer, AI Act disclosures, and cookie compliance.
 3. **Full Web Audit (€300):** GEO Audit + Web Readiness Scan combined with 30-min direct technical walkthrough call.
 4. **Custom Autonomous Agent (€500 deposit):** End-to-end bespoke autonomous agents running 24/7 on dedicated European VPS with custom MCP servers, Telegram/WhatsApp C2 bridges, and SQLite persistence.

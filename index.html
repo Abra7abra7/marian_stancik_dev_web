@@ -122,21 +122,256 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <script defer src="https://api.marianstancik.dev/script.js" data-website-id="ec1c0df8-e51f-4236-9ad0-e3992f0b1637"></script>
 <style>
-/* Homepage product preview cards - compact version of service-card */
-.home-products { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
-.home-prod-card {
-  background: var(--color-bg-card); border: 1px solid var(--color-border);
-  border-radius: var(--radius-md); padding: 24px;
-  transition: border-color 0.3s, transform 0.3s; text-decoration: none;
+/* === HOMEPAGE PRODUCT CARDS (ENHANCED) === */
+.home-products {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 36px;
 }
-.home-prod-card:hover { border-color: var(--color-border-hover); transform: translateY(-2px); }
-.home-prod-card .icon { font-size: 1.8rem; margin-bottom: 8px; }
-.home-prod-card h3 { font-size: 1rem; color: var(--color-primary, #CD7F32); margin: 0 0 4px; }
-.home-prod-card p { font-size: 0.8rem; color: var(--color-text-muted, #9A8A78); margin: 0 0 8px; line-height: 1.5; }
-.home-prod-card .price { font-size: 0.85rem; color: var(--color-accent, #E8B86D); font-weight: 600; }
-.trust-bar { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 24px; }
-.trust-item { font-size: 0.7rem; color: var(--color-text-muted, #9A8A78); padding: 6px 14px; border-radius: 100px; background: rgba(255,255,255,0.03); border: 1px solid var(--color-border, rgba(255,255,255,0.06)); }
-.trust-item strong { color: var(--color-accent, #E8B86D); }
+.home-prod-card {
+  background: rgba(18, 18, 30, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  padding: 28px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.home-prod-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #CD7F32, #E8B86D);
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+.home-prod-card:hover {
+  border-color: rgba(205, 127, 50, 0.35);
+  transform: translateY(-5px);
+  background: rgba(26, 26, 42, 0.85);
+  box-shadow: 0 18px 45px -8px rgba(0, 0, 0, 0.6), 0 0 25px rgba(205, 127, 50, 0.12);
+}
+.home-prod-card:hover::before { opacity: 1; }
+
+.home-prod-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.home-prod-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #CD7F32;
+  background: rgba(205, 127, 50, 0.1);
+  border: 1px solid rgba(205, 127, 50, 0.25);
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+.home-prod-pill.featured {
+  color: #E8B86D;
+  background: rgba(232, 184, 109, 0.12);
+  border-color: rgba(232, 184, 109, 0.35);
+  box-shadow: 0 0 12px rgba(232, 184, 109, 0.2);
+}
+.home-prod-icon {
+  font-size: 1.6rem;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.home-prod-card h3 {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #F0F0F5;
+  margin: 10px 0 6px;
+  transition: color 0.3s;
+}
+.home-prod-card:hover h3 { color: #E8B86D; }
+.home-prod-card p {
+  font-size: 0.84rem;
+  color: #9A8A78;
+  margin: 0 0 16px;
+  line-height: 1.55;
+}
+.home-prod-features {
+  list-style: none;
+  padding: 14px 0 0;
+  margin: 0 0 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.home-prod-features li {
+  font-size: 0.8rem;
+  color: #B0B0C8;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  line-height: 1.45;
+}
+.home-prod-features .chk {
+  color: #E8B86D;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.home-prod-features strong { color: #F0F0F5; }
+
+.home-prod-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.home-prod-card .price {
+  font-size: 1.15rem;
+  color: #E8B86D;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace, sans-serif;
+  letter-spacing: -0.01em;
+}
+.home-prod-cta {
+  font-size: 0.82rem;
+  color: #CD7F32;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+}
+.home-prod-card:hover .home-prod-cta {
+  color: #E8B86D;
+  transform: translateX(3px);
+}
+
+.trust-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+.trust-item {
+  font-size: 0.72rem;
+  color: #9A8A78;
+  padding: 7px 16px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.trust-item strong { color: #E8B86D; }
+
+/* === ABOUT SECTION & COCKPIT === */
+.about-pillars-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.pillar-chip {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: rgba(205, 127, 50, 0.08);
+  border: 1px solid rgba(205, 127, 50, 0.2);
+  color: #E8B86D;
+}
+.about-cockpit-wrap {
+  background: linear-gradient(145deg, rgba(18, 18, 30, 0.85) 0%, rgba(10, 10, 20, 0.95) 100%);
+  border: 1px solid rgba(205, 127, 50, 0.3);
+  border-radius: 18px;
+  padding: 22px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(205, 127, 50, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+.about-cockpit-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #CD7F32, #E8B86D, #CD7F32);
+}
+.about-cockpit-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 18px;
+}
+.cockpit-live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #22c55e;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+.live-text {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #22c55e;
+  font-family: 'JetBrains Mono', monospace;
+}
+.cockpit-tag {
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #CD7F32;
+  background: rgba(205, 127, 50, 0.1);
+  border: 1px solid rgba(205, 127, 50, 0.25);
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.about-cockpit-footer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  font-size: 0.7rem;
+  color: #9A8A78;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  flex-wrap: wrap;
+}
+.about-cockpit-footer span { display: inline-flex; align-items: center; gap: 4px; }
+
 /* Hero CTA button - visible, not ghost */
 .hero-links a.hero-cta, .hero-cta {
   display: inline-flex; align-items: center; gap: 8px;
@@ -153,36 +388,9 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 20px rgba(205,127,50,0.4);
 }
-/* Product cards - enhanced */
-.home-prod-card {
-  background: var(--color-bg-card); border: 1px solid var(--color-border);
-  border-radius: var(--radius-md); padding: 24px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1); text-decoration: none;
-  position: relative; overflow: hidden;
+@media (max-width: 860px) {
+  .home-products { grid-template-columns: 1fr; }
 }
-.home-prod-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, var(--color-primary, #CD7F32), var(--color-accent, #E8B86D));
-  opacity: 0; transition: opacity 0.3s;
-}
-.home-prod-card:hover {
-  border-color: var(--color-border-hover, rgba(205,127,50,0.35));
-  transform: translateY(-4px);
-  background: var(--color-bg-card-hover, rgba(26,26,42,0.85));
-  box-shadow: 0 8px 30px -4px rgba(205,127,50,0.15);
-}
-.home-prod-card:hover::before { opacity: 1; }
-.home-prod-card .icon { font-size: 2rem; margin-bottom: 10px; display: block; }
-.home-prod-card h3 { font-size: 1.05rem; color: var(--color-primary, #CD7F32); margin: 0 0 6px; transition: color 0.3s; }
-.home-prod-card:hover h3 { color: var(--color-accent, #E8B86D); }
-.home-prod-card p { font-size: 0.82rem; color: var(--color-text-muted, #9A8A78); margin: 0 0 12px; line-height: 1.5; }
-.home-prod-card .price {
-  font-size: 0.9rem; color: var(--color-accent, #E8B86D); font-weight: 700;
-  display: inline-flex; align-items: center; gap: 4px;
-}
-.home-prod-card .price::after { content: '→'; transition: transform 0.3s; }
-.home-prod-card:hover .price::after { transform: translateX(4px); }
-@media (max-width: 640px) { .home-products { grid-template-columns: 1fr; } }
 </style>
 </head>
 
@@ -274,29 +482,84 @@
     </p>
 
     <div class="home-products fade-in">
+      <!-- PRODUCT 1: GEO AUDIT -->
       <a href="/services" class="home-prod-card">
-        <div class="icon">🔍</div>
+        <div class="home-prod-top">
+          <span class="home-prod-pill">⚡ 48h Turnaround</span>
+          <span class="home-prod-icon">🔍</span>
+        </div>
         <h3 id="prodGeoTitle">AI GEO Audit</h3>
         <p id="prodGeoDesc">Is your website ready for AI search? Agent checks llms.txt, JSON-LD, robots.txt, and AI visibility.</p>
-        <span class="price" id="prodGeoPrice">€199 →</span>
+        <ul class="home-prod-features">
+          <li><span class="chk">✓</span> <span><strong>llms.txt &amp; llms-full.txt</strong> v2 format check</span></li>
+          <li><span class="chk">✓</span> <span><strong>14+ AI Crawlers</strong> in robots.txt</span></li>
+          <li><span class="chk">✓</span> <span><strong>Schema.org @graph</strong> entity validation</span></li>
+          <li><span class="chk">✓</span> <span><strong>Actionable code fixes</strong> in 48 hours</span></li>
+        </ul>
+        <div class="home-prod-footer">
+          <span class="price" id="prodGeoPrice">€199 →</span>
+          <span class="home-prod-cta">Explore package →</span>
+        </div>
       </a>
+
+      <!-- PRODUCT 2: WEB READINESS SCAN -->
       <a href="/services" class="home-prod-card">
-        <div class="icon">🛡️</div>
+        <div class="home-prod-top">
+          <span class="home-prod-pill">🛡️ Legal-by-Design</span>
+          <span class="home-prod-icon">🛡️</span>
+        </div>
         <h3 id="prodReadinessTitle">AI Web Readiness Scan</h3>
         <p id="prodReadinessDesc">Technical check of your website's legal documents. Agent verifies Privacy Policy, GDPR consent, Terms.</p>
-        <span class="price" id="prodReadinessPrice">€200 →</span>
+        <ul class="home-prod-features">
+          <li><span class="chk">✓</span> <span><strong>GDPR Privacy Policy</strong> &amp; processor clauses</span></li>
+          <li><span class="chk">✓</span> <span><strong>Cookie banner</strong> &amp; consent verification</span></li>
+          <li><span class="chk">✓</span> <span><strong>EU AI Act Art. 50</strong> labeling checklist</span></li>
+          <li><span class="chk">✓</span> <span><strong>Red / Yellow / Green</strong> remediation report</span></li>
+        </ul>
+        <div class="home-prod-footer">
+          <span class="price" id="prodReadinessPrice">€200 →</span>
+          <span class="home-prod-cta">Explore package →</span>
+        </div>
       </a>
+
+      <!-- PRODUCT 3: COMBO AUDIT (FEATURED) -->
       <a href="/services" class="home-prod-card">
-        <div class="icon">🎯</div>
+        <div class="home-prod-top">
+          <span class="home-prod-pill featured">🔥 Most Popular · Save €99</span>
+          <span class="home-prod-icon">🎯</span>
+        </div>
         <h3 id="prodFullTitle">Full Web Audit</h3>
         <p id="prodFullDesc">Both audits combined. GEO + technical readiness in one comprehensive report with priority matrix.</p>
-        <span class="price" id="prodFullPrice">€300 →</span>
+        <ul class="home-prod-features">
+          <li><span class="chk">✓</span> <span><strong>Complete AI GEO Audit</strong> (€199 value)</span></li>
+          <li><span class="chk">✓</span> <span><strong>Complete Web Readiness Scan</strong> (€200 value)</span></li>
+          <li><span class="chk">✓</span> <span><strong>Executive Founder Report</strong> with unified priorities</span></li>
+          <li><span class="chk">✓</span> <span><strong>Core Web Vitals &amp; PageSpeed 100</strong> check</span></li>
+        </ul>
+        <div class="home-prod-footer">
+          <span class="price" id="prodFullPrice">€300 →</span>
+          <span class="home-prod-cta">Explore package →</span>
+        </div>
       </a>
+
+      <!-- PRODUCT 4: CUSTOM AI AGENT -->
       <a href="/services" class="home-prod-card">
-        <div class="icon">🤖</div>
+        <div class="home-prod-top">
+          <span class="home-prod-pill">🤖 24/7 Autonomous Scale</span>
+          <span class="home-prod-icon">🤖</span>
+        </div>
         <h3 id="prodCustomTitle">Custom AI Agent</h3>
         <p id="prodCustomDesc">A production-grade autonomous agent built for your specific business need. 24/7 operation.</p>
-        <span class="price" id="prodCustomPrice">From €500 →</span>
+        <ul class="home-prod-features">
+          <li><span class="chk">✓</span> <span><strong>Hermes Agent 24/7 loops</strong> on Hetzner VPS</span></li>
+          <li><span class="chk">✓</span> <span><strong>Custom MCP servers</strong> &amp; tool execution</span></li>
+          <li><span class="chk">✓</span> <span><strong>Multi-LLM dynamic routing</strong> (Claude, R1, GPT-4o)</span></li>
+          <li><span class="chk">✓</span> <span><strong>Obsidian memory vault</strong> &amp; Telegram C2 bridge</span></li>
+        </ul>
+        <div class="home-prod-footer">
+          <span class="price" id="prodCustomPrice">From €500 →</span>
+          <span class="home-prod-cta">Explore architecture →</span>
+        </div>
       </a>
     </div>
 
@@ -315,20 +578,41 @@
     <h2 class="fade-in" id="aboutHeading">AI Agent Developer. Building systems that run your processes.</h2>
     <div class="about-grid">
       <div class="about-text fade-in" id="aboutBody">
-        <p>I build <strong>autonomous AI agents</strong> using the <strong>Hermes Agent</strong> framework. My infrastructure runs 24/7 on a Hetzner VPS, orchestrating multi-LLM agents for content, CRM, monitoring, and automation. <em>This website and all its content is built and maintained by my autonomous Hermes Agent.</em></p>
+        <div class="about-pillars-bar">
+          <span class="pillar-chip">🤖 Autonomous AI Systems</span>
+          <span class="pillar-chip">⚖️ Regulatory Context (PF UK)</span>
+          <span class="pillar-chip">🚁 Hardware &amp; Edge AI</span>
+        </div>
+        <p>I build <strong>autonomous AI agents</strong> using the <strong>Hermes Agent</strong> framework. My infrastructure runs 24/7 on an enterprise Hetzner VPS in Germany/Finland, orchestrating multi-LLM agents for content, CRM, monitoring, and automation. <em>This website and all its content is built and maintained by my autonomous Hermes Agent.</em></p>
         <p>I study law at <strong>PF UK</strong> — EU AI Act, GDPR, and tech regulation. This regulatory awareness means I understand the legal landscape and can build AI agents that are technically ready for regulated environments. <strong>I am not a lawyer, I do not provide legal advice.</strong></p>
         <p>I build drones as a <strong>hobby</strong> — hand-soldered 1500g carbon quad with ArduPilot and Raspberry Pi 5 edge AI. EASA A1/A3 certified pilot. It's a showcase of my hardware and edge AI skills, not a product.</p>
-        <div class="highlight" style="background:rgba(205,127,50,0.08);padding:1rem;border-left:3px solid #CD7F32;margin:1.5rem 0;border-radius:4px;font-size:0.85rem;">
-          <p><strong>⚠️ Disclaimer:</strong> This is not legal advice. I share regulatory knowledge for educational purposes only. For specific legal questions, consult a qualified attorney.</p>
+        <div class="highlight" style="background:rgba(205,127,50,0.08);padding:1.2rem;border-left:3px solid #CD7F32;margin:1.5rem 0;border-radius:8px;font-size:0.86rem;line-height:1.5;">
+          <p style="margin:0;"><strong style="color:#E8B86D;">⚠️ Disclaimer:</strong> This is not legal advice. I share regulatory knowledge for educational purposes only. For specific legal questions, consult a qualified attorney.</p>
         </div>
       </div>
-      <div class="stats fade-in">
-        <div class="stat-card"><div class="stat-number">19+</div><div class="stat-label" id="stat1Label">Active Cron Agents</div></div>
-        <div class="stat-card"><div class="stat-number">5+</div><div class="stat-label" id="stat2Label">Domains Covered</div></div>
-        <div class="stat-card"><div class="stat-number">3+</div><div class="stat-label" id="stat3Label">Years Building</div></div>
-        <div class="stat-card"><div class="stat-number">24/7</div><div class="stat-label" id="stat6Label">VPS Agent Runtime</div></div>
-        <div class="stat-card"><div class="stat-number">6</div><div class="stat-label" id="stat5Label">Open Source Repos</div></div>
-        <div class="stat-card"><div class="stat-number">€2.6M</div><div class="stat-label" id="stat4Label">Drone Insurance</div></div>
+      <div class="about-cockpit-wrap fade-in">
+        <div class="about-cockpit-bar">
+          <div class="cockpit-live-indicator">
+            <span class="live-dot"></span>
+            <span class="live-text">HERMES C2 // 24/7 RUNTIME ONLINE</span>
+          </div>
+          <span class="cockpit-tag">HETZNER VPS · EU SOVEREIGNTY</span>
+        </div>
+        <div class="stats">
+          <div class="stat-card"><div class="stat-number">19+</div><div class="stat-label" id="stat1Label">Active Cron Agents</div></div>
+          <div class="stat-card"><div class="stat-number">5+</div><div class="stat-label" id="stat2Label">Domains Covered</div></div>
+          <div class="stat-card"><div class="stat-number">3+</div><div class="stat-label" id="stat3Label">Years Building</div></div>
+          <div class="stat-card"><div class="stat-number">24/7</div><div class="stat-label" id="stat6Label">VPS Agent Runtime</div></div>
+          <div class="stat-card"><div class="stat-number">6</div><div class="stat-label" id="stat5Label">Open Source Repos</div></div>
+          <div class="stat-card"><div class="stat-number">€2.6M</div><div class="stat-label" id="stat4Label">Drone Insurance</div></div>
+        </div>
+        <div class="about-cockpit-footer">
+          <span>⚡ SQLite &amp; Obsidian Memory</span>
+          <span>•</span>
+          <span>🛡️ EU AI Act Ready</span>
+          <span>•</span>
+          <span>🚁 ArduPilot UAV</span>
+        </div>
       </div>
     </div>
   </div>
@@ -342,19 +626,22 @@
     <p class="section-intro fade-in" id="blogSecIntro">AI agents, autonomous systems, and building in public.</p>
     <div class="blog-preview-grid" id="homeBlogGrid">
       <a href="/blog/posts/2026-08-22-building-digital-twin" class="blog-card fade-in" hreflang="en">
-        <div class="blog-date">August 22, 2026</div>
+        <div class="blog-card-date">August 22, 2026</div>
         <h3>Building a Digital Twin That Posts 9x Daily</h3>
         <p>How I deploy an autonomous AI agent on Hermes Agent that creates and publishes content across platforms without human intervention.</p>
+        <div class="blog-card-arrow">Read post <span>→</span></div>
       </a>
       <a href="/blog/posts/2026-08-20-ai-act-compliance" class="blog-card fade-in" hreflang="en">
-        <div class="blog-date">August 20, 2026</div>
+        <div class="blog-card-date">August 20, 2026</div>
         <h3>AI Act Compliance for Small AI Companies</h3>
         <p>Practical legal-by-design framework for startups building AI products in the EU. From risk assessment to documentation.</p>
+        <div class="blog-card-arrow">Read post <span>→</span></div>
       </a>
       <a href="/blog/posts/2026-08-17-autonomous-drone-missions" class="blog-card fade-in" hreflang="en">
-        <div class="blog-date">August 17, 2026</div>
+        <div class="blog-card-date">August 17, 2026</div>
         <h3>Autonomous Drone Missions with ArduPilot</h3>
         <p>Building a production-grade UAV system with Pixhawk, ArduPilot, and Python-based mission planning.</p>
+        <div class="blog-card-arrow">Read post <span>→</span></div>
       </a>
     </div>
     <div class="blog-all">

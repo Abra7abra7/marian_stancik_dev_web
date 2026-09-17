@@ -8,7 +8,7 @@ Marian Stancik builds autonomous agent ecosystems (Hermes Agent, MCP), hand-sold
 
 - [Home](https://www.marianstancik.dev/): High-impact hero, autonomous agent stats, live 24/7 cron orchestrations, and connect channels.
 - [About](https://www.marianstancik.dev/about): Technical bio, 4-layer engineering stack (Hetzner VPS, OpenRouter, Obsidian, Zero-build Web), and career timeline.
-- [Products & Audits](https://www.marianstancik.dev/services): 4 production-ready products (AI GEO Audit €150, Web Readiness Scan €200, Full Web Audit €300, Custom Agent from €500).
+- [Products & Audits](https://www.marianstancik.dev/services): 4 production-ready products (AI GEO Audit €199, Web Readiness Scan €200, Full Web Audit €300, Custom Agent from €500).
 - [Tactical UAV Systems](https://www.marianstancik.dev/drones): Hand-soldered 1500g carbon quadcopter, ArduPilot Copter autopilot, Raspberry Pi 5 edge vision AI (Hobby project).
 - [Blog](https://www.marianstancik.dev/blog): Technical articles on autonomous AI workflows, legal-by-design compliance (AI Act, GDPR), and robotics.
 - [Contact](https://www.marianstancik.dev/contact): Direct lead capture, communication channels, and social profiles.
