@@ -4,7 +4,14 @@
     <title>Marian Stancik — Blog</title>
     <link>https://marianstancik.dev/blog/</link>
     <description>AI agents, autonomous systems, law & tech, and building in public.</description>
-    <lastBuildDate>2026-09-16</lastBuildDate>
+    <lastBuildDate>2026-09-19</lastBuildDate>
+    <item>
+      <title>AI Agents Consume 5x More Tokens Than Humans — How to Optimize Your Autonomous Agent Infrastructure — Marian Stancik</title>
+      <link>https://marianstancik.dev/blog/posts/2026-09-19-agent-token-optimization</link>
+      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-19-agent-token-optimization</guid>
+      <pubDate>2026-09-19</pubDate>
+      <description>a16z data shows AI agents use 5x more LLM tokens than humans. Here's how to optimize autonomous agent infrastructure with caching, model routing, and cost controls.</description>
+    </item>
     <item>
       <title>10,000 Agents, 88 Hours, a \$1M Problem: What the Navier-Stokes Breakthrough Means for Multi-Agent Architecture — Marian Stancik</title>
       <link>https://marianstancik.dev/blog/posts/2026-09-16-navier-stokes-agent-swarms</link>
@@ -67,13 +74,6 @@
       <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-08-25-web-performance-optimization</guid>
       <pubDate>2026-08-25</pubDate>
       <description>A technical walkthrough of reducing HTML page weight from 86KB to 34KB and improving Lighthouse scores by externalizing CSS, JS, and images.</description>
-    </item>
-    <item>
-      <title>Building a Digital Twin That Posts 9x Daily — Marian Stancik</title>
-      <link>https://marianstancik.dev/blog/posts/2026-08-22-building-digital-twin</link>
-      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-08-22-building-digital-twin</guid>
-      <pubDate>2026-08-22</pubDate>
-      <description>How I automated my personal brand across 6 platforms using Python, cron, and LLM orchestration without sacrificing authenticity.</description>
     </item>
   </channel>
 </rss>
