@@ -46,6 +46,25 @@
       }
     }
   },
+  "operator": {
+    "name": "Marián Stančík",
+    "legalForm": "Fyzická osoba – podnikateľ (živnostník)",
+    "ico": "57068917",
+    "dic": "1082585075",
+    "vatStatus": "nie je platiteľ DPH",
+    "street": "Černákova 2046/8",
+    "city": "Brezno",
+    "postalCode": "977 01",
+    "country": "Slovakia",
+    "countryCode": "SK",
+    "tradeRegister": "Okresný úrad Brezno, č. ŽR: 630-22847",
+    "tradeRegisterDate": "2025-06-27",
+    "email": "marianstancik@agentmail.to",
+    "website": "https://marianstancik.dev",
+    "bank": "Tatra banka a.s.",
+    "iban": "SK60 1100 0000 0029 4827 4072",
+    "swift": "TATRSKBX"
+  },
   "products": [
     {
       "id": "geo-audit",

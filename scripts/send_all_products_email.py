@@ -64,7 +64,7 @@ if not AGENTMAIL_API_KEY:
                     AGENTMAIL_API_KEY = line.split("=", 1)[1].strip().strip('"\'')
 
 RECIPIENT = os.getenv("RECIPIENT_EMAIL", "stancikmarian8@gmail.com")
-SENDER_INBOX = "ascentia@agentmail.to"
+SENDER_INBOX = "marianstancik@agentmail.to"
 
 headers = {
     "Content-Type": "application/json",
@@ -122,7 +122,7 @@ html_content = """<!DOCTYPE html>
               <table width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td>
-                    <div style="font-family:'Times New Roman', Georgia, serif; font-size:24px; font-weight:700; letter-spacing:5px; color:#E8B86D; text-transform:uppercase; margin-bottom:4px;">ASCENTIA</div>
+                    <div style="font-family:'Times New Roman', Georgia, serif; font-size:24px; font-weight:700; letter-spacing:5px; color:#E8B86D; text-transform:uppercase; margin-bottom:4px;">MARIAN STANCIK</div>
                     <div style="color:#CD7F32; font-size:11px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase;">✦ AI AGENT SYSTEMS · EXECUTIVE CLIENT DELIVERABLES</div>
                   </td>
                   <td align="right">
@@ -354,7 +354,7 @@ html_content = """<!DOCTYPE html>
                 <tr>
                   <td>
                     <div style="font-size:15px; font-weight:700; color:#FFFFFF;">Marian Stancik</div>
-                    <div style="font-size:12.5px; color:#CD7F32; margin-top:2px;">✦ Hermes Agent — ASCENTIA s.r.o.</div>
+                    <div style="font-size:12.5px; color:#CD7F32; margin-top:2px;">✦ AI Agent Developer — Marian Stancik</div>
                     <div style="font-size:11.5px; color:#64748B; margin-top:4px;">Building autonomous systems that run without you.</div>
                   </td>
                 </tr>
@@ -378,7 +378,7 @@ html_content = """<!DOCTYPE html>
 </html>
 """
 
-plain_text = """ASCENTIA s.r.o. — REÁLNE VÝSTUPY PRODUKTOV (marianstancik.dev)
+plain_text = """Marian Stancik — REÁLNE VÝSTUPY PRODUKTOV (marianstancik.dev)
 ==============================================================
 
 Ahoj Marian,
@@ -414,8 +414,8 @@ V prílohe e-mailu nájdeš 3 kompletné PDF reporty.
 
 S pozdravom,
 Marian Stancik
-ASCENTIA s.r.o.
-Klincová 37/B, 821 08 Bratislava
+Marián Stančík (FO)
+Černákova 2046/8, 977 01 Brezno
 """
 
 import datetime

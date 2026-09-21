@@ -6,7 +6,7 @@ const AGENTMAIL_API_KEY = process.env.AGENTMAIL_API_KEY;
 const CRM_WEBHOOK_KEY = process.env.CRM_WEBHOOK_KEY;
 const INVOICE_BASE = 'https://www.marianstancik.dev/api/invoice/';
 const INBOX_PERSONAL = 'marianstancik@agentmail.to';
-const INBOX_COMPANY = 'ascentia@agentmail.to';
+const INBOX_COMPANY = 'marianstancik@agentmail.to';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'POST only' });
@@ -29,19 +29,19 @@ export default async function handler(req, res) {
     try {
       const { reason, email, name, product, price, invoice_id } = action;
       
-      // ── Invoice: branded HTML via emailTpl, from ASCENTIA inbox ──
+      // ── Invoice: branded HTML via emailTpl, from Marian Stancik inbox ──
       if (reason === 'invoice_sent' && invoice_id) {
         const pdfUrl = `${INVOICE_BASE}${invoice_id}`;
         const html = emailTpl.invoice(name || email, product || 'AI služba', price || '0', invoice_id, pdfUrl);
-        const text = `✧ FAKTÚRA č. ${invoice_id}\n\nAhoj ${name || email},\nnáš systém vygeneroval faktúru za ${product || 'AI službu'}.\n\nStiahnuť PDF: ${pdfUrl}\n\nIBAN: SK78 1100 0000 0027 0129 7133\nBIC: FIOZSKBAXXX\n\n--\nASCENTIA s.r.o.`;
+        const text = `✧ FAKTÚRA č. ${invoice_id}\n\nAhoj ${name || email},\nnáš systém vygeneroval faktúru za ${product || 'AI službu'}.\n\nStiahnuť PDF: ${pdfUrl}\n\nIBAN: SK60 1100 0000 0029 4827 4072\nBIC: TATRSKBX\nTatra banka a.s.\n\n--\nMarián Stančík (marianstancik.dev)`;
         
         const sent = await sendAgentMail(email, `✧ FAKTÚRA č. ${invoice_id} — ${product || 'AI služba'}`, text, html, INBOX_COMPANY);
         results.push({ email, action: 'invoice_sent', status: sent ? 'ok' : 'error' });
       }
       
-      // ── Payment reminder: plain, from ASCENTIA inbox ──
+      // ── Payment reminder: plain, from Marian Stancik inbox ──
       else if (reason === 'payment_reminder') {
-        const text = `Ahoj ${name || email},\n\npripomíname, že faktúra za ${product || 'službu'} čaká na úhradu.\n\nIBAN: SK78 1100 0000 0027 0129 7133\nBIC: FIOZSKBAXXX\n\n--\nASCENTIA s.r.o.`;
+        const text = `Ahoj ${name || email},\n\npripomíname, že faktúra za ${product || 'službu'} čaká na úhradu.\n\nIBAN: SK60 1100 0000 0029 4827 4072\nBIC: TATRSKBX\nTatra banka a.s.\n\n--\nMarián Stančík (marianstancik.dev)`;
         const sent = await sendAgentMail(email, '✧ Pripomienka úhrady faktúry', text, null, INBOX_COMPANY);
         results.push({ email, action: 'payment_reminder', status: sent ? 'ok' : 'error' });
       }

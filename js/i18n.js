@@ -205,7 +205,7 @@ const translations = {
     "fNavServices": "Products",
     "fNavProducts": "Products",
     "fMotto": "Build better. Stay legal.",
-    "footerImprint": "<strong>ASCENTIA s.r.o.</strong> · Klincová 37/B, 821 08 Bratislava-Ružinov · IČO: 51858959 · DIČ: 2120816071 · konateľ: Marián Stančík<br>Obchodný register Mestského súdu Bratislava III, oddiel Sro, vložka 130384/B · <a href=\"mailto:marianstancik@agentmail.to\" style=\"color:#CD7F32;\">marianstancik@agentmail.to</a>",
+    "footerImprint": "<strong>Marian Stancik</strong> — Sole Proprietor (Trade License) · Černákova 2046/8, 977 01 Brezno, Slovakia · ID (IČO): 57068917 · Tax ID: 1082585075 · Non-VAT payer · Trade Register Brezno No. 630-22847 · <a href=\"mailto:marianstancik@agentmail.to\" style=\"color:#CD7F32;\">marianstancik@agentmail.to</a>",
     "footerAiAct": "<strong>⚠️ Disclaimer:</strong> Content is AI-generated or AI-assisted by autonomous agents (Hermes Agent) and is for informational purposes only. It does not constitute professional advice. <strong>No warranty or liability</strong> for reliance on content. ⚖️ EU AI Act Art. 50: AI content labeled accordingly."
   },
   "de": {
@@ -411,7 +411,7 @@ const translations = {
     "fNavServices": "Produkte",
     "fNavProducts": "Produkte",
     "fMotto": "Besser bauen. Konform bleiben.",
-    "footerImprint": "<strong>ASCENTIA s.r.o.</strong> · Klincová 37/B, 821 08 Bratislava · Geschäftsführer: Marián Stančík · <a href=\"mailto:marianstancik@agentmail.to\" style=\"color:#CD7F32;\">marianstancik@agentmail.to</a>",
+    "footerImprint": "<strong>Marian Stancik</strong> — Einzelunternehmer · Černákova 2046/8, 977 01 Brezno, Slowakei · IdNr.: 57068917 · Steuernr.: 1082585075 · Kleinunternehmer (nicht USt-pflichtig) · Gewerberegister Brezno Nr. 630-22847 · <a href=\"mailto:marianstancik@agentmail.to\" style=\"color:#CD7F32;\">marianstancik@agentmail.to</a>",
     "footerAiAct": "<strong>⚠️ Disclaimer:</strong> Inhalte wurden durch autonome KI-Agenten (Hermes Agent) generiert/unterstützt. ⚖️ EU AI Act Art. 50 konform gekennzeichnet."
   },
   "pl": {
@@ -617,7 +617,7 @@ const translations = {
     "fNavServices": "Produkty",
     "fNavProducts": "Produkty",
     "fMotto": "Buduj lepiej. Pozostań w zgodzie z prawem.",
-    "footerImprint": "<strong>ASCENTIA s.r.o.</strong> · Klincová 37/B, 821 08 Bratislava · Zarząd: Marián Stančík · <a href=\"mailto:marianstancik@agentmail.to\" style=\"color:#CD7F32;\">marianstancik@agentmail.to</a>",
+    "footerImprint": "<strong>Marian Stancik</strong> — Jednoosobowa działalność gospodarcza · Černákova 2046/8, 977 01 Brezno, Słowacja · REGON: 57068917 · NIP: 1082585075 · Podatnik zwolniony z VAT · Rejestr Brezno nr 630-22847 · <a href=\"mailto:marianstancik@agentmail.to\" style=\"color:#CD7F32;\">marianstancik@agentmail.to</a>",
     "footerAiAct": "<strong>⚠️ Disclaimer:</strong> Treść generowana/wspierana przez autonomicznych agentów AI (Hermes Agent). ⚖️ Zgodność z Art. 50 EU AI Act."
   },
   "sk": {
@@ -823,7 +823,7 @@ const translations = {
     "fNavServices": "Produkty",
     "fNavProducts": "Produkty",
     "fMotto": "Stavaj lepšie. Zostaň v súlade so zákonom.",
-    "footerImprint": "<strong>ASCENTIA s.r.o.</strong> · Klincová 37/B, 821 08 Bratislava-Ružinov · IČO: 51858959 · DIČ: 2120816071 · konateľ: Marián Stančík<br>Obchodný register Mestského súdu Bratislava III, oddiel Sro, vložka 130384/B · <a href=\"mailto:marianstancik@agentmail.to\" style=\"color:#CD7F32;\">marianstancik@agentmail.to</a>",
+    "footerImprint": "<strong>Marián Stančík</strong> — fyzická osoba, podnikateľ (živnostník) · Černákova 2046/8, 977 01 Brezno · IČO: 57068917 · DIČ: 1082585075 · nie je platiteľ DPH · Okresný úrad Brezno, č. ŽR: 630-22847 · <a href=\"mailto:marianstancik@agentmail.to\" style=\"color:#CD7F32;\">marianstancik@agentmail.to</a>",
     "footerAiAct": "<strong>⚠️ Zrieknutie zodpovednosti:</strong> Obsah je generovaný alebo asistovaný autonómnymi AI agentmi (Hermes Agent) na informačné účely. Nepredstavuje právne poradenstvo. ⚖️ EU AI Act Čl. 50: AI obsah je riadne označený."
   }
 };

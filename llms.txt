@@ -15,6 +15,7 @@ Marian Stancik builds autonomous agent ecosystems (Hermes Agent, MCP), hand-sold
 
 ## Technical Articles
 
+- [AI Agents Consume 5x More Tokens Than Humans — How to Optimize Your Autonomous Agent Infrastructure](https://www.marianstancik.dev/blog/posts/2026-09-19-agent-token-optimization): a16z data shows AI agents use 5x more LLM tokens than humans. Here's how to optimize autonomous agent infrastructure with caching, model routing, and cost controls.
 - [10,000 Agents, 88 Hours, a $1M Problem: What the Navier-Stokes Breakthrough Means for Multi-Agent Architecture](https://www.marianstancik.dev/blog/posts/2026-09-16-navier-stokes-agent-swarms): OpenAI deployed 10,000 autonomous agents to solve the Navier-Stokes Millennium Problem in 88 hours. Analysis of the multi-agent architecture and what it means for production agent systems.
 - [When Agents Go Rogue: Building Guardrails for Autonomous Multi-Agent Systems](https://www.marianstancik.dev/blog/posts/2026-09-12-autonomous-agent-guardrails): The OpenAI swarm hack of Hugging Face was a warning shot. Here's how to build production guardrails for autonomous multi-agent systems — identity, observability, containment.
 - [MCP Goes Stateless: What the 2026-07-28 Specification Means for Autonomous Agents](https://www.marianstancik.dev/blog/posts/2026-09-09-mcp-stateless-protocol): The Model Context Protocol's biggest revision yet — stateless core, header-based routing, MRTR, OpenTelemetry, and how it changes autonomous agent infrastructure.

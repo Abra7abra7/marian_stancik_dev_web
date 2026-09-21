@@ -3,7 +3,7 @@
 Generate a visually stunning, executive-grade AI Web Readiness Scan PDF report.
 Features:
 - Live real-time inspection data from audit_engine.py (real headers, cookies, EU AI Act, GDPR, § 19 waiver)
-- Unified ASCENTIA Neural Engineering luxury brand aesthetic
+- Unified Marian Stancik Neural Engineering luxury brand aesthetic
 - High-impact Hero Card with circular vector score badge
 - Visual horizontal progress bars for each of the 4 compliance pillars
 - Modern numbered remediation roadmap cards with impact tags
@@ -96,7 +96,7 @@ class NumberedCanvas(canvas.Canvas):
 
         self.setFillColor(COLOR_GOLD)
         self.setFont(FONT_BOLD, 9)
-        self.drawString(36, h - 18, "✦ ASCENTIA s.r.o.")
+        self.drawString(36, h - 18, "✦ Marian Stancik")
 
         self.setFillColor(colors.HexColor('#94A3B8'))
         self.setFont(FONT_REGULAR, 7.5)
@@ -113,7 +113,7 @@ class NumberedCanvas(canvas.Canvas):
 
         self.setFillColor(COLOR_TEXT_MUTED)
         self.setFont(FONT_REGULAR, 7)
-        self.drawString(36, 17, "ASCENTIA s.r.o. · Klincová 37/B, 821 08 Bratislava · IČO: 51858959 · marianstancik@agentmail.to")
+        self.drawString(36, 17, "Marián Stančík · Černákova 2046/8, 977 01 Brezno · IČO: 57068917 · marianstancik@agentmail.to")
 
         page_str = f"Strana {self._pageNumber} z {total_pages}"
         self.drawRightString(w - 36, 17, page_str)
@@ -432,7 +432,7 @@ def build_web_readiness_pdf(output_path="assets/sample-web-readiness.pdf", clien
     # Disclaimer Note
     disclaimer_text = """
     <font size="6.5" color="#94A3B8">
-    <b>Metodológia a právna doložka:</b> Tento scan bol vypracovaný technickou asistenciou autonómneho systému ASCENTIA Hermes Agent na základe sieťových hlavičiek, analýzy zdrojového kódu a regulačných požiadaviek EÚ. Zistenia majú technicko-odporúčací charakter a nepredstavujú poskytovanie právnych služieb podľa zákona o advokácii.
+    <b>Metodológia a právna doložka:</b> Tento scan bol vypracovaný technickou asistenciou autonómneho systému Hermes Agent na základe sieťových hlavičiek, analýzy zdrojového kódu a regulačných požiadaviek EÚ. Zistenia majú technicko-odporúčací charakter a nepredstavujú poskytovanie právnych služieb podľa zákona o advokácii.
     </font>
     """
     story.append(Paragraph(disclaimer_text, style_body))

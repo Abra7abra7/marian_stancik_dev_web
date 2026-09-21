@@ -260,6 +260,14 @@ def sync_sitemap(config):
         {"loc": "/drones", "priority": "0.7", "changefreq": "monthly"},
         {"loc": "/contact", "priority": "0.8", "changefreq": "monthly"},
         {"loc": "/blog/", "priority": "0.9", "changefreq": "weekly"},
+        {"loc": "/impressum", "priority": "0.5", "changefreq": "monthly"},
+        {"loc": "/cookie", "priority": "0.5", "changefreq": "monthly"},
+        {"loc": "/privacy", "priority": "0.5", "changefreq": "monthly"},
+        {"loc": "/privacy-sk", "priority": "0.5", "changefreq": "monthly"},
+        {"loc": "/terms", "priority": "0.5", "changefreq": "monthly"},
+        {"loc": "/terms-sk", "priority": "0.5", "changefreq": "monthly"},
+        {"loc": "/disclaimer", "priority": "0.5", "changefreq": "monthly"},
+        {"loc": "/disclaimer-sk", "priority": "0.5", "changefreq": "monthly"},
         {"loc": "/llms.txt", "priority": "0.5", "changefreq": "monthly"},
         {"loc": "/llms-full.txt", "priority": "0.5", "changefreq": "monthly"}
     ]

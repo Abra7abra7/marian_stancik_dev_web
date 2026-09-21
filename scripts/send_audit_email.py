@@ -41,7 +41,7 @@ if not AGENTMAIL_API_KEY:
                 if line.startswith("AGENTMAIL_API_KEY="):
                     AGENTMAIL_API_KEY = line.split("=", 1)[1].strip().strip('"\'')
 
-SENDER_INBOX = "ascentia@agentmail.to"
+SENDER_INBOX = "marianstancik@agentmail.to"
 
 headers = {
     "Content-Type": "application/json",
@@ -99,7 +99,7 @@ html_content = """<!DOCTYPE html>
               <table width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td>
-                    <div style="font-size:22px; font-weight:700; letter-spacing:4px; color:#E8B86D; text-transform:uppercase; margin-bottom:4px;">ASCENTIA</div>
+                    <div style="font-size:22px; font-weight:700; letter-spacing:4px; color:#E8B86D; text-transform:uppercase; margin-bottom:4px;">MARIAN STANCIK</div>
                     <div style="color:#CD7F32; font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase;">✦ AI AGENT SYSTEMS · TECHNICAL AUDITS</div>
                   </td>
                   <td align="right">
@@ -234,7 +234,7 @@ html_content = """<!DOCTYPE html>
                 <tr>
                   <td>
                     <div style="font-size:14px; font-weight:700; color:#FFFFFF;">Marian Stancik</div>
-                    <div style="font-size:12px; color:#CD7F32; margin-top:2px;">✦ Hermes Agent — ASCENTIA s.r.o.</div>
+                    <div style="font-size:12px; color:#CD7F32; margin-top:2px;">✦ AI Agent Developer — Marian Stancik</div>
                     <div style="font-size:11px; color:#64748B; margin-top:4px;">Building autonomous systems that run without you.</div>
                   </td>
                 </tr>
@@ -246,7 +246,7 @@ html_content = """<!DOCTYPE html>
           <tr>
             <td style="padding:14px 36px; background-color:#08080F; border-top:1px solid rgba(255,255,255,0.05); font-size:11px; color:#64748B; line-height:1.5;">
               <strong>ASCENTIA s.r.o.</strong> · Klincová 37/B, 821 08 Bratislava, Slovakia · IČO: 51858959 · DIČ: 2120816071<br>
-              Tento report bol vypracovaný systémom umelej inteligencie (ASCENTIA Hermes Agent) a nepredstavuje právne poradenstvo.
+              Tento report bol vypracovaný systémom umelej inteligencie (Hermes Agent) a nepredstavuje právne poradenstvo.
             </td>
           </tr>
 
@@ -258,7 +258,7 @@ html_content = """<!DOCTYPE html>
 </html>
 """
 
-plain_text = """ASCENTIA s.r.o. — AI GEO AUDIT REPORT
+plain_text = """Marian Stancik — AI GEO AUDIT REPORT
 ==================================================
 
 Ahoj Marian,
@@ -291,8 +291,8 @@ AI-GEO-Audit-marianstancik-dev.pdf
 
 S pozdravom,
 Marian Stancik
-ASCENTIA s.r.o.
-Klincová 37/B, 821 08 Bratislava
+Marián Stančík (FO)
+Černákova 2046/8, 977 01 Brezno
 """
 
 # 3. Construct send_message payload with PDF attachment

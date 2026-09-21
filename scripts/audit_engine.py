@@ -23,7 +23,7 @@ from datetime import datetime, timezone
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 (Ascentia-Hermes-Audit/1.0)"
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 (MarianStancik-Hermes-Audit/1.0)"
 
 def inspect_url(target_url="https://www.marianstancik.dev"):
     """Crawls and inspects target URL in real-time, returning verified audit metrics."""
@@ -264,7 +264,7 @@ def inspect_url(target_url="https://www.marianstancik.dev"):
         ("Faktické čísla s jednotkami", f"Zistených {numbers_count} čísel s jednotkami v texte", "Splnené" if numbers_count >= 5 else "Zlepšiť"),
         ("Externé citácie autorít", f"Nájdených {len(external_links)} externých linkov na homepage", "Splnené" if len(external_links) >= 3 else "Chýba"),
         ("Priame citácie expertov", f"Detegovaných {len(quotes)} blokových citácií", "Splnené" if len(quotes) >= 1 else "Chýba"),
-        ("Pomenované entity v grafe", f"Detegované entity (Marian Stancik, ASCENTIA s.r.o., Hermes Agent)", "Splnené"),
+        ("Pomenované entity v grafe", f"Detegované entity (Marian Stancik, Hermes Agent)", "Splnené"),
         ("Vlastné namerané dáta (1st party)", "Infraštruktúrne a hardvérové štatistiky prítomné v texte", "Splnené"),
         ("Priama odpoveď v úvode (150 slov)", "Hodnotová propozícia definovaná v hero sekcii", "Splnené"),
         ("TL;DR / Rýchle zhrnutie služieb", "Prehľad služieb a cien skenovateľný do 5 sekúnd", "Splnené"),
@@ -291,7 +291,7 @@ def inspect_url(target_url="https://www.marianstancik.dev"):
         ("Zákonný waiver podľa § 19 zák. 108/2024", "Povinný súhlas so začatím plnenia pred uplynutím 14 dní", "Splnené"),
         ("Označenie AI asistovaného obsahu (AI Act čl. 50)", "Viditeľné deklarácie asistencie Hermes Agenta v pätičke", "Splnené"),
         ("Vylúčenie zodpovednosti za právne rady", "Právne doložky na /disclaimer a v auditných reportoch", "Splnené"),
-        ("Identifikácia prevádzkovateľa (IČO)", "ASCENTIA s.r.o., Klincová 37/B, IČO: 51858959", "Splnené"),
+        ("Identifikácia prevádzkovateľa (IČO)", "Marián Stančík, Černákova 2046/8, IČO: 57068917", "Splnené"),
         ("Všeobecné obchodné podmienky (VOP)", "Dostupné na /terms, transparentné ceny v EUR", "Splnené"),
         ("HSTS Hlavička (Strict-Transport-Security)", f"{resp_headers.get('strict-transport-security', 'Nenastavené')}", "Splnené" if has_hsts else "Chýba"),
         ("Ochrana pred Clickjackingom (X-Frame-Options)", f"{resp_headers.get('x-frame-options', 'Nenastavené')}", "Splnené" if has_xframe else "Chýba"),

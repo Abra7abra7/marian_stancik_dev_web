@@ -3,7 +3,7 @@
 Generate a visually stunning, executive-grade AI GEO Audit PDF report.
 Features:
 - Live real-time inspection data from audit_engine.py (real HTTP headers, crawl metrics, real scores)
-- Unified ASCENTIA Neural Engineering luxury brand aesthetic
+- Unified Marian Stancik Neural Engineering luxury brand aesthetic
 - High-impact Hero Card with circular vector score badge
 - Visual horizontal progress bars for each of the 4 pillars
 - Modern numbered roadmap cards with priority & lift tags
@@ -103,7 +103,7 @@ class NumberedCanvas(canvas.Canvas):
         # Header Text
         self.setFillColor(COLOR_GOLD)
         self.setFont(FONT_BOLD, 9)
-        self.drawString(36, h - 18, "✦ ASCENTIA s.r.o.")
+        self.drawString(36, h - 18, "✦ Marian Stancik")
 
         self.setFillColor(colors.HexColor('#94A3B8'))
         self.setFont(FONT_REGULAR, 7.5)
@@ -120,7 +120,7 @@ class NumberedCanvas(canvas.Canvas):
 
         self.setFillColor(COLOR_TEXT_MUTED)
         self.setFont(FONT_REGULAR, 7)
-        self.drawString(36, 17, "ASCENTIA s.r.o. · Klincová 37/B, 821 08 Bratislava · IČO: 51858959 · marianstancik@agentmail.to")
+        self.drawString(36, 17, "Marián Stančík · Černákova 2046/8, 977 01 Brezno · IČO: 57068917 · marianstancik@agentmail.to")
 
         page_str = f"Strana {self._pageNumber} z {total_pages}"
         self.drawRightString(w - 36, 17, page_str)
@@ -458,7 +458,7 @@ def build_geo_audit_pdf(output_path="assets/sample-geo-audit.pdf", client_name="
     # Disclaimer Note at end of Page 2
     disclaimer_text = """
     <font size="6.5" color="#94A3B8">
-    <b>Metodológia a právna doložka:</b> Tento audit bol vygenerovaný technickou asistenciou autonómneho systému ASCENTIA Hermes Agent na základe reálnej sieťovej odozvy a sémantickej analýzy cieľovej domény. Zistenia majú technicko-odporúčací charakter. ASCENTIA s.r.o. nenesie zodpovednosť za zmeny vyhľadávacích algoritmov tretích strán.
+    <b>Metodológia a právna doložka:</b> Tento audit bol vygenerovaný technickou asistenciou autonómneho systému Hermes Agent na základe reálnej sieťovej odozvy a sémantickej analýzy cieľovej domény. Zistenia majú technicko-odporúčací charakter. Poskytovateľ nenesie zodpovednosť za zmeny vyhľadávacích algoritmov tretích strán.
     </font>
     """
     story.append(Paragraph(disclaimer_text, style_body))

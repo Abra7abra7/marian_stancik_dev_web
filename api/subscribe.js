@@ -122,7 +122,7 @@ export default async function handler(req, res) {
       const userHtml = emailTpl.orderConfirmation(name || email, prodName, price, website);
       const userText = emailTpl.orderConfirmationText(name || email, prodName, price, website, notes);
 
-      await sendEmail(email, userSubject, userText, userHtml, 'ascentia@agentmail.to').catch(e => console.error('Order user email failed:', e.message));
+      await sendEmail(email, userSubject, userText, userHtml, 'marianstancik@agentmail.to').catch(e => console.error('Order user email failed:', e.message));
 
       const adminNotif = `🛒 NOVÁ OBJEDNÁVKA PRODUKTU — marianstancik.dev\nDátum: ${dateStr} ${timeStr}\nProdukt: ${prodName} (${price ? '€' + price : 'N/A'})\nEmail: ${email}\nWeb: ${website || 'N/A'}\nPoznámka: ${notes || 'Žiadna'}\nZdroj: ${source}\nStatus: Potvrdenie odoslané klientovi ✅`;
 

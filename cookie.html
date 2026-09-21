@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie politika a používanie technológií — Marian Stancik</title>
+<meta name="description" content="Informácie o používaní cookies, local storage a cookieless analytiky na marianstancik.dev. Prevádzkovateľ Marián Stančík, FO.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Cookie politika — Marian Stancik">
+<meta property="og:description" content="Pravidlá používania cookies a technológií ukladania dát na webe marianstancik.dev.">
+<meta property="og:url" content="https://www.marianstancik.dev/cookie">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://www.marianstancik.dev/profile-big.webp">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
+<meta property="og:image:alt" content="Marian Stancik">
+<meta property="og:locale" content="sk_SK">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/profile-big.webp">
+<link rel="canonical" href="https://www.marianstancik.dev/cookie">
+<link rel="alternate" type="text/markdown" href="/cookie.md" title="Cookie Policy Markdown Alternate">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=4">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=4">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=4">
+<link rel="shortcut icon" href="/favicon.ico?v=4">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=4">
+
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 2rem 1.25rem; color: #F0F0F5; background: #08080F; }
+h1, h2, h3 { color: #CD7F32; }
+h1 { font-size: 2rem; border-bottom: 2px solid #CD7F32; padding-bottom: 0.5rem; }
+h2 { font-size: 1.3rem; margin-top: 2rem; color: #E8B86D; }
+p, li { font-size: 0.95rem; color: #A09080; line-height: 1.7; }
+strong { color: #F0F0F5; }
+.highlight { background: rgba(205,127,50,0.08); padding: 1.2rem; border-left: 3px solid #CD7F32; margin: 1.5rem 0; border-radius: 6px; }
+.info-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+.info-table th, .info-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 0.9rem; }
+.info-table th { color: #CD7F32; background: rgba(205,127,50,0.05); }
+.info-table td { color: #E0D8D0; }
+hr { border: none; border-top: 1px solid rgba(205,127,50,0.15); margin: 2rem 0; }
+a { color: #CD7F32; text-decoration: underline; }
+a:hover { color: #E8B86D; }
+.back-link { display: inline-block; margin-bottom: 1.5rem; font-size: 0.85rem; color: #8A7A6A; text-decoration: none; }
+.back-link:hover { color: #CD7F32; }
+.badge-essential { display: inline-block; padding: 2px 7px; background: rgba(76, 175, 80, 0.2); color: #81C784; border-radius: 4px; font-size: 0.8rem; }
+.badge-cookieless { display: inline-block; padding: 2px 7px; background: rgba(33, 150, 243, 0.2); color: #64B5F6; border-radius: 4px; font-size: 0.8rem; }
+@media (max-width: 480px) { body { padding: 1.5rem 1rem; } h1 { font-size: 1.5rem; } .info-table th, .info-table td { font-size: 0.8rem; padding: 8px 6px; } }
+</style>
+<script defer src="https://api.marianstancik.dev/script.js" data-website-id="ec1c0df8-e51f-4236-9ad0-e3992f0b1637"></script>
+</head>
+<body>
+
+<a href="/" class="back-link">← Späť na marianstancik.dev</a>
+
+<h1>Cookie politika a používanie technológií</h1>
+<p><em>Platné pre web marianstancik.dev · Účinnosť od 21. 9. 2026</em></p>
+
+<p><strong>Prevádzkovateľ:</strong><br>
+<strong>Marián Stančík</strong>, fyzická osoba – podnikateľ (živnostník)<br>
+IČO: 57068917 · DIČ: 1082585075 · Nie je platiteľ DPH<br>
+Miesto podnikania: Černákova 2046/8, 977 01 Brezno, Slovenská republika<br>
+E-mail: <a href="mailto:marianstancik@agentmail.to">marianstancik@agentmail.to</a></p>
+
+<p><strong>Právny rámec:</strong> Zákon č. 452/2021 Z. z. o elektronických komunikáciách (§ 109 ods. 8); Nariadenie Európskeho parlamentu a Rady (EÚ) 2016/679 (GDPR) — články 6 a 7; Zákon č. 18/2018 Z. z. o ochrane osobných údajov.</p>
+
+<div class="highlight">
+  <p style="margin:0;"><strong>Architektúra šetrná k súkromiu (Cookieless Analytics):</strong> Tento web nepoužíva žiadne reklamné, sledovacie ani invazívne cookies tretích strán (žiadny Google Analytics, Meta Pixel ani reklamné trackery). Webová analytika funguje na báze open-source nástroja <strong>Umami Analytics</strong> hosťovaného na našom vlastnom dedikovanom európskom serveri bez vytvárania profilov používateľov a bez ukladania cookies do vášho koncového zariadenia.</p>
+</div>
+
+<h2>1. Čo sú cookies a lokálne úložisko</h2>
+<p>Cookies sú malé textové súbory, ktoré webová stránka ukladá do vášho zariadenia pri jej prezeraní. Podobným spôsobom funguje mechanizmus <code>localStorage</code>, ktorý slúži na lokálne zapamätanie používateľských volieb (napríklad vami zvoleného jazyka webu) priamo vo vašom prehliadači bez odosielania na vzdialený server.</p>
+
+<h2>2. Kategórie technológií na tomto webe</h2>
+
+<h3>2.1 Nevyhnutné (technické a esenciálne) technológie</h3>
+<p>Tieto položky sú nevyhnutné na zabezpečenie základného fungovania webu, prepínanie jazykov a bezpečnosť komunikácie. V súlade s § 109 ods. 8 zákona č. 452/2021 Z. z. a čl. 6 ods. 1 písm. f) GDPR sa pre tieto nevyhnutné technické prostriedky nevyžaduje predchádzajúci súhlas, pretože bez nich by požadovaná služba nemohla fungovať.</p>
+
+<h3>2.2 Analytika (Cookieless)</h3>
+<p>Pre štatistické meranie návštevnosti a optimalizáciu výkonu využívame vlastnú inštanciu <strong>Umami Analytics</strong> na infraštruktúre Hetzner Cloud v EÚ. Umami neukladá cookies, neukladá IP adresy v identifikovateľnej podobe a nesleduje používateľov naprieč inými stránkami. Spĺňa najprísnejšie požiadavky GDPR a ePrivacy smernice.</p>
+
+<h3>2.3 Marketingové a profilovacie cookies</h3>
+<p>Naša webstránka <strong>nevyužíva žiadne marketingové ani remarketingové cookies</strong>. Vaše údaje neposkytujeme reklamným sieťam.</p>
+
+<h2>3. Prehľad používaných prvkov v zariadení používateľa</h2>
+
+<table class="info-table">
+  <thead>
+    <tr>
+      <th>Kľúč / Názov</th>
+      <th>Typ</th>
+      <th>Účel</th>
+      <th>Kategória</th>
+      <th>Doba uloženia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ms_lang</strong></td>
+      <td>localStorage</td>
+      <td>Zapamätanie jazykovej preferencie (EN, SK, DE, PL)</td>
+      <td><span class="badge-essential">Nevyhnutné</span></td>
+      <td>Do vymazania vyrovnávacej pamäte prehliadača</td>
+    </tr>
+    <tr>
+      <td><strong>Umami Analytics</strong></td>
+      <td>In-memory event</td>
+      <td>Z anonymných metrík meria návštevnosť bez ukladania cookies</td>
+      <td><span class="badge-cookieless">Cookieless</span></td>
+      <td>Neukladá sa v zariadení</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>4. Správa a odstránenie dát z prehliadača</h2>
+<p>Údaje uložené v <code>localStorage</code> (voľbu jazyka) môžete kedykoľvek odstrániť priamo v nastaveniach vášho internetového prehliadača vymazaním vyrovnávacej pamäte a dát lokality (Cookies and site data).</p>
+
+<h2>5. Vaše práva a kontakt</h2>
+<p>Otázky týkajúce sa ochrany súkromia a technológií môžete adresovať priamo prevádzkovateľovi:<br>
+<strong>Marián Stančík</strong><br>
+E-mail: <a href="mailto:marianstancik@agentmail.to">marianstancik@agentmail.to</a><br>
+Podrobnosti o vašich právach podľa GDPR nájdete v našich <a href="/privacy">Zásadách ochrany osobných údajov</a>.</p>
+
+<hr>
+<p style="font-size:0.8rem; color:#7A6A5A; text-align:center;">
+  © 2026 Marián Stančík · Všetky práva vyhradené · Účinné od 21. 9. 2026
+</p>
+
+</body>
+</html>

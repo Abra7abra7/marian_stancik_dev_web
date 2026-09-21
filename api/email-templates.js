@@ -7,9 +7,9 @@ module.exports = {
 
   // Unified luxury shell for all outgoing branded emails
   _shell(title, contentHtml, persona = 'company') {
-    const isCompany = persona === 'company';
-    const headerName = isCompany ? 'ASCENTIA s.r.o.' : 'Marian Stancik';
-    const subtitle = isCompany ? '✦ AI AGENT SYSTEMS · TECHNICAL AUDITS' : '✦ HERMES AGENT · AUTONOMOUS SYSTEMS';
+    const isCompany = false;
+    const headerName = 'Marian Stancik';
+    const subtitle = '✦ AI AGENT DEVELOPER · AUTONOMOUS SYSTEMS';
     return `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title}</title>
@@ -49,15 +49,9 @@ body { background: #05050A; color: #F0F0F5; padding: 24px 10px; }
 </style></head>
 <body><div class="email-wrapper">
   <div class="header">
-    ${isCompany ? `
-      <div class="brand-title">ASCENTIA</div>
-      <h1>ASCENTIA s.r.o.</h1>
-      <div class="subtitle">✦ AI AGENT SYSTEMS · TECHNICAL AUDITS</div>
-    ` : `
-      <img src="${PROFILE_IMG}" alt="${headerName}" class="avatar">
-      <h1 style="font-size:17px;">${headerName}</h1>
-      <div class="subtitle">${subtitle}</div>
-    `}
+    <img src="${PROFILE_IMG}" alt="${headerName}" class="avatar">
+    <h1 style="font-size:17px;">${headerName}</h1>
+    <div class="subtitle">${subtitle}</div>
   </div>
   <div class="content">
     <h2>${title}</h2>
@@ -68,13 +62,13 @@ body { background: #05050A; color: #F0F0F5; padding: 24px 10px; }
     <img src="${PROFILE_IMG}" alt="Marian Stancik">
     <div class="sig-text">
       <strong>Marian Stancik</strong><br>
-      <span style="color:#CD7F32; font-weight:600;">✦ Hermes Agent — ASCENTIA s.r.o.</span><br>
+      <span style="color:#CD7F32; font-weight:600;">✦ AI Agent Developer &amp; Autonomous Systems Builder</span><br>
       Building autonomous systems that run without you.<br>
       <span style="color:#64748B; font-size:11.5px;">marianstancik.dev · marianstancik@agentmail.to</span>
     </div>
   </div>
   <div class="footer">
-    <strong>ASCENTIA s.r.o.</strong> · Klincová 37/B, 821 08 Bratislava, Slovakia · IČO: 51858959 · DIČ: 2120816071<br>
+    <strong>Marián Stančík</strong> — fyzická osoba, podnikateľ (živnostník) · Černákova 2046/8, 977 01 Brezno · IČO: 57068917 · DIČ: 1082585075<br>
     Tento systém využíva asistenciu autonómnych AI agentov podľa čl. 50 EU AI Act.
   </div>
 </div></body></html>`;
@@ -110,7 +104,7 @@ ${website ? `<div class="metric-box"><strong style="color:#E8B86D;">Cieľový we
   <li>Objednávku a cieľovú doménu som zaevidoval v CRM daemone.</li>
   <li>Spúšťam hĺbkové auditné skenovanie do 24 hodín.</li>
   <li>Kompletný exekutívny PDF report doručím do 48 hodín priamo na tvoj e-mail.</li>
-  <li>Faktúra vystavená spoločnosťou ASCENTIA s.r.o. bude doručená samostatne.</li>
+  <li>Faktúra vystavená Mariánom Stančíkom (FO) bude doručená samostatne.</li>
 </ol>`;
     return this._shell(`Potvrdenie objednávky: ${product}`, content, 'company');
   },
@@ -127,7 +121,7 @@ ${message ? `<blockquote style="border-left:3px solid #CD7F32; padding:12px 18px
   // ── INVOICE ──
   invoice(name, product, price, invoiceNum, pdfUrl) {
     const content = `<p>Ahoj ${name},</p>
-<p>v prílohe tohto e-mailu nájdeš oficiálnu faktúru za <strong>${product}</strong> od spoločnosti ASCENTIA s.r.o.</p>
+<p>v prílohe tohto e-mailu nájdeš oficiálnu faktúru za <strong>${product}</strong>.</p>
 <h3>Faktúra č. ${invoiceNum}</h3>
 <table class="data-table" cellpadding="0" cellspacing="0">
   <tr><th>Fakturovaná položka</th><th>Suma</th></tr>
@@ -135,8 +129,8 @@ ${message ? `<blockquote style="border-left:3px solid #CD7F32; padding:12px 18px
 </table>
 <h3>💳 Platobné údaje (Bankový prevod)</h3>
 <table class="data-table" cellpadding="0" cellspacing="0">
-  <tr><th style="width:100px;">IBAN</th><td style="font-family:monospace; font-size:14px; color:#10B981;">SK78 1100 0000 0027 0129 7133</td></tr>
-  <tr><th>SWIFT / BIC</th><td>FIOZSKBAXXX</td></tr>
+  <tr><th style="width:100px;">IBAN</th><td style="font-family:monospace; font-size:14px; color:#10B981;">SK60 1100 0000 0029 4827 4072</td></tr>
+  <tr><th>SWIFT / BIC</th><td>TATRSKBX (Tatra banka a.s.)</td></tr>
   <tr><th>Variabilný symbol</th><td style="font-weight:700; color:#E8B86D;">${String(invoiceNum).replace(/[^0-9]/g, '').slice(-6) || '000001'}</td></tr>
 </table>
 <p style="margin:20px 0 0;"><a href="${pdfUrl}" class="btn-primary">Stiahnuť faktúru PDF</a></p>`;
@@ -172,16 +166,16 @@ ${message ? `<blockquote style="border-left:3px solid #CD7F32; padding:12px 18px
     return `MARIAN STANCIK — HERMES AGENT\n\nVitaj v newslettri!\nBlog: https://www.marianstancik.dev/blog\n\nS pozdravom, Marian Stancik`;
   },
   orderConfirmationText(name, product, price, website = '', notes = '') {
-    return `ASCENTIA s.r.o. — AI AGENT SYSTEMS\n\nAhoj ${name},\nĎakujem za objednávku: ${product} (${price ? '€' + price : 'Na mieru'}).\nWeb: ${website}\n\nS pozdravom, Marian Stancik — ASCENTIA s.r.o.`;
+    return `MARIAN STANCIK — AI AGENT DEVELOPER\n\nAhoj ${name},\nĎakujem za objednávku: ${product} (${price ? '€' + price : 'Na mieru'}).\nWeb: ${website}\n\nS pozdravom, Marian Stancik`;
   },
   contactConfirmationText(name = '', message = '') {
     return `MARIAN STANCIK — HERMES AGENT\n\nAhoj${name ? ' ' + name : ''},\nSprávu som prijal. Odpoviem do 24 hodín.\n\nS pozdravom, Marian Stancik`;
   },
   invoiceText(name, product, price, invoiceNum, pdfUrl) {
     const vs = String(invoiceNum).replace(/[^0-9]/g, '').slice(-6) || '000001';
-    return `ASCENTIA s.r.o.\n\nFAKTÚRA č. ${invoiceNum}\nAhoj ${name},\nfaktúra za ${product} (€${price}).\n\nStiahnuť PDF: ${pdfUrl}\nIBAN: SK78 1100 0000 0027 0129 7133\nBIC: FIOZSKBAXXX\nVS: ${vs}\n\n--\nASCENTIA s.r.o.`;
+    return `Marián Stančík (FO)\n\nFAKTÚRA č. ${invoiceNum}\nAhoj ${name},\nfaktúra za ${product} (€${price}).\n\nStiahnuť PDF: ${pdfUrl}\nIBAN: SK60 1100 0000 0029 4827 4072\nBIC: TATRSKBX (Tatra banka a.s.)\nVS: ${vs}\n\n--\nMarián Stančík (marianstancik.dev)`;
   },
   auditDeliveryText(name, website, score, pdfUrl) {
-    return `ASCENTIA s.r.o. — AI AUDIT REPORT\n\nAhoj ${name},\naudit pre ${website} je pripravený.\nSkóre: ${score}/100\nStiahnuť PDF: ${pdfUrl}\n\n--\nASCENTIA s.r.o.`;
+    return `MARIAN STANCIK — AI AUDIT REPORT\n\nAhoj ${name},\naudit pre ${website} je pripravený.\nSkóre: ${score}/100\nStiahnuť PDF: ${pdfUrl}\n\n--\nMarian Stancik`;
   }
 };
