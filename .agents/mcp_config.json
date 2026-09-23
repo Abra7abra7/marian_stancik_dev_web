@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "openseo": {
+      "serverUrl": "https://app.openseo.so/mcp",
+      "url": "https://app.openseo.so/mcp",
+      "headers": {
+        "Authorization": "Bearer ${env:OPENSEO_API_KEY}"
+      }
+    }
+  }
+}

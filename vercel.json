@@ -12,6 +12,16 @@
       "source": "/posts/:slug.html",
       "destination": "/blog/posts/:slug",
       "permanent": true
+    },
+    {
+      "source": "/lead-magnet/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/lead-magnet",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [

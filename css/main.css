@@ -903,7 +903,8 @@ transform: translateY(-2px);
 color: #E8B86D;
 transform: scale(1.15);
 }
-.footer-col h4 {
+.footer-col h4,
+.footer-col .footer-col-title {
 font-size: 0.72rem;
 font-weight: 700;
 text-transform: uppercase;
@@ -1037,7 +1038,8 @@ border-color: var(--color-border-hover);
 background: var(--color-bg-card-hover);
 transform: translateY(-2px);
 }
-.drone-spec-card h4 {
+.drone-spec-card h4,
+.drone-spec-card h3 {
 font-size: 0.95rem;
 font-weight: 700;
 color: var(--color-accent);
@@ -1357,6 +1359,7 @@ transition: var(--transition-fast);
 border-color: var(--color-border-hover);
 background: var(--color-bg-card-hover);
 }
+.drone-photo-card h3,
 .drone-photo-card h4 {
 font-size: 0.85rem;
 font-weight: 700;
@@ -1388,14 +1391,14 @@ transform: scale(1.03);
 .drone-photo-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
 .drone-photo-card img { aspect-ratio: 4 / 3; }
 .drone-photo-card { padding: 8px; }
-.drone-photo-card h4 { font-size: 0.8rem; margin-bottom: 6px; padding-bottom: 4px; }
+.drone-photo-card h3, .drone-photo-card h4 { font-size: 0.8rem; margin-bottom: 6px; padding-bottom: 4px; }
 }
 /* Mobile: compact 2-column card grid */
 @media (max-width: 480px) {
 .drone-photo-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
 .drone-photo-card img { aspect-ratio: 4 / 3; }
 .drone-photo-card { padding: 6px; border-radius: 8px; }
-.drone-photo-card h4 { font-size: 0.7rem; margin-bottom: 4px; padding-bottom: 4px; border-bottom-width: 1px; }
+.drone-photo-card h3, .drone-photo-card h4 { font-size: 0.7rem; margin-bottom: 4px; padding-bottom: 4px; border-bottom-width: 1px; }
 }
 /* === SERVICES & BOOKING CARDS === */
 .service-card {

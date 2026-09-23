@@ -288,7 +288,7 @@
 /* === FOCUS GRID === */
 .focus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
 .focus-item { background: rgba(205,127,50,0.04); border-left: 3px solid #CD7F32; padding: 18px 20px; border-radius: 0 10px 10px 0; border-top: 1px solid rgba(205,127,50,0.1); border-right: 1px solid rgba(205,127,50,0.1); border-bottom: 1px solid rgba(205,127,50,0.1); }
-.focus-item h4 { margin: 0 0 6px; font-size: 0.98rem; color: #E8B86D; display: flex; align-items: center; gap: 8px; }
+.focus-item h4, .focus-item h3 { margin: 0 0 6px; font-size: 0.98rem; color: #E8B86D; display: flex; align-items: center; gap: 8px; }
 .focus-item p { margin: 0; font-size: 0.86rem; color: #9A8A78; line-height: 1.55; }
 
 @media (max-width: 860px) {
@@ -425,7 +425,7 @@
     </div>
 
     <!-- WHAT I DO / DON'T DO CARDS -->
-    <h3 style="font-size: 1.4rem; font-weight: 700; color: #F0F0F5; margin: 48px 0 8px;" id="whatIDoTitle">What I do</h3>
+    <h2 style="font-size: 1.4rem; font-weight: 700; color: #F0F0F5; margin: 48px 0 8px;" id="whatIDoTitle">What I do</h2>
     <p style="color: #9A8A78; font-size: 0.94rem; margin-bottom: 24px;" id="whatIDoSubtitle">Job · Context · Hobby — clear separation.</p>
 
     <div class="about-cards fade-in">
@@ -458,7 +458,7 @@
     </div>
 
     <!-- WHAT I DON'T DO -->
-    <h3 style="font-size: 1.4rem; font-weight: 700; color: #F0F0F5; margin: 40px 0 8px;" id="whatIDontDoTitle">What I don't do</h3>
+    <h2 style="font-size: 1.4rem; font-weight: 700; color: #F0F0F5; margin: 40px 0 8px;" id="whatIDontDoTitle">What I don't do</h2>
     <p style="color: #9A8A78; font-size: 0.94rem; margin-bottom: 24px;" id="whatIDontDoSubtitle">Clear boundaries — so you know exactly who you're working with.</p>
 
     <div class="about-cards fade-in">
@@ -493,26 +493,26 @@
     <!-- FOCUS AREAS -->
     <div class="focus-grid fade-in">
       <div class="focus-item">
-        <h4 id="focus1Title"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.19"/></svg> Process Automation</h4>
+        <h3 id="focus1Title"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.19"/></svg> Process Automation</h3>
         <p id="focus1Desc">Lead capture, CRM follow-ups, content pipelines, reporting — agents handle workflows that used to eat your team's time.</p>
       </div>
       <div class="focus-item">
-        <h4 id="focus2Title"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> AI Web Audits</h4>
+        <h3 id="focus2Title"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> AI Web Audits</h3>
         <p id="focus2Desc">GEO audit (AI-search visibility) and Web Readiness Scan (technical document check) — an agent reviews your web presence.</p>
       </div>
       <div class="focus-item">
-        <h4 id="focus3Title"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Custom AI Agents</h4>
+        <h3 id="focus3Title"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Custom AI Agents</h3>
         <p id="focus3Desc">Your workflow, your data, your infrastructure. An agent built for one job — your job — run 24/7.</p>
       </div>
       <div class="focus-item">
-        <h4 id="focus4Title"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Regulation-Aware Builds</h4>
+        <h3 id="focus4Title"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Regulation-Aware Builds</h3>
         <p id="focus4Desc">Law background means agents are engineered with GDPR/AI-Act awareness from day one — not retrofitted after a problem.</p>
       </div>
     </div>
 
     <!-- TIMELINE -->
     <div class="timeline-section fade-in">
-      <h3 style="font-size: 1.4rem; font-weight: 700; color: #F0F0F5; margin-bottom: 8px;" id="timelineTitle">How I got here</h3>
+      <h2 style="font-size: 1.4rem; font-weight: 700; color: #F0F0F5; margin-bottom: 8px;" id="timelineTitle">How I got here</h2>
       <p style="color: #9A8A78; font-size: 0.94rem; margin-bottom: 28px;" id="timelineSubtitle">The engineering evolution — from prompt engineering to fully autonomous systems.</p>
 
       <div class="timeline-track">
@@ -581,7 +581,7 @@
         </div>
       </div>
       <div class="footer-col">
-        <h4>Navigate</h4>
+        <div class="footer-col-title">Navigate</div>
         <a href="/">Home</a>
         <a href="/about">About</a>
         <a href="/services">Products</a>
@@ -589,12 +589,12 @@
         <a href="/contact">Contact</a>
       </div>
       <div class="footer-col">
-        <h4>More</h4>
+        <div class="footer-col-title">More</div>
         <a href="/drones">Drones (Hobby)</a>
         <a href="https://github.com/Abra7abra7" target="_blank" rel="noopener">Open Source</a>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
+        <div class="footer-col-title">Contact</div>
         <a href="mailto:marianstancik@agentmail.to">marianstancik@agentmail.to</a>
         <a href="https://github.com/Abra7abra7/marian_stancik_2026" target="_blank" rel="noopener">Website Source</a>
         <a href="https://www.marianstancik.dev" target="_blank" rel="noopener">marianstancik.dev</a>

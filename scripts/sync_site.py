@@ -259,7 +259,7 @@ def sync_sitemap(config):
         {"loc": "/services-sk", "priority": "0.9", "changefreq": "weekly"},
         {"loc": "/drones", "priority": "0.7", "changefreq": "monthly"},
         {"loc": "/contact", "priority": "0.8", "changefreq": "monthly"},
-        {"loc": "/blog/", "priority": "0.9", "changefreq": "weekly"},
+        {"loc": "/blog", "priority": "0.9", "changefreq": "weekly"},
         {"loc": "/impressum", "priority": "0.5", "changefreq": "monthly"},
         {"loc": "/cookie", "priority": "0.5", "changefreq": "monthly"},
         {"loc": "/privacy", "priority": "0.5", "changefreq": "monthly"},

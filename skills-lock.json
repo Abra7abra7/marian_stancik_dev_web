@@ -13,11 +13,71 @@
       "skillPath": "skills/engineering/codebase-design/SKILL.md",
       "computedHash": "caea3cb8a8281ff829fd1a2b985044e77601b62f301adf43f689ccfc74c15f6f"
     },
+    "competitive-landscape": {
+      "source": "every-app/open-seo",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/competitive-landscape/SKILL.md",
+      "computedHash": "72378a015246e1d8d28cfb0c4f585c80735c4b1f8b9baa274dad29c0757a7a0b"
+    },
+    "competitor-analysis": {
+      "source": "every-app/open-seo",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/competitor-analysis/SKILL.md",
+      "computedHash": "68ffdeed7d261cc31dc194085566bffee5ea1b0036e76ea4ca326b2b18fce594"
+    },
     "improve-ui": {
       "source": "ibelick/ui-skills",
       "sourceType": "github",
       "skillPath": "skills/improve-ui/SKILL.md",
       "computedHash": "31c09b79a1c196adccb1637a225cef54f537da87430fda0ba309ef83e78f10e5"
+    },
+    "keyword-clustering": {
+      "source": "every-app/open-seo",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/keyword-clustering/SKILL.md",
+      "computedHash": "dace5ceb1f01ca9cef1bc11b80b4226872a65a7156cfab9a449fe1f1bf1be66d"
+    },
+    "keyword-research": {
+      "source": "every-app/open-seo",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/keyword-research/SKILL.md",
+      "computedHash": "020ef18264d53432bdf1e37b52cdce3a7110bd482606af78f8da34a159cddf93"
+    },
+    "link-prospecting": {
+      "source": "every-app/open-seo",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/link-prospecting/SKILL.md",
+      "computedHash": "226bd387cd752a03dd9c24ae662c5f8e253e64a4474a164c4eebd3b2df3bdb84"
+    },
+    "local-seo": {
+      "source": "every-app/open-seo",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/local-seo/SKILL.md",
+      "computedHash": "9dee609c80927eedb2b1e13eefdcdbe5531304da25023d59cfb821f7eaea65e3"
+    },
+    "seo-audit": {
+      "source": "every-app/open-seo",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/seo-audit/SKILL.md",
+      "computedHash": "7a38fb55220890d7b776cfb2f6689814710c9da9cca6c44c84179142ed7e7ece"
+    },
+    "seo-coach": {
+      "source": "every-app/open-seo",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/seo-coach/SKILL.md",
+      "computedHash": "756018974642ff99923d7752ede639dac275f9c34d2be88b8ddb9575338f6ab9"
+    },
+    "seo-project-setup": {
+      "source": "every-app/open-seo",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/seo-project-setup/SKILL.md",
+      "computedHash": "8e3a0300746d77b2ee26f121f85404bbc746ef4b9b80deb90844c908b95450bb"
+    },
+    "seo-report": {
+      "source": "every-app/open-seo",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/seo-report/SKILL.md",
+      "computedHash": "78069483802cc1047c01f0613f4e24a9ccabfb4847c7071d19b87aec41254b63"
     },
     "stripe-best-practices": {
       "source": "docs.stripe.com",

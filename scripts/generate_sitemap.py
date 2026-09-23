@@ -27,7 +27,7 @@ pages = []
 
 # Core pages
 pages.append(page("/", get_lastmod(f"{ROOT}/index.html"), "weekly", 1.0))
-pages.append(page("/blog/", get_lastmod(f"{ROOT}/blog/index.html"), "weekly", 0.9))
+pages.append(page("/blog", get_lastmod(f"{ROOT}/blog/index.html"), "weekly", 0.9))
 pages.append(page("/about", get_lastmod(f"{ROOT}/about.html"), "monthly", 0.8))
 pages.append(page("/expertise", get_lastmod(f"{ROOT}/expertise.html"), "monthly", 0.8))
 pages.append(page("/skills", get_lastmod(f"{ROOT}/skills.html"), "monthly", 0.8))
