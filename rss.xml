@@ -4,7 +4,14 @@
     <title>Marian Stancik — Blog</title>
     <link>https://marianstancik.dev/blog/</link>
     <description>AI agents, autonomous systems, law & tech, and building in public.</description>
-    <lastBuildDate>2026-09-19</lastBuildDate>
+    <lastBuildDate>2026-09-23</lastBuildDate>
+    <item>
+      <title>How to Build Guardian Agents for Autonomous AI Systems — Marian Stancik</title>
+      <link>https://marianstancik.dev/blog/posts/2026-09-23-guardian-agents-ai-governance</link>
+      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-23-guardian-agents-ai-governance</guid>
+      <pubDate>2026-09-23</pubDate>
+      <description>Gartner's Guardian Agents framework predicts 5-7% of agentic AI spend by 2028. Here's how to build a governance layer for autonomous AI systems with bounded autonomy, runtime enforcement, and audit trails.</description>
+    </item>
     <item>
       <title>AI Agents Consume 5x More Tokens Than Humans — How to Optimize Your Autonomous Agent Infrastructure — Marian Stancik</title>
       <link>https://marianstancik.dev/blog/posts/2026-09-19-agent-token-optimization</link>
@@ -67,13 +74,6 @@
       <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-08-26-agent-driven-company</guid>
       <pubDate>2026-08-26</pubDate>
       <description>How I deployed 19 autonomous AI cron jobs on a €3.79/mo VPS for content, CRM, legal monitoring, and system health — all agent-driven.</description>
-    </item>
-    <item>
-      <title>Web Performance Optimization: How I Cut Page Size by 61% — Marian Stancik</title>
-      <link>https://marianstancik.dev/blog/posts/2026-08-25-web-performance-optimization</link>
-      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-08-25-web-performance-optimization</guid>
-      <pubDate>2026-08-25</pubDate>
-      <description>A technical walkthrough of reducing HTML page weight from 86KB to 34KB and improving Lighthouse scores by externalizing CSS, JS, and images.</description>
     </item>
   </channel>
 </rss>
