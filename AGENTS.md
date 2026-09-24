@@ -67,6 +67,10 @@ All site metadata, product definitions, Stripe pricing, social handles, and mult
 
 ```
 .
+├── .agents/
+│   ├── mcp_config.json         # OpenSEO MCP Server Integration (Authorization: Bearer ${env:OPENSEO_API_KEY})
+│   └── skills/                 # OpenSEO Agent Skills (seo-audit, keyword-research, competitor-analysis, etc.)
+│
 ├── index.html                  # Homepage (Hero, Products, About, Dynamic Blog, FAQ, Lead Form)
 ├── about.html                  # About Marian Stancik + Hermes Runtime Cockpit + Evolution Timeline
 ├── services.html               # 4 AI Products & Audits (EN) + Stripe Checkout Modals
@@ -75,6 +79,8 @@ All site metadata, product definitions, Stripe pricing, social handles, and mult
 ├── expertise.html              # Core Focus & Domain Architecture
 ├── drones.html                 # Tactical UAV & Edge Robotics (Hobby Project)
 ├── contact.html                # Contact Hub & Direct Booking Inquiry
+├── cookie.html                 # Cookie Policy (Cookieless Architecture Documentation)
+├── impressum.html              # Impressum & Business Identification
 ├── privacy.html / privacy-sk   # GDPR & Data Privacy Documentation
 ├── terms.html / disclaimer.html # Terms of Service & EU AI Act Art. 50 Disclaimers
 │
@@ -158,13 +164,24 @@ All visual interfaces adhere strictly to the design system tokens defined in [`c
 - Spacing: `--space-xs: 4px;` | `--space-sm: 8px;` | `--space-md: 16px;` | `--space-lg: 24px;` | `--space-xl: 48px;` | `--space-2xl: 90px;`
 - Radius: `--radius-sm: 6px;` | `--radius-md: 12px;` | `--radius-lg: 18px;` | `--radius-full: 9999px;`
 - Accessibility: `--min-tap-target: 44px;` for all mobile buttons and interactive anchors.
+- **Heading Hierarchy Standard (Strict):** Headings must follow a strict, non-skipping order: `h1` (exactly one per page) -> `h2` -> `h3`. Never skip heading levels (e.g. do not jump from `h1` to `h3`, or `h2` to `h4`).
+- **Footer Column Title Standard:** Footer column titles must use `<div class="footer-col-title" id="...">` styled via `.footer-col .footer-col-title` in `css/main.css`. Using `h4` in footers is prohibited to prevent breaking the semantic heading tree on pages ending with `h2` sections.
 
 ---
 
-## 7. Generative Engine Optimization (GEO) & LLMO Blueprint
+## 7. Generative Engine Optimization (GEO), Technical SEO & OpenSEO Suite
 
-To guarantee instant, authoritative discovery and citations across AI engines (**Perplexity, ChatGPT Search, Claude, Google SGE, Grok**):
+To guarantee instant, authoritative discovery and citations across AI engines (**Perplexity, ChatGPT Search, Claude, Google SGE, Grok**) as well as standard search engines:
 
+### Core Web Vitals & Technical SEO Benchmarks
+1. **100/100 Core Web Vitals:** Mobile & Desktop performance (sub-15ms TTFB, LCP < 400ms, CLS = 0). Zero render-blocking resources, externalized minified CSS/JS, and asynchronous Three.js canvas.
+2. **Canonical URLs & Zero Redirect Chains:** All internal and sitemap links strictly omit trailing slashes (e.g., `/blog` instead of `/blog/`). Because Vercel enforces `trailingSlash: false`, trailing slashes cause unnecessary 308 redirect hops. All legacy/bot paths (e.g., `/lead-magnet/*`) must be redirected in a single hop via `vercel.json`.
+3. **SERP Snippet Standards:**
+   - `<title>`: 50–60 characters (max 60 chars to prevent truncation in Google SERP).
+   - `<meta name="description">`: 140–155 characters (optimized for both desktop 960px snippet and mobile 120-char viewport).
+   - Synced parity across `og:title`, `og:description`, `twitter:title`, `twitter:description`.
+
+### AI Discovery & LLMO Blueprint
 1. **`llms.txt` & `llms-full.txt` (llmstxt.org v2 Standard):** Clean Markdown links with summaries of all articles, products, and pages.
 2. **4-Language Markdown Alternates & Content Negotiation:** Every HTML page and blog post provides a clean markdown version (`*.md`) advertised via HTTP Link headers. Furthermore, `vercel.json` intercepts requests with `Accept: text/markdown` and transparently routes AI agents directly to `.md` endpoints (`Vary: Accept`).
 3. **AI Crawler White-Listing & Content-Signals (`robots.txt`):** Explicitly grants access to GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended, CCBot, Bravebot, Meta-ExternalAgent, Cohere-ai, Diffbot, and OAI-SearchBot while defining modern content licensing signals:
@@ -172,6 +189,11 @@ To guarantee instant, authoritative discovery and citations across AI engines (*
    Content-Signal: ai-train=no, search=yes, ai-input=yes
    ```
 4. **Schema.org JSON-LD Hierarchy:** Rich `@graph` containing `Person`, `Organization`, `WebSite`, `Service`, `Offer`, and `FAQPage` schemas with precise pricing (€199, €200, €300, €500).
+
+### OpenSEO Agent Integration (`.agents/`)
+The repository is equipped with the OpenSEO Agent Suite connected via MCP:
+- **MCP Server:** Configured in `.agents/mcp_config.json` pointing to `https://app.openseo.so/mcp` with `Authorization: Bearer ${env:OPENSEO_API_KEY}`.
+- **Installed Agent Skills:** Located in `.agents/skills/` (`seo-audit`, `keyword-research`, `competitor-analysis`, `link-prospecting`, `keyword-clustering`, `local-seo`, `seo-coach`, `seo-project-setup`, `seo-report`, `competitive-landscape`).
 
 ---
 
