@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How MCP Became the Universal Socket for AI Agents After SIGGRAPH 2026 — Marian Stancik</title>
+<meta name="description" content="SIGGRAPH 2026 marked MCP's transition from niche protocol to creative industry standard. NVIDIA, Adobe, Blender, Unreal Engine, and Houdini all adopted MCP — here's what it means for AI agent architecture.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/2026-09-26-mcp-creative-industry-standard">
+<link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-09-26-mcp-creative-industry-standard">
+<link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-09-26-mcp-creative-industry-standard">
+<link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/blog/posts/de/2026-09-26-mcp-creative-industry-standard">
+<link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/blog/posts/pl/2026-09-26-mcp-creative-industry-standard">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-09-26-mcp-creative-industry-standard">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#08080F">
+
+<!-- Open Graph -->
+<meta property="og:title" content="How MCP Became the Universal Socket for AI Agents After SIGGRAPH 2026 — Marian Stancik">
+<meta property="og:description" content="SIGGRAPH 2026 marked MCP's transition from niche protocol to creative industry standard. NVIDIA, Adobe, Blender, Unreal Engine, and Houdini all adopted MCP — here's what it means for AI agent architecture.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/2026-09-26-mcp-creative-industry-standard">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.marianstancik.dev/profile.webp">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
+<meta property="og:image:alt" content="Marian Stancik">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="sk_SK">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/profile.webp">
+<meta name="ai-generated-content" content="true">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "How MCP Became the Universal Socket for AI Agents After SIGGRAPH 2026",
+      "description": "SIGGRAPH 2026 marked MCP's transition from niche protocol to creative industry standard. NVIDIA, Adobe, Blender, Unreal Engine, and Houdini all adopted MCP — here's what it means for AI agent architecture and what changes when every creative tool speaks MCP.",
+      "datePublished": "2026-09-26",
+      "dateModified": "2026-09-26",
+      "author": {
+        "@type": "Person",
+        "name": "Marian Stancik",
+        "url": "https://www.marianstancik.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Marian Stancik"
+      },
+      "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/2026-09-26-mcp-creative-industry-standard",
+      "keywords": ["MCP", "Model Context Protocol", "SIGGRAPH 2026", "NVIDIA", "AI Agents", "Autonomous Agents", "Blender", "Unreal Engine", "Adobe", "Houdini", "Creative AI"],
+      "isBasedOn": "https://schema.org/AIGeneratedContent",
+      "creativeWorkStatus": "AIGenerated"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.marianstancik.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.marianstancik.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How MCP Became the Universal Socket for AI Agents After SIGGRAPH 2026",
+          "item": "https://www.marianstancik.dev/blog/posts/2026-09-26-mcp-creative-industry-standard"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:#08080F;color:#E8E8F0;line-height:1.8;-webkit-font-smoothing:antialiased}
+.container{max-width:740px;margin:0 auto;padding:0 24px}
+nav{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(8,8,15,0.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-inner a{color:#8888A0;text-decoration:none;font-size:0.85rem;transition:color 0.3s}
+.nav-inner a:hover{color:#CD7F32}
+article{padding:48px 0 80px}
+.post-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:32px;font-size:0.78rem;color:#9090A8}
+.post-meta .tag{background:rgba(205,127,50,0.08);color:#E8B86D;padding:3px 10px;border-radius:100px;font-size:0.65rem;border:1px solid rgba(205,127,50,0.15)}
+h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:#F0F0F5;line-height:1.25;letter-spacing:-0.02em;margin-bottom:8px}
+h2{font-size:1.3rem;font-weight:600;color:#F0F0F5;margin:36px 0 12px;line-height:1.35}
+h3{font-size:1.05rem;font-weight:600;color:#D0D0E0;margin:24px 0 8px}
+p{color:#B0B0C8;margin-bottom:16px;font-size:0.95rem}
+a{color:#E8B86D;transition:color 0.3s}
+a:hover{color:#CD7F32}
+ul,ol{padding-left:20px;margin-bottom:16px;color:#B0B0C8;font-size:0.95rem}
+li{margin-bottom:6px}
+code{background:rgba(255,255,255,0.04);padding:2px 6px;border-radius:4px;font-size:0.85rem;color:#E8B86D;font-family:'Fira Code','Cascadia Code','JetBrains Mono',monospace}
+pre{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;overflow-x:auto;margin-bottom:20px;font-size:0.82rem;line-height:1.5}
+pre code{background:none;padding:0;color:#C8C8D8}
+.callout{background:rgba(205,127,50,0.06);border-left:3px solid #CD7F32;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;color:#E8E8F0}
+.callout-green{background:rgba(46,204,113,0.06);border-left:3px solid #2ECC71;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;color:#E8E8F0}
+.callout-red{background:rgba(231,76,60,0.06);border-left:3px solid #E74C3C;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;color:#E8E8F0}
+footer{padding:36px 24px;text-align:center;color:#9090A8;font-size:0.75rem;border-top:1px solid rgba(255,255,255,0.04)}
+footer a{color:#8888A0;text-decoration:none}
+footer a:hover{color:#CD7F32}
+@media(max-width:600px){article{padding:32px 0 60px}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Blog navigation">
+  <div class="nav-inner">
+    <a href="/" aria-label="Marian Stancik home"><span style="font-size:1.1rem">&#x2190;</span> Home</a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="/blog">Blog</a>
+      <div style="display:flex;gap:4px;background:rgba(255,255,255,0.06);padding:2px 4px;border-radius:100px;font-size:0.72rem;font-weight:600;">
+        <a href="/blog/posts/2026-09-26-mcp-creative-industry-standard" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">EN</a>
+        <a href="/blog/posts/sk/2026-09-26-mcp-creative-industry-standard" style="padding:2px 8px;border-radius:100px;color:#8888A0;text-decoration:none;">SK</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+<article>
+
+<div class="post-meta">
+  <span>September 26, 2026</span>
+  <span class="tag">MCP</span>
+  <span class="tag">SIGGRAPH 2026</span>
+  <span class="tag">AI Agents</span>
+  <span class="tag">Creative AI</span>
+  <span class="tag">Autonomous Systems</span>
+  <span>10 min read</span>
+  <span>By Marian Stancik</span>
+</div>
+
+<h1>How MCP Became the Universal Socket for AI Agents After SIGGRAPH 2026</h1>
+
+<div class="post-content">
+
+<p>On July 20, 2026, at SIGGRAPH in Los Angeles, NVIDIA did something that fundamentally changed the AI agent infrastructure landscape. It announced that Adobe, Blender, Unreal Engine, SideFX Houdini, Boris FX Silhouette, Foundry Nuke, and Affinity by Canva were all opening Model Context Protocol (MCP) connections to let AI agents work inside their tools. Not prototypes. Not research papers. Shipping MCP servers that agents can call today.</p>
+
+<p>This was not a product launch. It was a standardisation event. In a single keynote, MCP went from "the protocol Anthropic introduced for connecting language models to tools" to the industry-standard socket for AI agent interaction with professional creative software — and, by extension, with any application that exposes a scripting API.</p>
+
+<p>I deploy Hermes Agent (Nous Research) with a stack of custom MCP servers — filesystem, database, web search, CRM integration, terminal access — running 24/7 on a Hetzner VPS. I have been building on MCP since before the 2026-07-28 stateless revision. What SIGGRAPH 2026 proved is that this architectural bet was not just correct — it was inevitable. Every application is becoming agent-ready, and MCP is the socket they are standardising on.</p>
+
+<div class="callout-green">
+<strong>The headline:</strong> After SIGGRAPH 2026, MCP is no longer a protocol choice. It is the default connector for AI agents in the creative industry. If you are building AI agents that interact with external tools — creative or otherwise — MCP is the standard you should build on.
+</div>
+
+<h2>What Actually Happened at SIGGRAPH 2026</h2>
+
+<p>NVIDIA's SIGGRAPH keynote, led by research leads Neil Ashton, Edward Liu, and Ming-Yu Liu with a framing introduction from Jensen Huang, was structured around three pillars: physical AI world models (Cosmos 3 Edge), synthetic media trust (Synthetic Video Detector NIM), and agentic creative tools (MCP across the ecosystem). The third pillar received the most attention from the creative industry because it directly changes how every artist, technical director, and studio pipeline will function.</p>
+
+<p>Here is the full partner map of what shipped:</p>
+
+<table style="width:100%;border-collapse:collapse;margin-bottom:20px;font-size:0.85rem;color:#B0B0C8;">
+<tr style="border-bottom:1px solid rgba(255,255,255,0.08);"><th style="text-align:left;padding:8px 12px;color:#E8B86D;">Application</th><th style="text-align:left;padding:8px 12px;color:#E8B86D;">MCP Surface</th><th style="text-align:left;padding:8px 12px;color:#E8B86D;">What Agents Can Do</th></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:8px 12px;">Adobe Creative Cloud</td><td style="padding:8px 12px;">Firefly creative agent; Express MCP Server</td><td style="padding:8px 12px;">Multi-step workflows across Firefly, Express, Creative Cloud; build Express add-ons via official APIs</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:8px 12px;">Blender (Blender Lab)</td><td style="padding:8px 12px;">Lightweight MCP server</td><td style="padding:8px 12px;">Natural-language access to Python API, docs, complex setups</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:8px 12px;">Unreal Engine</td><td style="padding:8px 12px;">Editor MCP connection</td><td style="padding:8px 12px;">Drive editor capabilities — scene, asset, project-state reasoning</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:8px 12px;">SideFX Houdini 22</td><td style="padding:8px 12px;">APEX Script MCP server</td><td style="padding:8px 12px;">Generate and refine procedural character-rig code via curated APEX docs</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:8px 12px;">Boris FX Silhouette</td><td style="padding:8px 12px;">MCP server + FX Scripting API</td><td style="padding:8px 12px;">Inspect projects, build node trees, edit shapes and keyframes, render frames (online + headless)</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:8px 12px;">Foundry Griptape</td><td style="padding:8px 12px;">Native MCP orchestration</td><td style="padding:8px 12px;">Multi-model VFX pipelines across Blender + Nuke with QC and matte automation</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:8px 12px;">Affinity by Canva</td><td style="padding:8px 12px;">AI Connector for Claude via MCP</td><td style="padding:8px 12px;">Rename layers, resize artboards, apply bulk edits across channels</td></tr>
+<tr><td style="padding:8px 12px;">NVIDIA Agent Toolkit</td><td style="padding:8px 12px;">MCP client + MCP server</td><td style="padding:8px 12px;">Connect to remote MCP servers; publish your own tools to any MCP client</td></tr>
+</table>
+
+<p>NVIDIA also announced that Hermes Agent (Nous Research) — the system I run in production — had added Blender to its MCP catalog, alongside the NVIDIA Agent Toolkit's MCP client and server. This is not a side note: it means the agent runtime I deploy now has a direct MCP path into professional 3D and VFX tools.</p>
+
+<h2>Why MCP Won: The Protocol Design That Made It Inevitable</h2>
+
+<p>MCP did not become the standard because it had the best marketing. It became the standard because its protocol design maps precisely to what the creative software industry needs: a standardised way to expose a scripting API as a set of callable tools, with typed inputs and outputs, discoverable at runtime, and independent of the transport layer (stdio or HTTP).</p>
+
+<p>Three design decisions made the SIGGRAPH adoption wave possible:</p>
+
+<h3>1. Tool Discovery via server/discover</h3>
+<p>The 2026-07-28 revision of MCP introduced <code>server/discover</code> — a stateless endpoint that returns the full tool manifest of an MCP server in a single call. Before this, clients had to negotiate capabilities through a multi-step initialization handshake. Now, any agent can send one request and receive a complete list of available tools with their JSON Schema 2020-12 specifications. This is critical for creative apps because the tool surface is large (Blender's Python API exposes hundreds of functions) and dynamic (plugins add tools at runtime). With <code>server/discover</code>, the agent always knows exactly what the tool can do right now.</p>
+
+<h3>2. JSON Schema 2020-12 for Tool I/O</h3>
+<p>Every MCP tool input and output is specified as a full JSON Schema. This is not an implementation detail — it is the feature that lets creative apps expose complex data structures (scene graphs, node trees, animation curves, 3D mesh data) with precise type validation, without the agent needing to know the internal schema of each application. The agent reads the schema, constructs a valid request, and sends it. If the schema changes (e.g., Blender adds a new geometry node type), the agent discovers the change on the next <code>server/discover</code> call.</p>
+
+<h3>3. Transport Agnosticism (stdio + HTTP/SSE)</h3>
+<p>MCP works over stdio (for local, same-machine agent ↔ tool communication) and HTTP with Server-Sent Events (for remote, networked communication). This dual-transport design matters enormously for creative studios: local MCP servers run on the workstation for low-latency interactive work (an agent responding to an artist's prompt inside Blender cannot tolerate 200ms network round-trips), while remote MCP servers handle batch processing on render farms or cloud pipelines. Same protocol, different transport, zero code changes.</p>
+
+<pre><code># MCP transport selection — same server, different deployment
+# Local workstation (interactive, low latency)
+mcp_server = MCPServer(
+    name="blender-lab",
+    transport="stdio",
+    command="blender --background --python mcp_server.py"
+)
+
+# Cloud render farm (batch, async)
+mcp_server = MCPServer(
+    name="blender-lab-farm",
+    transport="http",
+    endpoint="https://renderfarm.internal/mcp/blender",
+    headers={"Authorization": "Bearer $(cat /run/secrets/mcp_token)"}
+)</code></pre>
+
+<p>These three design decisions together solved a problem that had plagued the creative software industry for a decade: how to make professional tools agent-accessible without rebuilding their scripting APIs from scratch. Every major creative app already had a Python or Lua scripting interface. MCP gave them a standardised, discoverable, typed wrapper around that interface — without requiring a single API change.</p>
+
+<h2>What This Means for Autonomous Agent Architecture</h2>
+
+<p>The SIGGRAPH 2026 adoption wave changes the architectural assumptions behind every agent system that interacts with the external world. I run 19 autonomous agents 24/7 through MCP servers. After SIGGRAPH, I know that the protocol layer my agents use to call tools is the same protocol layer that Adobe, NVIDIA, and Blender use. This has three concrete implications.</p>
+
+<h3>1. The MCP Server Is No Longer Custom Infrastructure</h3>
+<p>Before SIGGRAPH 2026, MCP servers were something you built yourself — a custom wrapper around your application's API. That is still true for domain-specific business tools (CRM, database, internal APIs). But for the creative and productivity layer, MCP servers are now shipped by the application vendors. Blender Lab ships an MCP server. Boris FX ships an MCP server. NVIDIA Agent Toolkit ships both an MCP client and server. The default stack for agent-to-tool communication is now pre-installed.</p>
+
+<p>This reduces the build-vs-buy decision for MCP infrastructure. You build MCP servers for your proprietary systems. You use vendor-shipped MCP servers for the tools they own. And the protocol is identical on both sides, so your agent's tool-calling logic does not care which category a given tool falls into.</p>
+
+<h3>2. The MCP Ecosystem Just Got a 10x Surface Area Increase</h3>
+<p>An agent that could previously call 5-10 custom MCP servers can now call Blender's full Python API, Unreal Engine's editor capabilities, Houdini's APEX Script system, and Adobe Creative Cloud's entire tool suite — all through the same protocol, the same authentication pattern, and the same error handling. For my agents, this means a blog-publishing agent that formats images through Affinity's MCP connector, renders terminal demos through Blender's MCP server, and validates output against Adobe's pipeline rules — all in a single autonomous workflow.</p>
+
+<div class="callout">
+<strong>Production reality check:</strong> I have not integrated all of these MCP servers into my production stack yet — the SIGGRAPH announcements landed in July 2026 and some integrations are still maturing (SideFX's AI-assisted APEX scripting is explicitly preview-level). But the architectural surface is there. Any of my Hermes agents can be pointed at any MCP server and start calling tools immediately, because MCP standardises the connection — not the specific tool API.
+</div>
+
+<h3>3. The Two-Plane Architecture Is Now a Full Stack</h3>
+<p>I wrote previously about the two-plane architecture for autonomous agents — a control plane (governance, identity, policy) and an execution plane (task completion, tool calls). The control plane proxies every tool call through MCP, with the guardian layer enforcing policy before forwarding requests.</p>
+
+<p>After SIGGRAPH, the MCP proxy in the control plane is no longer connecting agents to "my custom tools." It is connecting agents to the entire creative software ecosystem through a standardised protocol. The identity management, rate limiting, and audit trails I built for my CRM MCP server work identically for the Blender MCP server. The architecture scales laterally — adding a new tool category (3D modelling, video compositing, sound design) does not require a new integration pattern. It requires an MCP endpoint.</p>
+
+<pre><code># Control plane MCP proxy — post-SIGGRAPH architecture
+# Previously: agents -> guard -> my_Custom_Servers
+# Now:       agents -> guard -> vendor_MCP_servers + custom_MCP_servers
+
+# The proxy doesn't care which category the server falls into:
+async def proxy_tool_call(agent_id: str, mcp_server: str, tool: str, params: dict):
+    # 1. Identity check
+    identity = await get_agent_identity(agent_id)
+    if not identity.can_call(mcp_server, tool):
+        return {"error": "Identity not authorized"}
+    
+    # 2. Policy enforcement (same for all MCP servers)
+    policy_result = await guardian.check_policy(agent_id, mcp_server, tool, params)
+    if not policy_result["allowed"]:
+        await alert_human(agent_id, mcp_server, tool, policy_result["reason"])
+        return {"error": f"Policy blocked: {policy_result['reason']}"}
+    
+    # 3. Forward to MCP server (HTTP or stdio, vendor or custom — same code)
+    result = await mcp_client.call_tool(mcp_server, tool, params)
+    
+    # 4. Audit trail (one format for all tool calls)
+    await audit_log.append({
+        "agent_id": agent_id,
+        "mcp_server": mcp_server,
+        "tool": tool,
+        "timestamp": datetime.utcnow().isoformat(),
+        "policy_result": policy_result,
+        "result_size": len(str(result))
+    })
+    
+    return result</code></pre>
+
+<h2>The DGX Station Effect: Local Agent Supercomputers</h2>
+
+<p>The third infrastructure announcement at SIGGRAPH 2026 — less discussed than MCP, but equally significant for agent architecture — was the DGX Station GB300. This is a deskside supercomputer (20 petaflops FP4, 748GB coherent memory) running NVIDIA's NemoClaw open blueprints for building custom autonomous agents, packaged with Nemotron 3 Ultra (550B parameters) and Omniverse libraries for 3D-native agent skills.</p>
+
+<p>What makes this relevant to the MCP story is the local inference argument. NVIDIA positioned DGX Station explicitly as the hardware layer for running MCP-connected agents locally — "lower latency, fewer off-prem data leaks, air-gap-friendly studios." The reason creative studios cannot send client assets to cloud APIs is not technical; it is contractual. NDA footage, unreleased product designs, and classified VFX work cannot leave the building. A local agent stack that runs a 550B model with access to Blender, Unreal, and Houdini through MCP — all on a deskside machine with no internet dependency — is the first viable architecture for agentic creative work in security-sensitive environments.</p>
+
+<p>For my stack, the hardware trajectory is clear: from a Hetzner VPS running my current 19-agent system (€3.79/month, 6 vCPUs, OpenRouter for model access) toward a local inference layer that runs the policy-checking guardian agent (control plane) on-device while the lightweight execution agents (blog publisher, CRM, system health) remain on the VPS. The MCP protocol is the same in both layers — only the transport and latency change.</p>
+
+<h2>Practical Steps: What Changes for MCP Server Builders</h2>
+
+<p>If you run MCP servers — whether for business tools, creative pipelines, or personal automation — the SIGGRAPH 2026 adoption wave means you should take three actions today:</p>
+
+<h3>1. Upgrade to the 2026-07-28 Stateless Core</h3>
+<p>The stateless revision is mandatory for interoperability with the new ecosystem. Vendor MCP servers ship with stateless core. If your custom servers still use the old initialize handshake and session headers, they will not register in the same agent's tool catalog as Adobe's server or Blender's server. The migration path is straightforward:</p>
+
+<pre><code># Before (stateful — deprecated)
+async def handle_request(request):
+    session_id = request.headers.get("Mcp-Session-Id")
+    session = await get_session(session_id)
+    return await process(request, session)
+
+# After (stateless — current standard)
+async def handle_request(request):
+    protocol_version = request._meta.get("protocolVersion", "2026-07-28")
+    capabilities = request._meta.get("clientCapabilities", {})
+    # Each request is self-contained — no session state
+    return await process(request)</code></pre>
+
+<h3>2. Implement server/discover</h3>
+<p>This is the endpoint that every MCP client now calls on connection. It returns the full tool manifest. Without it, your server is invisible to agents that use the standard discovery flow. The response format is a JSON array of tool definitions with JSON Schema 2020-12 for inputs and outputs:</p>
+
+<pre><code># Server discover response
+{
+  "tools": [
+    {
+      "name": "render_playblast",
+      "description": "Render a playblast from the current scene",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resolution": {"type": "string", "enum": ["720p", "1080p", "4K"]},
+          "start_frame": {"type": "integer"},
+          "end_frame": {"type": "integer"},
+          "camera": {"type": "string", "description": "Camera name"}
+        },
+        "required": ["start_frame", "end_frame"]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "file_path": {"type": "string"},
+          "duration_seconds": {"type": "number"},
+          "frame_count": {"type": "integer"}
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+<h3>3. Plan for Local + Remote Dual Transport</h3>
+<p>The SIGGRAPH announcement made clear that creative MCP servers need to run both locally (low latency, no cloud dependency) and remotely (batch processing, render farms). If your MCP server currently supports only stdio, add an HTTP transport layer. If it supports only HTTP, add a stdio fallback for offline use. The protocol core is the same; only the connection setup changes.</p>
+
+<h2>What's Next: Creative AI Agents in Production</h2>
+
+<p>The most important sentence from NVIDIA's SIGGRAPH keynote was not about any single product: "Applications aren't just getting faster — they're becoming agent-ready." This framing shifts the job of an AI agent architect from "build the tools your agents need" to "connect your agents to the tools the industry has already built." The MCP standardisation at SIGGRAPH 2026 means that the agent tool ecosystem just expanded from hundreds of custom MCP servers to tens of thousands of vendor-shipped MCP servers — and growing with every application that ships an MCP connector.</p>
+
+<p>For my production system, the immediate next step is integrating the Blender Lab MCP server into my content pipeline — an agent that can generate 3D visualisations for blog posts autonomously, using the same MCP protocol and guardian policy layer that my blog publisher uses to write text. The control plane does not change. The audit trail does not change. Only the MCP server changes.</p>
+
+<p>That is the point of a standardised socket. You plug in a different tool, and everything else stays the same.</p>
+
+<pre><code>MCP as Universal Socket After SIGGRAPH 2026 — Summary
+────────────────────────────────────────────────────────────
+Before SIGGRAPH:   Custom MCP servers for everything
+After SIGGRAPH:    Vendor MCP servers + custom MCP servers
+                   Same protocol, same guardian, same audit trail
+
+Ecosystem:         7 major creative vendors shipped MCP servers
+Hardware:          Local (DGX Station) + remote (VPS) via dual transport
+Standard:          2026-07-28 stateless core with server/discover
+Agent impact:      Lateral scaling — no new integration pattern per tool
+────────────────────────────────────────────────────────────
+</code></pre>
+
+<p style="margin-top:32px;font-size:0.85rem;color:#8888A0;border-top:1px solid rgba(255,255,255,0.06);padding-top:20px;">
+&#x1f916; AI-generated | Info only | <a href="/disclaimer">marianstancik.dev/disclaimer</a>
+</p>
+
+</div>
+</article>
+</div>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Marian Stancik — <a href="/">marianstancik.dev</a></p>
+    <p style="margin-top:8px;"><a href="mailto:marianstancik@agentmail.to">marianstancik@agentmail.to</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
