@@ -9,7 +9,7 @@ echo ""
 echo "═══════════════════════════════════════════"
 echo "  🔍 PRE-COMMIT: marianstancik.dev tests"
 echo "═══════════════════════════════════════════"
-echo "  Layers: L0 (JS syntax), L4 (security), L8 (API health)"
+echo "  Layers: L0 (JS syntax), L4 (security), L8 (API health), L9 (deploy safety)"
 echo ""
 
 # L0 — JS syntax
@@ -35,14 +35,30 @@ echo "  ── L8: API Health ──"
 API_RESULT=$(curl -s --max-time 8 -X POST "https://www.marianstancik.dev/api/subscribe" \
     -H "Content-Type: application/json" \
     -d '{"email":"test@pre-commit-check.local","source":"pre-commit-check"}' 2>&1)
-if echo "$API_RESULT" | grep -q '"status":"ok"'; then
-    echo "    ✅ POST /api/subscribe: status=ok"
-elif echo "$API_RESULT" | grep -q '"test-skip"'; then
+# NOTE: test-skip must be checked BEFORE "status":"ok" - the skip response contains both,
+# so checking ok first reports "status=ok" even though no email was sent (misleading).
+if echo "$API_RESULT" | grep -q '"test-skip"'; then
     echo "    ✅ POST /api/subscribe: test-skip (guard OK, no email sent)"
+elif echo "$API_RESULT" | grep -q '"status":"ok"'; then
+    echo "    ✅ POST /api/subscribe: status=ok"
 else
     echo "    ❌ POST /api/subscribe: $API_RESULT"
     exit 1
 fi
+
+# L9 - Deploy safety: a root output directory breaks the ENTIRE site.
+# Incident 2026-09-28: root `public/` -> Vercel treated it as the Output Directory ->
+# every path (/ /about /robots.txt /sitemap.xml) returned 404 for 7.5 hours while
+# /api/* kept working, so the old hook (JS + security + API only) stayed green.
+echo "  ── L9: Deploy safety ──"
+for d in public dist out build; do
+    if [ -d "$d" ]; then
+        echo "    ❌ Root '$d/' exists - Vercel treats it as Output Directory; the whole site would 404."
+        echo "       Move its files into the repo root and remove '$d/'."
+        exit 1
+    fi
+done
+echo "    ✅ No root output dirs (public/ dist/ out/ build/)"
 
 echo ""
 echo "✅ PRE-COMMIT PASSED"

@@ -221,6 +221,35 @@ def main():
         else:
             print("❌ Could not parse translations dictionary from js/i18n.js")
 
+    print("\n========================================")
+    print(" 9. DEPLOY SAFETY (root output directories)")
+    print("========================================")
+    # INCIDENT 2026-09-28: root `public/` existoval a Vercel ho zacal brat ako
+    # Output Directory -> deployment serviroval len public/, CELY web vracal 404
+    # (/, /about, /robots.txt, /sitemap.xml) a nikto si to 7.5 h nevsimol.
+    forbidden_dirs = ['public', 'dist', 'out', 'build']
+    blocking = [d for d in forbidden_dirs if os.path.isdir(d)]
+    if blocking:
+        for d in blocking:
+            n = sum(len(f) for _, _, f in os.walk(d))
+            print(f"❌ Root directory '{d}/' exists ({n} files) — Vercel will treat it as"
+                  f" the Output Directory and serve ONLY its contents; every other path 404s.")
+            print(f"   FIX: move the files out of '{d}/' into the repo root (or reference"
+                  f" them from a non-root path) and delete '{d}/'.")
+    else:
+        print("✅ No root output directories (public/ dist/ out/ build/) — full site is deployed")
+
+
 if __name__ == '__main__':
-    main()
+    import contextlib, io
+    # Suite musi realne blokovat: ak je kdekoľvek ❌, commit konci exit 1.
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        main()
+    output = buf.getvalue()
+    print(output, end="")
+    if "❌" in output:
+        print("\n❌ VERIFICATION FAILED — deploy blocked, fix the ❌ items above.")
+        sys.exit(1)
+    print("\n✅ VERIFICATION PASSED — safe to deploy.")
 
