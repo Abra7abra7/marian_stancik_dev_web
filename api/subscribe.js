@@ -98,19 +98,57 @@ export default async function handler(req, res) {
     }
 
     // ── CRM: forward to Google Sheets webhook ──
+    // A lead that reaches AgentMail but NOT the CRM is a LOST lead: nobody follows up,
+    // no reminder, no invoice. Incident 2026-09-28: the VPS webhook was down (Caddy 502,
+    // crash-looping service) and this function reported nothing, because
+    //   (a) fetch() does NOT throw on an HTTP error - only a non-ok RESPONSE - and the
+    //       response status was never inspected, and
+    //   (b) the catch only logged, so the endpoint still returned 200 {status: ok}.
+    // Leads vanished silently. Failures are now loud AND the lead stays recoverable:
+    // res.ok is checked, one retry, and a LOST LEAD email with the full payload is sent
+    // to the owner so the row can be added to Sheets by hand.
     const CRM_URL = process.env.CRM_WEBHOOK_URL || 'https://api.marianstancik.dev/crm/';
     const CRM_KEY = process.env.CRM_WEBHOOK_KEY || '';
     async function crmToSheets(entryType, data) {
-      if (!CRM_KEY) return;
-      try {
-        await fetch(CRM_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'X-CRM-Key': CRM_KEY },
-          body: JSON.stringify({ type: entryType, ...data }),
-        });
-      } catch (e) {
-        console.error('CRM webhook error:', e.message);
+      if (!CRM_KEY) {
+        console.error('CRM webhook DISABLED: CRM_WEBHOOK_KEY is not set - lead will never reach Sheets');
+        return { ok: false, reason: 'CRM_WEBHOOK_KEY missing' };
       }
+      let lastError = 'unknown';
+      for (let attempt = 1; attempt <= 2; attempt++) {
+        try {
+          const res = await fetch(CRM_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-CRM-Key': CRM_KEY },
+            body: JSON.stringify({ type: entryType, ...data }),
+          });
+          if (res.ok) {
+            if (attempt > 1) console.log(`CRM webhook recovered on attempt ${attempt}`);
+            return { ok: true };
+          }
+          lastError = `HTTP ${res.status}`;
+          console.error(`CRM webhook attempt ${attempt} failed: ${lastError}`);
+        } catch (e) {
+          lastError = e.message;
+          console.error(`CRM webhook attempt ${attempt} threw: ${lastError}`);
+        }
+        if (attempt === 1) await new Promise(r => setTimeout(r, 400));
+      }
+
+      console.error(`CRM webhook FAILED for ${entryType} (${lastError}) - alerting owner`);
+      const alertText = `LEAD NEZAPISANY DO CRM - webhook ${lastError}\n`
+        + `Typ: ${entryType}\nDatum: ${dateStr} ${timeStr}\n`
+        + `Lead: ${data.name || '-'} <${data.email || '-'}>\n`
+        + (data.message ? `Sprava: ${data.message}\n` : '')
+        + (data.product ? `Produkt: ${data.product} ${data.price ? '(' + data.price + ')' : ''}\n` : '')
+        + (data.website ? `Web: ${data.website}\n` : '')
+        + `Zdroj: ${data.source || '-'}\n\n`
+        + `Tento lead sa NEDOSTAL do CRM Sheets - zapis ho rucne (data su v tomto emaili).\n`
+        + `Kontrola: curl -s https://api.marianstancik.dev/crm/  |  na VPS: systemctl status crm-webhook.service`;
+      await sendEmail('marianstancik@agentmail.to',
+        `[CRM DOWN] Nezapisany lead: ${data.email || entryType}`, alertText, null)
+        .catch(e => console.error('Lost-lead alert email failed too:', e.message));
+      return { ok: false, reason: lastError };
     }
 
     // ─────────────────────────────────────────────────────────────
@@ -128,9 +166,11 @@ export default async function handler(req, res) {
 
       await sendEmail('marianstancik@agentmail.to', `[OBJEDNÁVKA] ${prodName} — ${email}`, adminNotif).catch(e => console.error('Order admin notif failed:', e.message));
 
-      await crmToSheets('order', { email, name, product, price, website, notes, source, status: 'new' }).catch(e => console.error('CRM order failed:', e.message));
+      // Still 200 on purpose: the customer confirmation was sent and the lead is recoverable
+      // from the "CRM DOWN" alert email. The crm field makes the failure machine-visible.
+      const crmOrder = await crmToSheets('order', { email, name, product, price, website, notes, source, status: 'new' });
 
-      return res.status(200).json({ status: 'ok', type: 'order', email, product: prodName });
+      return res.status(200).json({ status: 'ok', type: 'order', email, product: prodName, crm: crmOrder.ok ? 'ok' : 'failed' });
     }
 
     // ─────────────────────────────────────────────────────────────
@@ -147,9 +187,9 @@ export default async function handler(req, res) {
 
       await sendEmail('marianstancik@agentmail.to', `[SPRÁVA] ${name || email}`, adminNotif).catch(e => console.error('Contact admin notif failed:', e.message));
 
-      await crmToSheets('contact', { email, name, message, source }).catch(e => console.error('CRM contact failed:', e.message));
+      const crmContact = await crmToSheets('contact', { email, name, message, source });
 
-      return res.status(200).json({ status: 'ok', type: 'contact', email });
+      return res.status(200).json({ status: 'ok', type: 'contact', email, crm: crmContact.ok ? 'ok' : 'failed' });
     }
 
     // ─────────────────────────────────────────────────────────────
@@ -165,9 +205,9 @@ export default async function handler(req, res) {
 
     await sendEmail('marianstancik@agentmail.to', `[NEWSLETTER] ${email}`, adminNotif).catch(e => console.error('Newsletter admin notif failed:', e.message));
 
-    await crmToSheets('lead', { email, name, source, status: 'active', gdpr: 'yes' }).catch(e => console.error('CRM lead failed:', e.message));
+    const crmLead = await crmToSheets('lead', { email, name, source, status: 'active', gdpr: 'yes' });
 
-    return res.status(200).json({ status: 'ok', type: 'newsletter', email, welcome_sent: true });
+    return res.status(200).json({ status: 'ok', type: 'newsletter', email, welcome_sent: true, crm: crmLead.ok ? 'ok' : 'failed' });
 
   } catch (e) {
     console.error('API error:', e.message);
