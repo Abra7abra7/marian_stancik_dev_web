@@ -145,24 +145,35 @@ def main():
             print(f"❌ Missing locale file: {loc_path}")
             cfg_ok = False
 
-    # Check that all posts have 4-language .md alternates
+    # Check that all posts have 4-language .md and .html alternates
     if os.path.exists('blog/posts.json'):
         with open('blog/posts.json', 'r', encoding='utf-8') as f:
             posts = json.load(f)
         missing_md = 0
+        missing_html = 0
         for p in posts:
             slug = p['slug']
-            for l_dir in ['', 'sk/', 'de/', 'pl/']:
+            for l_dir, l_label in [('', 'EN'), ('sk/', 'SK'), ('de/', 'DE'), ('pl/', 'PL')]:
                 if not os.path.exists(f"blog/posts/{l_dir}{slug}.md"):
                     print(f"❌ Missing .md alternate for {l_dir}{slug}")
                     missing_md += 1
+                if not os.path.exists(f"blog/posts/{l_dir}{slug}.html"):
+                    print(f"❌ Missing HTML alternate for {l_dir}{slug} ({l_label})")
+                    missing_html += 1
+        total_expected = len(posts) * 4
         if missing_md == 0:
-            print(f"✅ All {len(posts)} blog posts have 4-language (EN/SK/DE/PL) .md alternates (32/32 files verified)")
+            print(f"✅ All {len(posts)} blog posts have 4-language (EN/SK/DE/PL) .md alternates (all {total_expected} files present)")
         else:
             cfg_ok = False
+        if missing_html == 0:
+            print(f"✅ All {len(posts)} blog posts have 4-language (EN/SK/DE/PL) HTML alternates (all {total_expected} files present)")
+        else:
+            cfg_ok = False
+        if missing_md == 0 and missing_html == 0:
+            print(f"✅ Full 4-language blog parity: {total_expected}/{total_expected} HTML + MD files")
 
     if cfg_ok:
-        print("✅ Config & Markdown checks passed")
+        print("✅ Config, Markdown & HTML parity checks passed")
 
     print("\n========================================")
     print(" 8. I18N 4-LANGUAGE PARITY CHECK")
