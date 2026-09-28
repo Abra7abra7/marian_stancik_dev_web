@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO/GEO Audit Report — marianstancik.dev</title>
+<style>
+:root {
+  --bg: #08080F;
+  --bg-card: rgba(18,18,30,0.65);
+  --border: rgba(255,255,255,0.06);
+  --primary: #CD7F32;
+  --accent: #E8B86D;
+  --text: #F0F0F5;
+  --muted: #8888A0;
+  --green: #2ECC71;
+  --red: #E74C3C;
+  --amber: #F39C12;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', -apple-system, system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 40px 24px; }
+.container { max-width: 840px; margin: 0 auto; }
+h1 { font-size: 2rem; font-weight: 700; margin-bottom: 4px; }
+h1 span { color: var(--primary); }
+.subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 32px; }
+.meta { display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.8rem; color: var(--muted); margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.meta span { background: rgba(255,255,255,0.04); padding: 4px 12px; border-radius: 100px; }
+
+/* Summary card */
+.summary { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; margin-bottom: 32px; }
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+.metric { text-align: center; padding: 16px; background: rgba(255,255,255,0.02); border-radius: 12px; }
+.metric .value { font-size: 2rem; font-weight: 700; }
+.metric .label { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+.metric .sub { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
+.green { color: var(--green) }
+.amber { color: var(--amber) }
+.red { color: var(--red) }
+.primary { color: var(--primary) }
+
+.section { margin-bottom: 40px; }
+.section h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.section h2 .score { font-size: 0.75rem; font-weight: 500; padding: 2px 10px; border-radius: 100px; }
+
+.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 12px; }
+.card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.card p { font-size: 0.85rem; color: #B0B0C8; margin-bottom: 8px; }
+.card .pass { color: var(--green); }
+.card .fail { color: var(--red); }
+.card .warn { color: var(--amber); }
+.tag { display: inline-block; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; margin: 2px; }
+.tag-green { background: rgba(46,204,113,0.1); color: var(--green); border: 1px solid rgba(46,204,113,0.2); }
+.tag-red { background: rgba(231,76,60,0.1); color: var(--red); border: 1px solid rgba(231,76,60,0.2); }
+.tag-amber { background: rgba(243,156,18,0.1); color: var(--amber); border: 1px solid rgba(243,156,18,0.2); }
+.tag-blue { background: rgba(52,152,219,0.1); color: #3498DB; border: 1px solid rgba(52,152,219,0.2); }
+
+.bar { height: 8px; border-radius: 100px; background: rgba(255,255,255,0.06); margin: 8px 0; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 100px; transition: width 0.5s; }
+.bar-green { background: var(--green); }
+.bar-amber { background: var(--amber); }
+
+.footer { text-align: center; padding: 24px; color: var(--muted); font-size: 0.75rem; border-top: 1px solid var(--border); margin-top: 40px; }
+.footer a { color: var(--primary); text-decoration: none; }
+@media(max-width:600px) { .summary-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>SEO &amp; <span>GEO</span> Audit Report</h1>
+<p class="subtitle">Comprehensive analysis of AI discoverability, Core Web Vitals, and multi-language readiness</p>
+
+<div class="meta">
+  <span>🌐 marianstancik.dev</span>
+  <span>📅 September 28, 2026</span>
+  <span>🔍 Full scan</span>
+  <span>📄 4 languages: EN · SK · DE · PL</span>
+</div>
+
+<!-- Executive Summary -->
+<div class="summary">
+  <h2 style="font-size:1.1rem;font-weight:600;">Executive Summary</h2>
+  <p style="color:#B0B0C8;font-size:0.88rem;margin-top:8px;">
+    The site demonstrates <strong>strong technical SEO and AI-agent readiness</strong> across most dimensions.
+    Core Web Vitals score 100/100 on both mobile and desktop. AI crawler discovery is fully configured with
+    <code>robots.txt</code> whitelisting, <code>llms.txt</code>/<code>llms-full.txt</code>, structured JSON-LD,
+    and 4-language hreflang architecture. The primary improvement areas are <strong>DNS-based AI discovery (DNS-AID)</strong>
+    and <strong>Markdown content negotiation headers</strong>.
+  </p>
+  <div class="summary-grid">
+    <div class="metric">
+      <div class="value green">71<span style="font-size:1rem;color:var(--muted);">/100</span></div>
+      <div class="label">Agent-Ready Score</div>
+      <div class="sub">Level 2 — Bot-Aware (isitagentready.com)</div>
+    </div>
+    <div class="metric">
+      <div class="value green">100<span style="font-size:1rem;color:var(--muted);">/100</span></div>
+      <div class="label">PageSpeed Score</div>
+      <div class="sub">Mobile & Desktop · LCP &lt;400ms · CLS=0</div>
+    </div>
+  </div>
+</div>
+
+<!-- 1. Core Web Vitals -->
+<div class="section">
+  <h2>🚀 Core Web Vitals <span class="score tag-green">100/100</span></h2>
+  <div class="card">
+    <h3><span class="pass">✅</span> Performance</h3>
+    <p>Mobile and desktop both achieve a perfect <strong>100/100 PageSpeed score</strong>. Zero render-blocking resources,
+    externalized minified CSS/JS, asynchronous Three.js canvas. Sub-15ms TTFB via Vercel Edge Network.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:12px;">
+      <div><span style="color:var(--muted);font-size:0.7rem;">LCP</span><br><strong>&lt;400ms</strong></div>
+      <div><span style="color:var(--muted);font-size:0.7rem;">CLS</span><br><strong>0</strong></div>
+      <div><span style="color:var(--muted);font-size:0.7rem;">TTFB</span><br><strong>&lt;15ms</strong></div>
+    </div>
+    <div class="bar"><div class="bar-fill bar-green" style="width:100%"></div></div>
+  </div>
+</div>
+
+<!-- 2. AI Discovery & GEO -->
+<div class="section">
+  <h2>🤖 AI Discovery &amp; GEO <span class="score tag-green">3/4 tiers</span></h2>
+
+  <div class="card">
+    <h3><span class="pass">✅</span> robots.txt — AI Crawler Whitelisting</h3>
+    <p>All major AI crawlers explicitly allowed: GPTBot, ChatGPT-User, ClaudeBot, anthropic-ai, PerplexityBot,
+    Google-Extended, Applebot-Extended, CCBot, Bravebot, Cohere-ai, Diffbot, OAI-SearchBot.</p>
+    <p><span class="tag tag-green">Content-Signal: ai-train=no, search=yes, ai-input=yes</span></p>
+    <span class="tag tag-green">Pass</span>
+  </div>
+
+  <div class="card">
+    <h3><span class="pass">✅</span> llms.txt &amp; llms-full.txt</h3>
+    <p>Both v2-standard markdown knowledge graphs published with summaries of all 15 articles, products, and pages.
+    Referenced via <code>Link: &lt;/llms.txt&gt;; rel="describedby"</code> on every page response.</p>
+    <span class="tag tag-green">Pass</span>
+  </div>
+
+  <div class="card">
+    <h3><span class="pass">✅</span> Schema.org JSON-LD</h3>
+    <p>Rich <code>@graph</code> containing Person, Organization, WebSite, Service, Offer, BlogPosting,
+    BreadcrumbList, and FAQPage schemas. AI-generated content labeled via <code>isBasedOn</code> and
+    <code>creativeWorkStatus: AIGenerated</code> per EU AI Act Art. 50.</p>
+    <span class="tag tag-green">Pass</span>
+  </div>
+
+  <div class="card">
+    <h3><span class="pass">✅</span> 4-Language i18n Architecture</h3>
+    <p>Full hreflang implementation across EN, SK, DE, PL with canonical URLs, 4-language sitemap.xml entries,
+    and locale-specific JSON-LD. No trailing slashes. Zero redirect chains (verified).</p>
+    <span class="tag tag-green">Pass</span>
+  </div>
+
+  <div class="card">
+    <h3><span class="fail">❌</span> DNS for AI Discovery (DNS-AID)</h3>
+    <p>No DNS-AID records found (SVCB/HTTPS for <code>_index._agents</code>, <code>_a2a._agents</code>).
+    Recommended: add DNS discovery records via Vercel DNS for agent-based indexing.</p>
+    <span class="tag tag-red">Fail — easy win</span>
+  </div>
+
+  <div class="card">
+    <h3><span class="fail">❌</span> Markdown Content Negotiation</h3>
+    <p>The <code>vercel.json</code> routes for <code>Accept: text/markdown</code> are configured,
+    but the isitagentready scanner did not detect them. Verify the <code>Vary: Accept</code> header
+    and markdown negotiation path.</p>
+    <span class="tag tag-amber">Needs verification</span>
+  </div>
+</div>
+
+<!-- 3. Technical SEO -->
+<div class="section">
+  <h2>🔧 Technical SEO</h2>
+  <div class="card">
+    <h3><span class="pass">✅</span> Sitemap &amp; Indexing</h3>
+    <p>Valid sitemap.xml with 4-language URL entries. IndexNow API ping configured (Bing, Perplexity, Seznam).
+    Sitemap referenced from robots.txt. RSS feed auto-regenerated on each post publish.</p>
+    <span class="tag tag-green">Optimal</span>
+  </div>
+  <div class="card">
+    <h3><span class="pass">✅</span> Link Response Headers</h3>
+    <p>All pages return <code>Link: &lt;/llms.txt&gt;; rel="describedby"</code> and
+    <code>&lt;/llms-full.txt&gt;; rel="describedby"</code> headers for agent discovery (RFC 8288).</p>
+    <span class="tag tag-green">Pass</span>
+  </div>
+  <div class="card">
+    <h3><span class="pass">✅</span> Security Headers</h3>
+    <p>HSTS (max-age=63072000; preload), CSP, X-Content-Type-Options, X-Frame-Options, Referrer-Policy
+    all enforced via vercel.json.</p>
+    <span class="tag tag-green">Pass</span>
+  </div>
+</div>
+
+<!-- 4. Content Quality -->
+<div class="section">
+  <h2>📝 Content &amp; Blog</h2>
+  <div class="card">
+    <h3><span class="pass">✅</span> 4-Language Blog Parity</h3>
+    <p><strong>15 articles</strong> across 4 languages = <strong>60 HTML + 60 MD files</strong> verified.
+    Every post has localized titles, excerpts, dates, read times, and hreflang tags in EN, SK, DE, PL.
+    Pre-commit hook enforces parity on every deploy.</p>
+    <span class="tag tag-green">100% parity</span>
+  </div>
+  <div class="card">
+    <h3><span class="pass">✅</span> AI-Generated Content Labeling</h3>
+    <p>EU AI Act Art. 50 compliance: <code>&lt;meta name="ai-generated-content" content="true"&gt;</code>,
+    JSON-LD <code>creativeWorkStatus: AIGenerated</code>, and disclaimer footer on every article.</p>
+    <span class="tag tag-green">Compliant</span>
+  </div>
+</div>
+
+<!-- 5. Scoring Summary -->
+<div class="section">
+  <h2>📊 Category Scores</h2>
+  <div class="card" style="padding:24px;">
+    <div style="margin-bottom:16px;">
+      <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:4px;">
+        <span>Discoverability (robots.txt, sitemap, links, DNS-AID)</span>
+        <span class="green">75%</span>
+      </div>
+      <div class="bar"><div class="bar-fill bar-green" style="width:75%"></div></div>
+    </div>
+    <div style="margin-bottom:16px;">
+      <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:4px;">
+        <span>Content Accessibility (Markdown, llms.txt)</span>
+        <span class="amber">50%</span>
+      </div>
+      <div class="bar"><div class="bar-fill bar-amber" style="width:50%"></div></div>
+    </div>
+    <div style="margin-bottom:16px;">
+      <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:4px;">
+        <span>Bot Access Control (AI rules, Content Signals)</span>
+        <span class="green">100%</span>
+      </div>
+      <div class="bar"><div class="bar-fill bar-green" style="width:100%"></div></div>
+    </div>
+    <div style="margin-bottom:16px;">
+      <div style="display:justify-between;font-size:0.8rem;margin-bottom:4px;">
+        <span>Multi-Language Readiness</span>
+        <span class="green">100%</span>
+      </div>
+      <div class="bar"><div class="bar-fill bar-green" style="width:100%"></div></div>
+    </div>
+    <div>
+      <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:4px;">
+        <span>Core Web Vitals</span>
+        <span class="green">100%</span>
+      </div>
+      <div class="bar"><div class="bar-fill bar-green" style="width:100%"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 6. Recommendations -->
+<div class="section">
+  <h2>🎯 Recommendations</h2>
+  <div class="card">
+    <h3 style="color:var(--primary);">1. Add DNS-AID Records (Easy Win)</h3>
+    <p>Publish SVCB/HTTPS records for <code>_index._agents.marianstancik.dev</code> and
+    <code>_a2a._agents.marianstancik.dev</code> via Vercel DNS. This enables DNS-based
+    agent discovery — the emerging standard for LLM crawlers.</p>
+  </div>
+  <div class="card">
+    <h3 style="color:var(--primary);">2. Verify Markdown Negotiation</h3>
+    <p>Ensure <code>vercel.json</code> route for <code>Accept: text/markdown</code> actually
+    triggers and returns <code>Vary: Accept</code> header. Test with curl.</p>
+  </div>
+  <div class="card">
+    <h3 style="color:var(--primary);">3. Maintain Blog Index Parity</h3>
+    <p>When publishing new posts, always update <code>blog/index.html</code> DE and PL sections
+    (or auto-generate from posts.json). Pre-commit hook now enforces this.</p>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Generated by Hermes Agent · <a href="https://marianstancik.dev">marianstancik.dev</a></p>
+  <p style="margin-top:4px;">Sources: isitagentready.com · verify_site.py · Vercel Analytics</p>
+</div>
+
+</div>
+</body>
+</html>
