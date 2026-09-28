@@ -1,6 +1,9 @@
 // Vercel serverless — CRM email dispatcher (triggered by VPS webhook)
 // Reads pending actions, sends branded HTML emails via AgentMail
-import emailTpl from '../email-templates.js';
+// POZOR: email-templates.js lezi v api/, nie v roote — '../' sposobilo
+// FUNCTION_INVOCATION_FAILED na kazdom requeste (funkcia padala pri nacitani modulu)
+// a CRM dispatcher bol v produkcii mrtvy. subscribe.js pouziva spravnu cestu.
+import emailTpl from './email-templates.js';
 
 const AGENTMAIL_API_KEY = process.env.AGENTMAIL_API_KEY;
 const CRM_WEBHOOK_KEY = process.env.CRM_WEBHOOK_KEY;
