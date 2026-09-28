@@ -55,11 +55,23 @@ export default async function handler(req, res) {
       }
       
     } catch (e) {
-      results.push({ action: action?.reason || 'unknown', error: e.message });
+      // POVODNE sa chyba len zapisala do results a endpoint vratil 200 -> volajuci cron
+      // (a teda aj Hermes) hlasil uspech, hoci email/faktura neodisli.
+      console.error('CRM email action failed:', action?.reason, e.message);
+      results.push({ action: action?.reason || 'unknown', email: action?.email, status: 'error', error: e.message });
     }
   }
-  
-  return res.status(200).json({ processed: results.length, results });
+
+  const okCount = results.filter(r => r.status === 'ok').length;
+  const failed = results.length - okCount;
+  if (failed > 0) console.error(`CRM email: ${failed}/${results.length} akcii ZLYHALO`);
+
+  // Vsetko zlyhalo -> 5xx, aby to volajuci videl ako chybu, nie ako "hotovo".
+  if (okCount === 0) {
+    return res.status(502).json({ status: 'failed', processed: results.length, ok: 0, failed, results });
+  }
+  return res.status(200).json({ status: failed ? 'partial' : 'ok',
+                                processed: results.length, ok: okCount, failed, results });
 }
 
 async function sendAgentMail(to, subject, text, html, inboxId = INBOX_PERSONAL) {
