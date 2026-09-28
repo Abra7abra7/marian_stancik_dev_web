@@ -172,6 +172,27 @@ def main():
         if missing_md == 0 and missing_html == 0:
             print(f"✅ Full 4-language blog parity: {total_expected}/{total_expected} HTML + MD files")
 
+        # Check blog/index.html has correct number of entries per language
+        try:
+            with open('blog/index.html', 'r', encoding='utf-8') as f:
+                idx = f.read()
+            for lang_section, label in [('postsEn', 'EN'), ('postsSk', 'SK'), ('postsDe', 'DE'), ('postsPl', 'PL')]:
+                count = len(re.findall(rf'id="posts{lang_section[6:]}".*?</div>\s*<!--', idx, re.DOTALL))
+                posts_in_section = idx.count(f'<a href="/blog/posts/')
+                # Count actual post items in each section
+                section_start = idx.find(f'id="{lang_section}"')
+                section_end = idx.find('<!--', section_start) if lang_section != 'postsPl' else idx.find('<footer>', section_start)
+                section_html = idx[section_start:section_end]
+                post_count = len(re.findall(r'class="post-item"', section_html))
+                if post_count < len(posts):
+                    print(f"❌ blog/index.html ({label}): found {post_count} posts, expected {len(posts)}")
+                    cfg_ok = False
+                else:
+                    print(f"✅ blog/index.html ({label}): all {post_count} posts listed correctly")
+        except Exception as e:
+            print(f"❌ blog/index.html check failed: {e}")
+            cfg_ok = False
+
     if cfg_ok:
         print("✅ Config, Markdown & HTML parity checks passed")
 
