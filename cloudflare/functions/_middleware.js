@@ -5,6 +5,8 @@
  * marianstancik.dev â†’ static files from public/
  */
 
+import { handleMagicLink, handleReportExport } from './dashboard';
+
 export async function onRequest(context) {
   const { request, env, next } = context;
   const url = new URL(request.url);
@@ -12,6 +14,23 @@ export async function onRequest(context) {
 
   // API subdomain: proxy to Worker
   if (host.startsWith('api.')) {
+    const workerUrl = `https://marian-stancik.stancikmarian8.workers.dev${url.pathname}${url.search}`;
+    const headers = new Headers(request.headers);
+    headers.set('Host', 'marian-stancik.stancikmarian8.workers.dev');
+    const workerResponse = await fetch(workerUrl, {
+      method: request.method,
+      headers: headers,
+      body: request.method !== 'GET' && request.method !== 'HEAD' ? request.body : undefined,
+    });
+    return new Response(workerResponse.body, {
+      status: workerResponse.status,
+      statusText: workerResponse.statusText,
+      headers: workerResponse.headers,
+    });
+  }
+
+  // Success page (served from Worker on main domain)
+  if (path.startsWith('/success')) {
     const workerUrl = `https://marian-stancik.stancikmarian8.workers.dev${url.pathname}${url.search}`;
     const headers = new Headers(request.headers);
     headers.set('Host', 'marian-stancik.stancikmarian8.workers.dev');
@@ -96,6 +115,18 @@ document.getElementById('geoDelta').innerHTML=d.score_delta>=0?'<span class=up>â
     return new Response(dashHtml, {
       headers: { 'content-type': 'text/html; charset=utf-8' }
     });
+  }
+
+  // Login pages (magic link)
+  if (path.startsWith('/login') || path === '/api/login/send') {
+    const result = await handleMagicLink(request, env);
+    if (result) return result;
+  }
+
+  // Report export
+  if (path.startsWith('/api/report/')) {
+    const result = await handleReportExport(request, env);
+    if (result) return result;
   }
 
   // Default: serve static files from public/
