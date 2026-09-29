@@ -567,6 +567,80 @@
       </div>
     </div>
 
+    <!-- PRODUCT 5: GEO MONITORING -->
+    <div class="pricing-card fade-in">
+      <div class="pricing-card-header">
+        <span class="card-pill-tag">🔄 Weekly Auto-Scans</span>
+        <h2>GEO Monitoring</h2>
+        <p class="pricing-card-desc">Weekly automatic re-scans of your AI discoverability. Real-time alerts when your score drops.</p>
+      </div>
+      <div class="pricing-amount">
+        <span class="price-currency">€</span>
+        <span class="price-value">49</span>
+        <span class="price-term">/ month</span>
+      </div>
+      <ul class="features-list">
+        <li><span class="check-icon">✓</span> <span><strong>Weekly GEO scans</strong> of your domain</span></li>
+        <li><span class="check-icon">✓</span> <span><strong>Score trend dashboard</strong> on app.marianstancik.dev</span></li>
+        <li><span class="check-icon">✓</span> <span><strong>Automatic alerts</strong> when score drops &gt;10%</span></li>
+        <li><span class="check-icon">✓</span> <span><strong>Email reports</strong> with changelog</span></li>
+      </ul>
+      <div class="pricing-actions">
+        <button class="btn-stripe" style="border:none;cursor:pointer;width:100%;" onclick="openStripeCheckout('GEO Monitoring (Monthly)', 49, 'geo-monitoring')">
+          Subscribe for €49/mo →
+        </button>
+      </div>
+    </div>
+
+    <!-- PRODUCT 6: COMPLIANCE WATCH -->
+    <div class="pricing-card fade-in">
+      <div class="pricing-card-header">
+        <span class="card-pill-tag">⚖️ Regulatory Alerts</span>
+        <h2>Compliance Watch</h2>
+        <p class="pricing-card-desc">Monitor EU AI Act, GDPR, NIS2 changes. Get alerts when regulations affect your compliance docs.</p>
+      </div>
+      <div class="pricing-amount">
+        <span class="price-currency">€</span>
+        <span class="price-value">29</span>
+        <span class="price-term">/ month</span>
+      </div>
+      <ul class="features-list">
+        <li><span class="check-icon">✓</span> <span><strong>Daily compliance checks</strong> of regulatory changes</span></li>
+        <li><span class="check-icon">✓</span> <span><strong>Impact alerts</strong> when AI Act/GDPR updates affect your site</span></li>
+        <li><span class="check-icon">✓</span> <span><strong>Quarterly compliance summary</strong> report</span></li>
+      </ul>
+      <div class="pricing-actions">
+        <button class="btn-stripe" style="border:none;cursor:pointer;width:100%;" onclick="openStripeCheckout('Compliance Watch (Monthly)', 29, 'compliance-watch')">
+          Subscribe for €29/mo →
+        </button>
+      </div>
+    </div>
+
+    <!-- PRODUCT 7: FULL MONITORING SUITE (FEATURED) -->
+    <div class="pricing-card featured fade-in">
+      <span class="pricing-ribbon">🔥 Best Value</span>
+      <div class="pricing-card-header">
+        <span class="card-pill-tag">🎯 Complete Coverage</span>
+        <h2>Full Monitoring Suite</h2>
+        <p class="pricing-card-desc">GEO Monitoring + Compliance Watch combined. Everything you need to stay ahead.</p>
+      </div>
+      <div class="pricing-amount">
+        <span class="price-currency">€</span>
+        <span class="price-value">69</span>
+        <span class="price-term">/ month</span>
+      </div>
+      <ul class="features-list">
+        <li><span class="check-icon">✓</span> <span><strong>GEO Monitoring</strong> (€49/mo value)</span></li>
+        <li><span class="check-icon">✓</span> <span><strong>Compliance Watch</strong> (€29/mo value)</span></li>
+        <li><span class="check-icon">✓</span> <span><strong>Priority support</strong> &amp; direct Slack/Telegram channel</span></li>
+      </ul>
+      <div class="pricing-actions">
+        <button class="btn-stripe" style="border:none;cursor:pointer;width:100%;" onclick="openStripeCheckout('Full Monitoring Suite (Monthly)', 69, 'full-suite')">
+          Subscribe for €69/mo →
+        </button>
+      </div>
+    </div>
+
     <!-- PRODUCT 4: CUSTOM AI AGENT -->
     <div class="pricing-card fade-in">
       <div class="pricing-card-header">
@@ -791,21 +865,22 @@
 <script src="/js/i18n.js?v=20260908_v6"></script>
 
 <script>
-// Live Stripe Payment Links for marianstancik.dev sandbox
-const STRIPE_LINKS = {
-  'AI GEO Audit': 'https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800',
-  'AI Web Readiness Scan': 'https://buy.stripe.com/test_28E6oJesU80O9cx4SV28801',
-  'Full Web Audit (GEO + Readiness)': 'https://buy.stripe.com/test_8x27sN70s4OC88tdpr28802',
-  'Custom Agent Deposit': 'https://buy.stripe.com/test_aFaaEZ1G880O88tdpr28803'
+// Product configs — uses Cloudflare Worker API for Stripe checkout
+const PRODUCTS = {
+  'AI GEO Audit': { priceId: 'price_1UKvSSQQHUoXC9gsqOaR96Su', price: 199, recurring: false },
+  'AI Web Readiness Scan': { priceId: 'price_1UKvSSQQHUoXC9gsqij0bs56', price: 200, recurring: false },
+  'Full Web Audit (GEO + Readiness)': { priceId: 'price_1UKvSTQQHUoXC9gsJ9k2KXI4', price: 300, recurring: false },
+  'GEO Monitoring (Monthly)': { priceId: 'price_1UKvSUQQHUoXC9gsJbb9ETha', price: 49, recurring: true },
+  'Compliance Watch (Monthly)': { priceId: 'price_1UKvSUQQHUoXC9gsH8fXihf2', price: 29, recurring: true },
+  'Full Monitoring Suite (Monthly)': { priceId: 'price_1UKvSVQQHUoXC9gs53kRK05k', price: 69, recurring: true }
 };
 
-let currentCheckoutProduct = '';
-let currentCheckoutPrice = 199;
+let currentProduct = '';
+let currentPrice = 199;
 
-function openStripeCheckout(title, price, linkKey) {
-  currentCheckoutProduct = title;
-  currentCheckoutPrice = price;
-  
+function openStripeCheckout(title, price, key) {
+  currentProduct = title;
+  currentPrice = price;
   document.getElementById('modalStepForm').style.display = 'block';
   document.getElementById('modalProductTitle').textContent = title;
   document.getElementById('modalPriceVal').textContent = '€' + price;
@@ -814,60 +889,50 @@ function openStripeCheckout(title, price, linkKey) {
 
 function closeStripeModal(e) {
   document.getElementById('stripeModal').style.display = 'none';
+  document.getElementById('modalStepForm').style.display = 'block';
+  document.getElementById('modalStepSuccess').style.display = 'none';
+  document.getElementById('modalSubmitBtn').disabled = false;
+  document.getElementById('modalSubmitBtn').textContent = 'Confirm Order (€' + currentPrice + ') →';
 }
 
 function handleStripeRedirect(e) {
   e.preventDefault();
   const email = document.getElementById('stripeEmail').value.trim();
   const url = document.getElementById('stripeUrl').value.trim();
-  const notes = document.getElementById('stripeNotes').value.trim();
-  
+  const product = PRODUCTS[currentProduct];
+
+  if (!email || !url) return alert('Please fill in email and website URL.');
+  if (!product) return alert('Product configuration error.');
+
   const btn = document.getElementById('modalSubmitBtn');
-  btn.textContent = 'Redirecting to Stripe Checkout...';
+  btn.textContent = 'Creating secure checkout...';
   btn.disabled = true;
 
-  // Submit order to GEO pipeline and redirect to Stripe
-  fetch('/api/subscribe', {
+  // Call Cloudflare Worker API to create Stripe checkout session
+  fetch('https://api.marianstancik.dev/api/stripe/create-checkout', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
+      priceId: product.priceId,
+      domain: url.replace(/^https?:\/\//, '').replace(/\/.*$/, '').toLowerCase(),
       email: email,
-      source: 'product_order',
-      product: currentCheckoutProduct,
-      price: currentCheckoutPrice,
-      website: url,
-      notes: notes,
-      consent_terms: true,
-      consent_withdrawal_waiver: true
+      name: email.split('@')[0],
+      recurring: product.recurring
     })
-  }).catch(() => {}).then(() => {
-    // Also create order in geo-pipeline
-    const productIds = {
-      'AI GEO Audit': 'geo-audit',
-      'AI Web Readiness Scan': 'web-readiness',
-      'Full Web Audit (GEO + Readiness)': 'full-combo',
-      'Custom Agent Deposit': 'custom-agent'
-    };
-    const pid = productIds[currentCheckoutProduct] || 'geo-audit';
-    
-    fetch('https://geo.marianstancik.dev/geo/order', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        product_id: pid,
-        client_name: email.split('@')[0],
-        client_email: email,
-        client_url: url,
-        notes: notes
-      })
-    }).then(r => r.json()).then(order => {
-      const liveLink = order.stripe_url || STRIPE_LINKS[currentCheckoutProduct] || 'https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800';
-      const successUrl = `https://marianstancik.dev/geo/success?order_id=${order.order_id}`;
-      window.location.href = liveLink;
-    }).catch(() => {
-      const liveLink = STRIPE_LINKS[currentCheckoutProduct] || 'https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800';
-      window.location.href = liveLink;
-    });
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.url) {
+      // Redirect to Stripe Checkout
+      window.location.href = data.url;
+    } else {
+      throw new Error(data.error || 'Failed to create checkout');
+    }
+  })
+  .catch(err => {
+    btn.textContent = 'Error — try again';
+    btn.disabled = false;
+    alert('Checkout error: ' + err.message + '\nPlease contact marianstancik@agentmail.to');
   });
 }
 </script>
