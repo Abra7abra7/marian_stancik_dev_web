@@ -1,0 +1,18 @@
+{
+  "name": "marian-stancik-workers",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:pages": "wrangler pages deploy public/ --project-name=marian-stancik",
+    "db:create": "wrangler d1 create marian-stancik-db",
+    "db:migrate": "wrangler d1 execute marian-stancik-db --file schemas/001_init.sql",
+    "db:seed": "wrangler d1 execute marian-stancik-db --file schemas/002_seed.sql",
+    "kv:create": "wrangler kv:namespace create marian-stancik-cache",
+    "r2:create": "wrangler r2 bucket create marian-stancik-reports"
+  },
+  "dependencies": {
+    "stripe": "^17.0.0"
+  }
+}

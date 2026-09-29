@@ -1,0 +1,40 @@
+name = "marian-stancik"
+main = "src/index.js"
+compatibility_date = "2026-09-28"
+workers_dev = false
+
+# D1 database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "marian-stancik-db"
+database_id = "fd3d34b9-35b4-4a25-87cf-5e5a6498d592"
+
+# R2 bucket binding
+[[r2_buckets]]
+binding = "REPORTS"
+bucket_name = "marian-stancik-reports"
+
+# KV namespace
+[[kv_namespaces]]
+binding = "CACHE"
+id = "a5d9edd77729444eb3778a4988f8dc2d"
+
+# Environment variables
+[vars]
+STRIPE_WEBHOOK_SECRET = ""
+AGENTMAIL_API_KEY = ""
+DASHBOARD_SECRET = ""
+APP_URL = "https://app.marianstancik.dev"
+SITE_URL = "https://marianstancik.dev"
+
+# Cron triggers
+[triggers]
+crons = ["0 6 * * MON", "0 12 * * *"]
+
+# EU data localization
+[env.production]
+workers_dev = false
+routes = ["api/*"]
+zone_id = "518c23813dd5c50c9cd6853b9ad5d4df"
+
+# Migrations done manually via API

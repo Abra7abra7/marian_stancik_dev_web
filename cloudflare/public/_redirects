@@ -1,0 +1,19 @@
+# Cloudflare Pages redirects
+# Namiesto vercel.json redirects
+
+# Blog legacy URLs
+/posts/:slug          /blog/posts/:slug          301
+/posts/:slug.html     /blog/posts/:slug          301
+
+# Lead magnet legacy
+/lead-magnet/*        /                           301
+/lead-magnet          /                           301
+
+# API routes → handled by Pages Functions
+# /api/subscribe  (via functions/api/[[path]].js)
+
+# Audit report redirect
+/audit-report.html    /                           301
+
+# SEO: canonical paths
+/blog/posts//*        /blog/posts/:splat          301

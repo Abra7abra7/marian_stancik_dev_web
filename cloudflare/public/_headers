@@ -1,0 +1,67 @@
+# Cloudflare Pages headers
+# Namiesto vercel.json headers
+
+# Default security headers for all pages
+/*    
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Vary: Accept
+  Link: <https://www.marianstancik.dev/llms.txt>; rel="describedby", <https://www.marianstancik.dev/llms-full.txt>; rel="describedby"
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Markdown files
+*.md
+  Content-Type: text/markdown; charset=utf-8
+  Vary: Accept
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# Static assets (long cache)
+*.css
+  Cache-Control: public, max-age=31536000, immutable
+*.js
+  Cache-Control: public, max-age=31536000, immutable
+*.webp
+  Cache-Control: public, max-age=31536000, immutable
+*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+*.png
+  Cache-Control: public, max-age=31536000, immutable
+*.svg
+  Cache-Control: public, max-age=31536000, immutable
+*.ico
+  Cache-Control: public, max-age=31536000, immutable
+*.mp4
+  Cache-Control: public, max-age=31536000, immutable
+*.webm
+  Cache-Control: public, max-age=31536000, immutable
+*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+# SEO files (medium cache)
+/llms.txt
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/llms-full.txt
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/robots.txt
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/sitemap.xml
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/rss.xml
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/blog/posts.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# Blog index special routes
+/index.html
+  Link: </index.html.md>; rel="alternate"; type="text/markdown"
+/blog/index.html
+  Link: </blog/index.html.md>; rel="alternate"; type="text/markdown"
+/blog/posts/*
+  Link: </blog/posts/$1.md>; rel="alternate"; type="text/markdown"

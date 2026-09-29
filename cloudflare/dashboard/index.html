@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Marian Stancik</title>
+<style>
+:root {
+  --bg: #08080F;
+  --card: rgba(18,18,30,0.65);
+  --border: rgba(255,255,255,0.06);
+  --primary: #CD7F32;
+  --accent: #E8B86D;
+  --text: #F0F0F5;
+  --muted: #8888A0;
+  --green: #2ECC71;
+  --red: #E74C3C;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', -apple-system, system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+nav { padding: 16px 24px; border-bottom: 1px solid var(--border); background: rgba(8,8,15,0.85); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.nav-inner a { color: var(--muted); text-decoration: none; font-size: 0.85rem; }
+.nav-inner a:hover { color: var(--primary); }
+.container { max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 1.8rem; font-weight: 700; }
+h1 span { color: var(--primary); }
+.subtitle { color: var(--muted); font-size: 0.9rem; margin: 8px 0 32px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+.card h3 { font-size: 0.85rem; color: var(--muted); font-weight: 500; margin-bottom: 8px; }
+.card .value { font-size: 2rem; font-weight: 700; }
+.card .trend { font-size: 0.8rem; margin-top: 4px; }
+.up { color: var(--green); }
+.down { color: var(--red); }
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+th { text-align: left; padding: 12px 8px; color: var(--muted); font-weight: 500; border-bottom: 1px solid var(--border); }
+td { padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.03); color: #B0B0C8; }
+.status { display: inline-block; padding: 2px 8px; border-radius: 100px; font-size: 0.7rem; font-weight: 600; }
+.status-active { background: rgba(46,204,113,0.1); color: var(--green); border: 1px solid rgba(46,204,113,0.2); }
+.status-pending { background: rgba(243,156,18,0.1); color: #F39C12; border: 1px solid rgba(243,156,18,0.2); }
+.footer { text-align: center; padding: 32px; color: var(--muted); font-size: 0.75rem; border-top: 1px solid var(--border); }
+.footer a { color: var(--primary); text-decoration: none; }
+@media(max-width:600px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" aria-label="Home"><span style="font-size:1.1rem">&#x2190;</span> marianstancik.dev</a>
+    <div style="display:flex;gap:16px;align-items:center;">
+      <span style="font-size:0.75rem;color:var(--muted);">Marian Stancik</span>
+      <a href="#" id="logoutBtn" style="font-size:0.75rem;color:var(--red);">Logout</a>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <h1>Client <span>Dashboard</span></h1>
+  <p class="subtitle">AI agent readiness monitoring for your website. Powered by Hermes Agent on Cloudflare Workers.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>GEO Score</h3>
+      <div class="value" id="geoScore">—</div>
+      <div class="trend" id="geoDelta"></div>
+    </div>
+    <div class="card">
+      <h3>Last Scan</h3>
+      <div class="value" id="lastScan">—</div>
+      <div class="trend">Auto-refreshes weekly</div>
+    </div>
+    <div class="card">
+      <h3>Domain</h3>
+      <div class="value" id="clientDomain" style="font-size:1.2rem;">—</div>
+    </div>
+    <div class="card">
+      <h3>Plan</h3>
+      <div class="value" id="clientPlan" style="font-size:1.2rem;">—</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:32px;">
+    <h3>Recent Audits</h3>
+    <table id="auditsTable">
+      <thead>
+        <tr><th>Date</th><th>Type</th><th>Score</th><th>Status</th><th>Report</th></tr>
+      </thead>
+      <tbody id="auditsBody">
+        <tr><td colspan="5" style="text-align:center;color:var(--muted);">No audits yet. Complete your first GEO scan to see results.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>AI Crawler Status</h3>
+    <table>
+      <thead><tr><th>Crawler</th><th>Status</th><th>Last Checked</th></tr></thead>
+      <tbody>
+        <tr><td>GPTBot</td><td><span class="status status-active">Allowed</span></td><td>Auto</td></tr>
+        <tr><td>ClaudeBot</td><td><span class="status status-active">Allowed</span></td><td>Auto</td></tr>
+        <tr><td>PerplexityBot</td><td><span class="status status-active">Allowed</span></td><td>Auto</td></tr>
+        <tr><td>Google-Extended</td><td><span class="status status-active">Allowed</span></td><td>Auto</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="footer">
+  <p>Powered by <a href="https://marianstancik.dev">Marian Stancik</a> · Hermes Agent + Cloudflare Workers</p>
+  <p style="margin-top:4px;">&copy; 2026 · AI Agent Developer &mdash; Regulatory Awareness (PF UK)</p>
+</div>
+<script>
+// Simple client ID from URL or localStorage
+const params = new URLSearchParams(window.location.search);
+const clientId = params.get('client') || localStorage.getItem('client_id');
+if (clientId) localStorage.setItem('client_id', clientId);
+
+async function loadDashboard() {
+  if (!clientId) return;
+  try {
+    const res = await fetch(`https://api.marianstancik.dev/api/audit/${clientId}`);
+    if (!res.ok) throw new Error('No data');
+    const data = await res.json();
+    document.getElementById('geoScore').textContent = data.score || '—';
+    document.getElementById('lastScan').textContent = data.completed_at ? new Date(data.completed_at).toLocaleDateString() : '—';
+    if (data.score_delta !== undefined && data.score_delta !== null) {
+      const delta = data.score_delta;
+      document.getElementById('geoDelta').innerHTML = delta >= 0
+        ? `<span class="up">&#x25B2; +${delta} from baseline</span>`
+        : `<span class="down">&#x25BC; ${delta} from baseline</span>`;
+    }
+    // Load client info
+    const clientRes = await fetch(`https://api.marianstancik.dev/api/client/${clientId}`);
+    if (clientRes.ok) {
+      const client = await clientRes.json();
+      document.getElementById('clientDomain').textContent = client.domain || '—';
+      document.getElementById('clientPlan').textContent = client.plan || '—';
+    }
+  } catch (e) {
+    document.getElementById('geoScore').textContent = '—';
+    document.getElementById('lastScan').textContent = 'No data';
+  }
+}
+loadDashboard();
+</script>
+</body>
+</html>
