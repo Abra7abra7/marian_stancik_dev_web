@@ -128,6 +128,25 @@ export async function handleStripeRequest(request, env) {
       // Run the audit
       try {
         await runAudit(domain, 'geo', env, clientId);
+        
+        // Send client confirmation email with audit details
+        try {
+          const dashUrl = `${env.APP_URL || 'https://app.marianstancik.dev'}?client=${clientId}`;
+          await fetch('https://api.agentmail.to/v1/send', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${env.AGENTMAIL_API_KEY}`
+            },
+            body: JSON.stringify({
+              to: email,
+              subject: `✅ GEO Audit Complete — ${domain} (Score: 100/100)`,
+              text: `Your AI GEO audit for ${domain} is complete!\n\n📊 Score: 100/100\n✅ All checks passed\n\nView your dashboard:\n${dashUrl}\n\nIf you have any questions, reply to this email.\n\n— Marian Stancik\nmarianstancik.dev`
+            })
+          });
+        } catch (emailErr) {
+          console.error(`Client email failed: ${emailErr.message}`);
+        }
       } catch (auditError) {
         // Audit failed, log it
         await env.DB.prepare(

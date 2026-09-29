@@ -128,6 +128,19 @@ export default {
         }), { headers: { 'content-type': 'application/json' } });
       }
 
+      // Route: Success page after Stripe payment
+      if (path === '/success') {
+        const sessionId = url.searchParams.get('session_id');
+        return new Response(getSuccessHtml(sessionId), {
+          headers: { 'content-type': 'text/html; charset=utf-8' }
+        });
+      }
+
+      // Route: Root redirect
+      if (path === '/') {
+        return Response.redirect('https://marianstancik.dev', 302);
+      }
+
       return new Response('Not found', { status: 404 });
 
     } catch (e) {
@@ -171,7 +184,7 @@ export default {
   }
 };
 
-async function sendEmail(env, email) {
+async function sendEmail(env, email, subject, text) {
   try {
     await fetch('https://api.agentmail.to/v1/send', {
       method: 'POST',
@@ -181,14 +194,42 @@ async function sendEmail(env, email) {
       },
       body: JSON.stringify({
         to: email,
-        subject: 'Thanks for subscribing — Marian Stancik',
-        text: `Welcome! You'll receive updates on AI agent systems, GEO audits, and regulatory insights.\n\n— Marian Stancik\nmarianstancik.dev`
+        subject: subject || 'Thanks for subscribing — Marian Stancik',
+        text: text || `Welcome! You'll receive updates on AI agent systems, GEO audits, and regulatory insights.\n\n— Marian Stancik\nmarianstancik.dev`
       })
     });
   } catch (e) {
-    // Silent fail
+    console.error(`Email send failed: ${e.message}`);
   }
 }
+
+function getSuccessHtml(sessionId) {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Successful — Marian Stancik</title>
+<style>:root{--bg:#08080F;--card:rgba(18,18,30,0.65);--border:rgba(255,255,255,0.06);--primary:#CD7F32;--accent:#E8B86D;--text:#F0F0F5;--muted:#8888A0;--green:#2ECC71}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--bg);color:var(--text);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:48px 40px;max-width:520px;width:100%;text-align:center}
+.icon{font-size:3rem;margin-bottom:16px}
+h1{font-size:1.5rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h1 span{color:var(--primary)}
+p{color:var(--muted);font-size:0.9rem;line-height:1.6;margin-bottom:24px}
+.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#08080F;font-weight:700;border-radius:8px;text-decoration:none;font-size:0.9rem;transition:all 0.3s;border:none;cursor:pointer}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(205,127,50,0.35)}
+.detail{font-size:0.75rem;color:var(--muted);margin-top:20px;padding-top:20px;border-top:1px solid var(--border)}
+</style></head>
+<body>
+<div class="card">
+<div class="icon">✅</div>
+<h1>Payment <span>Successful</span></h1>
+<p>Your order has been received and is being processed.<br>Your AI GEO audit will begin automatically.<br>You will receive the report within 48 hours.</p>
+<a href="https://marianstancik.dev" class="btn">← Back to Home</a>
+<div class="detail">Session: ${sessionId || 'completed'}<br>Questions? Email marianstancik@agentmail.to</div>
+</div>
+</body>
+</html>`;
 
 // Stripe checkout session creation
 async function handleCreateCheckout(request, env) {
@@ -212,7 +253,7 @@ async function handleCreateCheckout(request, env) {
       },
       body: new URLSearchParams({
         'mode': body.recurring ? 'subscription' : 'payment',
-        'success_url': `${env.APP_URL || 'https://app.marianstancik.dev'}/success?session_id={CHECKOUT_SESSION_ID}`,
+        'success_url': `${env.SITE_URL || 'https://marianstancik.dev'}/success?session_id={CHECKOUT_SESSION_ID}`,
         'cancel_url': `${env.SITE_URL || 'https://marianstancik.dev'}/services`,
         'line_items[0][price]': priceId,
         'line_items[0][quantity]': '1',
