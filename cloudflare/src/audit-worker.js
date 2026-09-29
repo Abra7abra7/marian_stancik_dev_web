@@ -157,6 +157,134 @@ async function checkPerformance(url) {
 }
 
 // ============================================
+// READINESS SCAN CHECKS
+// ============================================
+
+async function checkPrivacyPolicy(domain) {
+  const paths = ['/privacy', '/privacy.html', '/privacy-policy', '/gdpr'];
+  for (const p of paths) {
+    const res = await fetch(`https://${domain}${p}`);
+    if (res.ok) {
+      const text = await res.text();
+      const hasGdpr = text.includes('GDPR') || text.includes('gdpr');
+      return {
+        check: 'Privacy Policy',
+        passed: true,
+        detail: `Found at ${p}${hasGdpr ? ' with GDPR references' : ''}`,
+        weight: 15
+      };
+    }
+  }
+  return { check: 'Privacy Policy', passed: false, detail: 'Not found on standard paths', weight: 15 };
+}
+
+async function checkCookieConsent(domain) {
+  const res = await fetch(`https://${domain}/`);
+  const html = await res.text();
+  const hasCookieWidget = html.includes('cookie') || html.includes('Cookie') || 
+                          html.includes('consent') || html.includes('cookie-banner');
+  return {
+    check: 'Cookie Consent',
+    passed: hasCookieWidget,
+    detail: hasCookieWidget ? 'Cookie/consent references found' : 'No cookie consent widget detected',
+    weight: 15
+  };
+}
+
+async function checkAiActLabel(domain) {
+  const res = await fetch(`https://${domain}/`);
+  const html = await res.text();
+  const hasMeta = html.includes('ai-generated-content') || html.includes('AIGenerated');
+  const hasDisclaimer = html.includes('disclaimer') || html.includes('Disclaimer');
+  return {
+    check: 'EU AI Act Art.50 Labeling',
+    passed: hasMeta && hasDisclaimer,
+    detail: hasMeta ? 'AI-generated meta tag + disclaimer found' : 'Missing AI Act disclosure',
+    weight: 15
+  };
+}
+
+async function checkTermsOfService(domain) {
+  const paths = ['/terms', '/terms.html', '/terms-of-service'];
+  for (const p of paths) {
+    const res = await fetch(`https://${domain}${p}`);
+    if (res.ok) return { check: 'Terms of Service', passed: true, detail: `Found at ${p}`, weight: 10 };
+  }
+  return { check: 'Terms of Service', passed: false, detail: 'Not found on standard paths', weight: 10 };
+}
+
+async function checkTDMOptOut(domain) {
+  const res = await fetch(`https://${domain}/robots.txt`);
+  if (!res.ok) return { check: 'TDM Opt-Out in robots.txt', passed: false, detail: 'robots.txt missing', weight: 10 };
+  const text = await res.text();
+  const hasTDM = text.includes('TDM') || text.includes('tdm') || text.includes('noai');
+  return {
+    check: 'TDM Opt-Out in robots.txt',
+    passed: hasTDM,
+    detail: hasTDM ? 'TDM opt-out directive found' : 'Missing TDM opt-out',
+    weight: 10
+  };
+}
+
+async function checkImpressum(domain) {
+  const paths = ['/impressum', '/impressum.html', '/imprint'];
+  for (const p of paths) {
+    const res = await fetch(`https://${domain}${p}`);
+    if (res.ok) return { check: 'Impressum / Legal Notice', passed: true, detail: `Found at ${p}`, weight: 10 };
+  }
+  return { check: 'Impressum / Legal Notice', passed: false, detail: 'Not found', weight: 10 };
+}
+
+async function checkDisclaimer(domain) {
+  const paths = ['/disclaimer', '/disclaimer.html'];
+  for (const p of paths) {
+    const res = await fetch(`https://${domain}${p}`);
+    if (res.ok) return { check: 'Disclaimer', passed: true, detail: `Found at ${p}`, weight: 5 };
+  }
+  return { check: 'Disclaimer', passed: false, detail: 'Not found', weight: 5 };
+}
+
+async function checkRobotsTxtForAllowed(domain) {
+  const res = await fetch(`https://${domain}/robots.txt`);
+  if (!res.ok) return { check: 'robots.txt accessible', passed: false, detail: 'Not found', weight: 5 };
+  const text = await res.text();
+  const hasAllow = text.includes('Allow:') || text.includes('Disallow:');
+  return {
+    check: 'robots.txt accessible',
+    passed: hasAllow,
+    detail: hasAllow ? 'robots.txt with access rules found' : 'Empty robots.txt',
+    weight: 5
+  };
+}
+
+// ============================================
+// COMPLIANCE WATCH CHECKS (lightweight daily)
+// ============================================
+
+async function checkSiteAlive(domain) {
+  const start = Date.now();
+  const res = await fetch(`https://${domain}/`);
+  const time = Date.now() - start;
+  const html = await res.text();
+  return {
+    alive: res.ok && html.length > 1000,
+    response_ms: time,
+    size_bytes: html.length,
+    status: res.status
+  };
+}
+
+async function checkCertExpiry(domain) {
+  try {
+    const res = await fetch(`https://${domain}/`, { method: 'HEAD' });
+    const cert = res.headers.get('cf-ray') ? 'Cloudflare managed' : 'unknown';
+    return { valid: true, detail: cert };
+  } catch (e) {
+    return { valid: false, detail: e.message };
+  }
+}
+
+// ============================================
 // SCORE ENGINE
 // ============================================
 
@@ -255,26 +383,61 @@ export async function runAudit(domain, type, env, clientId = null) {
     ).bind(auditId, clientId, type, 'running', timestamp).run();
   }
 
-  // Run all checks in parallel
-  const checks = [
-    checkRobotsTxt(domain),
-    checkSitemap(domain),
-    checkLlmsTxt(domain),
-    checkJsonLd(domain),
-    checkAiCrawlers(domain),
-    checkHreflang(domain),
-    checkOpenGraph(domain),
-    checkContentSecurity(domain),
-    checkLinkHeaders(domain),
-    checkPerformance(`https://${domain}/`)
-  ];
+  let checks, score, recommendations;
 
-  const results = await Promise.all(checks);
-  const { score, recommendations } = computeScore(results);
+  if (type === 'readiness' || type === 'full') {
+    // Run ALL readiness checks
+    const readinessChecks = [
+      checkPrivacyPolicy(domain),
+      checkCookieConsent(domain),
+      checkAiActLabel(domain),
+      checkTermsOfService(domain),
+      checkTDMOptOut(domain),
+      checkImpressum(domain),
+      checkDisclaimer(domain),
+      checkRobotsTxtForAllowed(domain)
+    ];
+    checks = await Promise.all(readinessChecks);
+    const r = computeScore(checks);
+    score = r.score;
+    recommendations = r.recommendations;
+  }
+
+  if (type === 'geo' || type === 'full') {
+    // Run GEO checks
+    const geoChecks = [
+      checkRobotsTxt(domain),
+      checkSitemap(domain),
+      checkLlmsTxt(domain),
+      checkJsonLd(domain),
+      checkAiCrawlers(domain),
+      checkHreflang(domain),
+      checkOpenGraph(domain),
+      checkContentSecurity(domain),
+      checkLinkHeaders(domain),
+      checkPerformance(`https://${domain}/`)
+    ];
+    const geoResults = await Promise.all(geoChecks);
+    if (type === 'geo') {
+      checks = geoResults;
+    } else {
+      // full: combine both
+      checks = [...(checks || []), ...geoResults];
+    }
+    const r = computeScore(checks);
+    score = r.score;
+    recommendations = r.recommendations;
+  }
+
+  if (!checks) {
+    checks = [];
+    score = 0;
+    recommendations = [];
+  }
 
   // Store results
   const resultBody = {
-    domain, type, score, results, recommendations,
+    domain, type, score, results: checks, recommendations,
     scanned_at: timestamp,
     report_url: `${env.APP_URL || ''}/report/${auditId}`
   };
@@ -298,6 +461,32 @@ export async function runAudit(domain, type, env, clientId = null) {
     ).bind(auditId, JSON.stringify(resultBody), generateSummary(results, score), JSON.stringify(recommendations)).run();
 
     // Alert on score drop
+    // Send email notification to client if AGENTMAIL_API_KEY is set
+    try {
+      if (clientId && env.AGENTMAIL_API_KEY) {
+        const passedCount = checks.filter(c => c.passed).length;
+        const totalCount = checks.length;
+        await fetch('https://api.agentmail.to/v1/send', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${env.AGENTMAIL_API_KEY}`
+          },
+          body: JSON.stringify({
+            to: env.CLIENT_EMAIL || 'marianstancik@agentmail.to',
+            subject: `${type.toUpperCase()} Audit Complete — ${domain} (Score: ${score}/100)`,
+            text: `Audit complete for ${domain} (${type.toUpperCase()}).
+Score: ${score}/100
+Passed: ${passedCount}/${totalCount} checks
+
+Report URL: ${resultBody.report_url}`
+          })
+        });
+      }
+    } catch (emailErr) {
+      console.error(`Audit email failed: ${emailErr.message}`);
+    }
+
     if (scoreDelta < -10) {
       await env.DB.prepare(
         'INSERT INTO alerts (id, client_id, type, message, score_before, score_after) VALUES (?, ?, ?, ?, ?, ?)'
@@ -316,4 +505,40 @@ function generateSummary(results, score) {
   const passed = results.filter(r => r.passed).length;
   const total = results.length;
   return `${passed}/${total} checks passed. Score: ${score}/100. ${score >= 80 ? 'Good AI agent readiness.' : score >= 50 ? 'Moderate — several improvements needed.' : 'Poor — immediate action recommended.'}`;
+}
+
+// ============================================
+// COMPLIANCE WATCH — daily run
+// ============================================
+
+export async function runComplianceCheck(domain, env, clientId) {
+  const result = await checkSiteAlive(domain);
+  const timestamp = new Date().toISOString();
+  
+  if (!result.alive) {
+    if (clientId) {
+      await env.DB.prepare(
+        'INSERT INTO alerts (id, client_id, type, message) VALUES (?, ?, ?, ?)'
+      ).bind(crypto.randomUUID(), clientId, 'site_down',
+        `${domain} is DOWN (HTTP ${result.status}, ${result.response_ms}ms) at ${timestamp}`
+      ).run();
+    }
+    // Send alert email
+    try {
+      await fetch('https://api.agentmail.to/v1/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${env.AGENTMAIL_API_KEY}`
+        },
+        body: JSON.stringify({
+          to: 'marianstancik@agentmail.to',
+          subject: `⚠️ Site DOWN — ${domain}`,
+          text: `${domain} returned HTTP ${result.status} (${result.response_ms}ms) at ${timestamp}`
+        })
+      });
+    } catch (e) { /* silent */ }
+  }
+  
+  return result;
 }

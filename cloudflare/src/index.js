@@ -9,7 +9,7 @@
  *   /dashboard/*    → client dashboard (static)
  */
 
-import { handleAuditRequest, runAudit } from './audit-worker';
+import { handleAuditRequest, runAudit, runComplianceCheck } from './audit-worker';
 import { handleStripeRequest } from './stripe-webhook';
 
 export default {
@@ -33,6 +33,11 @@ export default {
       // Route: Audit
       if (path.startsWith('/api/audit')) {
         return await handleAuditRequest(request, env);
+      }
+
+      // Route: Compliance check (for cron + manual trigger)
+      if (path === '/api/compliance/check' && request.method === 'POST') {
+        return await handleComplianceCheck(request, env);
       }
 
       // Route: Stripe webhook
@@ -230,6 +235,19 @@ p{color:var(--muted);font-size:0.9rem;line-height:1.6;margin-bottom:24px}
 </div>
 </body>
 </html>`;
+
+// Compliance check handler
+async function handleComplianceCheck(request, env) {
+  try {
+    const body = await request.json();
+    const { domain, clientId } = body;
+    if (!domain) return new Response(JSON.stringify({ error: 'Domain required' }), { status: 400 });
+    const result = await runComplianceCheck(domain, env, clientId);
+    return new Response(JSON.stringify(result), { headers: { 'content-type': 'application/json' } });
+  } catch (e) {
+    return new Response(JSON.stringify({ error: e.message }), { status: 500, headers: { 'content-type': 'application/json' } });
+  }
+}
 
 // Stripe checkout session creation
 async function handleCreateCheckout(request, env) {
