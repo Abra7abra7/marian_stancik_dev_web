@@ -325,7 +325,8 @@ export async function handleAuditRequest(request, env) {
     try {
       const body = await request.json();
       const domain = body.domain || new URL(request.headers.get('origin') || 'https://example.com').hostname;
-      return await runAudit(domain, 'geo', env);
+      const auditType = body.type || 'geo';
+      return await runAudit(domain, auditType, env, body.clientId);
     } catch (e) {
       return new Response(JSON.stringify({ error: e.message }), { status: 400 });
     }
@@ -376,12 +377,18 @@ export async function runAudit(domain, type, env, clientId = null) {
   const auditId = crypto.randomUUID();
   const timestamp = new Date().toISOString();
 
-  // Store audit record
-  if (clientId) {
+  // Always ensure a valid client record exists
+  const resolvedClientId = clientId || 'system';
+  try {
     await env.DB.prepare(
-      'INSERT INTO audits (id, client_id, type, status, started_at) VALUES (?, ?, ?, ?, ?)'
-    ).bind(auditId, clientId, type, 'running', timestamp).run();
-  }
+      'INSERT OR IGNORE INTO clients (id, email, domain, name, plan, status) VALUES (?, ?, ?, ?, ?, ?)'
+    ).bind(resolvedClientId, resolvedClientId.includes('@') ? resolvedClientId : 'system@marianstancik.dev', domain, resolvedClientId.split('@')[0] || 'system', 'one-time', 'active').run();
+  } catch(e) {}
+
+  // Store audit record
+  await env.DB.prepare(
+    'INSERT INTO audits (id, client_id, type, status, started_at) VALUES (?, ?, ?, ?, ?)'
+  ).bind(auditId, resolvedClientId, type, 'running', timestamp).run();
 
   let checks, score, recommendations;
 
@@ -442,44 +449,46 @@ export async function runAudit(domain, type, env, clientId = null) {
     report_url: `${env.APP_URL || ''}/report/${auditId}`
   };
 
-  if (clientId) {
-    // Get baseline for delta
+  // Always save results to D1
+  // Get baseline for delta
+  let baselineScore = score;
+  let scoreDelta = 0;
+  try {
     const { results: prev } = await env.DB.prepare(
       'SELECT score FROM audits WHERE client_id = ? AND status = ? ORDER BY created_at DESC LIMIT 1'
-    ).bind(clientId, 'done').all();
-    
-    const baselineScore = prev.length ? prev[0].score : score;
-    const scoreDelta = score - baselineScore;
+    ).bind(resolvedClientId || 'system', 'done').all();
+    if (prev.length) {
+      baselineScore = prev[0].score;
+      scoreDelta = score - baselineScore;
+    }
+  } catch(e) {}
 
-    // Save to D1
-    await env.DB.prepare(
-      'UPDATE audits SET status = ?, score = ?, baseline_score = ?, score_delta = ?, completed_at = ? WHERE id = ?'
-    ).bind('done', score, baselineScore, scoreDelta, timestamp, auditId).run();
+  // Update audit status + score
+  await env.DB.prepare(
+    'UPDATE audits SET status = ?, score = ?, baseline_score = ?, score_delta = ?, completed_at = ? WHERE id = ?'
+  ).bind('done', score, baselineScore, scoreDelta, timestamp, auditId).run();
 
-    await env.DB.prepare(
-      'INSERT INTO audit_results (audit_id, raw, summary, recommendations) VALUES (?, ?, ?, ?)'
-    ).bind(auditId, JSON.stringify(resultBody), generateSummary(results, score), JSON.stringify(recommendations)).run();
+  // Save results
+  await env.DB.prepare(
+    'INSERT INTO audit_results (audit_id, raw, summary, recommendations) VALUES (?, ?, ?, ?)'
+  ).bind(auditId, JSON.stringify(resultBody), generateSummary(checks, score), JSON.stringify(recommendations)).run();
 
     // Alert on score drop
     // Send email notification to client if AGENTMAIL_API_KEY is set
     try {
-      if (clientId && env.AGENTMAIL_API_KEY) {
+      if (resolvedClientId && env.AGENTMAIL_API_KEY) {
         const passedCount = checks.filter(c => c.passed).length;
         const totalCount = checks.length;
-        await fetch('https://api.agentmail.to/v1/send', {
+        await fetch('https://api.agentmail.to/v0/inboxes/marianstancik@agentmail.to/messages/send', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${env.AGENTMAIL_API_KEY}`
           },
           body: JSON.stringify({
-            to: env.CLIENT_EMAIL || 'marianstancik@agentmail.to',
+            to: [env.CLIENT_EMAIL || resolvedClientId],
             subject: `${type.toUpperCase()} Audit Complete — ${domain} (Score: ${score}/100)`,
-            text: `Audit complete for ${domain} (${type.toUpperCase()}).
-Score: ${score}/100
-Passed: ${passedCount}/${totalCount} checks
-
-Report URL: ${resultBody.report_url}`
+            text: `Audit complete for ${domain} (${type.toUpperCase()}).\nScore: ${score}/100\nPassed: ${passedCount}/${totalCount} checks\n\nReport URL: ${resultBody.report_url}`
           })
         });
       }
@@ -490,13 +499,12 @@ Report URL: ${resultBody.report_url}`
     if (scoreDelta < -10) {
       await env.DB.prepare(
         'INSERT INTO alerts (id, client_id, type, message, score_before, score_after) VALUES (?, ?, ?, ?, ?, ?)'
-      ).bind(crypto.randomUUID(), clientId, 'score_drop',
+      ).bind(crypto.randomUUID(), resolvedClientId, 'score_drop',
         `GEO score dropped from ${baselineScore} to ${score} (${scoreDelta} points)`,
         baselineScore, score).run();
     }
-  }
 
-  return new Response(JSON.stringify({ audit_id: auditId, score, results, recommendations }), {
+  return new Response(JSON.stringify({ audit_id: auditId, score, results: checks, recommendations }), {
     headers: { 'content-type': 'application/json' }
   });
 }
