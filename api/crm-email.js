@@ -1,9 +1,9 @@
 // Vercel serverless — CRM email dispatcher (triggered by VPS webhook)
 // Reads pending actions, sends branded HTML emails via AgentMail
-// POZOR: email-templates.js lezi v api/, nie v roote — '../' sposobilo
-// FUNCTION_INVOCATION_FAILED na kazdom requeste (funkcia padala pri nacitani modulu)
-// a CRM dispatcher bol v produkcii mrtvy. subscribe.js pouziva spravnu cestu.
-import emailTpl from './email-templates.js';
+// email-templates.js je CommonJS (module.exports = {...}). ESM default import na
+// Verceli nefungoval: volania padali na "_emailTemplates.default.followup is not a
+// function". subscribe.js pouziva require a v produkcii funguje — zjednotene.
+const emailTpl = require('./email-templates.js');
 
 const AGENTMAIL_API_KEY = process.env.AGENTMAIL_API_KEY;
 const CRM_WEBHOOK_KEY = process.env.CRM_WEBHOOK_KEY;

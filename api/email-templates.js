@@ -161,6 +161,22 @@ ${message ? `<blockquote style="border-left:3px solid #CD7F32; padding:12px 18px
     return this._shell(`Výsledky auditu: ${website} (${score}/100)`, content, 'company');
   },
 
+  // ── FOLLOW-UP (7 days after newsletter signup) ──
+  // CHYBALA: crm-email.js volal emailTpl.followup(), ktora neexistovala ->
+  // "_emailTemplates.default.followup is not a function" a follow-up nikdy neodisiel.
+  followup(name = '') {
+    const content = `<p>Ahoj${name ? ' ' + name : ''},</p>
+<p>od prihlásenia k odberu prešiel týždeň — nižšie je to najpodstatnejšie, čo medzitým vyšlo.</p>
+<h3>Nové články a analýzy</h3>
+<ul>
+  <li><strong style="color:#F0F0F5;">Hermes Agent</strong> — autonómna AI na vlastnom VPS: runtime, pamäť, cron</li>
+  <li><strong style="color:#F0F0F5;">EU AI Act</strong> — praktický sprievodca compliance a čl. 50 označovanie</li>
+  <li><strong style="color:#F0F0F5;">Edge AI na drone</strong> — počítačové videnie na Raspberry Pi 5</li>
+</ul>
+<p style="margin-top:18px;"><a href="https://www.marianstancik.dev/blog" class="btn-primary">Prečítať blog</a></p>`;
+    return this._shell('Čo sa udialo za posledný týždeň', content, 'personal');
+  },
+
   // ── PLAIN TEXT FALLBACKS ──
   welcomeText() {
     return `MARIAN STANCIK — HERMES AGENT\n\nVitaj v newslettri!\nBlog: https://www.marianstancik.dev/blog\n\nS pozdravom, Marian Stancik`;
