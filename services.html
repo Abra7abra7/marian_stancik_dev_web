@@ -775,7 +775,7 @@
           </label>
         </div>
         <button type="submit" class="btn-stripe" id="modalSubmitBtn" style="margin-top: 16px;">
-          Confirm Order (<span id="modalPriceVal">€199</span>) →
+          Order with obligation to pay (<span id="modalPriceVal">€199</span>) →
         </button>
       </form>
       
@@ -884,6 +884,11 @@ function openStripeCheckout(title, price, key) {
   document.getElementById('modalStepForm').style.display = 'block';
   document.getElementById('modalProductTitle').textContent = title;
   document.getElementById('modalPriceVal').textContent = '€' + price;
+  const btn = document.getElementById('modalSubmitBtn');
+  if (btn) {
+    btn.innerHTML = 'Order with obligation to pay (<span id="modalPriceVal">€' + price + '</span>) →';
+    btn.disabled = false;
+  }
   document.getElementById('stripeModal').style.display = 'flex';
 }
 

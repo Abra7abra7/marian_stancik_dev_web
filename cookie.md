@@ -1,24 +1,26 @@
-# Cookie politika a používanie technológií
+# Cookie Policy (Zásady používania súborov cookies)
 
-**Web:** https://marianstancik.dev  
-**Dátum účinnosti:** 21. september 2026  
-**Prevádzkovateľ:** Marián Stančík, fyzická osoba – podnikateľ (živnostník), IČO: 57068917, DIČ: 1082585075, Černákova 2046/8, 977 01 Brezno, e-mail: marianstancik@agentmail.to.
+*Effective date: 5 October 2026 / Účinnosť od 5. októbra 2026*
 
----
+## 1. Čo sú súbory cookies?
+Súbory cookies sú malé textové súbory, ktoré sa ukladajú do vášho zariadenia (počítač, tablet, smartfón) pri návšteve webovej stránky. Umožňujú stránke zapamätať si vaše preferencie a základné nastavenia.
 
-## 1. Cookieless architektúra a ochrana súkromia
+## 2. Aké technológie používame na marianstancik.dev?
+Naším cieľom je maximálne súkromie používateľov v súlade s princípmi Privacy by Design (čl. 25 GDPR).
 
-Web **marianstancik.dev** neukladá žiadne reklamné, sledovacie ani profilovacie cookies tretích strán. Webová analytika funguje na báze open-source riešenia **Umami Analytics** prevádzkovaného na dedikovanom európskom serveri (Hetzner Cloud). Umami neukladá do zariadenia používateľa žiadne cookies, nezbiera osobné údaje a neumožňuje sledovanie používateľa naprieč internetom.
+### A. Nevyhnutné (technické) cookies / LocalStorage
+- **Účel:** Slúžia výhradne na zabezpečenie správneho fungovania webu a uchovanie vašich osobných preferencií (napr. zvolený jazyk – SK / EN / DE / PL, svetlý / tmavý režim zobrazenia).
+- **Právny základ:** § 109 ods. 8 zákona č. 452/2021 Z. z. o elektronických komunikáciách (výnimka pre technicky nevyhnutné ukladanie).
+- **Doba uchovávania:** Do ukončenia relácie prehliadača (session) alebo maximálne 12 mesiacov v lokálnom úložisku prehliadača.
 
----
+### B. Analytika s rešpektom k súkromiu (Umami Analytics)
+- Na analýzu návštevnosti využívame open-source nástroj Umami Analytics, ktorý je hostovaný na vlastnej infraštruktúre v EÚ.
+- Neukladá žiadne cookies do vášho prehliadača.
+- Nevykonáva profilovanie používateľov, nezhromažďuje unikátne identifikátory naprieč webmi ani osobné údaje.
+- Meranie prebieha anonymne a agregovane bez potreby udelenia súhlasu.
 
-## 2. Prehľad technológií
+### C. Žiadne marketingové alebo sledovacie cookies tretích strán
+- Na našom webe nepoužívame reklamné, remarketingové ani sledovacie pixely tretích strán (ako napr. Meta Pixel, Google Ads remarketing).
 
-- **`ms_lang` (localStorage):** Nevyhnutné technické uloženie jazykovej preferencie používateľa (EN, SK, DE, PL) priamo v prehliadači. Právny základ: výnimka podľa § 109 ods. 8 zákona č. 452/2021 Z. z. a oprávnený záujem podľa čl. 6 ods. 1 písm. f) GDPR.
-- **Umami Analytics:** Cookieless, in-memory meranie anonymných štatistík bez prístupu k identifikátorom koncového zariadenia.
-
----
-
-## 3. Správa nastavení
-
-Používateľ môže kedykoľvek vymazať uložené dáta priamo vo svojom webovom prehliadači (Vymazať údaje prehliadania / Cookies a dáta stránok).
+## 3. Práva a možnosti správy cookies
+Technické cookies alebo lokálne dáta môžete kedykoľvek vymazať priamo vo vašom internetovom prehliadači v sekcii Nastavenia -> Súkromie a bezpečnosť -> Vymazať údaje prehliadania.

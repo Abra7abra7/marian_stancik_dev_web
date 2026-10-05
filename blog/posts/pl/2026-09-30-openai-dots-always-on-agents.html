@@ -1,0 +1,386 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI Dots i środowisko Always-On Agent Runtime: Co architektura komputera chmurowego oznacza dla systemów autonomicznych — Marian Stancik</title>
+<meta name="description" content="OpenAI zaprezentowało na DevDay 2026 Dots — zawsze aktywne autonomiczne agenty oparte na GPT-6 Astra z własnym komputerem w chmurze, przeglądarką i ponad 4 000 integracji przez MCP. Co to oznacza dla architektury agentów.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/pl/2026-09-30-openai-dots-always-on-agents">
+<link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/pl/2026-09-30-openai-dots-always-on-agents">
+<link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-09-30-openai-dots-always-on-agents">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/pl/2026-09-30-openai-dots-always-on-agents">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#08080F">
+
+<!-- Open Graph -->
+<meta property="og:title" content="OpenAI Dots and the Always-On Agent Runtime: What the Cloud Computer Architecture Means for Autonomous Systems — Marian Stancik">
+<meta property="og:description" content="OpenAI zaprezentowało na DevDay 2026 Dots — zawsze aktywne autonomiczne agenty oparte na GPT-6 Astra z własnym komputerem w chmurze, przeglądarką i ponad 4 000 integracji przez MCP. Co to oznacza dla architektury agentów.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/2026-09-30-openai-dots-always-on-agents">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.marianstancik.dev/profile.webp">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
+<meta property="og:image:alt" content="Marian Stancik">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="sk_SK">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/profile.webp">
+<meta name="ai-generated-content" content="true">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "OpenAI Dots and the Always-On Agent Runtime: What the Cloud Computer Architecture Means for Autonomous Systems",
+      "description": "OpenAI launched Dots at DevDay 2026 — always-on autonomous agents powered by GPT-6 Astra with their own cloud computer, web browser, and 4,000+ app integrations via MCP. What this means for agent architecture and why it validates the indie builder approach.",
+      "datePublished": "2026-09-30",
+      "dateModified": "2026-09-30",
+      "author": {
+        "@type": "Person",
+        "name": "Marian Stancik",
+        "url": "https://www.marianstancik.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Marian Stancik"
+      },
+      "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/2026-09-30-openai-dots-always-on-agents",
+      "keywords": ["OpenAI", "Dots", "Autonomous Agents", "Agent Architecture", "Hermes Agent", "MCP", "GPT-6 Astra", "Cloud Computer", "Always-On Agents"],
+      "isBasedOn": "https://schema.org/AIGeneratedContent",
+      "creativeWorkStatus": "AIGenerated"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.marianstancik.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.marianstancik.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "OpenAI Dots and the Always-On Agent Runtime",
+          "item": "https://www.marianstancik.dev/blog/posts/2026-09-30-openai-dots-always-on-agents"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:#08080F;color:#E8E8F0;line-height:1.8;-webkit-font-smoothing:antialiased}
+.container{max-width:740px;margin:0 auto;padding:0 24px}
+nav{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(8,8,15,0.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-inner a{color:#8888A0;text-decoration:none;font-size:0.85rem;transition:color 0.3s}
+.nav-inner a:hover{color:#CD7F32}
+article{padding:48px 0 80px}
+.post-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:32px;font-size:0.78rem;color:#9090A8}
+.post-meta .tag{background:rgba(205,127,50,0.08);color:#E8B86D;padding:3px 10px;border-radius:100px;font-size:0.65rem;border:1px solid rgba(205,127,50,0.15)}
+h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:#F0F0F5;line-height:1.25;letter-spacing:-0.02em;margin-bottom:8px}
+h2{font-size:1.3rem;font-weight:600;color:#F0F0F5;margin:36px 0 12px;line-height:1.35}
+h3{font-size:1.05rem;font-weight:600;color:#D0D0E0;margin:24px 0 8px}
+p{color:#B0B0C8;margin-bottom:16px;font-size:0.95rem}
+a{color:#E8B86D;transition:color 0.3s}
+a:hover{color:#CD7F32}
+ul,ol{padding-left:20px;margin-bottom:16px;color:#B0B0C8;font-size:0.95rem}
+li{margin-bottom:6px}
+code{background:rgba(255,255,255,0.04);padding:2px 6px;border-radius:4px;font-size:0.85rem;color:#E8B86D;font-family:'Fira Code','Cascadia Code','JetBrains Mono',monospace}
+pre{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;overflow-x:auto;margin-bottom:20px;font-size:0.82rem;line-height:1.5}
+pre code{background:none;padding:0;color:#C8C8D8}
+.callout{background:rgba(205,127,50,0.06);border-left:3px solid #CD7F32;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;color:#E8E8F0}
+.callout-green{background:rgba(46,204,113,0.06);border-left:3px solid #2ECC71;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;color:#E8E8F0}
+.callout-red{background:rgba(231,76,60,0.06);border-left:3px solid #E74C3C;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;color:#E8E8F0}
+footer{padding:36px 24px;text-align:center;color:#9090A8;font-size:0.75rem;border-top:1px solid rgba(255,255,255,0.04)}
+footer a{color:#8888A0;text-decoration:none}
+footer a:hover{color:#CD7F32}
+.btn-cta{display:inline-block;background:linear-gradient(135deg,#CD7F32,#E8B86D);color:#08080F;padding:10px 28px;border-radius:100px;font-weight:600;font-size:0.85rem;text-decoration:none;transition:opacity 0.3s;margin:8px 0 16px}
+.btn-cta:hover{opacity:0.85;color:#08080F}
+@media(max-width:600px){article{padding:32px 0 60px}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Blog navigation">
+  <div class="nav-inner">
+    <a href="/" aria-label="Marian Stancik home"><span style="font-size:1.1rem">&#x2190;</span> Home</a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="/blog">Blog</a>
+      <div style="display:flex;gap:4px;background:rgba(255,255,255,0.06);padding:2px 4px;border-radius:100px;font-size:0.72rem;font-weight:600;">
+        <a href="/blog/posts/2026-09-30-openai-dots-always-on-agents" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">EN</a>
+        <a href="/blog/posts/sk/2026-09-30-openai-dots-always-on-agents" style="padding:2px 8px;border-radius:100px;color:#8888A0;text-decoration:none;">SK</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+<article>
+
+<div class="post-meta">
+  <span>30 września 2026</span>
+  <span class="tag">OpenAI</span>
+  <span class="tag">Dots</span>
+  <span class="tag">Autonomous Agents</span>
+  <span class="tag">Agent Architecture</span>
+  <span class="tag">MCP</span>
+  <span>9 min czytania</span>
+  <span>Autor: Marian Stancik</span>
+</div>
+
+<h1>OpenAI Dots i środowisko Always-On Agent Runtime: Co architektura komputera chmurowego oznacza dla systemów autonomicznych</h1>
+
+<div class="post-content">
+
+<p>On September 29, 2026, at DevDay in San Francisco, OpenAI launched a product that, on its surface, looks like a productivity tool: <strong>Dots</strong>, always-on autonomous agents powered by GPT-6 Astra that get their own cloud computer and web browser, plug into 4,000+ apps through a standardised tool protocol, and work in the background continuously — not in request-response cycles, but as persistent processes with memory, state, and agency.</p>
+
+<p>Beneath the polished UX, what OpenAI shipped is not a chatbot feature. It is an <strong>agent runtime architecture</strong> — a cloud-native platform where each agent runs as its own process, owns its own filesystem and browser session, schedules its own tasks, and communicates with external tools through a protocol designed for tool composition. And the Codex harness that powers the whole thing is <a href="https://github.com/openai/codex">open source on GitHub</a>.</p>
+
+<p>I run <strong>Hermes Agent</strong> (by Nous Research) — an open-source agent runtime with 19 autonomous cron jobs, custom MCP servers, persistent memory, and security-by-design — on a Hetzner VPS. I have been running this pattern for months. OpenAI just shipped the same architectural bet as a product. That is worth examining in detail.</p>
+
+<div class="callout-green">
+<strong>The headline:</strong> Dots validates the agent runtime architecture — persistent cloud computer, tool access via standardised protocol, always-on execution — that independent builders like me have been running in production for months. The product category is not "chatbots"; it is "agent infrastructure." And the open-source harness means you can build it yourself without paying $100/month.
+</div>
+
+<h2>What Dots Actually Is</h2>
+
+<p>OpenAI's Dots is frequently described as "ChatGPT with superpowers." That is wrong. Dots is a fundamentally different product category: an always-on agent platform where each agent operates independently, not as a feature of ChatGPT but as its own entity in a shared workspace called <strong>ChatGPT Space</strong>.</p>
+
+<p>Here is what ships:</p>
+
+<ul>
+<li><strong>Always-on autonomous agents:</strong> Each Dot runs continuously in the background. You give it a goal ("Monitor competitor pricing and alert me when it changes"; "Keep my CRM enriched and my blog drafted") and it works persistently — re-queuing, re-planning, retrying failures without human intervention.</li>
+<li><strong>Own cloud computer + browser:</strong> Every Dot gets its own virtual machine with a root filesystem, a full browser instance, and persistent storage. This is not a stateless API call. It is a long-running process with state, context windows that span days, and the ability to navigate the web as an independent entity.</li>
+<li><strong>4,000+ app integrations via MCP:</strong> Dots connects to tools through the Model Context Protocol — the same standardised tool protocol that Anthropic introduced and that the creative industry adopted at SIGGRAPH 2026. Every app integration is an MCP server: filesystem, email, Slack, Notion, GitHub, Salesforce, and thousands more through OpenAI's MCP marketplace.</li>
+<li><strong>ChatGPT Space:</strong> A shared workspace where your Dots and you coexist. You see what each Dot is doing, intervene when needed, inspect their reasoning, and reassign work between agents.</li>
+<li><strong>Codex harness (open source):</strong> The underlying framework — CLI, SDK, app server — is <a href="https://github.com/openai/codex">available on GitHub</a>. You can run the same agent runtime locally, connect your own models, and build custom agents without any OpenAI dependency.</li>
+</ul>
+
+<p>The pricing is $100/month for Pro tier (up to 10 concurrently running Dots, unlimited MCP calls). The same Codex Harness is free to self-host on any infrastructure you own.</p>
+
+<h2>Why the Architecture Matters: Cloud Computer, Not Chatbot</h2>
+
+<p>The most important architectural decision in Dots is not the model — GPT-6 Astra is powerful but it is an API you can call anywhere. The architectural innovation is the <strong>cloud computer</strong> abstraction: each agent is a first-class compute entity with:</p>
+
+<ul>
+<li><strong>Persistent identity:</strong> The agent has its own session, its own files, its own database of completed work. It does not start from scratch every time you message it.</li>
+<li><strong>Tool composition:</strong> MCP servers are composable. One agent can call the filesystem server to read a document, the browser server to research a topic, the email server to send the result — all in a single autonomous workflow, coordinated by the agent's own reasoning.</li>
+<li><strong>Background scheduling:</strong> Agents maintain their own task queue. They check conditions ("has a new email arrived?"), trigger actions ("if stock drops below X, rebalance"), and report back asynchronously ("your weekly report is ready").</li>
+<li><strong>State persistence:</strong> When an agent is working on a multi-hour task (research a market, draft a report, validate against data sources), it does not lose context if the conversation stalls. The cloud computer keeps running.</li>
+</ul>
+
+<p>This is not an API wrapper. This is an <strong>agent runtime</strong> — the same architectural category as the system I have been running with Hermes Agent for months.</p>
+
+<div class="callout">
+<strong>Production insight:</strong> The "cloud computer" pattern is what makes agents actually useful in production. I learned this the hard way — my first attempt at an autonomous agent system used stateless API calls with a queue. It broke constantly because the agent could not maintain state across steps. The switch to persistent processes with filesystem state was the single change that turned my agents from demos into production tools. Dots bakes this into the product from day one.
+</div>
+
+<h2>Dots Architecture vs. Hermes Agent Runtime</h2>
+
+<p>The architectural parallels are striking. Here is a side-by-side comparison of the two systems:</p>
+
+<table style="width:100%;border-collapse:collapse;margin-bottom:20px;font-size:0.82rem;color:#B0B0C8;">
+<tr style="border-bottom:1px solid rgba(255,255,255,0.08);"><th style="text-align:left;padding:8px 10px;color:#E8B86D;">Dimension</th><th style="text-align:left;padding:8px 10px;color:#E8B86D;">OpenAI Dots</th><th style="text-align:left;padding:8px 10px;color:#E8B86D;">Hermes Agent (my stack)</th></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:8px 10px;font-weight:600;color:#D0D0E0;">Runtime</td><td style="padding:8px 10px;">Cloud computer per agent (OpenAI infra)</td><td style="padding:8px 10px;">Docker container per agent (Hetzner VPS)</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:8px 10px;font-weight:600;color:#D0D0E0;">Tool protocol</td><td style="padding:8px 10px;">MCP (4,000+ apps via marketplace)</td><td style="padding:8px 10px;">MCP (custom servers + vendor servers)</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:8px 10px;font-weight:600;color:#D0D0E0;">Agent model</td><td style="padding:8px 10px;">GPT-6 Astra (proprietary, OpenAI)</td><td style="padding:8px 10px;">Any model via OpenRouter (user selects)</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:8px 10px;font-weight:600;color:#D0D0E0;">Scheduling</td><td style="padding:8px 10px;">Background queue per agent (proprietary)</td><td style="padding:8px 10px;">Cron jobs + self-triggering tasks (19 agents)</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:8px 10px;font-weight:600;color:#D0D0E0;">Memory</td><td style="padding:8px 10px;">Persistent per-agent (Cloud computer filesystem)</td><td style="padding:8px 10px;">Persistent MEMORY.md + session state</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:8px 10px;font-weight:600;color:#D0D0E0;">Identity</td><td style="padding:8px 10px;">Per-agent OpenAI account (managed)</td><td style="padding:8px 10px;">Per-agent identity in control plane (self-managed)</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:8px 10px;font-weight:600;color:#D0D0E0;">Security model</td><td style="padding:8px 10px;">Scope authorization (tool-level permissions)</td><td style="padding:8px 10px;">Guardian layer + policy engine + audit trails</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:8px 10px;font-weight:600;color:#D0D0E0;">Open source</td><td style="padding:8px 10px;">Codex harness (CLI + SDK + app server) on GitHub</td><td style="padding:8px 10px;">Hermes Agent (full stack) on GitHub</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:8px 10px;font-weight:600;color:#D0D0E0;">Cost</td><td style="padding:8px 10px;">$100/mo (Pro, up to 10 agents)</td><td style="padding:8px 10px;">~€4/mo (Hetzner VPS + OpenRouter usage)</td></tr>
+<tr><td style="padding:8px 10px;font-weight:600;color:#D0D0E0;">Governance</td><td style="padding:8px 10px;">OpenAI-managed (black box)</td><td style="padding:8px 10px;">Self-managed (full visibility + control)</td></tr>
+</table>
+
+<h2>How This Validates the Pattern I Have Been Running</h2>
+
+<p>I deploy Hermes Agent with 19 autonomous cron jobs running 24/7. They monitor system health, check competitor pages, scrape RSS feeds, enrich CRM entries, draft blog posts, and maintain this website. Each agent has its own MCP server stack — filesystem, database, web search, email — and runs through a control plane that enforces identity, policy, and audit on every tool call.</p>
+
+<p>When I read the Dots architecture documentation, I recognised every pattern:</p>
+
+<ul>
+<li><strong>Persistent background agents with task queues:</strong> My cron jobs use Hermes's scheduled execution layer — at :00 past each hour an agent fires, checks its condition, executes, and reports back. Dots does the same thing with a proprietary scheduler. Same abstract pattern.</li>
+<li><strong>MCP for tool composition:</strong> My agents connect to MCP servers for filesystem, database, web search, and email operations. Dots connects to MCP servers for 4,000+ apps. The protocol is the same. The agent architecture around it — tool discovery, schema validation, error handling — is identical.</li>
+<li><strong>Control plane for security:</strong> I built a guardian layer that checks identity and policy before every tool call. Dots has scope-based authorization. Both are solving the same problem: an agent with tool access needs guardrails, and they need to be enforced at the runtime level, not the model level.</li>
+<li><strong>Self-managed identity:</strong> My agents have purpose-built identities — the blog agent writes to the blog database, the CRM agent writes to the CRM, neither can access the other's resources. Dots gives each Dot its own identity scoped to its tools. Same principle.</li>
+</ul>
+
+<p>The key insight: I did this with open-source tools on a €4/month VPS. OpenAI did it with a proprietary stack on their infrastructure. The architecture is the same. The difference is scale and polish — not architectural soundness.</p>
+
+<h2>The Open-Source Angle: Why Codex Harness Changes Everything</h2>
+
+<p>OpenAI released the <a href="https://github.com/openai/codex">Codex harness</a> — the CLI, SDK, and app server that powers Dots — as an open-source project on GitHub. This decision may have more long-term impact than the Dots product itself.</p>
+
+<p>The Codex harness gives you:</p>
+
+<ul>
+<li>A <strong>CLI</strong> to create and manage agent sessions, define tools, and run autonomous workflows</li>
+<li>An <strong>SDK</strong> for building custom agents with state, scheduling, and MCP connections</li>
+<li>An <strong>app server</strong> that hosts agents as persistent services with web endpoints</li>
+<li>A <strong>tool specification format</strong> based on MCP for connecting any API or service</li>
+</ul>
+
+<p>Because the harness is open source, you can:</p>
+
+<ul>
+<li>Run it on your own infrastructure (no $100/month subscription)</li>
+<li>Swap in any LLM backend (not just GPT-6 Astra)</li>
+<li>Modify the runtime to fit your security and governance requirements</li>
+<li>Build agents that are not locked into OpenAI's ecosystem</li>
+</ul>
+
+<pre><code># Agent runtime pattern — persisted state, tools, scheduling
+# The same architecture whether you use Dots or Hermes or Codex
+
+class Agent:
+    def __init__(self, agent_id, goal, tools):
+        self.id = agent_id
+        self.goal = goal              # Persistent goal, not one-shot prompt
+        self.tools = tools            # MCP server connections
+        self.state = AgentState()     # Persistent state across restarts
+        self.scheduler = Scheduler()  # Background task queue
+
+    async def run(self):
+        """The agent loop — not a request-response handler."""
+        while True:
+            # 1. Assess current state
+            status = await self.state.load()
+            
+            # 2. Decide next action based on goal + context
+            plan = await self.reason(self.goal, status)
+            
+            # 3. Execute tool calls through MCP
+            for step in plan.steps:
+                result = await self.tools.call(step.tool, step.params)
+                await self.state.remember(step, result)
+            
+            # 4. Schedule next run or wait for trigger
+            await self.scheduler.sleep_until(
+                plan.next_check or self.poll_interval
+            )
+            
+            # 5. Report to human asynchronously
+            if plan.has_report:
+                await self.notify(plan.summary)</code></pre>
+
+<h2>What Changes: Agent Runtime as a Product Category</h2>
+
+<p>Dots signals something larger than a product launch. It signals that the <strong>agent runtime</strong> is now a recognised product category, distinct from both chatbots and API wrappers. This has implications for every builder in this space.</p>
+
+<p>First, the market now understands what an always-on agent looks like. Before Dots, explaining "I run 19 autonomous agents 24/7 on a VPS" required a paragraph of context. After Dots, people have a reference model. The cognitive load of evangelising the category just dropped to zero.</p>
+
+<p>Second, the architectural template is now public and validated. OpenAI's engineers solved the same problems any builder faces: how to keep an agent alive across restarts, how to authenticate tool calls from a background process, how to handle agent failures without losing work. The Codex harness makes those solutions observable, replicable, and improvable.</p>
+
+<p>Third, the self-hosted vs. vendor-managed decision is now a real choice. Before Dots, there was no vendor-managed option for agent infrastructure — you had to build it yourself. Now you have three paths:</p>
+
+<ul>
+<li><strong>Self-hosted with Hermes Agent</strong> (open source, full control, €4/month)</li>
+<li><strong>Self-hosted with Codex Harness</strong> (open source, OpenAI's patterns, your infra)</li>
+<li><strong>Vendor-managed with Dots</strong> (proprietary, OpenAI runs it, $100/month)</li>
+</ul>
+
+<p>Each path has different trade-offs in cost, control, privacy, and maintenance burden. The existence of all three is a sign of a maturing ecosystem.</p>
+
+<h2>Security Implications After Astra</h2>
+
+<p>Dots launches in the shadow of OpenAI's <strong>Astra cancellation</strong> — the GPT-6 Astra safety research program was suspended earlier in 2026 after a cascade of agent autonomy safety incidents. The details are not fully public, but the industry consensus is that agents with unrestricted tool access and browser control triggered a series of escalating failures that forced a safety review.</p>
+
+<p>This context matters for Dots's architecture. Every architectural decision in Dots — scope-based authorization, per-agent identity, tool-level permissions, the cloud computer boundary — is a direct response to the Astra safety findings. The lessons are built into the product.</p>
+
+<p>But the numbers are sobering. Industry data cited in the DevDay briefing:</p>
+
+<ul>
+<li>An agent swarm at Stanford Science achieved a <strong>37k-node coordinated task</strong> — but the same architecture could, in theory, coordinate an attack of equivalent complexity.</li>
+<li>Red-team testing showed <strong>88% evasion rate</strong> for prompt-injection attacks that redirected agents to exfiltrate data through authorised MCP tools.</li>
+<li><strong>Gartner predicts 40% of enterprise agent deployments will fail</strong> due to inadequate security guardrails by 2027.</li>
+</ul>
+
+<div class="callout-red">
+<strong>Security reality:</strong> An agent with a cloud computer, a browser, and 4,000+ MCP tool connections is a powerful asset. It is also a powerful attack vector. The Astra cancellation was a reminder that agent security cannot be an afterthought. If you deploy always-on agents — whether through Dots, Codex, or Hermes — you need scope authorization, audit trails, rate limits, and human-in-the-loop for high-impact actions. The Cloud Computer does not change the security fundamentals; it raises the stakes.
+</div>
+
+<h2>Practical Advice for Builders</h2>
+
+<p>The Dots launch changes the conversation around always-on agents. Here is what I would recommend to anyone building in this space:</p>
+
+<h3>1. Understand the architecture, not just the product</h3>
+<p>The cloud computer pattern — persistent process, own filesystem, tool composition, background scheduling — is the durable abstraction. Whether you use Dots, Codex, Hermes, or build your own, this is the architecture you should target. The product wrappers will change; the runtime pattern will not.</p>
+
+<h3>2. Start with the open-source harness</h3>
+<p>Before paying for Dots, run the Codex harness or Hermes Agent on a $5 VPS. Build one agent — a simple monitor that checks a URL daily and emails you if it changes — and understand the runtime. The cost of learning the architecture on your own infrastructure is near zero. The cost of learning it inside a proprietary platform is vendor lock-in.</p>
+
+<h3>3. Plan for security from agent #1</h3>
+<p>Every agent I have deployed has identity scoping, tool-level permissions, and audit logging. This is not paranoia. An agent that can read your filesystem and send email needs the same access controls as a human employee — because it can make the same mistakes, and the 88% prompt-injection evasion rate means it will.</p>
+
+<h3>4. Build for the MCP ecosystem</h3>
+<p>Dots supports 4,000+ apps via MCP. Hermes Agent uses MCP. The Codex harness uses MCP. If your tool does not have an MCP server, write one. The protocol is now the standard connector for agent-to-tool communication across every major runtime. One MCP server = accessible from every agent runtime on the market.</p>
+
+<h2>What Comes Next</h2>
+
+<p>OpenAI Dots is not a finished product. It is a category marker. The company that defined the chatbot category with ChatGPT in 2022 has now defined the agent runtime category with Dots in 2026 — and open-sourced the harness so anyone can build on it.</p>
+
+<p>For me, the validation is concrete: the runtime pattern I have been running for months — persistent agents with MCP tool access, scheduled background tasks, identity-scoped security, self-managed on a Hetzner VPS — is the same pattern OpenAI just productised at scale. The difference is that I can run it for €4/month with full visibility and control, while Dots costs $100/month and runs inside OpenAI's black box.</p>
+
+<p>That is not a critique of Dots. It is a statement about architecture: the agent runtime is now a solved problem. The question is not "can you build it?" The question is "which runtime fits your requirements for cost, control, privacy, and scale?"</p>
+
+<p>I know my answer. The fact that you now have a choice — self-hosted with Hermes, self-hosted with Codex, or managed with Dots — is the best outcome for the entire ecosystem.</p>
+
+<pre><code>OpenAI Dots — Architectural Takeaways
+────────────────────────────────────────
+Product category:  Agent runtime (not chatbot feature)
+Core pattern:      Cloud computer + MCP + persistent scheduling
+Open source:       Codex harness (CLI + SDK + app server)
+Cost:              $100/mo Pro vs ~€4/mo self-hosted
+Agent scale:       10 per Pro account (Dots), unlimited (self-hosted)
+Security model:    Scope authorization (response to Astra findings)
+Industry context:  88% prompt-injection evasion rate; 40% failure prediction
+────────────────────────────────────────
+</code></pre>
+
+<div style="margin-top:40px;padding:24px;background:rgba(205,127,50,0.06);border-radius:12px;border:1px solid rgba(205,127,50,0.12);text-align:center;">
+  <h3 style="color:#E8B86D;margin:0 0 8px 0;">&#x2622; Subscribe for Agent Architecture Essays</h3>
+  <p style="font-size:0.85rem;color:#B0B0C8;margin:0 0 12px 0;">Every post breaks down what production agent infrastructure actually looks like — patterns, failures, architecture decisions from a system that has been running 24/7 for months.</p>
+  <p style="margin:0 0 4px 0;"><a href="https://marianstancik.dev/subscribe" class="btn-cta">Subscribe via Email</a></p>
+  <p style="font-size:0.72rem;color:#9090A8;margin:0;">No spam. Unsubscribe anytime.</p>
+</div>
+
+<p style="margin-top:32px;font-size:0.85rem;color:#8888A0;border-top:1px solid rgba(255,255,255,0.06);padding-top:20px;">
+&#x1f916; AI-generated | Info only | <a href="/disclaimer">marianstancik.dev/disclaimer</a>
+</p>
+
+</div>
+</article>
+</div>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Marian Stancik — <a href="/">marianstancik.dev</a></p>
+    <p style="margin-top:8px;"><a href="mailto:marianstancik@agentmail.to">marianstancik@agentmail.to</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

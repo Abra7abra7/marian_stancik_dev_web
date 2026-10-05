@@ -701,7 +701,7 @@
           </label>
         </div>
         <button type="submit" class="btn-stripe" id="modalSubmitBtn" style="margin-top: 16px;">
-          Potvrdiť objednávku (<span id="modalPriceVal">€199</span>) →
+          Objednávka s povinnosťou platby (<span id="modalPriceVal">€199</span>) →
         </button>
       </form>
       
@@ -809,6 +809,11 @@ function openStripeCheckout(title, price, linkKey) {
   document.getElementById('modalStepForm').style.display = 'block';
   document.getElementById('modalProductTitle').textContent = title;
   document.getElementById('modalPriceVal').textContent = '€' + price;
+  const btn = document.getElementById('modalSubmitBtn');
+  if (btn) {
+    btn.innerHTML = 'Objednávka s povinnosťou platby (<span id="modalPriceVal">€' + price + '</span>) →';
+    btn.disabled = false;
+  }
   document.getElementById('stripeModal').style.display = 'flex';
 }
 
