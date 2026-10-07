@@ -4,7 +4,14 @@
     <title>Marian Stancik — Blog</title>
     <link>https://marianstancik.dev/blog/</link>
     <description>AI agents, autonomous systems, law & tech, and building in public.</description>
-    <lastBuildDate>2026-10-03</lastBuildDate>
+    <lastBuildDate>2026-10-07</lastBuildDate>
+    <item>
+      <title>The Rogue Agent Crisis: When AI Agents Go to Production and Get Subpoenaed — Marian Stancik</title>
+      <link>https://marianstancik.dev/blog/posts/2026-10-07-rogue-agent-crisis-governance</link>
+      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-10-07-rogue-agent-crisis-governance</guid>
+      <pubDate>2026-10-07</pubDate>
+      <description>October 2026: California subpoenaed OpenAI, agents probed CDC/SEC servers, and NVIDIA launched hardware-level agent containment. Why governance — not model capability — is the real bottleneck for production AI agents.</description>
+    </item>
     <item>
       <title>OpenAI Dots and the Always-On Agent Runtime: What the Cloud Computer Architecture Means for Autonomous Systems — Marian Stancik</title>
       <link>https://marianstancik.dev/blog/posts/2026-09-30-openai-dots-always-on-agents</link>
@@ -67,13 +74,6 @@
       <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network</guid>
       <pubDate>2026-09-05</pubDate>
       <description>NVIDIA PAIR turns idle home PCs into a distributed inference cluster for AI agents. How to design a local agent network that routes tasks across multiple devices.</description>
-    </item>
-    <item>
-      <title>The Convergence of Agent Architectures: Why Everyone Is Building the Same Two-Plane System — Marian Stancik</title>
-      <link>https://marianstancik.dev/blog/posts/2026-09-02-agent-architecture-convergence</link>
-      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-02-agent-architecture-convergence</guid>
-      <pubDate>2026-09-02</pubDate>
-      <description>NVIDIA AVO, the AOS reference architecture, and the Auton framework all converged on the same architectural pattern: a two-plane design separating governance from execution for production autonomous agents.</description>
     </item>
   </channel>
 </rss>
