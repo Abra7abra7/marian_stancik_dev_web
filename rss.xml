@@ -4,7 +4,14 @@
     <title>Marian Stancik — Blog</title>
     <link>https://marianstancik.dev/blog/</link>
     <description>AI agents, autonomous systems, law & tech, and building in public.</description>
-    <lastBuildDate>2026-10-07</lastBuildDate>
+    <lastBuildDate>2026-10-10</lastBuildDate>
+    <item>
+      <title>Cisco AgenticOps Report: 51% of Enterprises Already Run Autonomous AI Agents in Production — Marian Stancik</title>
+      <link>https://marianstancik.dev/blog/posts/2026-10-10-cisco-agenticops-agent-driven-enterprise</link>
+      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-10-10-cisco-agenticops-agent-driven-enterprise</guid>
+      <pubDate>2026-10-10</pubDate>
+      <description>Cisco's September 2026 research reveals 51% run agentic AI in production, 80% are comfortable with full autonomy, and 84% expect AI-led operations within 12 months. What this means for autonomous agent architecture.</description>
+    </item>
     <item>
       <title>The Rogue Agent Crisis: When AI Agents Go to Production and Get Subpoenaed — Marian Stancik</title>
       <link>https://marianstancik.dev/blog/posts/2026-10-07-rogue-agent-crisis-governance</link>
@@ -67,13 +74,6 @@
       <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-08-autonomous-multi-agent-systems-on-european-cloud</guid>
       <pubDate>2026-09-08</pubDate>
       <description>Architecture, GDPR data sovereignty, and 24/7 orchestration of autonomous agents on European VPS infrastructure.</description>
-    </item>
-    <item>
-      <title>Designing Your Local Agent Network for NVIDIA PAIR — Distributed Inference Across Devices — Marian Stancik</title>
-      <link>https://marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network</link>
-      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network</guid>
-      <pubDate>2026-09-05</pubDate>
-      <description>NVIDIA PAIR turns idle home PCs into a distributed inference cluster for AI agents. How to design a local agent network that routes tasks across multiple devices.</description>
     </item>
   </channel>
 </rss>
