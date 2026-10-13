@@ -88,8 +88,8 @@
         "de": "Lieferung in 48 Stunden · PDF-Bericht + Code-Snippets",
         "pl": "Dostawa w 48 godzin · Raport PDF + fragmenty kodu"
       },
-      "stripeTestUrl": "https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800",
-      "stripeLiveUrl": "https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800"
+      "stripeTestUrl": "https://buy.stripe.com/test_3cI9AT73SaTmfsKcTE1Fe00",
+      "stripeLiveUrl": "https://buy.stripe.com/test_3cI9AT73SaTmfsKcTE1Fe00"
     },
     {
       "id": "web-readiness",
@@ -111,10 +111,10 @@
         "en": "Delivered in 48 hours · Automated report + Remediation checklist",
         "sk": "Doručenie do 48 hodín · Automatizovaný report + checklist opráv",
         "de": "Lieferung in 48 Stunden · Automatisierter Bericht + Checkliste",
-        "pl": "Dostawa w 48 godzin · Zautomatyzowany raport + lista poprawek"
+        "pl": "Dostawa w 48 godzin · Zautomatyzovaný raport + lista poprawek"
       },
-      "stripeTestUrl": "https://buy.stripe.com/test_28E6oJesU80O9cx4SV28801",
-      "stripeLiveUrl": "https://buy.stripe.com/test_28E6oJesU80O9cx4SV28801"
+      "stripeTestUrl": "https://buy.stripe.com/test_4gMdR93RG9Pi2FYf1M1Fe01",
+      "stripeLiveUrl": "https://buy.stripe.com/test_4gMdR93RG9Pi2FYf1M1Fe01"
     },
     {
       "id": "full-combo",
@@ -139,8 +139,8 @@
         "de": "Lieferung in 48 Stunden · Vollständiger Doppelbericht + 30-Min. Call",
         "pl": "Dostawa w 48 godzin · Kompletny podwójny raport + 30-min rozmowa"
       },
-      "stripeTestUrl": "https://buy.stripe.com/test_8x27sN70s4OC88tdpr28802",
-      "stripeLiveUrl": "https://buy.stripe.com/test_8x27sN70s4OC88tdpr28802"
+      "stripeTestUrl": "https://buy.stripe.com/test_fZu9ATbk8bXq4O6dXI1Fe02",
+      "stripeLiveUrl": "https://buy.stripe.com/test_fZu9ATbk8bXq4O6dXI1Fe02"
     },
     {
       "id": "custom-agent",
@@ -165,8 +165,87 @@
         "de": "Anzahlung €500 · Inklusive 30-Min. Discovery-Call · Vollständige Spezifikation",
         "pl": "Zaliczka €500 · W cenie 30-min rozmowa wstępna · Pełna specyfikacja"
       },
-      "stripeTestUrl": "https://buy.stripe.com/test_aFaaEZ1G880O88tdpr28803",
-      "stripeLiveUrl": "https://buy.stripe.com/test_aFaaEZ1G880O88tdpr28803"
+      "stripeTestUrl": "https://buy.stripe.com/test_eVq5kD0Fu7Ha1BU7zk1Fe03",
+      "stripeLiveUrl": "https://buy.stripe.com/test_eVq5kD0Fu7Ha1BU7zk1Fe03"
+    },
+    {
+      "id": "geo-monitoring",
+      "price": 49,
+      "currency": "EUR",
+      "recurring": "month",
+      "title": {
+        "en": "GEO Monitoring",
+        "sk": "GEO Monitoring",
+        "de": "GEO-Monitoring",
+        "pl": "Monitoring GEO"
+      },
+      "subtitle": {
+        "en": "Weekly automatic GEO re-scans & score drop alerts",
+        "sk": "Týždenné automatické GEO re-scany a upozornenia na pokles skóre",
+        "de": "Wöchentliche automatische GEO-Rescans & Score-Drop-Warnungen",
+        "pl": "Cotygodniowe automatyczne reskany GEO i alerty spadku wyniku"
+      },
+      "delivery": {
+        "en": "Delivered weekly · Automated alerts & score dashboard",
+        "sk": "Týždenné doručenie · Automatické alerty & prehľad skóre",
+        "de": "Wöchentliche Lieferung · Automatische Warnungen & Dashboard",
+        "pl": "Cotygodniowe dostarczanie · Automatyczne alerty i pulpit wyników"
+      },
+      "stripeTestUrl": "https://buy.stripe.com/test_cNi8wPdsg5z2fsK1aW1Fe04",
+      "stripeLiveUrl": "https://buy.stripe.com/test_cNi8wPdsg5z2fsK1aW1Fe04"
+    },
+    {
+      "id": "compliance-watch",
+      "price": 29,
+      "currency": "EUR",
+      "recurring": "month",
+      "title": {
+        "en": "Compliance Watch",
+        "sk": "Compliance Watch",
+        "de": "Compliance Watch",
+        "pl": "Compliance Watch"
+      },
+      "subtitle": {
+        "en": "Daily regulatory tracking: EU AI Act, GDPR & NIS2 changes",
+        "sk": "Denné sledovanie regulácií: zmeny v EU AI Act, GDPR & NIS2",
+        "de": "Tägliche regulatorische Überwachung: EU-KI-Gesetz, DSGVO & NIS2",
+        "pl": "Codzienne monitorowanie regulacji: zmiany w ustawie o AI, RODO i NIS2"
+      },
+      "delivery": {
+        "en": "Delivered monthly · Impact alerts & quarterly summary",
+        "sk": "Mesačné doručenie · Notifikácie o dopade & kvartálny súhrn",
+        "de": "Monatliche Lieferung · Auswirkungen-Warnungen & Quartalsbericht",
+        "pl": "Miesięczne dostarczanie · Alerty o wpływie i podsumowanie kwartalne"
+      },
+      "stripeTestUrl": "https://buy.stripe.com/test_7sYaEXag4d1ugwO7zk1Fe05",
+      "stripeLiveUrl": "https://buy.stripe.com/test_7sYaEXag4d1ugwO7zk1Fe05"
+    },
+    {
+      "id": "full-monitoring-suite",
+      "price": 69,
+      "currency": "EUR",
+      "recurring": "month",
+      "featured": true,
+      "title": {
+        "en": "Full Monitoring Suite",
+        "sk": "Kompletný Monitoring Balík",
+        "de": "Vollständige Monitoring-Suite",
+        "pl": "Pełny Pakiet Monitoringu"
+      },
+      "subtitle": {
+        "en": "GEO Monitoring + Compliance Watch combined with priority support",
+        "sk": "Kombinácia GEO monitoringu a Compliance Watch s prioritnou podporou",
+        "de": "GEO-Monitoring + Compliance Watch kombiniert mit Prioritäts-Support",
+        "pl": "Monitoring GEO + Compliance Watch w połączeniu z priorytetovým wsparciem"
+      },
+      "delivery": {
+        "en": "Weekly & monthly reports · Direct Slack/Telegram channel",
+        "sk": "Týždenné a mesačné reporty · Priamy Slack/Telegram kanál",
+        "de": "Wöchentliche und monatliche Berichte · Direkter Kanal",
+        "pl": "Cotygodniowe i miesięczne raporty · Bezpośredni kanał"
+      },
+      "stripeTestUrl": "https://buy.stripe.com/test_4gM3cv87W3qU80i9Hs1Fe06",
+      "stripeLiveUrl": "https://buy.stripe.com/test_4gM3cv87W3qU80i9Hs1Fe06"
     }
   ]
 }

@@ -1421,8 +1421,9 @@ transform: scale(1.03);
 .service-cta { padding-top: 20px; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
 .service-cta p { margin: 0; font-size: 0.85rem; color: var(--color-text-muted); }
 .service-cta strong { color: var(--color-primary); }
-.btn-primary { display: inline-block; padding: 10px 24px; background: var(--color-primary); color: #08080F; font-weight: 600; font-size: 0.85rem; border-radius: var(--radius-sm); text-decoration: none; transition: background 0.3s; }
+.btn-primary { display: inline-block; padding: 10px 24px; background: var(--color-primary); color: #08080F; font-weight: 600; font-size: 0.85rem; border-radius: var(--radius-sm); text-decoration: none; transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), background 0.2s ease, box-shadow 0.2s ease; cursor: pointer; border: none; }
 .btn-primary:hover { background: var(--color-accent); }
+.btn-primary:active { transform: scale(0.96); }
 .btn-large { padding: 14px 32px; font-size: 1rem; }
 .cta-box { text-align: center; padding: 48px 32px; background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); }
 .cta-box h2 { font-size: 1.5rem; color: var(--color-primary); margin: 0 0 12px; }

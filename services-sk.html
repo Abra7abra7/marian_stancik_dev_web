@@ -158,7 +158,7 @@
   padding: 36px 32px;
   position: relative;
   overflow: hidden;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
   display: flex;
   flex-direction: column;
 }
@@ -300,7 +300,7 @@
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.2s ease, background 0.2s ease;
   box-sizing: border-box;
   text-align: center;
 }
@@ -308,6 +308,9 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(205,127,50,0.35);
   color: #08080F;
+}
+.btn-stripe:active, .btn-secondary-order:active {
+  transform: scale(0.96);
 }
 .btn-secondary-order {
   display: block;
@@ -567,6 +570,80 @@
       </div>
     </div>
 
+    <!-- PRODUKT 5: GEO MONITORING -->
+    <div class="pricing-card fade-in">
+      <div class="pricing-card-header">
+        <span class="card-pill-tag">🔄 Týždenné Auto-Scany</span>
+        <h2>GEO Monitoring</h2>
+        <p class="pricing-card-desc">Týždenné automatické pre-skenovanie AI vyhľadateľnosti. Real-time alerty pri poklese skóre.</p>
+      </div>
+      <div class="pricing-amount">
+        <span class="price-currency">€</span>
+        <span class="price-value">49</span>
+        <span class="price-term">/ mesiac</span>
+      </div>
+      <ul class="features-list">
+        <li><span class="check-icon">✓</span> <span><strong>Týždenné GEO scany</strong> tvojej domény</span></li>
+        <li><span class="check-icon">✓</span> <span><strong>Prehľad trendov</strong> a historického skóre</span></li>
+        <li><span class="check-icon">✓</span> <span><strong>Automatické alerty</strong> pri poklese skóre &gt;10%</span></li>
+        <li><span class="check-icon">✓</span> <span><strong>E-mailové reporty</strong> s históriou zmien</span></li>
+      </ul>
+      <div class="pricing-actions">
+        <button class="btn-stripe" style="border:none;cursor:pointer;width:100%;" onclick="openStripeCheckout('GEO Monitoring', 49, 'geo-monitoring')">
+          Predplatiť za €49/mes. →
+        </button>
+      </div>
+    </div>
+
+    <!-- PRODUKT 6: COMPLIANCE WATCH -->
+    <div class="pricing-card fade-in">
+      <div class="pricing-card-header">
+        <span class="card-pill-tag">⚖️ Regulačné Alerty</span>
+        <h2>Compliance Watch</h2>
+        <p class="pricing-card-desc">Sledovanie zmien v EU AI Act, GDPR a NIS2. Upozornenia, ak nová legislatíva ovplyvní tvoj web.</p>
+      </div>
+      <div class="pricing-amount">
+        <span class="price-currency">€</span>
+        <span class="price-value">29</span>
+        <span class="price-term">/ mesiac</span>
+      </div>
+      <ul class="features-list">
+        <li><span class="check-icon">✓</span> <span><strong>Denné kontroly</strong> legislatívnych zmien a metodík</span></li>
+        <li><span class="check-icon">✓</span> <span><strong>Impact alerty</strong> pri novelách týkajúcich sa tvojho webu</span></li>
+        <li><span class="check-icon">✓</span> <span><strong>Kvartálny súhrnný compliance report</strong></span></li>
+      </ul>
+      <div class="pricing-actions">
+        <button class="btn-stripe" style="border:none;cursor:pointer;width:100%;" onclick="openStripeCheckout('Compliance Watch', 29, 'compliance-watch')">
+          Predplatiť za €29/mes. →
+        </button>
+      </div>
+    </div>
+
+    <!-- PRODUKT 7: FULL MONITORING SUITE (FEATURED) -->
+    <div class="pricing-card featured fade-in">
+      <span class="pricing-ribbon">🔥 Najlepšia hodnota</span>
+      <div class="pricing-card-header">
+        <span class="card-pill-tag">🎯 Kompletné Pokrytie</span>
+        <h2>Full Monitoring Suite</h2>
+        <p class="pricing-card-desc">GEO Monitoring + Compliance Watch spoločne v jednom balíku s prioritnou podporou.</p>
+      </div>
+      <div class="pricing-amount">
+        <span class="price-currency">€</span>
+        <span class="price-value">69</span>
+        <span class="price-term">/ mesiac</span>
+      </div>
+      <ul class="features-list">
+        <li><span class="check-icon">✓</span> <span><strong>GEO Monitoring</strong> (hodnota €49/mes.)</span></li>
+        <li><span class="check-icon">✓</span> <span><strong>Compliance Watch</strong> (hodnota €29/mes.)</span></li>
+        <li><span class="check-icon">✓</span> <span><strong>Prioritná podpora</strong> &amp; priamy Slack/Telegram kanál</span></li>
+      </ul>
+      <div class="pricing-actions">
+        <button class="btn-stripe" style="border:none;cursor:pointer;width:100%;" onclick="openStripeCheckout('Full Monitoring Suite', 69, 'full-suite')">
+          Predplatiť za €69/mes. →
+        </button>
+      </div>
+    </div>
+
     <!-- PRODUKT 4: VLASTNÝ AI AGENT -->
     <div class="pricing-card fade-in">
       <div class="pricing-card-header">
@@ -791,12 +868,16 @@
 <script src="/js/i18n.js?v=20260908_v6"></script>
 
 <script>
-// Live Stripe Payment Links pre marianstancik.dev sandbox
-const STRIPE_LINKS = {
-  'AI GEO Audit': 'https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800',
-  'AI Web Readiness Scan': 'https://buy.stripe.com/test_28E6oJesU80O9cx4SV28801',
-  'Full Web Audit (GEO + Readiness)': 'https://buy.stripe.com/test_8x27sN70s4OC88tdpr28802',
-  'Custom Agent Deposit': 'https://buy.stripe.com/test_aFaaEZ1G880O88tdpr28803'
+// Centralizované smerovanie objednávok a Stripe platieb (Stripe Payment Links)
+const PRODUCTS = {
+  'AI GEO Audit': { price: 199, stripeUrl: 'https://buy.stripe.com/test_3cI9AT73SaTmfsKcTE1Fe00' },
+  'AI Web Readiness Scan': { price: 200, stripeUrl: 'https://buy.stripe.com/test_4gMdR93RG9Pi2FYf1M1Fe01' },
+  'Full Web Audit (GEO + Readiness)': { price: 300, stripeUrl: 'https://buy.stripe.com/test_fZu9ATbk8bXq4O6dXI1Fe02' },
+  'GEO Monitoring': { price: 49, stripeUrl: 'https://buy.stripe.com/test_cNi8wPdsg5z2fsK1aW1Fe04' },
+  'Compliance Watch': { price: 29, stripeUrl: 'https://buy.stripe.com/test_7sYaEXag4d1ugwO7zk1Fe05' },
+  'Full Monitoring Suite': { price: 69, stripeUrl: 'https://buy.stripe.com/test_4gM3cv87W3qU80i9Hs1Fe06' },
+  'Záloha za Vlastného Agenta': { price: 500, stripeUrl: 'https://buy.stripe.com/test_eVq5kD0Fu7Ha1BU7zk1Fe03' },
+  'Custom Agent Deposit': { price: 500, stripeUrl: 'https://buy.stripe.com/test_eVq5kD0Fu7Ha1BU7zk1Fe03' }
 };
 
 let currentCheckoutProduct = '';
@@ -819,61 +900,47 @@ function openStripeCheckout(title, price, linkKey) {
 
 function closeStripeModal(e) {
   document.getElementById('stripeModal').style.display = 'none';
+  document.getElementById('modalStepForm').style.display = 'block';
+  document.getElementById('modalSubmitBtn').disabled = false;
 }
 
-function handleStripeRedirect(e) {
+async function handleStripeRedirect(e) {
   e.preventDefault();
   const email = document.getElementById('stripeEmail').value.trim();
   const url = document.getElementById('stripeUrl').value.trim();
-  const notes = document.getElementById('stripeNotes').value.trim();
-  
+  const notes = document.getElementById('stripeNotes')?.value.trim() || '';
+  const prod = PRODUCTS[currentCheckoutProduct] || { price: currentCheckoutPrice, stripeUrl: 'https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800' };
+
+  if (!email || !url) return alert('Prosím zadajte e-mail a URL vášho webu.');
+
   const btn = document.getElementById('modalSubmitBtn');
-  btn.textContent = 'Presmerovávam na Stripe Checkout...';
+  btn.textContent = 'Presmerovávam na zabezpečenú platbu...';
   btn.disabled = true;
 
-  // Submit lead data to API and create order in geo-pipeline
-  fetch('/api/subscribe', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      email: email,
-      source: 'product_order',
-      product: currentCheckoutProduct,
-      price: currentCheckoutPrice,
-      website: url,
-      notes: notes,
-      consent_terms: true,
-      consent_withdrawal_waiver: true
-    })
-  }).catch(() => {}).then(() => {
-    const productIds = {
-      'AI GEO Audit': 'geo-audit',
-      'AI Web Readiness Scan': 'web-readiness',
-      'Full Web Audit (GEO + Readiness)': 'full-combo',
-      'Custom Agent Deposit': 'custom-agent',
-      'Záloha za Vlastného Agenta': 'custom-agent'
-    };
-    const pid = productIds[currentCheckoutProduct] || 'geo-audit';
-    
-    fetch('https://geo.marianstancik.dev/geo/order', {
+  try {
+    // 1. Zaznamenanie objednávky a notifikácia cez Vercel Edge -> AgentMail & CRM
+    await fetch('/api/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        product_id: pid,
-        client_name: email.split('@')[0],
-        client_email: email,
-        client_url: url,
-        notes: notes
+        email: email,
+        source: 'product_order',
+        product: currentCheckoutProduct,
+        price: prod.price,
+        website: url,
+        notes: notes,
+        consent_terms: true,
+        consent_withdrawal_waiver: true
       })
-    }).then(r => r.json()).then(order => {
-      const liveLink = order.stripe_url || STRIPE_LINKS[currentCheckoutProduct] || 'https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800';
-      const successUrl = `https://marianstancik.dev/geo/success?order_id=${order.order_id}`;
-      window.location.href = liveLink;
-    }).catch(() => {
-      const liveLink = STRIPE_LINKS[currentCheckoutProduct] || 'https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800';
-      window.location.href = liveLink;
     });
-  });
+  } catch (err) {
+    console.warn('Lead capture notification notice:', err);
+  }
+
+  // 2. Bezpečné priame presmerovanie na Stripe Payment Link s predvyplneným e-mailom
+  const baseLink = prod.stripeUrl || 'https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800';
+  const sep = baseLink.includes('?') ? '&' : '?';
+  window.location.href = baseLink + sep + 'prefilled_email=' + encodeURIComponent(email);
 }
 </script>
 </body>

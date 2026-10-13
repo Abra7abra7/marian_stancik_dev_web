@@ -79,10 +79,10 @@ def test_api_product_order():
 def test_stripe_links():
     print("\n--- 4. Testing Stripe Payment Links ---")
     stripe_links = [
-        ("AI GEO Audit (€199)", "https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800"),
-        ("AI Web Readiness Scan (€200)", "https://buy.stripe.com/test_28E6oJesU80O9cx4SV28801"),
-        ("Full Web Audit (€300)", "https://buy.stripe.com/test_8x27sN70s4OC88tdpr28802"),
-        ("Custom Agent Deposit (€500)", "https://buy.stripe.com/test_aFaaEZ1G880O88tdpr28803")
+        ("AI GEO Audit (€199)", "https://buy.stripe.com/test_3cI9AT73SaTmfsKcTE1Fe00"),
+        ("AI Web Readiness Scan (€200)", "https://buy.stripe.com/test_4gMdR93RG9Pi2FYf1M1Fe01"),
+        ("Full Web Audit (€300)", "https://buy.stripe.com/test_fZu9ATbk8bXq4O6dXI1Fe02"),
+        ("Custom Agent Deposit (€500)", "https://buy.stripe.com/test_eVq5kD0Fu7Ha1BU7zk1Fe03")
     ]
     for name, url in stripe_links:
         try:
