@@ -1,8 +1,15 @@
 // Cloudflare Pages Middleware — Content Negotiation & Edge Routing
 export async function onRequest(context) {
   const { request, next } = context;
-  const accept = request.headers.get('accept') || '';
   const url = new URL(request.url);
+
+  // Apex domain redirect to www canonical
+  if (url.hostname === 'marianstancik.dev') {
+    url.hostname = 'www.marianstancik.dev';
+    return Response.redirect(url.toString(), 308);
+  }
+
+  const accept = request.headers.get('accept') || '';
 
   // Markdown content negotiation for AI engines (llmstxt / Accept: text/markdown)
   if (accept.includes('text/markdown')) {
@@ -18,12 +25,6 @@ export async function onRequest(context) {
         return context.env.ASSETS.fetch(new URL(`${cleanPath}.md`, request.url));
       }
     }
-  }
-
-  // Trailing slash normalization: remove trailing slash if not root
-  if (url.pathname.length > 1 && url.pathname.endsWith('/')) {
-    url.pathname = url.pathname.slice(0, -1);
-    return Response.redirect(url.toString(), 308);
   }
 
   return await next();
