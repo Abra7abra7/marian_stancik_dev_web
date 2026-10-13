@@ -1,0 +1,4 @@
+/posts/:slug /blog/posts/:slug 301
+/posts/:slug.html /blog/posts/:slug 301
+/lead-magnet/* / 301
+/lead-magnet / 301

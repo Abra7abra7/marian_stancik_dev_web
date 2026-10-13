@@ -23,7 +23,12 @@ def test_api_newsletter():
         "source": "newsletter_test"
     }
     data = json.dumps(payload).encode('utf-8')
-    req = urllib.request.Request(API_URL, data=data, headers={"Content-Type": "application/json", "Origin": "https://www.marianstancik.dev"}, method="POST")
+    headers = {
+        "Content-Type": "application/json",
+        "Origin": "https://www.marianstancik.dev",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) MarianStancikTest/1.0"
+    }
+    req = urllib.request.Request(API_URL, data=data, headers=headers, method="POST")
     try:
         with urllib.request.urlopen(req, timeout=15, context=ctx) as resp:
             body = json.loads(resp.read().decode('utf-8'))
@@ -43,7 +48,12 @@ def test_api_contact_form():
         "source": "contact_form"
     }
     data = json.dumps(payload).encode('utf-8')
-    req = urllib.request.Request(API_URL, data=data, headers={"Content-Type": "application/json", "Origin": "https://www.marianstancik.dev"}, method="POST")
+    headers = {
+        "Content-Type": "application/json",
+        "Origin": "https://www.marianstancik.dev",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) MarianStancikTest/1.0"
+    }
+    req = urllib.request.Request(API_URL, data=data, headers=headers, method="POST")
     try:
         with urllib.request.urlopen(req, timeout=15, context=ctx) as resp:
             body = json.loads(resp.read().decode('utf-8'))
@@ -65,7 +75,12 @@ def test_api_product_order():
         "source": "product_order"
     }
     data = json.dumps(payload).encode('utf-8')
-    req = urllib.request.Request(API_URL, data=data, headers={"Content-Type": "application/json", "Origin": "https://www.marianstancik.dev"}, method="POST")
+    headers = {
+        "Content-Type": "application/json",
+        "Origin": "https://www.marianstancik.dev",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) MarianStancikTest/1.0"
+    }
+    req = urllib.request.Request(API_URL, data=data, headers=headers, method="POST")
     try:
         with urllib.request.urlopen(req, timeout=15, context=ctx) as resp:
             body = json.loads(resp.read().decode('utf-8'))

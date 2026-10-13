@@ -110,7 +110,15 @@ def main():
     ]:
         url = f"https://www.marianstancik.dev{endpoint}"
         try:
-            req = urllib.request.Request(url, data=payload.encode(), headers={"Content-Type": "application/json"}, method="POST")
+            req = urllib.request.Request(
+                url,
+                data=payload.encode(),
+                headers={
+                    "Content-Type": "application/json",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) MarianStancikVerify/1.0"
+                },
+                method="POST"
+            )
             resp = urllib.request.urlopen(req, timeout=10)
             body = json.loads(resp.read().decode())
             if body.get("status") == "ok":
