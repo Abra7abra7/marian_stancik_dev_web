@@ -830,7 +830,16 @@ const translations = {
 
 let currentLang = 'en';
 try {
-  currentLang = localStorage.getItem('ms_lang') || 'en';
+  const path = window.location.pathname;
+  if (path.endsWith('-sk') || path.endsWith('-sk.html') || path.includes('/sk/')) {
+    currentLang = 'sk';
+  } else if (path.includes('/de/')) {
+    currentLang = 'de';
+  } else if (path.includes('/pl/')) {
+    currentLang = 'pl';
+  } else {
+    currentLang = localStorage.getItem('ms_lang') || document.documentElement.lang || 'en';
+  }
   if (!translations[currentLang]) currentLang = 'en';
 } catch (e) {
   currentLang = 'en';
@@ -842,6 +851,40 @@ function switchLanguage(lang) {
   try {
     localStorage.setItem('ms_lang', lang);
   } catch(e) {}
+
+  // Intelligent URL routing for language-specific static subpages
+  if (typeof window !== 'undefined' && window.location) {
+    const path = window.location.pathname;
+    const pairedPages = ['services', 'privacy', 'terms', 'disclaimer'];
+    for (const page of pairedPages) {
+      if (path === `/${page}` || path === `/${page}.html`) {
+        if (lang === 'sk') {
+          window.location.href = `/${page}-sk`;
+          return;
+        }
+      } else if (path === `/${page}-sk` || path === `/${page}-sk.html`) {
+        if (lang !== 'sk') {
+          window.location.href = `/${page}`;
+          return;
+        }
+      }
+    }
+
+    // Blog article localized routing
+    if (path.includes('/blog/posts/')) {
+      const cleanSlug = path.replace(/^\/blog\/posts\//, '').replace(/^(sk|de|pl)\//, '').replace(/\.html$/, '');
+      if (cleanSlug) {
+        if (lang === 'en') {
+          window.location.href = `/blog/posts/${cleanSlug}`;
+          return;
+        } else {
+          window.location.href = `/blog/posts/${lang}/${cleanSlug}`;
+          return;
+        }
+      }
+    }
+  }
+
   applyTranslations();
   if (typeof loadDynamicPostsHome === 'function') loadDynamicPostsHome();
   if (typeof renderBlogIndexPosts === 'function') renderBlogIndexPosts();
@@ -925,6 +968,25 @@ function applyTranslations() {
         el.textContent = val;
       }
     }
+  });
+
+  // 5. Dynamic link routing according to active language
+  const targetServicesHref = currentLang === 'sk' ? '/services-sk' : '/services';
+  document.querySelectorAll('a[href="/services"], a[href="/services-sk"], #navProducts, #navServices, .home-prod-card').forEach(el => {
+    if (el.tagName === 'A') {
+      const h = el.getAttribute('href');
+      if (h === '/services' || h === '/services-sk') {
+        el.setAttribute('href', targetServicesHref);
+      }
+    }
+  });
+
+  const legalPages = ['privacy', 'terms', 'disclaimer'];
+  legalPages.forEach(p => {
+    const targetHref = currentLang === 'sk' ? `/${p}-sk` : `/${p}`;
+    document.querySelectorAll(`a[href="/${p}"], a[href="/${p}-sk"]`).forEach(el => {
+      el.setAttribute('href', targetHref);
+    });
   });
 }
 

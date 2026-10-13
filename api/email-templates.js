@@ -3,8 +3,7 @@
 
 const PROFILE_IMG = 'https://www.marianstancik.dev/profile.webp';
 
-module.exports = {
-
+const emailTpl = {
   // Unified luxury shell for all outgoing branded emails
   _shell(title, contentHtml, persona = 'company') {
     const isCompany = false;
@@ -69,12 +68,13 @@ body { background: #05050A; color: #F0F0F5; padding: 24px 10px; }
   </div>
   <div class="footer">
     <strong>Marián Stančík</strong> — fyzická osoba, podnikateľ (živnostník) · Černákova 2046/8, 977 01 Brezno · IČO: 57068917 · DIČ: 1082585075<br>
-    Tento systém využíva asistenciu autonómnych AI agentov podľa čl. 50 EU AI Act.
+    Tento systém využíva asistenciu autonómnych AI agentov podľa čl. 50 EU AI Act.<br>
+    <span style="color:#64748B; font-size:10.5px; display:inline-block; margin-top:6px;">Tento e-mail ste dostali na základe udeleného súhlasu na marianstancik.dev. Odber môžete kedykoľvek bezplatne zrušiť: <a href="mailto:marianstancik@agentmail.to?subject=Unsubscribe%20Newsletter" style="color:#CD7F32; text-decoration:underline;">Odhlásiť sa z odberu</a>.</span>
   </div>
 </div></body></html>`;
   },
 
-  // ── NEWSLETTER WELCOME ──
+  // NEWSLETTER WELCOME
   welcome(name = '', source = 'web') {
     const content = `<p>Ahoj${name ? ' ' + name : ''},</p>
 <p>ďakujem za prihlásenie k odberu technických AI noviniek a architektonických analýz.</p>
@@ -89,7 +89,7 @@ body { background: #05050A; color: #F0F0F5; padding: 24px 10px; }
     return this._shell('Vitaj v komunitnom AI newslettri', content, 'personal');
   },
 
-  // ── ORDER CONFIRMATION ──
+  // ORDER CONFIRMATION
   orderConfirmation(name, product, price, website = '') {
     const content = `<p>Ahoj ${name},</p>
 <p>ďakujem za tvoju objednávku. Nižšie nájdeš potvrdené zhrnutie a ďalšie kroky realizácie.</p>
@@ -109,7 +109,7 @@ ${website ? `<div class="metric-box"><strong style="color:#E8B86D;">Cieľový we
     return this._shell(`Potvrdenie objednávky: ${product}`, content, 'company');
   },
 
-  // ── CONTACT CONFIRMATION ──
+  // CONTACT CONFIRMATION
   contactConfirmation(name = '', message = '') {
     const content = `<p>Ahoj${name ? ' ' + name : ''},</p>
 <p>ďakujem za tvoju správu. Prijal som ju v poriadku a odpovedám do 24 hodín.</p>
@@ -118,7 +118,7 @@ ${message ? `<blockquote style="border-left:3px solid #CD7F32; padding:12px 18px
     return this._shell('Potvrdenie prijatia správy', content, 'personal');
   },
 
-  // ── INVOICE ──
+  // INVOICE
   invoice(name, product, price, invoiceNum, pdfUrl) {
     const content = `<p>Ahoj ${name},</p>
 <p>v prílohe tohto e-mailu nájdeš oficiálnu faktúru za <strong>${product}</strong>.</p>
@@ -137,7 +137,7 @@ ${message ? `<blockquote style="border-left:3px solid #CD7F32; padding:12px 18px
     return this._shell(`FAKTÚRA č. ${invoiceNum}`, content, 'company');
   },
 
-  // ── AUDIT DELIVERY ──
+  // AUDIT DELIVERY
   auditDelivery(name, website, score, pdfUrl, auditType = 'AI GEO Audit') {
     const content = `<p>Ahoj ${name},</p>
 <p>technická analýza domény <strong style="color:#E8B86D;">${website}</strong> bola úspešne dokončená. Nižšie uvádzam zhrnutie kľúčových metrík.</p>
@@ -161,9 +161,7 @@ ${message ? `<blockquote style="border-left:3px solid #CD7F32; padding:12px 18px
     return this._shell(`Výsledky auditu: ${website} (${score}/100)`, content, 'company');
   },
 
-  // ── FOLLOW-UP (7 days after newsletter signup) ──
-  // CHYBALA: crm-email.js volal emailTpl.followup(), ktora neexistovala ->
-  // "_emailTemplates.default.followup is not a function" a follow-up nikdy neodisiel.
+  // FOLLOW-UP (7 days after newsletter signup)
   followup(name = '') {
     const content = `<p>Ahoj${name ? ' ' + name : ''},</p>
 <p>od prihlásenia k odberu prešiel týždeň — nižšie je to najpodstatnejšie, čo medzitým vyšlo.</p>
@@ -177,9 +175,9 @@ ${message ? `<blockquote style="border-left:3px solid #CD7F32; padding:12px 18px
     return this._shell('Čo sa udialo za posledný týždeň', content, 'personal');
   },
 
-  // ── PLAIN TEXT FALLBACKS ──
+  // PLAIN TEXT FALLBACKS
   welcomeText() {
-    return `MARIAN STANCIK — HERMES AGENT\n\nVitaj v newslettri!\nBlog: https://www.marianstancik.dev/blog\n\nS pozdravom, Marian Stancik`;
+    return `MARIAN STANCIK — HERMES AGENT\n\nVitaj v newslettri!\nBlog: https://www.marianstancik.dev/blog\n\nOdber môžete kedykoľvek bezplatne odhlásiť zaslaním odpovede na marianstancik@agentmail.to s predmetom 'Unsubscribe'.\n\nS pozdravom, Marian Stancik`;
   },
   orderConfirmationText(name, product, price, website = '', notes = '') {
     return `MARIAN STANCIK — AI AGENT DEVELOPER\n\nAhoj ${name},\nĎakujem za objednávku: ${product} (${price ? '€' + price : 'Na mieru'}).\nWeb: ${website}\n\nS pozdravom, Marian Stancik`;
@@ -195,3 +193,5 @@ ${message ? `<blockquote style="border-left:3px solid #CD7F32; padding:12px 18px
     return `MARIAN STANCIK — AI AUDIT REPORT\n\nAhoj ${name},\naudit pre ${website} je pripravený.\nSkóre: ${score}/100\nStiahnuť PDF: ${pdfUrl}\n\n--\nMarian Stancik`;
   }
 };
+
+export default emailTpl;

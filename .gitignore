@@ -20,3 +20,4 @@ logo-ascentia.png
 profile-big.png
 *.png
 !images/ig/*.jpg
+.wrangler/

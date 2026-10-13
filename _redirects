@@ -2,3 +2,4 @@
 /posts/:slug.html /blog/posts/:slug 301
 /lead-magnet/* / 301
 /lead-magnet / 301
+/subscribe /#leadForm 302
