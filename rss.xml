@@ -4,7 +4,14 @@
     <title>Marian Stancik — Blog</title>
     <link>https://marianstancik.dev/blog/</link>
     <description>AI agents, autonomous systems, law & tech, and building in public.</description>
-    <lastBuildDate>2026-10-10</lastBuildDate>
+    <lastBuildDate>2026-10-14</lastBuildDate>
+    <item>
+      <title>Ruflo, 74K Stars in 24 Hours: What Queen-Led Agent Swarms Mean for Production Multi-Agent Architecture — Marian Stancik</title>
+      <link>https://marianstancik.dev/blog/posts/2026-10-14-ruflo-queen-led-agent-swarms</link>
+      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-10-14-ruflo-queen-led-agent-swarms</guid>
+      <pubDate>2026-10-14</pubDate>
+      <description>Cognitum One released Ruflo on October 13, 2026 — 74,000 GitHub stars in 24 hours, 314 MCP tools, queen-led agent swarms. Analysis of the architecture and what it means for production multi-agent systems.</description>
+    </item>
     <item>
       <title>Cisco AgenticOps Report: 51% of Enterprises Already Run Autonomous AI Agents in Production — Marian Stancik</title>
       <link>https://marianstancik.dev/blog/posts/2026-10-10-cisco-agenticops-agent-driven-enterprise</link>
@@ -67,13 +74,6 @@
       <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-09-mcp-stateless-protocol</guid>
       <pubDate>2026-09-09</pubDate>
       <description>The Model Context Protocol's biggest revision yet — stateless core, header-based routing, MRTR, OpenTelemetry, and how it changes autonomous agent infrastructure.</description>
-    </item>
-    <item>
-      <title>Autonomous Multi-Agent Systems on European Cloud — Marian Stancik</title>
-      <link>https://marianstancik.dev/blog/posts/2026-09-08-autonomous-multi-agent-systems-on-european-cloud</link>
-      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-08-autonomous-multi-agent-systems-on-european-cloud</guid>
-      <pubDate>2026-09-08</pubDate>
-      <description>Architecture, GDPR data sovereignty, and 24/7 orchestration of autonomous agents on European VPS infrastructure.</description>
     </item>
   </channel>
 </rss>
