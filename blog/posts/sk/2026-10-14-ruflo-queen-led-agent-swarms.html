@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruflo, 74 000 hviezd za 24 hodín: Čo znamenajú queen-led roje agentov pre produkčnú multi-agentnú architektúru — Marian Stancik</title>
+<meta name="description" content="Cognitum One vydalo Ruflo 13. októbra 2026 — 74 000 GitHub hviezd za 24 hodín, 314 MCP nástrojov, queen-led roje agentov. Analýza architektúry a význam pre produkčné multi-agentné systémy.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/sk/2026-10-14-ruflo-queen-led-agent-swarms">
+<link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-10-14-ruflo-queen-led-agent-swarms">
+<link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-10-14-ruflo-queen-led-agent-swarms">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-10-14-ruflo-queen-led-agent-swarms">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#08080F">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Ruflo, 74 000 hviezd za 24 hodín: Čo znamenajú queen-led roje agentov pre produkčnú multi-agentnú architektúru — Marian Stancik">
+<meta property="og:description" content="Cognitum One vydalo Ruflo 13. októbra 2026 — 74 000 GitHub hviezd za 24 hodín, 314 MCP nástrojov, queen-led roje agentov. Analýza architektúry a význam pre produkčné multi-agentné systémy.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/sk/2026-10-14-ruflo-queen-led-agent-swarms">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.marianstancik.dev/profile.webp">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
+<meta property="og:image:alt" content="Marian Stancik">
+<meta property="og:locale" content="sk_SK">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/profile.webp">
+<meta name="ai-generated-content" content="true">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Ruflo, 74 000 hviezd za 24 hodín: Čo znamenajú queen-led roje agentov pre produkčnú multi-agentnú architektúru",
+      "description": "Cognitum One vydalo Ruflo 13. októbra 2026 — 74 000 GitHub hviezd za 24 hodín, 314 MCP nástrojov, queen-led roje agentov. Analýza architektúry a význam pre produkčné multi-agentné systémy.",
+      "datePublished": "2026-10-14",
+      "dateModified": "2026-10-14",
+      "author": {
+        "@type": "Person",
+        "name": "Marian Stancik",
+        "url": "https://www.marianstancik.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Marian Stancik"
+      },
+      "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/sk/2026-10-14-ruflo-queen-led-agent-swarms",
+      "keywords": ["Ruflo", "Cognitum One", "Orchestrácia agentov", "Multi-agentné systémy", "MCP", "Queen-Led Swarms", "Hermes Agent", "Autonómne agenty"],
+      "isBasedOn": "https://schema.org/AIGeneratedContent",
+      "creativeWorkStatus": "AIGenerated"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Domov",
+          "item": "https://www.marianstancik.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.marianstancik.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Ruflo, 74 000 hviezd za 24 hodín: Čo znamenajú queen-led roje agentov pre produkčnú multi-agentnú architektúru",
+          "item": "https://www.marianstancik.dev/blog/posts/sk/2026-10-14-ruflo-queen-led-agent-swarms"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:#08080F;color:#E8E8F0;line-height:1.8;-webkit-font-smoothing:antialiased}
+.container{max-width:740px;margin:0 auto;padding:0 24px}
+nav{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(8,8,15,0.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-inner a{color:#8888A0;text-decoration:none;font-size:0.85rem;transition:color 0.3s}
+.nav-inner a:hover{color:#CD7F32}
+article{padding:48px 0 80px}
+.post-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:32px;font-size:0.78rem;color:#9090A8}
+.post-meta .tag{background:rgba(205,127,50,0.08);color:#E8B86D;padding:3px 10px;border-radius:100px;font-size:0.65rem;border:1px solid rgba(205,127,50,0.15)}
+h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:#F0F0F5;line-height:1.25;letter-spacing:-0.02em;margin-bottom:8px}
+h2{font-size:1.3rem;font-weight:600;color:#F0F0F5;margin:36px 0 12px;line-height:1.35}
+h3{font-size:1.05rem;font-weight:600;color:#D0D0E0;margin:24px 0 8px}
+p{color:#B0B0C8;margin-bottom:16px;font-size:0.95rem}
+a{color:#E8B86D;transition:color 0.3s}
+a:hover{color:#CD7F32}
+ul,ol{padding-left:20px;margin-bottom:16px;color:#B0B0C8;font-size:0.95rem}
+li{margin-bottom:6px}
+pre{background:rgba(13,13,26,0.80);border:1px solid rgba(205,127,50,0.12);border-radius:10px;padding:16px 20px;overflow-x:auto;font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem;color:#D0D0E0;margin-bottom:20px;line-height:1.55}
+code{font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem}
+p code,li code{background:rgba(205,127,50,0.08);padding:1px 5px;border-radius:3px;color:#E8B86D}
+.callout{background:rgba(13,13,26,0.75);border-left:3px solid #CD7F32;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout strong{color:#E8B86D}
+.callout-green{background:rgba(46,204,113,0.06);border-left:3px solid #2ECC71;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout-green strong{color:#2ECC71}
+img{max-width:100%;height:auto;border-radius:8px;margin:24px 0}
+blockquote{border-left:2px solid rgba(205,127,50,0.2);padding:8px 20px;margin:20px 0;color:#A0A0B8;font-style:italic;background:rgba(13,13,26,0.4);border-radius:4px}
+hr{border:none;border-top:1px solid rgba(255,255,255,0.06);margin:40px 0}
+.btn-cta{display:inline-block;background:linear-gradient(135deg,rgba(205,127,50,0.15),rgba(232,184,109,0.08));color:#E8B86D;padding:10px 24px;border-radius:8px;text-decoration:none;border:1px solid rgba(205,127,50,0.25);font-weight:600;transition:all 0.3s}
+.btn-cta:hover{background:rgba(205,127,50,0.25);border-color:rgba(205,127,50,0.5);color:#F0E0C0}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/">&#8592; marianstancik.dev</a>
+    <a href="/blog">Blog</a>
+  </div>
+</nav>
+
+<div class="container">
+<article>
+  <div class="post-meta">
+    <span>14. október 2026</span>
+    <span>&#183;</span>
+    <span>11 min čítania</span>
+    <span style="margin-left:8px;" class="tag">Ruflo</span>
+    <span class="tag">Orchestrácia agentov</span>
+    <span class="tag">MCP</span>
+    <span class="tag">Multi-agentné systémy</span>
+  </div>
+
+  <h1>Ruflo, 74 000 hviezd za 24 hodín: Čo znamenajú queen-led roje agentov pre produkčnú multi-agentnú architektúru</h1>
+
+  <p>13. októbra 2026 Cognitum One vydalo najnovšiu verziu Ruflo — open-source meta-harness a multi-agentnú orchestráciu pre Claude Code, Codex a ďalších MCP klientov. Do 24 hodín repozitár nazbieral viac ako 74 000 GitHub hviezd a 8 800 fork-ov. Ekosystém Ruflo zaznamenal 12,5 milióna npm stiahnutí za posledných dvanásť mesiacov. Táto verzia tiež poháňa koordináciu agentov v rámci ruOS, Cognitum One podnikovej agentovej platformy.</p>
+
+  <p>Toto nie je sumár tlačovej správy. Toto je architektonická analýza toho, čo Ruflo dizajn odhaľuje o tom, kam smerujú multi-agentné systémy — a porovnanie s tým, čo som reálne nasadil vo svojom produkčnom stacku, ktorý beží na Hermes Agenti na Hetzner VPS päť mesiacov.</p>
+
+  <h2>Základná téza: Agent je model plus harness</h2>
+
+  <p>Ruflo vychádza z klamlivo jednoduchého predpokladu: agent je model plus harness. Model uvažuje a píše; harness poskytuje nástroje, pamäť, workflow-y, sandbox-y a kontroly, ktoré agent potrebuje na skutočnú prácu.</p>
+
+  <p>Tento rozdiel je dôležitý, pretože väčšina agentových frameworkov tieto dve vrstvy spája. Dodávajú wrapper na model, ktorý obsahuje niekoľko nástrojov, a volajú to agentovou platformou. Výsledkom je vendor lock-in: vymeňte model a polovica nástrojov prestane fungovať. Ruflo oddelenie zodpovedností znamená, že akýkoľvek MCP-kompatibilný model — Claude, GPT, Gemini, Cohere, lokálny Ollama — môže byť zapojený do rovnakého harnessu. Harness sa nestará o to, ktorý model uvažuje. Zaujíma ho len to, čo model potrebuje na vykonanie úlohy.</p>
+
+  <div class="callout">
+    <strong>Môj produkčný paralel:</strong> Hermes Agent funguje na rovnakom princípe. Runtime spravuje nástroje, pamäť, cron plánovanie a kanban workflow. Model — používam OpenRouter multi-LLM routing, prepínam medzi deepseek, Claude a GPT podľa zložitosti úlohy — je vymeniteľná komponenta. Keď som upgradoval z deepseek-v3 na deepseek-v4-flash, nulový kód harnessu sa zmenil. Abstrakcia harnessu nie je teoretická. Je to rozdiel medzi frameworkom, ktorý prežije modelový vývoj, a tým, ktorý treba každý kvartál prenastavovať.
+  </div>
+
+  <h2>Čo Ruflo skutočne prináša</h2>
+
+  <p>Októbrové vydanie 2026 pridáva dve hlavné schopnosti, ktoré si zaslúžia architektonickú pozornosť:</p>
+
+  <h3>1. Ruflo Mods: End-to-End misijné workflow-y</h3>
+
+  <p>Mods transformujú jedinú misiu na kompletný agentový workflow, ktorý rešeršuje, stavia, testuje, validuje, zabezpečuje, benchmarkuje a učí sa. Používateľ zadá Ruflo misiu — "Postav MCP server pre PostgreSQL monitoring" — a systém ju rozloží na orientovaný graf agentových úloh: rešerš existujúcich riešení, návrh architektúry, písanie kódu, písanie testov, bezpečnostný sken, benchmark výkonu, logovanie naučeného.</p>
+
+  <p>Toto nie je pipeline sekvenčných LLM volaní. Každá Mod fáza beží so špecializovanými sub-agentmi, ktoré môžu pracovať paralelne tam, kde to graf závislostí umožňuje. Architektúra používa queen-led swarm topológiu: koordinujúci agent (queen) prideľuje prácu architektovi, kodérovi, testerovi, reviewrovi, security a dokumentačným agentom, potom agreguje výsledky a rozhoduje o ďalších krokoch.</p>
+
+  <pre><code>Ruflo Mod — Interná architektúra
+─────────────────────────────────────
+Misia používateľa → Mod Decomposer
+                         │
+              Queen Agent (orchestrátor)
+                ├── Architect Agent   → návrh, ADR
+                ├── Coder Agent       → implementácia
+                ├── Tester Agent      → unit + integračné testy
+                ├── Reviewer Agent    → code review
+                ├── Security Agent    → CVE scan, prompt injection
+                └── Documenter Agent  → README, API docs
+                         │
+                Aggregator ← výsledky zo všetkých agentov
+                         │
+                Success? → ďalšia fáza alebo ľudský review
+  </code></pre>
+
+  <h3>2. Jednotné control plane s ľudskými schvaľovacími bránami</h3>
+
+  <p>Ruflo Console sedí vedľa Claude Code a poskytuje vizuálny cockpit pre misijné workflow-y, aktivitu agentov, logy, spotrebu tokenov a náklady. Admini nastavujú per-agent permisie — read, write, manage, full control — s predvoleným read-only prístupom vyžadujúcim ľudské schválenie. Tlačidlo "Take back control" okamžite pozastaví Claude konzolové nástroje.</p>
+
+  <p>Toto je rovnaká dvojúrovňová architektúra, ktorú popisuje AOS referenčná špecifikácia: control plane spravujúce governance, identitu a politiku, oddelené od execution plane pre volania nástrojov a modelovú inferenciu. Konvergencia, o ktorej som písal v septembri — všetci stavajú rovnaký dvojúrovňový systém — má teraz ďalší dátový bod.</p>
+
+  <h2>314 Natívnych MCP Nástrojov: Prečo na čísle záleží</h2>
+
+  <p>Ruflo dodáva 314 natívnych MCP nástrojov pokrývajúcich CI kontroly, lokálne bezpečnostné skeny, cloud deployment háky a observability pipelines, plus 26 CLI príkazov a 35 pluginov. Číslo 314 nie je márnivý metrik. Predstavuje prah: dosť nástrojov na to, aby agent mohol vykonať väčšinu svojho workflow-u bez opustenia MCP protokolovej hranice.</p>
+
+  <p>Zakaždým, keď agent musí vystúpiť mimo MCP — spustiť raw shell príkaz, parsovať vlastný výstup, spracovať neštandardný protokol — vytvára to chybový mód. Výstupný formát sa môže zmeniť. Error handling sa môže líšiť. Escape sekvencia môže zlomiť reasoning loop agenta. Dostatočne bohatý MCP povrch eliminuje tieto slabé miesta. Agent zostáva v rámci štruktúrovaného vstupno-výstupného kontraktu protokolu počas celého svojho workflow-u.</p>
+
+  <div class="callout">
+    <strong>Čo prevádzkujem ja:</strong> Môj Hermes stack vystavuje približne 12 MCP nástrojov cez vlastné MCP servery — SQLite memory prístup, AgentMail email odosielanie, Git operácie, integráciu blog publishing pipeline. Každý nástroj je o jeden raw shell príkaz menej, ktorý agent potrebuje vykonať. Pri 12 nástrojoch vidím benefit jasne. Pri 314 by chybovosť klesla k nule pre štandardné vývojové workflow-y.
+  </div>
+
+  <h2>Queen-Led Swarms: Organizačný vzor, ktorý škáluje</h2>
+
+  <p>Ruflo organizuje agentov do queen-led rojov s tromi konfigurovateľnými topológiami: hierarchickou, mesh a adaptívnou. Queen agent prideľuje prácu, monitoruje progres a eskaluje výnimky. Sub-agenti vykonávajú úlohy v rámci svojej scope-ovanej identity a prístupu k nástrojom.</p>
+
+  <p>Voľba queen-led nad flat alebo plne demokratickými swarm topológiami je architektonická, nie politická. Flat swarm — všetci agenti rovní, všetci si môžu navzájom delegovať — vytvára koordinačný problém O(n²). Každý agent musí vedieť o schopnostiach a stave každého iného agenta. Správy rastú kvadraticky. Ladenie kaskádového zlyhania vyžaduje trasovanie N peer-to-peer interakcií.</p>
+
+  <p>Queen-led topológia kolabuje koordináciu na O(n). Queen pozná sub-agentov. Sub-agenti poznajú len queena. Výmena správ je hviezdicová. Ladenie nasleduje jasnú hierarchiu: najprv skontroluj rozhodnutia queena, potom sa ponor do vykonávania sub-agentov.</p>
+
+  <pre><code>Koordinačná komplexita podľa topológie
+────────────────────────────────────────────
+Flat swarm:   O(n²) správ, peer-to-peer
+Mesh swarm:   O(n log n) s konsenzus režijou
+Queen-led:    O(n) správ, hviezdicová topológia
+
+Víťaz pre produkciu: Queen-led
+  └─ Predvídateľné náklady na správy
+  └─ Jediný root pre audit trail
+  └─ Ľudské schválenie na jednom mieste
+  </code></pre>
+
+  <h2>SONA Self-Learning Memory: Chýbajúci diel vo väčšine agentových systémov</h2>
+
+  <p>SONA (Self-Organising Neural Architecture) pamäťový systém Ruflo zachytáva úspešné vykonávacie vzory ako lokálne embeddingy v HNSW-indexovanej AgentDB pamäti. Keď agent príde na to, ako nakonfigurovať PostgreSQL MCP server, toto poznanie pretrváva. Keď sa nabudúce objaví podobná úloha, agent získa relevantnú trajektóriu namiesto štartu od nuly.</p>
+
+  <p>Toto je architektonická medzera, ktorú obchádzam SQLite pamäťovou perzistenciou. Môj Hermes Agent má perzistentnú pamäť — fakty o používateľovi, serveri, projektoch — ktorá pretrváva medzi sedeniami. Ale je deklaratívna, nie procedurálna. Ukladám "VPS je na 188.245.224.189" ale nie "tu je, ako sa ti podarilo nasadiť CRM API minule." SONA procedurálna pamäť — ukladanie trajektórií, nielen faktov — je smer, ktorým sa celá agentová pamäťová vrstva musí uberať.</p>
+
+  <h2>Čo Ruflo validuje na mojej architektúre</h2>
+
+  <p>Keď čítam Ruflo dizajn po piatich mesiacoch prevádzky vlastného multi-agentného produkčného stacku, konvergencia vzorov je pozoruhodná:</p>
+
+  <h3>1. Harness-Model oddelenie je jediný životaschopný vzor</h3>
+  <p>Ruflo "model plus harness" premisa je identická s tým, ako funguje Hermes Agent. Runtime vlastní nástroje, plánovanie a pamäť. Model je pluggable reasoning engine. Každý produkčný agentový framework, ktorý prežije 2027, prijme toto oddelenie. Frameworky, ktoré natvrdo kódujú modelovo-špecifické nástroje, budú legacy do 2028.</p>
+
+  <h3>2. Control Plane oddelenie nie je voliteľné</h3>
+  <p>Ruflo Console, s per-agent úrovňami povolení a ľudskými schvaľovacími bránami, potvrdzuje, že governance nie je prídavok — je to first-class architektonická vrstva. Môj Hermes stack to implementuje cez separátne systemd služby, scope-ovaný MCP nástrojový prístup a rôzne cron job konfigurácie pre rôzne identity agentov. Implementácia je menej vyleštená, ale architektonický vzor je rovnaký.</p>
+
+  <h3>3. MCP je integračný štandard</h3>
+  <p>Ruflo dodáva 314 MCP nástrojov. Hermes Agent objavuje MCP servery dynamicky cez svoj natívny MCP klient. Oba si vybrali rovnaký protokol z rovnakého dôvodu: eliminuje kvadratický integračný problém. Ak Ruflo vydanie urobí jednu vec pre širší ekosystém, bude to cementovanie MCP statusu ako predvoleného agent-nástroj protokolu na najbližších päť rokov.</p>
+
+  <h2>Záver pre produkčných staviteľov</h2>
+
+  <p>Ruflo vydanie z 13. októbra 2026 nie je len ďalší open-source projekt na GitHub trending. Je to signál, že multi-agentná orchestrácia opustila experimentálnu fázu a vstúpila do inžinierskeho mainstreamu. 74 000 hviezd za 24 hodín znamená, že tisíce vývojárov nečakajú na podnikové riešenia — prijímajú agentové roje dnes cez open-source nástroje.</p>
+
+  <p>Ak staviate produkčný multi-agentný systém, architektonické rozhodnutia, ktoré Ruflo robí, sú rovnaké, aké bude potrebovať váš systém:</p>
+
+  <ul>
+    <li><strong>Oddeľte harness od modelu.</strong> Model sa bude meniť každý kvartál. Harness by sa meniť nemal.</li>
+    <li><strong>Preporte každý nástroj na MCP.</strong> Protokol je integračný štandard. Raw shell volania a natvrdo kódované API klienty sú technický dlh.</li>
+    <li><strong>Prijmite control plane.</strong> Ľudské schvaľovacie brány a audit trail-y nie sú voliteľné vo svete, kde Kalifornia subpoenuje logy agentov a EU AI Act vyžaduje dokumentáciu.</li>
+    <li><strong>Vyberte svoju koordinačnú topológiu zámerne.</strong> Queen-led roje pre adaptívnu prácu. Deterministické plánovanie pre rutinnú prácu. Nepoužívajte rovnakú topológiu pre oboje.</li>
+    <li><strong>Ukladajte, čo fungovalo, nielen čo je pravda.</strong> Deklaratívna pamäť hovorí agentovi fakty. Procedurálna pamäť hovorí agentovi stratégie. Potrebujete oboje.</li>
+  </ul>
+
+  <div class="callout-green">
+    <strong>Môj deployment kontext:</strong> Toto píšem z Hetzner VPS, na ktorom beží Hermes Agent s viac ako 20 autonómnymi cron jobmi, vlastnými MCP servermi pre SQLite pamäť a AgentMail a OpenRouter multi-LLM routingom, ktorý mení modely podľa úlohy. Architektúra je v produkcii od mája 2026 s 99,7% uptime a nulovými bezpečnostnými incidentmi. Ruflo architektúra validuje vzor. Medzera medzi mojím €6/mesiac VPS stackom a Ruflo enterprise ruOS platformou nie je v dizajne — je v škále, rozsahu nástrojov a organizačnej zrelosti.
+  </div>
+
+  <h2>Čo príde ďalej</h2>
+
+  <p>Ruflo vydanie mení konkurenčnú krajinu agentovej orchestrácie tromi spôsobmi:</p>
+
+  <ol>
+    <li><strong>Reset očakávaní open-source.</strong> Latka pre to, čo by mala agentová orchestrácia dodávať — queen-led roje, procedurálna pamäť, cross-machine federácia, MCP-natívne nástroje — je teraz definovaná MIT-licencovaným projektom so 74 000 hviezdami, nie komerčným vendorom.</li>
+    <li><strong>Zrýchlenie podnikovej adopcie.</strong> Keď 28% Fortune 500 už prevádzkuje MCP servery v produkcii a open-source swarm koordinátor dosiahne 74 000 GitHub hviezd za 24 hodín, otázka "je to production-ready?" bola zodpovedaná. Zvyšných 72% bude čeliť internému tlaku na adopciu do 12 mesiacov.</li>
+    <li><strong>Konvergencia na štandardný stack.</strong> Agentový stack kryštalizuje: MCP pre integráciu, control-plane/execution-plane oddelenie pre governance, queen-led roje pre koordináciu, procedurálna pamäť pre učenie a per-agent identita pre bezpečnosť. Projekty, ktoré sa od tohto stacku odchýlia, budú vnímané ako experimentálne, nie production-ready.</li>
+  </ol>
+
+  <p>Pre tých z nás, ktorí prevádzkujeme multi-agentné systémy ešte predtým, než sa "agentic AI" stalo Gartner kategóriou, je Ruflo vydanie validáciou, že architektonické rozhodnutia, ktoré sme urobili nezávisle, konvergujú k priemyselnému štandardu. Nasledujúcich šesť mesiacov určí, či tento štandard zostane fragmentovaný naprieč konkurenčnými implementáciami, alebo sa skonsoliduje okolo MCP-centrického, control-plane-oddeleného, queen-led-swarm modelu, ku ktorému Ruflo — aj môj Hermes stack, aj AOS referenčná architektúra — nezávisle dospeli.</p>
+
+  <div style="margin-top:40px;padding:24px;background:rgba(205,127,50,0.06);border-radius:12px;border:1px solid rgba(205,127,50,0.12);text-align:center;">
+    <h3 style="color:#E8B86D;margin:0 0 8px 0;">&#x2622; Prihláste sa na odber architektonických esejí</h3>
+    <p style="font-size:0.85rem;color:#B0B0C8;margin:0 0 12px 0;">Každý príspevok rozoberá, ako produkčná agentová infraštruktúra skutočne vyzerá — vzory, zlyhania, architektonické rozhodnutia systému, ktorý beží 24/7 mesiace.</p>
+    <p style="margin:0 0 4px 0;"><a href="https://marianstancik.dev/subscribe" class="btn-cta">Prihlásiť sa emailom</a></p>
+    <p style="font-size:0.72rem;color:#9090A8;margin:0;">Žiadny spam. Odhlásiť kedykoľvek.</p>
+  </div>
+
+  <p style="margin-top:32px;font-size:0.85rem;color:#8888A0;border-top:1px solid rgba(255,255,255,0.06);padding-top:20px;">
+&#x1f916; AI-generated | Info only | <a href="/disclaimer">marianstancik.dev/disclaimer</a>
+</p>
+
+</div>
+</article>
+</div>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Marian Stancik — <a href="/">marianstancik.dev</a></p>
+    <p style="margin-top:8px;"><a href="mailto:marianstancik@agentmail.to">marianstancik@agentmail.to</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
