@@ -160,6 +160,8 @@ footer a{{color:#8888A0;text-decoration:none}}
 footer a:hover{{color:#CD7F32}}
 @media(max-width:600px){{article{{padding:32px 0 60px}}}}
 </style>
+<script defer src="https://api.marianstancik.dev/script.js" data-website-id="ec1c0df8-e51f-4236-9ad0-e3992f0b1637"></script>
+<script defer src="/js/posthog.js"></script>
 </head>
 <body>
 
@@ -325,6 +327,8 @@ footer a{{color:#8888A0;text-decoration:none}}
 footer a:hover{{color:#CD7F32}}
 @media(max-width:600px){{article{{padding:32px 0 60px}}}}
 </style>
+<script defer src="https://api.marianstancik.dev/script.js" data-website-id="ec1c0df8-e51f-4236-9ad0-e3992f0b1637"></script>
+<script defer src="/js/posthog.js"></script>
 </head>
 <body>
 
@@ -490,6 +494,8 @@ footer a{{color:#8888A0;text-decoration:none}}
 footer a:hover{{color:#CD7F32}}
 @media(max-width:600px){{article{{padding:32px 0 60px}}}}
 </style>
+<script defer src="https://api.marianstancik.dev/script.js" data-website-id="ec1c0df8-e51f-4236-9ad0-e3992f0b1637"></script>
+<script defer src="/js/posthog.js"></script>
 </head>
 <body>
 
@@ -655,6 +661,8 @@ footer a{{color:#8888A0;text-decoration:none}}
 footer a:hover{{color:#CD7F32}}
 @media(max-width:600px){{article{{padding:32px 0 60px}}}}
 </style>
+<script defer src="https://api.marianstancik.dev/script.js" data-website-id="ec1c0df8-e51f-4236-9ad0-e3992f0b1637"></script>
+<script defer src="/js/posthog.js"></script>
 </head>
 <body>
 
