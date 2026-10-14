@@ -1,16 +1,16 @@
-# AI Agents Consume 5x More Tokens Than Humans — How to Optimize Your Autonomous Agent Infrastructure
+# KI-Agenten verbrauchen 5x mehr Tokens als Menschen — Optimierung der autonomen Agenteninfrastruktur
 
 > **Published:** 2026-09-19  
 > **Author:** Marian Stancik  
-> **Summary:** a16z data shows AI agents use 5x more LLM tokens than humans. Here's how to optimize autonomous agent infrastructure with caching, model routing, and cost controls.
+> **Summary:** A16z-Daten zeigen, dass KI-Agenten 5x mehr LLM-Tokens verbrauchen als Menschen. Optimierung mit Caching, Model-Routing und Budgetkontrollen.
 
 ---
 
-September 19, 2026
+19. September 2026
   Autonomous Agents
   AI Infrastructure
   Cost Optimization
-  9 min read
+  9 Min. Lesezeit
   By Marian Stancik
 
 ### AI Agents Consume 5x More Tokens Than Humans — How to Optimize Your Autonomous Agent Infrastructure

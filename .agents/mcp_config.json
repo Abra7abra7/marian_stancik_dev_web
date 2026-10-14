@@ -6,6 +6,15 @@
       "headers": {
         "Authorization": "Bearer ${env:OPENSEO_API_KEY}"
       }
+    },
+    "hermes-gdrive": {
+      "command": "python",
+      "args": [
+        "c:/Users/mstancik/Documents/01_Projekty/projekty_a_vyvoj/github/marian_stancik_dev_web/scripts/gdrive_mcp_server.py"
+      ],
+      "env": {
+        "GDRIVE_KEY_PATH": "C:/Users/mstancik/.gemini/credentials/hermes-crm-key.json"
+      }
     }
   }
 }
