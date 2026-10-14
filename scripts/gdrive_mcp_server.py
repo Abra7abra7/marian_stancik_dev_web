@@ -46,20 +46,23 @@ def create_client_folder(name: str, parent_folder_id: str = "") -> dict:
     folder = drive.files().create(body=meta, fields="id, name, webViewLink").execute()
     return {"status": "created", "folder_id": folder["id"], "name": folder["name"], "link": folder.get("webViewLink", "")}
 
+DEFAULT_SPREADSHEET_ID = os.environ.get("GDRIVE_SPREADSHEET_ID", "1mcVQxHMu1SavnoJussw9KCpleT-qhFs8FJMe4F8h5PM")
+
 @mcp.tool()
-def append_lead_to_sheet(sheet_id: str, email: str, name: str = "", product: str = "", price: str = "", message: str = "", source: str = "web") -> dict:
+def append_lead_to_sheet(sheet_id: str = "", email: str = "", name: str = "", product: str = "", price: str = "", message: str = "", source: str = "web") -> dict:
     """Appends a new customer lead or audit order to a Google Spreadsheet."""
+    target_sheet_id = sheet_id or DEFAULT_SPREADSHEET_ID
     _, sheets = get_services()
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    row_values = [[now, name, email, product, price, message, source, "New"]]
+    row_values = [[now, name, email, product, price, "", message, source, "New"]]
     body = {"values": row_values}
     result = sheets.spreadsheets().values().append(
-        spreadsheetId=sheet_id,
+        spreadsheetId=target_sheet_id,
         range="A1",
         valueInputOption="USER_ENTERED",
         body=body
     ).execute()
-    return {"status": "appended", "updated_range": result.get("updates", {}).get("updatedRange", "")}
+    return {"status": "appended", "spreadsheet_id": target_sheet_id, "updated_range": result.get("updates", {}).get("updatedRange", "")}
 
 @mcp.tool()
 def upload_file_to_drive(file_path: str, folder_id: str = "") -> dict:
