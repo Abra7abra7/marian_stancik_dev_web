@@ -1,0 +1,20 @@
+{
+  "name": "marianstancik-dev",
+  "version": "1.2.0",
+  "description": "Marian Stancik — Personal Brand Website & Autonomous Engineering Hub",
+  "scripts": {
+    "dev": "python3 scripts/dev_server.py",
+    "verify": "python3 scripts/verify_site.py",
+    "sync": "python3 scripts/sync_site.py",
+    "deploy": "python3 scripts/verify_site.py && npx wrangler pages deploy . --project-name=marian-stancik --branch=main",
+    "audit": "squirrel audit https://www.marianstancik.dev --format llm"
+  },
+  "keywords": [
+    "ai-agents",
+    "autonomous-systems",
+    "mcp",
+    "cloudflare-pages"
+  ],
+  "author": "Marian Stancik <marianstancik@agentmail.to>",
+  "license": "UNLICENSED"
+}
