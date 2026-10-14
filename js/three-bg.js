@@ -13,7 +13,7 @@ if (_isMobile || _lowEndDevice || _prefersReducedMotion) {
   // Apply CSS gradient fallback so the background isn't empty
   const canvas = document.getElementById('three-canvas');
   if (canvas) {
-    canvas.style.background = 'radial-gradient(ellipse at 50% 50%, rgba(18,18,30,0.95) 0%, rgba(8,8,15,1) 70%)';
+    canvas.style.background = 'radial-gradient(ellipse at 50% 50%, rgba(17,29,45,0.95) 0%, rgba(11,19,32,1) 70%)';
   }
 }
 
@@ -108,13 +108,13 @@ async function initThreeBackground() {
     lineGeo.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
     const lines = new THREE.LineSegments(
       lineGeo,
-      new THREE.LineBasicMaterial({ color: 0xCD7F32, transparent: true, opacity: 0.06 })
+      new THREE.LineBasicMaterial({ color: 0xA27B50, transparent: true, opacity: 0.08 })
     );
     scene.add(lines);
 
     // Floating neural nodes
     const nodeCount = isMobile ? 12 : 30;
-    const nodeMat = new THREE.MeshBasicMaterial({ color: 0xCD7F32, transparent: true, opacity: 0.12 });
+    const nodeMat = new THREE.MeshBasicMaterial({ color: 0xEBC37D, transparent: true, opacity: 0.15 });
     const nodeGeom = new THREE.SphereGeometry(0.3, 6, 6);
     const nodes = [];
 

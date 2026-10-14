@@ -1,18 +1,18 @@
 
 :root {
-  /* Color Palette - Bronze Neural Theme */
-  --color-bg: #08080F;
-  --color-bg-secondary: #0D0D18;
-  --color-bg-card: rgba(18, 18, 30, 0.65);
-  --color-bg-card-hover: rgba(26, 26, 42, 0.85);
-  --color-primary: #CD7F32;
-  --color-accent: #E8B86D;
-  --color-text: #E8E8F0;
-  --color-text-muted: #9A8A78;
-  --color-text-dim: #A09080;
-  --color-border: rgba(255, 255, 255, 0.06);
-  --color-border-hover: rgba(205, 127, 50, 0.35);
-  --color-glow: rgba(205, 127, 50, 0.2);
+  /* Color Palette - Celestial Midnight & Gold Theme */
+  --color-bg: #111D2D;
+  --color-bg-secondary: #0B1320;
+  --color-bg-card: rgba(17, 29, 45, 0.70);
+  --color-bg-card-hover: rgba(24, 38, 58, 0.88);
+  --color-primary: #A27B50;
+  --color-accent: #EBC37D;
+  --color-text: #E8EEF5;
+  --color-text-muted: #8B9EB7;
+  --color-text-dim: #71849D;
+  --color-border: rgba(162, 123, 80, 0.18);
+  --color-border-hover: rgba(235, 195, 125, 0.42);
+  --color-glow: rgba(235, 195, 125, 0.22);
 
   /* Typography Scale */
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
@@ -311,13 +311,14 @@ gap: 20px;
 width: 130px;
 height: 130px;
 border-radius: 50%;
-border: 2px solid rgba(205,127,50,0.4);
+border: 2.5px solid var(--color-primary);
 overflow: hidden;
-box-shadow: 0 0 60px rgba(205,127,50,0.2);
-transition: box-shadow 0.4s, transform 0.4s;
+box-shadow: 0 0 50px rgba(235, 195, 125, 0.25), 0 0 80px rgba(162, 123, 80, 0.20);
+transition: box-shadow 0.4s, transform 0.4s, border-color 0.4s;
 }
 .profile-frame:hover {
-box-shadow: 0 0 80px rgba(205,127,50,0.35);
+border-color: var(--color-accent);
+box-shadow: 0 0 70px rgba(235, 195, 125, 0.40), 0 0 100px rgba(162, 123, 80, 0.35);
 transform: scale(1.02);
 }
 .profile-frame img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 1 / 1; display: block; }
