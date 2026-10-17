@@ -4,7 +4,14 @@
     <title>Marian Stancik — Blog</title>
     <link>https://marianstancik.dev/blog/</link>
     <description>AI agents, autonomous systems, law & tech, and building in public.</description>
-    <lastBuildDate>2026-10-14</lastBuildDate>
+    <lastBuildDate>2026-10-17</lastBuildDate>
+    <item>
+      <title>The Week Everyone Turned Off Their Agents: What the October 2026 Containment Cascade Means for Self-Builders — Marian Stancik</title>
+      <link>https://marianstancik.dev/blog/posts/2026-10-17-agent-containment-cascade</link>
+      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-10-17-agent-containment-cascade</guid>
+      <pubDate>2026-10-17</pubDate>
+      <description>Anthropic turned off live internet access for agents. Jensen Huang said it could have been prevented. Hassabis warned it will get worse. The October 2026 containment cascade and what it means for self-builders running autonomous agent systems.</description>
+    </item>
     <item>
       <title>Ruflo, 74K Stars in 24 Hours: What Queen-Led Agent Swarms Mean for Production Multi-Agent Architecture — Marian Stancik</title>
       <link>https://marianstancik.dev/blog/posts/2026-10-14-ruflo-queen-led-agent-swarms</link>
@@ -67,13 +74,6 @@
       <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-12-autonomous-agent-guardrails</guid>
       <pubDate>2026-09-12</pubDate>
       <description>The OpenAI swarm hack of Hugging Face was a warning shot. Here's how to build production guardrails for autonomous multi-agent systems — identity, observability, containment.</description>
-    </item>
-    <item>
-      <title>MCP Goes Stateless: What the 2026-07-28 Specification Means for Autonomous Agents — Marian Stancik</title>
-      <link>https://marianstancik.dev/blog/posts/2026-09-09-mcp-stateless-protocol</link>
-      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-09-mcp-stateless-protocol</guid>
-      <pubDate>2026-09-09</pubDate>
-      <description>The Model Context Protocol's biggest revision yet — stateless core, header-based routing, MRTR, OpenTelemetry, and how it changes autonomous agent infrastructure.</description>
     </item>
   </channel>
 </rss>
