@@ -181,14 +181,14 @@ footer a:hover{color:#CD7F32}
 &lt;/style&gt;
 
 &lt;!-- After: external, cached once --&gt;
-&lt;link rel="stylesheet" href="/css/main.css"&gt;</code></pre>
+&lt;link rel="stylesheet" href="/css/main.css?v=130"&gt;</code></pre>
 
 <h3>2. Externalize JavaScript (Three.js + i18n)</h3>
 
 <p>Two major JS blocks were extracted: the Three.js neural network module (5KB, deferred via <code>type="module"</code>) and the i18n translations + helpers (25KB, loaded at the bottom of <code>&lt;body&gt;</code>). Both are now cached across all 6 pages.</p>
 
 <pre><code>&lt;!-- Three.js — deferred by nature of type="module" --&gt;
-&lt;script type="module" src="/js/three-bg.js"&gt;&lt;/script&gt;
+&lt;script type="module" src="/js/three-bg.js?v=130"&gt;&lt;/script&gt;
 
 &lt;!-- i18n — loaded at body bottom, not render-blocking --&gt;
 &lt;script src="/js/i18n.js"&gt;&lt;/script&gt;</code></pre>

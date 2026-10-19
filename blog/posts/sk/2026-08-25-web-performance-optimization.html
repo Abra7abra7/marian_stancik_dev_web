@@ -179,14 +179,14 @@ footer a:hover{color:#CD7F32}
 &lt;/style&gt;
 
 &lt;!-- Potom: externé, cachované raz --&gt;
-&lt;link rel="stylesheet" href="/css/main.css"&gt;</code></pre>
+&lt;link rel="stylesheet" href="/css/main.css?v=130"&gt;</code></pre>
 
 <h3>2. Externalizácia JavaScriptu (Three.js + i18n)</h3>
 
 <p>Dva kľúčové JS bloky boli oddelené: Three.js WebGL modul (odložený cez <code>requestIdleCallback</code> a interakčné triggery) a i18n preklady (načítané na konci <code>&lt;body&gt;</code>). Tým sme dosiahli <strong>0 ms Total Blocking Time (TBT)</strong>.</p>
 
 <pre><code>&lt;!-- Three.js — inicializované neblokujúco pri interakcii --&gt;
-&lt;script type="module" src="/js/three-bg.js"&gt;&lt;/script&gt;
+&lt;script type="module" src="/js/three-bg.js?v=130"&gt;&lt;/script&gt;
 
 &lt;!-- i18n — načítané na konci body bez blokovania vykresľovania --&gt;
 &lt;script src="/js/i18n.js"&gt;&lt;/script&gt;</code></pre>
