@@ -1,7 +1,7 @@
 # marian-stancik-web — Personal Brand Website & Autonomous Engineering Hub
 
 **Owner:** Marian Stancik  
-**Version:** `v1.2.0` (Production Release — Cloudflare Edge, Hetzner VPS & Sovereign CRM)  
+**Version:** `v1.3.0` (Production Release — Unified Midnight Navy, Clean URLs & Consolidated Design System)  
 **Domain:** https://marianstancik.dev (Production on Cloudflare Pages)  
 **Apex & WWW Support:** https://marianstancik.dev & https://www.marianstancik.dev  
 **Cloudflare Pages Project:** `marian-stancik` (`marian-stancik.pages.dev`)  
@@ -31,7 +31,11 @@ The platform operates across three foundational pillars:
 - **Professional Title:** **AI Agent Developer & Autonomous Systems Builder** (studying law, building sovereign multi-agent architectures).
 - **Social / OG Image Standard:** All pages and articles use Marian's photo (`https://www.marianstancik.dev/profile-big.webp` or `profile.webp`) as `og:image` and `twitter:image` with `width="800" height="800"` and `alt="Marian Stancik"`.
 - **Search Snippet & Favicon Standard:** Circular portrait favicon with high-contrast bronze ring border generated from `profile.webp` across standard resolutions (`favicon.ico`, `favicon-32x32.png`, `favicon-48x48.png`, `apple-touch-icon.png`).
-- **Design Tokens:** Bronze Neural palette (`#CD7F32` bronze accent, `#08080F` deep dark background, `#E8E8F0` text, glassmorphism cards).
+- **Design Tokens & Visual Architecture:**
+  - **Celestial Midnight Navy Theme:** Single consolidated source of truth in `css/main.css` (`--color-bg: #0A111C;`, `--color-bg-deep: #060B12;`, `--color-bg-secondary: #080E18;`, `--color-bg-card: rgba(14, 25, 42, 0.72);`, `--color-bg-card-hover: rgba(22, 38, 62, 0.88);`, `--color-primary: #CD7F32;`, `--color-accent: #EBC37D;`).
+  - **Seamless Fixed Background:** `radial-gradient(ellipse 90% 55% at 50% 0%, #122238 0%, #0A111C 45%, #060B12 100%) no-repeat fixed;` on `body` eliminating horizontal color seams and banding across all sections and subpages.
+  - **Three.js Layer:** Transparent background canvas (`alpha: true`) allowing the global celestial gradient to shine through seamlessly.
+  - **Zero Duplicate Styles:** Zero page-level `<style>` overrides across `index.html`, `services.html`, `about.html`, and `blog/index.html`. Single DRY CSS architecture.
 
 ---
 
@@ -136,8 +140,8 @@ flowchart TD
      * *Sentinel Agent 24/7* (€99/mo): Continuous uptime, security & crawler monitor.
      * *Autonomous Ops Retainer* (€249/mo): Managed agent operations & custom tool extensions.
 3. **Autonomous Multilingual Technical Blog:**
-   * 19 in-depth technical essays on production agent infrastructure, enterprise AgenticOps, MCP, and AI governance.
-   * Multi-language parity: 76 synchronized articles (all 19 available in `EN`, `SK`, `DE`, `PL` both as `.html` and `.md`).
+   * 20 in-depth technical essays on production agent infrastructure, enterprise AgenticOps, MCP, and AI governance.
+   * Multi-language parity: 80 synchronized articles (all 20 available in `EN`, `SK`, `DE`, `PL` both as `.html` and `.md`).
    * Interactive inline newsletter subscription card right inside each post with instant AJAX feedback.
 4. **Lead Capture & Customer Onboarding:**
    * High-conversion homepage form + in-article forms submitting to `/api/subscribe`.
@@ -230,14 +234,20 @@ python scripts/verify_site.py
 4. **Tier 4 — Design Tokens & CSS Validation:** Checks `:root` token presence in `css/main.css`.
 5. **Tier 5 — AI Discovery & GEO:** Validates `<link rel="alternate" href="/llms.txt">` and AI crawler permissions in `robots.txt`.
 6. **Tier 6 — API Health Check (L8):** Validates live HTTP 200 response from `/api/subscribe`.
-7. **Tier 7 — Config, Locales & Markdown Integrity:** Validates `site.config.json`, all 4 `locales/*.json` files, and guarantees 76/76 `.html` and `.md` blog alternates.
+7. **Tier 7 — Config, Locales & Markdown Integrity:** Validates `site.config.json`, all 4 `locales/*.json` files, and guarantees 80/80 `.html` and `.md` blog alternates.
 8. **Tier 8 — 4-Language Parity Check:** Verifies 100% dictionary key parity across `en.json`, `sk.json`, `de.json`, and `pl.json`.
 9. **Tier 9 — Deploy Safety Check:** Verifies no unwanted output directories before deploying.
+
+### Local Development Server
+To test locally with production-grade Clean URLs routing (`/about` -> `/about.html`, `/services` -> `/services.html`):
+```bash
+python scripts/dev_server.py 8080
+```
 
 ---
 
 ## 10. GitOps & Release Procedures
 
 - **Branching Model:** Trunk-based GitOps on `main`.
-- **Production Tag:** `v1.2.0`
+- **Production Tag:** `v1.3.0`
 - **Git Push Trigger:** Every push to GitHub `main` synchronizes trunk-based changes and keeps remote repository in lockstep with Cloudflare Pages edge.
