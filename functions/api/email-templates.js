@@ -3,15 +3,26 @@
 
 const PROFILE_IMG = 'https://www.marianstancik.dev/profile.webp';
 
+function escapeHtml(str) {
+  if (str === null || str === undefined) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 const emailTpl = {
   // Unified luxury shell for all outgoing branded emails
   _shell(title, contentHtml, persona = 'company') {
     const isCompany = false;
     const headerName = 'Marian Stancik';
     const subtitle = '✦ AI AGENT DEVELOPER · AUTONOMOUS SYSTEMS';
+    const safeTitle = escapeHtml(title);
     return `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${title}</title>
+<title>${safeTitle}</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif; }
 body { background: #05050A; color: #F0F0F5; padding: 24px 10px; }
@@ -53,7 +64,7 @@ body { background: #05050A; color: #F0F0F5; padding: 24px 10px; }
     <div class="subtitle">${subtitle}</div>
   </div>
   <div class="content">
-    <h2>${title}</h2>
+    <h2>${safeTitle}</h2>
     ${contentHtml}
   </div>
   <div class="divider"></div>
@@ -76,7 +87,8 @@ body { background: #05050A; color: #F0F0F5; padding: 24px 10px; }
 
   // NEWSLETTER WELCOME
   welcome(name = '', source = 'web') {
-    const content = `<p>Ahoj${name ? ' ' + name : ''},</p>
+    const safeName = escapeHtml(name);
+    const content = `<p>Ahoj${safeName ? ' ' + safeName : ''},</p>
 <p>ďakujem za prihlásenie k odberu technických AI noviniek a architektonických analýz.</p>
 <h3>Čo pravidelne doručujem do schránky:</h3>
 <ul>
@@ -91,14 +103,19 @@ body { background: #05050A; color: #F0F0F5; padding: 24px 10px; }
 
   // ORDER CONFIRMATION
   orderConfirmation(name, product, price, website = '') {
-    const content = `<p>Ahoj ${name},</p>
+    const safeName = escapeHtml(name);
+    const safeProduct = escapeHtml(product);
+    const safePrice = escapeHtml(price);
+    const safeWebsite = escapeHtml(website);
+    const targetUrl = safeWebsite.startsWith('http') ? safeWebsite : `https://${safeWebsite}`;
+    const content = `<p>Ahoj ${safeName},</p>
 <p>ďakujem za tvoju objednávku. Nižšie nájdeš potvrdené zhrnutie a ďalšie kroky realizácie.</p>
 <h3>Potvrdená objednávka</h3>
 <table class="data-table" cellpadding="0" cellspacing="0">
   <tr><th>Objednaná služba</th><th>Cena</th><th>Status</th></tr>
-  <tr><td>${product}</td><td>${price ? '€' + price : 'Na mieru'}</td><td style="color:#10B981; font-weight:700;">✓ Prijatá v systéme</td></tr>
+  <tr><td>${safeProduct}</td><td>${safePrice ? '€' + safePrice : 'Na mieru'}</td><td style="color:#10B981; font-weight:700;">✓ Prijatá v systéme</td></tr>
 </table>
-${website ? `<div class="metric-box"><strong style="color:#E8B86D;">Cieľový web na analýzu:</strong> <a href="${website}" style="color:#10B981; text-decoration:none; font-weight:600;">${website}</a></div>` : ''}
+${safeWebsite ? `<div class="metric-box"><strong style="color:#E8B86D;">Cieľový web na analýzu:</strong> <a href="${targetUrl}" style="color:#10B981; text-decoration:none; font-weight:600;">${safeWebsite}</a></div>` : ''}
 <h3>⚡ Čo sa bude diať ďalej</h3>
 <ol>
   <li>Objednávku a cieľovú doménu som zaevidoval v CRM daemone.</li>
@@ -106,47 +123,58 @@ ${website ? `<div class="metric-box"><strong style="color:#E8B86D;">Cieľový we
   <li>Kompletný exekutívny PDF report doručím do 48 hodín priamo na tvoj e-mail.</li>
   <li>Faktúra vystavená Mariánom Stančíkom (FO) bude doručená samostatne.</li>
 </ol>`;
-    return this._shell(`Potvrdenie objednávky: ${product}`, content, 'company');
+    return this._shell(`Potvrdenie objednávky: ${safeProduct}`, content, 'company');
   },
 
   // CONTACT CONFIRMATION
   contactConfirmation(name = '', message = '') {
-    const content = `<p>Ahoj${name ? ' ' + name : ''},</p>
+    const safeName = escapeHtml(name);
+    const safeMsg = escapeHtml(message);
+    const content = `<p>Ahoj${safeName ? ' ' + safeName : ''},</p>
 <p>ďakujem za tvoju správu. Prijal som ju v poriadku a odpovedám do 24 hodín.</p>
-${message ? `<blockquote style="border-left:3px solid #CD7F32; padding:12px 18px; margin:16px 0; background:#090912; border-radius:4px; color:#CBD5E1; font-style:italic;">${message}</blockquote>` : ''}
+${safeMsg ? `<blockquote style="border-left:3px solid #CD7F32; padding:12px 18px; margin:16px 0; background:#090912; border-radius:4px; color:#CBD5E1; font-style:italic;">${safeMsg}</blockquote>` : ''}
 <p>V prípade urgentných požiadaviek ma môžeš kontaktovať priamo cez Telegram alebo odpoveďou na tento e-mail.</p>`;
     return this._shell('Potvrdenie prijatia správy', content, 'personal');
   },
 
   // INVOICE
   invoice(name, product, price, invoiceNum, pdfUrl) {
-    const content = `<p>Ahoj ${name},</p>
-<p>v prílohe tohto e-mailu nájdeš oficiálnu faktúru za <strong>${product}</strong>.</p>
-<h3>Faktúra č. ${invoiceNum}</h3>
+    const safeName = escapeHtml(name);
+    const safeProduct = escapeHtml(product);
+    const safePrice = escapeHtml(price);
+    const safeInvoiceNum = escapeHtml(invoiceNum);
+    const safePdfUrl = encodeURI(pdfUrl || '');
+    const content = `<p>Ahoj ${safeName},</p>
+<p>v prílohe tohto e-mailu nájdeš oficiálnu faktúru za <strong>${safeProduct}</strong>.</p>
+<h3>Faktúra č. ${safeInvoiceNum}</h3>
 <table class="data-table" cellpadding="0" cellspacing="0">
   <tr><th>Fakturovaná položka</th><th>Suma</th></tr>
-  <tr><td>${product}</td><td style="color:#E8B86D; font-weight:700;">€${price}</td></tr>
+  <tr><td>${safeProduct}</td><td style="color:#E8B86D; font-weight:700;">€${safePrice}</td></tr>
 </table>
 <h3>💳 Platobné údaje (Bankový prevod)</h3>
 <table class="data-table" cellpadding="0" cellspacing="0">
   <tr><th style="width:100px;">IBAN</th><td style="font-family:monospace; font-size:14px; color:#10B981;">SK60 1100 0000 0029 4827 4072</td></tr>
   <tr><th>SWIFT / BIC</th><td>TATRSKBX (Tatra banka a.s.)</td></tr>
-  <tr><th>Variabilný symbol</th><td style="font-weight:700; color:#E8B86D;">${String(invoiceNum).replace(/[^0-9]/g, '').slice(-6) || '000001'}</td></tr>
+  <tr><th>Variabilný symbol</th><td style="font-weight:700; color:#E8B86D;">${String(safeInvoiceNum).replace(/[^0-9]/g, '').slice(-6) || '000001'}</td></tr>
 </table>
-<p style="margin:20px 0 0;"><a href="${pdfUrl}" class="btn-primary">Stiahnuť faktúru PDF</a></p>`;
-    return this._shell(`FAKTÚRA č. ${invoiceNum}`, content, 'company');
+<p style="margin:20px 0 0;"><a href="${safePdfUrl}" class="btn-primary">Stiahnuť faktúru PDF</a></p>`;
+    return this._shell(`FAKTÚRA č. ${safeInvoiceNum}`, content, 'company');
   },
 
   // AUDIT DELIVERY
   auditDelivery(name, website, score, pdfUrl, auditType = 'AI GEO Audit') {
-    const content = `<p>Ahoj ${name},</p>
-<p>technická analýza domény <strong style="color:#E8B86D;">${website}</strong> bola úspešne dokončená. Nižšie uvádzam zhrnutie kľúčových metrík.</p>
+    const safeName = escapeHtml(name);
+    const safeWebsite = escapeHtml(website);
+    const safeScore = escapeHtml(score);
+    const safePdfUrl = encodeURI(pdfUrl || '');
+    const content = `<p>Ahoj ${safeName},</p>
+<p>technická analýza domény <strong style="color:#E8B86D;">${safeWebsite}</strong> bola úspešne dokončená. Nižšie uvádzam zhrnutie kľúčových metrík.</p>
 <div class="metric-box">
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
       <td>
         <div style="color:#CD7F32; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase;">Namerané Skóre</div>
-        <div style="font-size:28px; font-weight:800; color:#FFFFFF; line-height:1.2;">${score} <span style="font-size:14px; color:#64748B;">/ 100</span></div>
+        <div style="font-size:28px; font-weight:800; color:#FFFFFF; line-height:1.2;">${safeScore} <span style="font-size:14px; color:#64748B;">/ 100</span></div>
       </td>
       <td align="right">
         <span style="display:inline-block; padding:5px 12px; background:rgba(16,185,129,0.15); border:1px solid #10B981; border-radius:6px; font-size:11px; font-weight:700; color:#10B981;">
@@ -157,8 +185,8 @@ ${message ? `<blockquote style="border-left:3px solid #CD7F32; padding:12px 18px
   </table>
 </div>
 <p>Kompletný exekutívny 2-stranový report s rozpadom pilierov a technickou maticou nájdeš v priloženom PDF súbore.</p>
-<p style="margin:18px 0 0;"><a href="${pdfUrl}" class="btn-primary">Stiahnuť kompletný PDF Report</a></p>`;
-    return this._shell(`Výsledky auditu: ${website} (${score}/100)`, content, 'company');
+<p style="margin:18px 0 0;"><a href="${safePdfUrl}" class="btn-primary">Stiahnuť kompletný PDF Report</a></p>`;
+    return this._shell(`Výsledky auditu: ${safeWebsite} (${safeScore}/100)`, content, 'company');
   },
 
   // FOLLOW-UP (7 days after newsletter signup)

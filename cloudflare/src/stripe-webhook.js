@@ -33,6 +33,42 @@ async function sendAdminAlert(env, subject, message) {
   }
 }
 
+async function verifyStripeSignature(rawBody, header, secret) {
+  if (!header || !secret) return false;
+  let timestamp = null;
+  const signatures = [];
+  for (const item of header.split(',')) {
+    const parts = item.split('=');
+    if (parts.length < 2) continue;
+    const k = parts[0].trim();
+    const v = parts.slice(1).join('=').trim();
+    if (k === 't') timestamp = v;
+    else if (k === 'v1') signatures.push(v);
+  }
+  if (!timestamp || signatures.length === 0) return false;
+
+  // Replay protection: 5 minute tolerance window
+  const now = Math.floor(Date.now() / 1000);
+  const t = parseInt(timestamp, 10);
+  if (isNaN(t) || Math.abs(now - t) > 300) return false;
+
+  const signedPayload = `${timestamp}.${rawBody}`;
+  const enc = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    'raw',
+    enc.encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign']
+  );
+  const sigBuffer = await crypto.subtle.sign('HMAC', key, enc.encode(signedPayload));
+  const expectedSig = Array.from(new Uint8Array(sigBuffer))
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('');
+
+  return signatures.includes(expectedSig);
+}
+
 export async function handleStripeRequest(request, env) {
   if (request.method !== 'POST') {
     return new Response('Method not allowed', { status: 405 });
@@ -44,7 +80,27 @@ export async function handleStripeRequest(request, env) {
     return new Response('Missing signature', { status: 401 });
   }
 
-  const body = await request.json();
+  const rawBody = await request.text();
+
+  if (env.STRIPE_WEBHOOK_SECRET) {
+    const isValid = await verifyStripeSignature(rawBody, signature, env.STRIPE_WEBHOOK_SECRET);
+    if (!isValid) {
+      return new Response(JSON.stringify({ error: 'Invalid webhook signature' }), {
+        status: 401,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+  } else {
+    console.warn('STRIPE_WEBHOOK_SECRET not configured — skipping HMAC verification');
+  }
+
+  let body;
+  try {
+    body = JSON.parse(rawBody);
+  } catch (e) {
+    return new Response('Invalid payload', { status: 400 });
+  }
+
   const event = body.type;
   const data = body.data?.object;
 

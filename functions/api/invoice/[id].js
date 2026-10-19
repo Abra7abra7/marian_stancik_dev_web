@@ -12,8 +12,8 @@ export async function onRequestGet(context) {
 
   const url = new URL(context.request.url);
   const token = url.searchParams.get('token') || context.request.headers.get('x-invoice-token');
-  // shortcut: shared secret token guard via INVOICE_SECRET; upgrade to per-invoice HMAC when invoicing volume scales
-  if (env.INVOICE_SECRET && token !== env.INVOICE_SECRET) {
+  // Fail-closed shared secret token guard via INVOICE_SECRET
+  if (!env.INVOICE_SECRET || token !== env.INVOICE_SECRET) {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), {
       status: 401,
       headers: { 'Content-Type': 'application/json' }

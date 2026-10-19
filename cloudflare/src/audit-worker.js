@@ -312,6 +312,16 @@ function computeScore(results) {
   return { score, totalWeight, earnedWeight, recommendations };
 }
 
+function isValidPublicDomain(domain) {
+  if (!domain || typeof domain !== 'string') return false;
+  const clean = domain.trim().toLowerCase().replace(/^https?:\/\//, '').replace(/\/.*$/, '');
+  // Disallow IP addresses, internal domains, and localhost
+  if (/^(\d{1,3}\.){3}\d{1,3}$/.test(clean)) return false;
+  if (clean.includes(':') || clean === 'localhost' || clean.endsWith('.local') || clean.endsWith('.internal')) return false;
+  // Valid FQDN format
+  return /^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+$/.test(clean);
+}
+
 // ============================================
 // MAIN HANDLER — export for index.js router
 // ============================================
@@ -322,10 +332,26 @@ export async function handleAuditRequest(request, env) {
 
   // Admin: manual audit trigger
   if (path === '/api/audit/run' && request.method === 'POST') {
+    const adminKey = request.headers.get('x-admin-key') || request.headers.get('authorization')?.replace('Bearer ', '');
+    const expectedKey = env.ADMIN_KEY || env.CRM_WEBHOOK_KEY || env.DASHBOARD_SECRET;
+    if (!expectedKey || adminKey !== expectedKey) {
+      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+        status: 401,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
     try {
       const body = await request.json();
-      const domain = body.domain || new URL(request.headers.get('origin') || 'https://example.com').hostname;
-      const auditType = body.type || 'geo';
+      const rawDomain = body.domain || '';
+      if (!isValidPublicDomain(rawDomain)) {
+        return new Response(JSON.stringify({ error: 'Invalid or disallowed domain target' }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      const domain = rawDomain.trim().toLowerCase().replace(/^https?:\/\//, '').replace(/\/.*$/, '');
+      const auditType = ['geo', 'readiness', 'full'].includes(body.type) ? body.type : 'geo';
       return await runAudit(domain, auditType, env, body.clientId);
     } catch (e) {
       return new Response(JSON.stringify({ error: e.message }), { status: 400 });
