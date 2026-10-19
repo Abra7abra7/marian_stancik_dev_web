@@ -4,7 +4,7 @@ import re
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-POSTHOG_TAG = '<script defer src="/js/posthog.js"></script>'
+POSTHOG_TAG = '<script defer src="/js/posthog.js?v=consent1"></script>'
 UMAMI_TAG = '<script defer src="https://api.marianstancik.dev/script.js" data-website-id="ec1c0df8-e51f-4236-9ad0-e3992f0b1637"></script>'
 
 updated_files = 0
