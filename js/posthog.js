@@ -7,13 +7,11 @@
   posthog.init('phc_ohdWxCxN8vuoPk9GysrYash3ZTSKc7Y7XFLFztLTv4kX', {
     api_host: 'https://eu.i.posthog.com',
     defaults: '2026-05-30',
-    person_profiles: 'always',
+    persistence: 'memory',
+    person_profiles: 'identified_only',
     capture_pageview: true,
     capture_pageleave: true,
     autocapture: true,
-    session_recording: {
-      maskAllInputs: true,
-      maskTextSelector: '[data-sensitive="true"]'
-    }
+    disable_session_recording: true
   });
 })();

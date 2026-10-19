@@ -18,6 +18,7 @@ if (_isMobile || _lowEndDevice || _prefersReducedMotion) {
 }
 
 async function initThreeBackground() {
+  if (_isMobile || _lowEndDevice || _prefersReducedMotion) return;
   const canvas = document.getElementById('three-canvas');
   if (!canvas) return;
 
@@ -207,7 +208,7 @@ async function initThreeBackground() {
 // User-interaction or deferred idle initialization (0ms TBT during critical load)
 let initialized = false;
 function triggerInit() {
-  if (initialized) return;
+  if (initialized || _isMobile || _lowEndDevice || _prefersReducedMotion) return;
   initialized = true;
   cleanupListeners();
   if ('requestIdleCallback' in window) {
@@ -225,12 +226,14 @@ function cleanupListeners() {
   window.removeEventListener('keydown', triggerInit, { passive: true });
 }
 
-window.addEventListener('scroll', triggerInit, { passive: true, once: true });
-window.addEventListener('mousemove', triggerInit, { passive: true, once: true });
-window.addEventListener('touchstart', triggerInit, { passive: true, once: true });
-window.addEventListener('pointerdown', triggerInit, { passive: true, once: true });
-window.addEventListener('keydown', triggerInit, { passive: true, once: true });
+if (!_isMobile && !_lowEndDevice && !_prefersReducedMotion) {
+  window.addEventListener('scroll', triggerInit, { passive: true, once: true });
+  window.addEventListener('mousemove', triggerInit, { passive: true, once: true });
+  window.addEventListener('touchstart', triggerInit, { passive: true, once: true });
+  window.addEventListener('pointerdown', triggerInit, { passive: true, once: true });
+  window.addEventListener('keydown', triggerInit, { passive: true, once: true });
 
-// Fallback idle timeout if no interaction occurs
-setTimeout(triggerInit, 2500);
+  // Fallback idle timeout if no interaction occurs
+  setTimeout(triggerInit, 2500);
+}
 

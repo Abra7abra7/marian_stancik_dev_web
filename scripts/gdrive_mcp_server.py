@@ -9,7 +9,7 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 from mcp.server.fastmcp import FastMCP
 
-KEY_PATH = os.environ.get("GDRIVE_KEY_PATH", r"C:\Users\mstancik\.gemini\credentials\hermes-crm-key.json")
+KEY_PATH = os.environ.get("GDRIVE_KEY_PATH", os.path.expanduser("~/.gemini/credentials/hermes-crm-key.json"))
 SCOPES = [
     "https://www.googleapis.com/auth/drive",
     "https://www.googleapis.com/auth/spreadsheets"

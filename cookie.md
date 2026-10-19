@@ -13,11 +13,11 @@ Naším cieľom je maximálne súkromie používateľov v súlade s princípmi P
 - **Právny základ:** § 109 ods. 8 zákona č. 452/2021 Z. z. o elektronických komunikáciách (výnimka pre technicky nevyhnutné ukladanie).
 - **Doba uchovávania:** Do ukončenia relácie prehliadača (session) alebo maximálne 12 mesiacov v lokálnom úložisku prehliadača.
 
-### B. Analytika s rešpektom k súkromiu (Umami Analytics)
-- Na analýzu návštevnosti využívame open-source nástroj Umami Analytics, ktorý je hostovaný na vlastnej infraštruktúre v EÚ.
-- Neukladá žiadne cookies do vášho prehliadača.
-- Nevykonáva profilovanie používateľov, nezhromažďuje unikátne identifikátory naprieč webmi ani osobné údaje.
-- Meranie prebieha anonymne a agregovane bez potreby udelenia súhlasu.
+### B. Analytika s rešpektom k súkromiu (Umami & PostHog EU)
+- Na analýzu návštevnosti využívame open-source nástroj Umami Analytics (vlastný server v EÚ) a PostHog EU Cloud (Frankfurt, Nemecko).
+- Obe technológie fungujú v režime bez ukladania cookies (in-memory persistence) do vášho prehliadača.
+- Nevykonáva sa žiadne krížové sledovanie medzi webmi (cross-site tracking) ani remarketing.
+- Meranie prebieha technicky anonymne bez nutnosti invazívneho cookie banneru.
 
 ### C. Žiadne marketingové alebo sledovacie cookies tretích strán
 - Na našom webe nepoužívame reklamné, remarketingové ani sledovacie pixely tretích strán (ako napr. Meta Pixel, Google Ads remarketing).

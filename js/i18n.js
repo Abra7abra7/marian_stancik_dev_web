@@ -952,7 +952,7 @@ function applyTranslations() {
   });
 
   // 4. Protected Layout Containers List
-  const PROTECTED_TAGS = ['SECTION', 'MAIN', 'NAV', 'HEADER', 'FOOTER', 'BODY', 'HTML'];
+  const PROTECTED_TAGS = ['SECTION', 'MAIN', 'NAV', 'HEADER', 'FOOTER', 'BODY', 'HTML', 'DIV', 'ARTICLE', 'ASIDE'];
 
   // Generic Update: any element with ID matching key in dictionary (skipping structural containers)
   Object.keys(d).forEach(key => {
@@ -1098,32 +1098,9 @@ async function renderBlogIndexPosts() {
   } catch(e){}
 }
 
-// Scroll / Fade-in Observer
+// Scroll / Fade-in Initialization
 function initScrollObserver() {
-  const elements = document.querySelectorAll('.fade-in');
-  elements.forEach(el => el.classList.add('visible'));
-
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
-
-    elements.forEach(el => observer.observe(el));
-
-    if (document.body) {
-      const mutObs = new MutationObserver(() => {
-        document.querySelectorAll('.fade-in:not(.visible)').forEach(el => {
-          el.classList.add('visible');
-          observer.observe(el);
-        });
-      });
-      mutObs.observe(document.body, { childList: true, subtree: true });
-    }
-  }
+  document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
 }
 
 // Initialize

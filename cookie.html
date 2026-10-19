@@ -82,12 +82,12 @@ E-mail: <a href="mailto:marianstancik@agentmail.to">marianstancik@agentmail.to</
   <li><strong>Doba uchovávania:</strong> Do ukončenia relácie prehliadača (session) alebo maximálne 12 mesiacov v lokálnom úložisku prehliadača.</li>
 </ul>
 
-<h3>B. Analytika s rešpektom k súkromiu (Umami Analytics)</h3>
+<h3>B. Analytika s rešpektom k súkromiu (Umami & PostHog EU)</h3>
 <ul>
-  <li>Na analýzu návštevnosti využívame open-source nástroj <strong>Umami Analytics</strong>, ktorý je hostovaný na vlastnej infraštruktúre v EÚ.</li>
-  <li><strong>Neukladá žiadne cookies</strong> do vášho prehliadača.</li>
-  <li>Nevykonáva profilovanie používateľov, nezhromažďuje unikátne identifikátory naprieč webmi ani osobné údaje.</li>
-  <li>Meranie prebieha anonymne a agregovane bez potreby udelenia súhlasu v cookie banneri.</li>
+  <li>Na analýzu návštevnosti využívame open-source nástroj <strong>Umami Analytics</strong> (vlastný server v EÚ) a <strong>PostHog EU Cloud</strong> (Frankfurt, Nemecko).</li>
+  <li>Obe technológie fungujú v <strong>režime bez ukladania cookies (in-memory persistence)</strong> do vášho prehliadača.</li>
+  <li>Nevykonáva sa žiadne krížové sledovanie medzi webmi (cross-site tracking) ani remarketing.</li>
+  <li>Meranie prebieha technicky anonymne bez nutnosti invazívneho cookie banneru.</li>
 </ul>
 
 <h3>C. Žiadne marketingové alebo sledovacie cookies tretích strán</h3>
@@ -117,6 +117,13 @@ E-mail: <a href="mailto:marianstancik@agentmail.to">marianstancik@agentmail.to</
       <td><strong>Umami Analytics</strong></td>
       <td>In-memory event</td>
       <td>Meranie anonymných metrík bez zápisu do úložiska používateľa</td>
+      <td><span class="badge-cookieless">Cookieless</span></td>
+      <td>Neukladá sa v koncovom zariadení</td>
+    </tr>
+    <tr>
+      <td><strong>PostHog (EU Cloud)</strong></td>
+      <td>In-memory event</td>
+      <td>Diagnostika interakcií a technického výkonu stránky bez cookies</td>
       <td><span class="badge-cookieless">Cookieless</span></td>
       <td>Neukladá sa v koncovom zariadení</td>
     </tr>

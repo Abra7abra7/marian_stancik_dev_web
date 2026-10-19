@@ -728,7 +728,8 @@ def ping_search_engines(urls):
     try:
         indexnow_payload = json.dumps({
             "host": "www.marianstancik.dev",
-            "key": "marianstancik-indexnow-key",
+            "key": "47a47bfd9de94eb79d5cbf3f33a254ba",
+            "keyLocation": "https://www.marianstancik.dev/47a47bfd9de94eb79d5cbf3f33a254ba.txt",
             "urlList": urls
         }).encode('utf-8')
         req = urllib.request.Request(
