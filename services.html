@@ -123,8 +123,8 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #CD7F32;
-  background: rgba(205,127,50,0.1);
-  border: 1px solid rgba(205,127,50,0.25);
+  background: rgba(162, 123, 80, 0.12);
+  border: 1px solid var(--color-border);
   padding: 6px 16px;
   border-radius: 100px;
   margin-bottom: 20px;
@@ -153,7 +153,7 @@
   margin: 32px 0 60px;
 }
 .pricing-card {
-  background: linear-gradient(160deg, rgba(18,18,30,0.8) 0%, rgba(12,12,22,0.95) 100%);
+  background: var(--color-bg-card);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: var(--radius-lg, 18px);
   padding: 36px 32px;
@@ -167,22 +167,22 @@
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, #CD7F32, #E8B86D);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 .pricing-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(205,127,50,0.4);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.6), 0 0 30px rgba(205,127,50,0.12);
+  border-color: var(--color-border-hover);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.6), 0 0 30px rgba(162, 123, 80, 0.12);
 }
 .pricing-card:hover::before {
   opacity: 1;
 }
 .pricing-card.featured {
-  border-color: rgba(205,127,50,0.5);
-  background: linear-gradient(160deg, rgba(26,20,35,0.85) 0%, rgba(15,12,25,0.95) 100%);
-  box-shadow: 0 10px 35px rgba(205,127,50,0.1);
+  border-color: rgba(235, 195, 125, 0.5);
+  background: rgba(24, 38, 58, 0.85);
+  box-shadow: 0 10px 35px rgba(162, 123, 80, 0.12);
 }
 .pricing-card.featured::before {
   opacity: 1;
@@ -191,8 +191,8 @@
   position: absolute;
   top: 18px;
   right: 20px;
-  background: linear-gradient(90deg, #CD7F32, #E8B86D);
-  color: #08080F;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  color: var(--color-bg-secondary);
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -207,8 +207,8 @@
   display: inline-block;
   font-size: 0.72rem;
   color: #E8B86D;
-  background: rgba(205,127,50,0.1);
-  border: 1px solid rgba(205,127,50,0.25);
+  background: rgba(162, 123, 80, 0.12);
+  border: 1px solid var(--color-border);
   padding: 3px 10px;
   border-radius: 6px;
   font-weight: 600;
@@ -271,8 +271,8 @@
   height: 18px;
   min-width: 18px;
   border-radius: 50%;
-  background: rgba(205,127,50,0.15);
-  border: 1px solid rgba(205,127,50,0.3);
+  background: var(--color-border);
+  border: 1px solid var(--color-border-hover);
   color: #E8B86D;
   display: flex;
   align-items: center;
@@ -293,8 +293,8 @@
   gap: 10px;
   width: 100%;
   padding: 13px 20px;
-  background: linear-gradient(135deg, #CD7F32 0%, #E8B86D 100%);
-  color: #08080F;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  color: var(--color-bg-secondary);
   font-weight: 700;
   font-size: 0.92rem;
   border-radius: var(--radius-sm, 8px);
@@ -307,8 +307,8 @@
 }
 .btn-stripe:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(205,127,50,0.35);
-  color: #08080F;
+  box-shadow: 0 8px 25px var(--color-border-hover);
+  color: var(--color-bg-secondary);
 }
 .btn-stripe:active, .btn-secondary-order:active {
   transform: scale(0.96);
@@ -368,7 +368,7 @@
 }
 .stripe-modal {
   background: #0D0D18;
-  border: 1px solid rgba(205,127,50,0.4);
+  border: 1px solid var(--color-border-hover);
   border-radius: 16px;
   padding: 32px;
   max-width: 480px;
@@ -442,7 +442,7 @@
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <svg width="0" height="0" style="position:absolute;visibility:hidden">
-  <defs><linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#CD7F32"/><stop offset="100%" stop-color="#E8B86D"/></linearGradient></defs>
+  <defs><linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#A27B50"/><stop offset="100%" stop-color="#EBC37D"/></linearGradient></defs>
 </svg>
 <canvas id="three-canvas"></canvas>
 <div class="content" id="main-content">
@@ -808,7 +808,7 @@
         <a id="confStripeBtn" href="#" target="_blank" rel="noopener" class="btn-stripe" style="display:none; background:linear-gradient(135deg, #635BFF 0%, #4B44DB 100%); color:#fff;">
           💳 Pay Now with Stripe Checkout →
         </a>
-        <button onclick="closeStripeModal(event)" class="btn-stripe" style="background:linear-gradient(135deg, #CD7F32 0%, #E8B86D 100%); color:#08080F;">
+        <button onclick="closeStripeModal(event)" class="btn-stripe" style="background:linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%); color:#08080F;">
           Done / Close Window
         </button>
       </div>

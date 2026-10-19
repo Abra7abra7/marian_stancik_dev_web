@@ -105,24 +105,24 @@
 <script defer src="/js/posthog.js"></script>
 <style>
 /* About page specific styles */
-.about-hero-badge { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #CD7F32; background: rgba(205,127,50,0.1); border: 1px solid rgba(205,127,50,0.25); padding: 6px 16px; border-radius: 100px; margin-bottom: 16px; }
+.about-hero-badge { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #CD7F32; background: rgba(162, 123, 80, 0.12); border: 1px solid var(--color-border); padding: 6px 16px; border-radius: 100px; margin-bottom: 16px; }
 
 /* === COCKPIT / AGENT RUNTIME BOX === */
 .agent-cockpit {
-  background: linear-gradient(145deg, rgba(18,18,30,0.85) 0%, rgba(10,10,20,0.95) 100%);
-  border: 1px solid rgba(205,127,50,0.35);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-hover);
   border-radius: var(--radius-lg, 16px);
   padding: 24px;
   margin: 32px 0 40px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 25px rgba(205,127,50,0.1);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 25px rgba(162, 123, 80, 0.12);
 }
 .agent-cockpit::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, #CD7F32, #E8B86D, #CD7F32);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-primary));
 }
 .cockpit-header {
   display: flex;
@@ -163,8 +163,8 @@
   font-family: 'JetBrains Mono', monospace, sans-serif;
   font-size: 0.68rem;
   padding: 4px 10px;
-  background: rgba(205,127,50,0.12);
-  border: 1px solid rgba(205,127,50,0.3);
+  background: rgba(162, 123, 80, 0.12);
+  border: 1px solid var(--color-border-hover);
   color: #E8B86D;
   border-radius: 6px;
   font-weight: 600;
@@ -183,8 +183,8 @@
   transition: all 0.3s;
 }
 .cockpit-stat-item:hover {
-  background: rgba(205,127,50,0.05);
-  border-color: rgba(205,127,50,0.3);
+  background: rgba(162, 123, 80, 0.08);
+  border-color: var(--color-border-hover);
   transform: translateY(-2px);
 }
 .stat-top {
@@ -197,7 +197,7 @@
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: rgba(205,127,50,0.12);
+  background: rgba(162, 123, 80, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -250,14 +250,14 @@
   display: flex;
   flex-direction: column;
 }
-.about-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #CD7F32, #E8B86D); opacity: 0; transition: opacity 0.3s; }
-.about-card:hover { border-color: var(--color-border-hover, rgba(205,127,50,0.35)); transform: translateY(-4px); background: var(--color-bg-card-hover, rgba(26,26,42,0.85)); }
+.about-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--color-primary), var(--color-accent)); opacity: 0; transition: opacity 0.3s; }
+.about-card:hover { border-color: var(--color-border-hover, var(--color-border-hover)); transform: translateY(-4px); background: var(--color-bg-card-hover, rgba(26,26,42,0.85)); }
 .about-card:hover::before { opacity: 1; }
 .about-card .card-icon-box {
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background: rgba(205,127,50,0.1);
+  background: rgba(162, 123, 80, 0.12);
   border: 1px solid rgba(205,127,50,0.2);
   display: flex;
   align-items: center;
@@ -272,7 +272,7 @@
 }
 .about-card h3 { font-size: 1.08rem; color: #F0F0F5; margin: 0 0 8px; font-weight: 600; }
 .about-card p { font-size: 0.88rem; color: var(--color-text-muted, #9A8A78); line-height: 1.6; margin: 0 0 16px; flex: 1; }
-.about-card .card-tag { display: inline-block; font-size: 0.68rem; padding: 3px 10px; border-radius: 100px; background: rgba(205,127,50,0.08); color: #E8B86D; border: 1px solid rgba(205,127,50,0.15); width: fit-content; }
+.about-card .card-tag { display: inline-block; font-size: 0.68rem; padding: 3px 10px; border-radius: 100px; background: rgba(162, 123, 80, 0.08); color: #E8B86D; border: 1px solid var(--color-border); width: fit-content; }
 .about-card.bad .card-tag { background: rgba(239,68,68,0.08); color: #F87171; border-color: rgba(239,68,68,0.2); }
 
 /* === TIMELINE === */
@@ -280,7 +280,7 @@
 .timeline-track { position: relative; margin: 28px 0; padding-left: 36px; }
 .timeline-track::before { content: ''; position: absolute; left: 10px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(180deg, #CD7F32 0%, #E8B86D 50%, rgba(205,127,50,0.2) 100%); }
 .timeline-item { position: relative; margin-bottom: 36px; }
-.timeline-dot { position: absolute; left: -36px; top: 2px; width: 22px; height: 22px; border-radius: 50%; background: #08080F; border: 2px solid #CD7F32; box-shadow: 0 0 12px rgba(205,127,50,0.4); display: flex; align-items: center; justify-content: center; }
+.timeline-dot { position: absolute; left: -36px; top: 2px; width: 22px; height: 22px; border-radius: 50%; background: #08080F; border: 2px solid #CD7F32; box-shadow: 0 0 12px var(--color-border-hover); display: flex; align-items: center; justify-content: center; }
 .timeline-dot::after { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #E8B86D; }
 .timeline-year { font-size: 0.75rem; color: #CD7F32; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; font-family: 'JetBrains Mono', monospace; }
 .timeline-title { font-size: 1.18rem; font-weight: 600; color: #F0F0F5; margin-bottom: 6px; }
@@ -288,7 +288,7 @@
 
 /* === FOCUS GRID === */
 .focus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
-.focus-item { background: rgba(205,127,50,0.04); border-left: 3px solid #CD7F32; padding: 18px 20px; border-radius: 0 10px 10px 0; border-top: 1px solid rgba(205,127,50,0.1); border-right: 1px solid rgba(205,127,50,0.1); border-bottom: 1px solid rgba(205,127,50,0.1); }
+.focus-item { background: rgba(162, 123, 80, 0.08); border-left: 3px solid #CD7F32; padding: 18px 20px; border-radius: 0 10px 10px 0; border-top: 1px solid rgba(162, 123, 80, 0.12); border-right: 1px solid rgba(162, 123, 80, 0.12); border-bottom: 1px solid rgba(162, 123, 80, 0.12); }
 .focus-item h4, .focus-item h3 { margin: 0 0 6px; font-size: 0.98rem; color: #E8B86D; display: flex; align-items: center; gap: 8px; }
 .focus-item p { margin: 0; font-size: 0.86rem; color: #9A8A78; line-height: 1.55; }
 
@@ -304,8 +304,8 @@
 <svg width="0" height="0" style="position:absolute;visibility:hidden">
   <defs>
     <linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#CD7F32"/>
-      <stop offset="100%" stop-color="#E8B86D"/>
+      <stop offset="0%" stop-color="#A27B50"/>
+      <stop offset="100%" stop-color="#EBC37D"/>
     </linearGradient>
   </defs>
 </svg>
@@ -420,7 +420,7 @@
       <p>I build <strong>autonomous AI agents</strong> using the <strong>Hermes Agent</strong> framework. My infrastructure runs 24/7 on an enterprise Hetzner VPS, orchestrating multi-LLM agents for content, CRM, monitoring, and automation. <em>This website and all its content is built and maintained by my autonomous Hermes Agent.</em></p>
       <p>I study law at <strong>PF UK</strong> (Comenius University, Bratislava) — EU AI Act, GDPR, NIS2, and tech regulation. This regulatory awareness means I understand the legal landscape and can build AI agents that are <strong>technically ready for regulated environments</strong>. <strong>I am not a lawyer, I do not provide legal advice.</strong></p>
       <p>I build drones as a <strong>hobby</strong> — hand-soldered 1500g carbon quad with ArduPilot and Raspberry Pi 5 edge AI, EASA A1/A3 certified. It's a showcase of my hardware and edge AI skills, not a product.</p>
-      <div class="highlight" style="background:rgba(205,127,50,0.08);padding:1.2rem;border-left:3px solid #CD7F32;margin:1.5rem 0;border-radius:6px;font-size:0.88rem;">
+      <div class="highlight" style="background:rgba(162, 123, 80, 0.08);padding:1.2rem;border-left:3px solid #CD7F32;margin:1.5rem 0;border-radius:6px;font-size:0.88rem;">
         <p style="margin:0;"><strong style="color:#E8B86D;">⚠️ Disclaimer:</strong> This is not legal advice. I share regulatory knowledge for educational purposes only. For specific legal questions, consult a qualified attorney.</p>
       </div>
     </div>
