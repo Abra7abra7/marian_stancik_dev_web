@@ -13,24 +13,59 @@
 
 import { runAudit } from './audit-worker';
 
-async function sendAdminAlert(env, subject, message) {
+async function sendAgentMail(env, to, subject, text, html = null, inboxId = 'marianstancik@agentmail.to') {
+  const apiKey = env.AGENTMAIL_API_KEY;
+  if (!apiKey) {
+    console.warn('AGENTMAIL_API_KEY not configured — skipping email delivery');
+    return false;
+  }
   try {
-    const agentmailRes = await fetch('https://api.agentmail.to/v1/send', {
+    const agentMailUrl = 'https://mcp.agentmail.to/mcp';
+    const agentMailHeaders = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json, text/event-stream',
+      'x-api-key': apiKey
+    };
+    const initRes = await fetch(agentMailUrl, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${env.AGENTMAIL_API_KEY}`
-      },
+      headers: agentMailHeaders,
       body: JSON.stringify({
-        to: 'marianstancik@agentmail.to',
-        subject: subject,
-        text: message
+        jsonrpc: '2.0', id: '1', method: 'initialize',
+        params: { protocolVersion: '2025-11-25', capabilities: {}, clientInfo: { name: 'stripe-webhook', version: '1.0' } }
       })
     });
-    console.log(`Admin alert sent: ${agentmailRes.status}`);
+    const initText = await initRes.text();
+    const sessionMatch = initText.match(/"sessionId"\s*:\s*"([^"]+)"/);
+    const sessionId = sessionMatch ? sessionMatch[1] : null;
+    const msgHeaders = { ...agentMailHeaders };
+    if (sessionId) msgHeaders['Mcp-Session-Id'] = sessionId;
+
+    await fetch(agentMailUrl, {
+      method: 'POST',
+      headers: msgHeaders,
+      body: JSON.stringify({ jsonrpc: '2.0', method: 'notifications/initialized' })
+    });
+
+    const args = { inboxId, to: [to], subject, text };
+    if (html) args.html = html;
+
+    const msgRes = await fetch(agentMailUrl, {
+      method: 'POST',
+      headers: msgHeaders,
+      body: JSON.stringify({
+        jsonrpc: '2.0', id: '2', method: 'tools/call',
+        params: { name: 'send_message', arguments: args }
+      })
+    });
+    return msgRes.ok;
   } catch (e) {
-    console.error(`Admin alert failed: ${e.message}`);
+    console.error('AgentMail dispatch error:', e.message);
+    return false;
   }
+}
+
+async function sendAdminAlert(env, subject, message) {
+  return await sendAgentMail(env, 'marianstancik@agentmail.to', subject, message);
 }
 
 async function verifyStripeSignature(rawBody, header, secret) {
@@ -116,12 +151,15 @@ export async function handleStripeRequest(request, env) {
       const currency = data.currency || 'eur';
       const sessionId = data.id;
       
-      // Get domain from metadata or custom fields
+      // Get domain from metadata, custom fields, or client_reference_id
       let domain = data.metadata?.domain;
       if (!domain) {
         try {
           domain = data.custom_fields?.find(f => f.key === 'domain' || f.key === 'website')?.text?.value;
         } catch (e) { /* silent */ }
+      }
+      if (!domain && data.client_reference_id) {
+        domain = data.client_reference_id;
       }
 
       // Log the event to D1 alerts regardless
@@ -185,21 +223,14 @@ export async function handleStripeRequest(request, env) {
       try {
         await runAudit(domain, 'geo', env, clientId);
         
-        // Send client confirmation email with audit details
+        // Send client confirmation email with invoice details & audit dashboard
         try {
           const dashUrl = `${env.APP_URL || 'https://app.marianstancik.dev'}?client=${clientId}`;
-          await fetch('https://api.agentmail.to/v1/send', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${env.AGENTMAIL_API_KEY}`
-            },
-            body: JSON.stringify({
-              to: email,
-              subject: `✅ GEO Audit Complete — ${domain} (Score: 100/100)`,
-              text: `Your AI GEO audit for ${domain} is complete!\n\n📊 Score: 100/100\n✅ All checks passed\n\nView your dashboard:\n${dashUrl}\n\nIf you have any questions, reply to this email.\n\n— Marian Stancik\nmarianstancik.dev`
-            })
-          });
+          const formattedAmount = (amount / 100).toFixed(2);
+          const emailSubject = `Potvrdenie platby a faktúra — AI GEO Audit (${domain})`;
+          const emailText = `Ahoj ${name},\n\nďakujeme za tvoju platbu €${formattedAmount} za AI GEO Audit pre doménu ${domain}.\n\nPlatba prebehla úspešne cez Stripe (ID relácie: ${sessionId.slice(0, 16)}).\nFaktúru / daňový doklad vystavený k tejto objednávke nájdeš evidovaný v systéme a na Stripe.\n\nSledovanie auditu a výsledky:\n${dashUrl}\n\nV prípade akýchkoľvek otázok stačí odpovedať na tento e-mail.\n\n--\nMarián Stančík (marianstancik.dev)\nIČO: 57068917 · Brezno, Slovensko`;
+
+          await sendAgentMail(env, email, emailSubject, emailText);
         } catch (emailErr) {
           console.error(`Client email failed: ${emailErr.message}`);
         }

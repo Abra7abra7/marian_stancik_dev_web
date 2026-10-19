@@ -608,10 +608,11 @@ async function handleStripeRedirect(e) {
     console.warn('Lead capture notification notice:', err);
   }
 
-  // 2. Bezpečné priame presmerovanie na Stripe Payment Link s predvyplneným e-mailom
+  // 2. Bezpečné priame presmerovanie na Stripe Payment Link s predvyplneným e-mailom a doménou
+  const cleanDomain = url.trim().toLowerCase().replace(/^https?:\/\//, '').replace(/\/.*$/, '');
   const baseLink = prod.stripeUrl || 'https://buy.stripe.com/test_5kQ28t4Sk94S74pgBD28800';
   const sep = baseLink.includes('?') ? '&' : '?';
-  window.location.href = baseLink + sep + 'prefilled_email=' + encodeURIComponent(email);
+  window.location.href = baseLink + sep + 'prefilled_email=' + encodeURIComponent(email) + '&client_reference_id=' + encodeURIComponent(cleanDomain);
 }
 </script>
 </body>
