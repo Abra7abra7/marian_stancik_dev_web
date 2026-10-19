@@ -21,9 +21,6 @@ id = "a5d9edd77729444eb3778a4988f8dc2d"
 
 # Environment variables
 [vars]
-STRIPE_WEBHOOK_SECRET = ""
-AGENTMAIL_API_KEY = ""
-DASHBOARD_SECRET = ""
 APP_URL = "https://app.marianstancik.dev"
 SITE_URL = "https://marianstancik.dev"
 
