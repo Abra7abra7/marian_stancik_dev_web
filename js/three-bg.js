@@ -9,13 +9,8 @@ const _lowEndDevice = (navigator.hardwareConcurrency || 8) < 4;
 const _prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Skip on mobile / low-end hardware / reduced motion (saves 250KB download + 2.5s TBT)
-if (_isMobile || _lowEndDevice || _prefersReducedMotion) {
-  // Apply CSS gradient fallback so the background isn't empty
-  const canvas = document.getElementById('three-canvas');
-  if (canvas) {
-    canvas.style.background = 'radial-gradient(ellipse at 50% 50%, rgba(17,29,45,0.95) 0%, rgba(11,19,32,1) 70%)';
-  }
-}
+// The seamless fixed body background provides the visual backdrop without any cutoff
+
 
 async function initThreeBackground() {
   if (_isMobile || _lowEndDevice || _prefersReducedMotion) return;
