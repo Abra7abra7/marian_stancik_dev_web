@@ -4,7 +4,14 @@
     <title>Marian Stancik — Blog</title>
     <link>https://marianstancik.dev/blog/</link>
     <description>AI agents, autonomous systems, law & tech, and building in public.</description>
-    <lastBuildDate>2026-10-17</lastBuildDate>
+    <lastBuildDate>2026-10-21</lastBuildDate>
+    <item>
+      <title>Runtime Governance for AI Agents: Why Every Production Agent Needs a Passport — Marian Stancik</title>
+      <link>https://marianstancik.dev/blog/posts/2026-10-21-runtime-agent-governance</link>
+      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-10-21-runtime-agent-governance</guid>
+      <pubDate>2026-10-21</pubDate>
+      <description>October 2026: ServiceNow launched AI Passport, Netzilo shipped Drift Control, RSA unveiled Agent ID — three enterprise vendors in 48 hours all targeting the same problem. Here's what production agent governance actually looks like, and the self-builder's architecture to match it.</description>
+    </item>
     <item>
       <title>The Week Everyone Turned Off Their Agents: What the October 2026 Containment Cascade Means for Self-Builders — Marian Stancik</title>
       <link>https://marianstancik.dev/blog/posts/2026-10-17-agent-containment-cascade</link>
@@ -67,13 +74,6 @@
       <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-16-navier-stokes-agent-swarms</guid>
       <pubDate>2026-09-16</pubDate>
       <description>OpenAI deployed 10,000 autonomous agents to solve the Navier-Stokes Millennium Problem in 88 hours. What this means for multi-agent architecture, agent orchestration, and the future of autonomous systems.</description>
-    </item>
-    <item>
-      <title>When Agents Go Rogue: Building Guardrails for Autonomous Multi-Agent Systems — Marian Stancik</title>
-      <link>https://marianstancik.dev/blog/posts/2026-09-12-autonomous-agent-guardrails</link>
-      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-12-autonomous-agent-guardrails</guid>
-      <pubDate>2026-09-12</pubDate>
-      <description>The OpenAI swarm hack of Hugging Face was a warning shot. Here's how to build production guardrails for autonomous multi-agent systems — identity, observability, containment.</description>
     </item>
   </channel>
 </rss>
