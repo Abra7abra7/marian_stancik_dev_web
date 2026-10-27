@@ -39,7 +39,49 @@ The platform operates across three foundational pillars:
 
 ---
 
-## 3. Infrastructure & Hosting Architecture (Cloudflare + Hetzner Hybrid)
+## 3. Autonomous Skill Routing & Execution (.agents/skills)
+
+The repository provides 26 specialized skills under `.agents/skills/`. Autonomous agents MUST load and follow the corresponding skill when encountering matching tasks:
+
+### Frontend, UI Polish & WebGL
+- When building UI components, hover effects, stagger animations, transitions, or optical alignment, read `.agents/skills/better-ui/SKILL.md` and follow it.
+- When inspecting existing page layouts, auditing visual hierarchy, or improving page aesthetics, read `.agents/skills/improve-ui/SKILL.md` and follow it.
+- When generating new landing pages, semantic sections, or standalone HTML templates, read `.agents/skills/html-generator/SKILL.md` and follow it.
+- When modifying, optimizing, or debugging Three.js celestial background, shaders, or 3D canvas, read `.agents/skills/webgl-components/SKILL.md` and follow it.
+
+### Code Quality, Design & Performance
+- When reviewing pull requests, inspecting git diffs, or auditing code quality, read `.agents/skills/code-review/SKILL.md` and follow it.
+- When designing new modules, organizing functions, or establishing architectural boundaries, read `.agents/skills/codebase-design/SKILL.md` and follow it.
+- When profiling frontend performance, measuring execution time, or auditing asset load speed, read `.agents/skills/metronome/SKILL.md` and follow it.
+
+### SEO, Keywords, Discovery & Reporting
+- When conducting technical on-page SEO audits, schema markup verification, or crawlability checks, read `.agents/skills/seo-audit/SKILL.md` and follow it.
+- When generating client-facing or internal SEO audit reports, scorecards, or recommendations, read `.agents/skills/seo-report/SKILL.md` and follow it.
+- When providing strategic search advice, algorithm update adaptations, or content guidance, read `.agents/skills/seo-coach/SKILL.md` and follow it.
+- When setting up new SEO tracking, Search Console indexing, or initial crawl configurations, read `.agents/skills/seo-project-setup/SKILL.md` and follow it.
+- When conducting keyword discovery, search intent mapping, or query volume evaluations, read `.agents/skills/keyword-research/SKILL.md` and follow it.
+- When grouping keywords into semantic topic clusters for blog posts or service landing pages, read `.agents/skills/keyword-clustering/SKILL.md` and follow it.
+- When optimizing local business visibility, Google Business Profile schema, or localized pages, read `.agents/skills/local-seo/SKILL.md` and follow it.
+- When discovering backlink opportunities, domain authority outreach, or link profile prospecting, read `.agents/skills/link-prospecting/SKILL.md` and follow it.
+
+### Market & Competitor Intelligence
+- When benchmarking competitor service offerings, pricing structures, or feature matrices, read `.agents/skills/competitor-analysis/SKILL.md` and follow it.
+- When mapping industry competitive landscape, value propositions, or market positioning, read `.agents/skills/competitive-landscape/SKILL.md` and follow it.
+
+### Stripe Billing, Payments & Connect
+- When designing Stripe checkout flows, webhook event handling, or tax and currency logic, read `.agents/skills/stripe-best-practices/SKILL.md` and follow it.
+- When referencing Stripe API endpoints, parameter payloads, webhooks, or SDK methods, read `.agents/skills/stripe-docs/SKILL.md` and follow it.
+- When creating, verifying, or testing Stripe Checkout session links, payment links, or customer receipts, read `.agents/skills/stripe-pay/SKILL.md` and follow it.
+- When scoping multi-tier subscription plans, invoicing structures, or SaaS billing retainers, read `.agents/skills/stripe-projects/SKILL.md` and follow it.
+- When developing custom Stripe Dashboard applications or merchant UI extensions, read `.agents/skills/stripe-apps/SKILL.md` and follow it.
+- When structuring Stripe account assets, webhook secret hierarchies, or API key configurations, read `.agents/skills/stripe-directory/SKILL.md` and follow it.
+- When upgrading Stripe API versions, SDK packages, or migrating payment elements, read `.agents/skills/upgrade-stripe/SKILL.md` and follow it.
+- When selecting Stripe Connect account architectures (Standard, Express, Custom) for platform payouts, read `.agents/skills/connect-recommend/SKILL.md` and follow it.
+- When validating KYC, identity verification documents, and AML compliance for Stripe Connect onboarding, read `.agents/skills/connect-required-verification-information/SKILL.md` and follow it.
+
+---
+
+## 4. Infrastructure & Hosting Architecture (Cloudflare + Hetzner Hybrid)
 
 ```mermaid
 flowchart TD
@@ -102,7 +144,7 @@ flowchart TD
 
 ---
 
-## 4. Comprehensive Services & External Integrations Matrix
+## 5. Comprehensive Services & External Integrations Matrix
 
 | Service / Tool | Role / Purpose | Protocol / Auth | Hosting / Region | Status |
 | :--- | :--- | :--- | :--- | :--- |
@@ -126,7 +168,7 @@ flowchart TD
 
 ---
 
-## 5. What the Website Does & Core Features
+## 6. What the Website Does & Core Features
 
 1. **Autonomous Personal Brand & Client Reference Showroom:** Demonstrates a production-grade, sovereign stack operating without bloated monthly subscriptions.
 2. **Product Catalog & Instant Stripe Checkout:**
@@ -150,7 +192,7 @@ flowchart TD
 
 ---
 
-## 6. Centralized Configuration & 4-Language i18n Matrix (`EN`, `SK`, `DE`, `PL`)
+## 7. Centralized Configuration & 4-Language i18n Matrix (`EN`, `SK`, `DE`, `PL`)
 
 All site metadata, product definitions, Stripe pricing, social handles, and multilingual dictionaries are managed centrally:
 
@@ -178,7 +220,7 @@ All site metadata, product definitions, Stripe pricing, social handles, and mult
 
 ---
 
-## 7. Generative Engine Optimization (GEO) & AI Discovery (LLMO)
+## 8. Generative Engine Optimization (GEO) & AI Discovery (LLMO)
 
 To guarantee instant, authoritative discovery and citations across AI engines (**Perplexity, ChatGPT Search, Claude, Google SGE, Grok**) as well as standard search engines:
 
@@ -193,7 +235,7 @@ To guarantee instant, authoritative discovery and citations across AI engines (*
 
 ---
 
-## 8. Lead Capture, Newsletter Lifecycle & Legal Compliance
+## 9. Lead Capture, Newsletter Lifecycle & Legal Compliance
 
 ```mermaid
 flowchart LR
@@ -220,7 +262,7 @@ flowchart LR
 
 ---
 
-## 9. Automated Verification Suite (`scripts/verify_site.py`)
+## 10. Automated Verification Suite (`scripts/verify_site.py`)
 
 Run the 9-tier verification script before any deployment:
 ```bash
@@ -246,7 +288,7 @@ python scripts/dev_server.py 8080
 
 ---
 
-## 10. GitOps & Release Procedures
+## 11. GitOps & Release Procedures
 
 - **Branching Model:** Trunk-based GitOps on `main`.
 - **Production Tag:** `v1.3.0`
