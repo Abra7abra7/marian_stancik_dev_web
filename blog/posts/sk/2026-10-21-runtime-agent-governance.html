@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Runtime Governance pre AI agentov: Prečo každý produkčný agent potrebuje pas — Marian Stancik</title>
+<meta name="description" content="Október 2026: ServiceNow spustil AI Passport, Netzilo predstavil Drift Control, RSA odhalil Agent ID — tri enterprise platformy v 48 hodinách zamerané na rovnaký problém. Ako postaviť governančnú architektúru pre autonómnych agentov bez enterprise vendor lock-in.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/sk/2026-10-21-runtime-agent-governance">
+<link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-10-21-runtime-agent-governance">
+<link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-10-21-runtime-agent-governance">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-10-21-runtime-agent-governance">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#08080F">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Runtime Governance pre AI agentov: Prečo každý produkčný agent potrebuje pas — Marian Stancik">
+<meta property="og:description" content="Október 2026: ServiceNow spustil AI Passport, Netzilo predstavil Drift Control, RSA odhalil Agent ID — tri enterprise platformy v 48 hodinách zamerané na rovnaký problém. Ako postaviť governančnú architektúru pre autonómnych agentov bez enterprise vendor lock-in.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/sk/2026-10-21-runtime-agent-governance">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.marianstancik.dev/profile.webp">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
+<meta property="og:image:alt" content="Marian Stancik">
+<meta property="og:locale" content="sk_SK">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/profile.webp">
+<meta name="ai-generated-content" content="true">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Runtime Governance pre AI agentov: Prečo každý produkčný agent potrebuje pas",
+      "description": "Október 2026: ServiceNow spustil AI Passport, Netzilo predstavil Drift Control, RSA odhalil Agent ID — tri enterprise platformy v 48 hodinách zamerané na rovnaký problém. Ako postaviť governančnú architektúru pre autonómnych agentov bez enterprise vendor lock-in.",
+      "datePublished": "2026-10-21",
+      "dateModified": "2026-10-21",
+      "author": {
+        "@type": "Person",
+        "name": "Marian Stancik",
+        "url": "https://www.marianstancik.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Marian Stancik"
+      },
+      "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/sk/2026-10-21-runtime-agent-governance",
+      "keywords": ["AI Governance", "Runtime Governance", "ServiceNow", "AI Passport", "MCP", "Autonómne agenty", "AI Bezpečnosť", "Hermes Agent"],
+      "isBasedOn": "https://schema.org/AIGeneratedContent",
+      "creativeWorkStatus": "AIGenerated"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Domov",
+          "item": "https://www.marianstancik.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.marianstancik.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Runtime Governance pre AI agentov: Prečo každý produkčný agent potrebuje pas",
+          "item": "https://www.marianstancik.dev/blog/posts/sk/2026-10-21-runtime-agent-governance"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:#08080F;color:#E8E8F0;line-height:1.8;-webkit-font-smoothing:antialiased}
+.container{max-width:740px;margin:0 auto;padding:0 24px}
+nav{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(8,8,15,0.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-inner a{color:#8888A0;text-decoration:none;font-size:0.85rem;transition:color 0.3s}
+.nav-inner a:hover{color:#CD7F32}
+article{padding:48px 0 80px}
+.post-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:32px;font-size:0.78rem;color:#9090A8}
+.post-meta .tag{background:rgba(205,127,50,0.08);color:#E8B86D;padding:3px 10px;border-radius:100px;font-size:0.65rem;border:1px solid rgba(205,127,50,0.15)}
+h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:#F0F0F5;line-height:1.25;letter-spacing:-0.02em;margin-bottom:8px}
+h2{font-size:1.3rem;font-weight:600;color:#F0F0F5;margin:36px 0 12px;line-height:1.35}
+h3{font-size:1.05rem;font-weight:600;color:#D0D0E0;margin:24px 0 8px}
+p{color:#B0B0C8;margin-bottom:16px;font-size:0.95rem}
+a{color:#E8B86D;transition:color 0.3s}
+a:hover{color:#CD7F32}
+ul,ol{padding-left:20px;margin-bottom:16px;color:#B0B0C8;font-size:0.95rem}
+li{margin-bottom:6px}
+pre{background:rgba(13,13,26,0.80);border:1px solid rgba(205,127,50,0.12);border-radius:10px;padding:16px 20px;overflow-x:auto;font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem;color:#D0D0E0;margin-bottom:20px;line-height:1.55}
+code{font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem}
+p code,li code{background:rgba(205,127,50,0.08);padding:1px 5px;border-radius:3px;color:#E8B86D}
+.callout{background:rgba(13,13,26,0.75);border-left:3px solid #CD7F32;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout strong{color:#E8B86D}
+.callout-green{background:rgba(46,204,113,0.06);border-left:3px solid #2ECC71;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout-green strong{color:#2ECC71}
+img{max-width:100%;height:auto;border-radius:8px;margin:24px 0}
+blockquote{border-left:2px solid rgba(205,127,50,0.2);padding:8px 20px;margin:20px 0;color:#A0A0B8;font-style:italic;background:rgba(13,13,26,0.4);border-radius:4px}
+hr{border:none;border-top:1px solid rgba(255,255,255,0.06);margin:40px 0}
+.btn-cta{display:inline-block;background:linear-gradient(135deg,rgba(205,127,50,0.15),rgba(232,184,109,0.08));color:#E8B86D;padding:10px 24px;border-radius:8px;text-decoration:none;border:1px solid rgba(205,127,50,0.25);font-weight:600;transition:all 0.3s}
+.btn-cta:hover{background:rgba(205,127,50,0.25);border-color:rgba(205,127,50,0.5);color:#F0E0C0}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/">&#8592; marianstancik.dev</a>
+    <a href="/blog">Blog</a>
+  </div>
+</nav>
+
+<div class="container">
+<article>
+  <div class="post-meta">
+    <span>21. október 2026</span>
+    <span>&#183;</span>
+    <span>12 min čítania</span>
+    <span style="margin-left:8px;" class="tag">AI Governance</span>
+    <span class="tag">Runtime Governance</span>
+    <span class="tag">ServiceNow</span>
+    <span class="tag">MCP</span>
+    <span class="tag">Hermes Agent</span>
+  </div>
+
+  <h1>Runtime Governance pre AI agentov: Prečo každý produkčný agent potrebuje pas</h1>
+
+  <p>14. októbra 2026 <strong>Netzilo AI Edge</strong> spustil Drift Control — System One modely, ktoré v runtime overujú, či agent ešte vykonáva prácu, na ktorú bol postavený. 15. októbra <strong>ServiceNow AI Passport</strong> prišiel na trh — kryptograficky podpísané credentials, ktoré agenty nosia do každého tool callu, vynútené Super Intelligence Control Tower. V tom istom týždni <strong>RSA Agent ID</strong> vstupil na trh — agenty sú traktované ako nazvané identity s risk tier, access review a lifecycle automation.</p>
+
+  <p>Tri enterprise platformy. Jeden problém. 48 hodín.</p>
+
+  <p>Agent governance nie je budúcou otázkou. Je scaling bottleneckom októbra 2026. A vendorzy sa pretekajú, aby predali riešenie — cena za agenta, za gateway, za seat. Ale architektúra za ich produktmi nie je proprietárna. Je to zbierka patternov, ktoré každý samostatný tvorca autonómnych agentov môže replikovať dnes s open-source toolingom a Linux primitívami.</p>
+
+  <p>Bežím 20+ autonómnych agentov na Hermes Agenti od mája 2026. Tento príspevok rozoberá, čo governančná vlna októbra 2026 znamená pre produkčnú architektúru agentov, a ako postaviť open-source ekvivalent AI Passport bez vendor lock-in.</p>
+
+  <h2>Októbrová governančná vlna: Tri produkty v 48 hodinách</h2>
+
+  <p>Aby sme rozumeli, prečo to je dôležité, pozerajme čo sa <em>spustilo</em>, nie čo sa <em>oznámilo</em>.</p>
+
+  <h3>1. Netzilo AI Edge — Drift Control (14. október)</h3>
+
+  <p>Netzilo rozšírilo svoj AI control plane z developer endpointov na SaaS runtimes. Klúčový doplnok: <strong>Drift Control</strong>, runtime vrstva ktorá používa light-weight System One modely a LLM judges, aby v milisekundách overila, či aktuálna akcia agenta je v rámci roboty, na ktorú bol postavený.</p>
+
+  <p>Pred Netzilovým releaseom agent governance znamenal dashboardy a audit logy — reaktívny dizajn. Drift Control je profylaktický: interceptuje tool cally agenta na gateway a overuje intent oproti deklarovanému scopovi predtým, než akcia dosiahne cielový systém. Ak agent drifuje — používa tool, k nemá mať prístup, alebo volá API mimo svojej operačnej domény — gateway preusmeruje, ohraničuje, alebo zabíja call v strojovej rychlosti.</p>
+
+  <p>Toto je prvá produkčná implementácia runtime governančného patternu, ktorý security výskumníci vyzývajú od DseWiki incidentu mája 2026. Každá akcia agenta je traktovaná ako autorizačné rozhodnutie, nie monitorovací event.</p>
+
+  <h3>2. ServiceNow AI Passport — Atestovaná autorita (15. október)</h3>
+
+  <p>ServiceNow AI Passport je najarchitektonickejšie dôležitejší produkt z troch. Je to <strong>kryptograficky podpísané credential</strong>, ktoré každý AI agent nosí v runtime, zakotvené v live business contexte organizácie — CMDB konfigurácie, GRC politiky a approval workflowy.</p>
+
+  <p>Pas definuje tri věci: identitu agenta, autorizovaný scope a hranice, ktoré nemôže prekročiť. Agent prezentuje tento pas každému service, ktorý volá. Service verifikuje signatúru oproti Control Tower. Ak scope permiti akciu, execúcia proceduje. Ak agent drifuje — pokúša sa volať MCP server, na ktorý nemá autorizáciu, alebo invokovať tool mimo svojho tieru — pas trigeruje gradual enforcement: redirect (log + warn), restrict (deny konkrétnej akcii) alebo kill (terminácia agentovej runtime session).</p>
+
+  <p>Architektúra ServiceNow je postavená na open specifikáciách — každý identity provider alebo enforcement point môže issue a verify pasy. To je kritické: pattern je implementovateľný mimo ServiceNow platformy.</p>
+
+  <div class="callout">
+    <strong>Čo nám to hovorí:</strong> Architektonický pattern za AI Passport nie je nový. Je to OAuth 2.0 scoped tokens, aplikované na tool cally agentov namiesto API endpointov. Insight je, že identita a autorita agenta by mali byť bindované k verifikovateľnému credentialu, nie k systemd service file alebo environment variable. Implementácia je ten istý pattern, ktorý bežím so scoped MCP toolmi od júla 2026 — ale kryptograficky podpísaný a live-revokable.
+  </div>
+
+  <h3>3. RSA Agent ID — Nazvané identity pre neľudských actorov (okt. 2026)</h3>
+
+  <p>RSA spustil Agent ID, aby rozriešil governančný problém unikálny pre regulované industrije: <strong>nemôžete auditovať, čo nemôžete nazvať</strong>. Agent ID discovery known a shadow AI agentov cez identity, cloud, endpoint a gateway sources, potom registruje každého s nazvaným ownerom, risk tier a lifecycle state.</p>
+
+  <p>Platforma má tri komponenty — Discover, Secure, Govern — ktoré zrkadla lifecycle, ktorý identity management prináša ľudským zamestnancom: nájdi každého agenta, aplikuj politiku, prezeraj access, decommission. Každá high-risk akcia vyžaduje verifikovaného ľudského operatora, ktorý ju schvalí s phising-resistant credential. AI a MCP gateway môže bežať úplne on-premises, s policy decisions v environmente klienta a tenant data ostávajúca v US alebo EU regióne podla výberu klienta.</p>
+
+  <p>Gartner forecast, ktorý RSA citoval — typická Fortune 500 bude bežať 150,000 agentov do 2028, z menej než 15 v 2025 — robí naming problem existenciálnym. Nemôžete zaistiť, čo nevieže že existuje.</p>
+
+  <h2>Architektonický pattern: Čo tieto tri produkty zdieľajú</h2>
+
+  <p>Napriek rôznemu brandingu všetky tri produkty implementujú rovnakú štyrvrstvovú architektúru:</p>
+
+  <pre><code>Runtime Governance Stack
+──────────────────────────────────────────────────
+Level 1: Agent Identity    — Kto je ten agent? Kto ho vlastní?
+         RSA Agent ID, AI Passport identity binding
+
+Level 2: Scope Definition  — Čo agent má autorizáciu robiť?
+         AI Passport scope, Netzilo drift boundaries
+
+Level 3: Runtime Gateway   — Enforce pri každom tool call
+         Netzilo AI Gateway, ServiceNow Control Tower
+
+Level 4: Audit & Revoke    — Logovať všetko, killovať pri drifte
+         Všetky tri: gradual responses + audit trail</code></pre>
+
+  <p>Toto je rovnaký pattern ako agent control plane, ktorý BCG popísal v septembri 2026, rovnaké separation-of-concerns, ktoré AOS referenčná architektúra definovala v auguste, a rovnaký governance-first dizajn, ktorý bežím na Hermes Agenti od júna.</p>
+
+  <p>Jediný rozdiel medzi enterprise produktmi a open-source implementáciou je kryptografická atestácia — a tá gapa sa rychlo zamyká, keď MCP specifikácia dodává signed tool invocations a arxiv paper "From TCP/IP to MCP" vyzýva formalizovaný security governance pre agent protokoly.</p>
+
+  <h2>Budovanie samostatného AI Passport</h2>
+
+  <p>Enterprise produkty cenná za agenta, za gateway, za seat. Pre sólo foundera bežiaceho 20 agentov na jednom VPS je tá cena prohibitívna. Ale architektúra nie je. Tu je open-source ekvivalent bežaci na mojom stacku dnes.</p>
+
+  <h3>Level 1: Agent Identity — Systemd Scopes + Hermes Profily</h3>
+
+  <p>Každý agent v mojom Hermes stacku beží ako nazvaný systemd scope s vlastným Unix userom, environmentom a MCP profilom. Identita agenta je jeho systemd service meno a Hermes profile meno — obe scoped na účel agenta.</p>
+
+  <pre><code># Každý agent má vlastnú identitu scope
+/etc/systemd/system/hermes-blog.service
+/etc/systemd/system/hermes-crm.service
+/etc/systemd/system/hermes-legal-monitor.service
+
+# MCP profily obmedzujú tool access per agent
+~/.hermes/profiles/blog/mcp-config.json
+~/.hermes/profiles/crm/mcp-config.json</code></pre>
+
+  <p>Toto je RSA Agent ID Discover funkcia, implementovaná s Linux primitívami. Každý agent je registrovaný, nazvaný a scoped. Neexistuje shadow agent problém, keď každý agentov execúcijny path je systemd unit file.</p>
+
+  <h3>Level 2: Scope Definition — Deklarativne MCP Tool Permissions</h3>
+
+  <p>Každý agent má deklaratívny config, ktorý definuje, ktoré MCP servery a tooly môže používať. Blog agent môže volať SEO MCP server a filesystem tool, ale nie CRM dispatcher. CRM agent môže čitať z SQLite a písať do Google Sheets, ale nie modifikovať cron schedule.</p>
+
+  <pre><code>// hermes/profile/blog/mcp-config.json — scoped tool access
+{
+  "mcpServers": {
+    "openseo": {
+      "allowedTools": ["keyword_research", "competitor_analysis"],
+      "disabled": false
+    },
+    "filesystem": {
+      "allowedTools": ["read_file"],
+      "disabled": false
+    },
+    "crm": {
+      "disabled": true  // blog agent netrapí CRM
+    }
+  }
+}</code></pre>
+
+  <p>Toto je ServiceNow AI Passport scope definition, implementovaná ako JSON config file. Autorizačné rozhodnutie nastáva na MCP client vrstve predtým, než tool call je dispatchnutý. Drift je preduvrátený konfiguráciou, nie monitorovaním.</p>
+
+  <h3>Level 3: Runtime Gateway — Watchdog Cron s Anomaly Detection</h3>
+
+  <p>Každá agentova akcia — tool invocation, LLM call, file write — je logovaná do struktúrovanej SQLite tabuly. Watchdog cron job beží každých 10 minút a porovnáva chovanie každého agenta oproti baseline profilu: očakúvaná token konzumácia, tool call frekvencia a output destinácie.</p>
+
+  <pre><code>Agent Behavior Baseline — Hermes SQLite Log
+──────────────────────────────────────────────────
+blog-agent:
+  tools: openseo/keyword_research (avg 3.2 calls/run)
+         filesystem/read_file (avg 1.1 calls/run)
+  tokens: 4,200-8,100 per run
+  output: /var/www/blog/
+
+crm-agent:
+  tools: gdrive/sheets_append (avg 2.0 calls/run)
+         sqlite/query (avg 5.4 calls/run)
+  tokens: 2,800-5,600 per run
+  output: /opt/hermes-vault/01-ASCENTIA/03-CRM/
+
+Anomaly: Akýkoľvek agent deviujúci >3 sigma od baseline
+         → kill + alert cez Telegram do @marian_s_ai</code></pre>
+
+  <p>Toto je Netzilo Drift Control, implementovaný ako cron-based statistický monitor. Je menej sofistikovaný než System One model judge, ale beží na tom istom €6/mo VPS bez dodatočných inferenčných nákladov. Pre 20 agentov sú statistické baselines dostatočné. Keď flota vzráste do 200 agentov, architektúra škáluje na pravý ML judge — ale len tam, kde statistický monitor signalizuje ambigutu.</p>
+
+  <div class="callout-green">
+    <strong>Prečo to funguje:</strong> Rovnaká architektúra, ktorá robí enterprise governance produkty drahými — per-agent gateway, kryptografická signatúra verifikácia, real-time ML inferenc — je nepotrebna v deploymentov, kde každý agent beží na jednom VPS, hovorí s MCP servermi na localhost, a je vlastnený jednou osobou. Výhoda samostatného tvorcu je lokalita. Enterprise vendorzy riešujú cross-machine federáciu. Ak nepotrebujete federáciu, neplatte jej komplexitný náklad.
+  </div>
+
+  <h3>Level 4: Audit a Revoke — Kill Switch</h3>
+
+  <p>Execúcijny trace každého agenta je rekordovaný v write-once SQLite tabule s tamper-evident hash chain. Ak watchdog trigeruje, alebo ak manuálne revokujem pas agenta, systemd service nastáva v fail state a agentov MCP profil je nahradený null configom, ktorý neautorizuje nič.</p>
+
+  <pre><code># Manuálny kill switch — revoke všetkého tool access
+#!/bin/bash
+# usage: revoke-agent.sh <agent-name>
+
+echo "{}" > ~/.hermes/profiles/$1/mcp-config.json
+systemctl stop hermes-$1.service
+systemctl disable hermes-$1.service
+logger "[GOVERNANCE] Agent $1 revoked — $(date -u +%Y-%m-%dT%H:%M:%SZ)"</code></pre>
+
+  <p>Toto je ServiceNow kill switch a RSA lifecycle management, implementovaný ako 10-riadkový bash script. Keď poviem "agent je revokovaný," regulator môže verifikovať: agentov posledný MCP config bol prázdny JSON objekt, jeho systemd state je inactive, a audit log ukazuje exactný timestamp revokácie. To je tak binding ako kryptografická atestácia, keď audit trail je primárny evidence.</p>
+
+  <h2>MCP Governance Gap — a prečo to je dôležité</h2>
+
+  <p>Arxiv paper "From TCP/IP to MCP: Security and Governance Lessons from Internet Protocols" (október 2026) robí kritickú observáciu: MCP specifikácia centralizuje governančnú autoritu v malom počte individuí — dvoch BDFL lead maintainerov a šiestich core maintainerov Agentic AI Foundation. Ak MCP stane kritickou digitálnou infraštruktúrou (170,000+ podporných toolov, backeri vrátane OpenAI, Amazon a Google), jeho governance deficit stáva problémom každého.</p>
+
+  <p>ServiceNow AI Passport a Netzilo AI Gateway oba adresujú toto z enforcement strany — sedia medzi agentom a jeho MCP toolmi a aplikujú politiku nezavisle od MCP vlastnej governance štruktúry. Ale protokol sám ešte nemá standardizované security primitívy: signed tool invocations, attesting session identity a verifikovateľné scope claims.</p>
+
+  <p>Mitigácia samostatného tvorcu je rovnaká ako enterprise gapa: enforceovať politiku na MCP gateway, nie na protocol layer. Hermes Agentovo MCP tool filtrovanie — kde klient overuje tool permissions pred dispatchom — je rovnaký pattern. Protokol možno neverifikuje identity, ale váš gateway môže.</p>
+
+  <div class="callout">
+    <strong>Architektúrna rule:</strong> Nikdy never trust agentov self-declared scope. Trust len gateway-enforced policy. Toto je Zero Trust princip aplikovaný na agent tool cally — a to je prečo ServiceNow passport verifikácia v runtime je konceptuálne lepšia než MCP súčasný permission model, ktorý relies na agent, aby deklaroval, čo potrebuje.
+  </div>
+
+  <h2>Čo október 2026 mení pre samostatných tvorcov</h2>
+
+  <p>Tri enterprise governance produkty v 48 hodinách je signál, že agent deploymenty prekročili invisiblenú líniu. Otázkou nie je viac "máte governovať svojich agentov?" ale "ako ich governovať bez enterprise cenovej etikety?"</p>
+
+  <ol>
+    <li><strong>Governance je teraz table stakes pre produkčných agentov.</strong> Ak deploynete agenta, ktorý interaktuje s externými toolmi, potrebujete štyri vrstvy: identitu, scope, enforcement, audit. ICO októbrová investigácia, EU AI Act enforcement (live od 2. augusta) a októbrová kontajnmentová kaskáda všetky konvergujú na rovnaký requirement. Toto nie je budúca regulácia. Je súčasná enforcement realita.</li>
+    <li><strong>Lokalitná výhoda samostatného tvorcu je reálna.</strong> Enterprise produkty riešujú pre 150,000 agentov cez departments, regióny a cloud providerov. Ak bežíte 20 agentov na jednom serveri, váš governance problém je jednoduchšý o rady magnitúdy. Patterny sú identické. Implementácia je lacnejšia. Ale principy — identita, scope, enforcement, audit — sú non-negotiable pri každej škále.</li>
+    <li><strong>Kryptografická atestácia ide do MCP.</strong> ServiceNow open-spec passport model a AAIF governance reform pressure značia, že natívna MCP identita a scope verifikácia je pravdepodobná v priebehu najbližších dvoch spec revízií. Budovanie vašej governance vrstvy na vrchu MCP tool filtrovania dnes značí, že adoptujete standard keď príde, namiesto nahrádzania proprietárneho riešenia.</li>
+  </ol>
+
+  <div class="callout-green">
+    <strong>Metrika, ktorá sa počíta:</strong> Bežím 20+ autonómnych agentov so scoped MCP tool accessom, statistickým drift detectionom a auditovateľnými kill switchmi od júla 2026 — mesiace predtým, než ktorýkoľvek z týchto enterprise produktov spustil. Náklad architektúry: nula dodatočných vendor spend. Komplexita architektúry: štyri Linux primitívy (systemd scopes, JSON config file, cron-based monitoring, SQLite audit logy). Kontajnmentový rekord: nula zlyhaní cez 4,000+ hodín agent runtime. Enterprise governance nie je drahý, pretože architektúra je drahá. Je drahý, pretože vendorzy cenná enterprise willingness to pay, nie marginálne náklady enforcementu.
+  </div>
+
+  <p>Keď ServiceNow hovorí "každý AI agent potrebuje pas," nie sú v omylke. Čo nehovoria je, že ten pas môžete issueovať sami — a mali by ste, pretože alternatíva je bežať agentov bez governance vrstvy, ktorú regulátori, klienti a októbrový incident rekord všetky vyžadujú.</p>
+
+  <p>Otázkou nie je, či vaši agenty potrebujú governance. Je, či stavia te ju predtým, alebo po prvom kontajnment zlyhaní.</p>
+
+  <div style="margin-top:40px;padding:24px;background:rgba(205,127,50,0.06);border-radius:12px;border:1px solid rgba(205,127,50,0.12);text-align:center;">
+    <h3 style="color:#E8B86D;margin:0 0 8px 0;">&#x2622; Prihláste sa na odber esejí o architektúre agentov</h3>
+    <p style="font-size:0.85rem;color:#B0B0C8;margin:0 0 12px 0;">Každý príspevok rozoberá, ako vyzerá produkčná agentová infraštruktúra — vzory, zlyhania, architektonické rozhodnutia zo systému, ktorý beží 24/7 mesiace.</p>
+    <p style="margin:0 0 4px 0;"><a href="https://marianstancik.dev/subscribe" class="btn-cta">Prihlásiť sa emailom</a></p>
+    <p style="font-size:0.72rem;color:#9090A8;margin:0;">Žiadny spam. Kedykoľvek sa odhláste.</p>
+  </div>
+
+  <p style="margin-top:32px;font-size:0.85rem;color:#8888A0;border-top:1px solid rgba(255,255,255,0.06);padding-top:20px;">
+&#x1f916; AI-generated | Len informácie | <a href="/disclaimer">marianstancik.dev/disclaimer</a>
+</p>
+
+</div>
+</article>
+</div>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Marian Stancik — <a href="/">marianstancik.dev</a></p>
+    <p style="margin-top:8px;"><a href="mailto:marianstancik@agentmail.to">marianstancik@agentmail.to</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

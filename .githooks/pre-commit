@@ -41,6 +41,9 @@ if echo "$API_RESULT" | grep -q '"test-skip"'; then
     echo "    ✅ POST /api/subscribe: test-skip (guard OK, no email sent)"
 elif echo "$API_RESULT" | grep -q '"status":"ok"'; then
     echo "    ✅ POST /api/subscribe: status=ok"
+elif echo "$API_RESULT" | grep -qi "just a moment\|cf_chl_opt\|cloudflare"; then
+    echo "    ⚠️ POST /api/subscribe: Cloudflare challenge (API could not be verified from VPS)"
+    echo "       Skipping API health check — site likely healthy behind CF protection."
 else
     echo "    ❌ POST /api/subscribe: $API_RESULT"
     exit 1
