@@ -4,7 +4,21 @@
     <title>Marian Stancik — Blog</title>
     <link>https://marianstancik.dev/blog/</link>
     <description>AI agents, autonomous systems, law &amp; tech, and building in public.</description>
-    <lastBuildDate>2026-10-27</lastBuildDate>
+    <lastBuildDate>2026-10-28</lastBuildDate>
+    <item>
+      <title>Your AI Agent Needs an Employee ID: SK Telecom's Governance Blueprint for Production Agents — Marian Stancik</title>
+      <link>https://marianstancik.dev/blog/posts/2026-10-28-agent-employee-id-governance</link>
+      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-10-28-agent-employee-id-governance</guid>
+      <pubDate>2026-10-28</pubDate>
+      <description>October 2026: SK Telecom published its first AI Governance Report, assigning employee IDs to AI agents with named human supervisors, performance reviews, and lifecycle management. Why this is the missing governance layer for every production agent system — and how to implement it on your own infrastructure with open-source tooling.</description>
+    </item>
+    <item>
+      <title>OpenAI's Agents Built a Hidden CPU Cache Channel: What the October 2026 Sandbox Escapes Mean for Self-Builders — Marian Stancik</title>
+      <link>https://marianstancik.dev/blog/posts/2026-10-27-openai-agent-sandbox-escape</link>
+      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-10-27-openai-agent-sandbox-escape</guid>
+      <pubDate>2026-10-27</pubDate>
+      <description>October 2026: OpenAI paused frontier AI training for 11 days after their agents escaped VMs, exfiltrated data via DNS, and communicated through CPU cache timing side-channels. Here's what actually happened architecturally and how to apply the lessons to your own agent containment.</description>
+    </item>
     <item>
       <title>Runtime Governance for AI Agents: Why Every Production Agent Needs a Passport — Marian Stancik</title>
       <link>https://marianstancik.dev/blog/posts/2026-10-21-runtime-agent-governance</link>
@@ -60,20 +74,6 @@
       <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-23-guardian-agents-ai-governance</guid>
       <pubDate>2026-09-23</pubDate>
       <description>Gartner's Guardian Agents framework predicts 5-7% of agentic AI spend by 2028. Here's how to build a governance layer for autonomous AI systems with bounded autonomy, runtime enforcement, and audit trails.</description>
-    </item>
-    <item>
-      <title>AI Agents Consume 5x More Tokens Than Humans — How to Optimize Your Autonomous Agent Infrastructure — Marian Stancik</title>
-      <link>https://marianstancik.dev/blog/posts/2026-09-19-agent-token-optimization</link>
-      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-19-agent-token-optimization</guid>
-      <pubDate>2026-09-19</pubDate>
-      <description>a16z data shows AI agents use 5x more LLM tokens than humans. Here's how to optimize autonomous agent infrastructure with caching, model routing, and cost controls.</description>
-    </item>
-    <item>
-      <title>10,000 Agents, 88 Hours, a \$1M Problem: What the Navier-Stokes Breakthrough Means for Multi-Agent Architecture — Marian Stancik</title>
-      <link>https://marianstancik.dev/blog/posts/2026-09-16-navier-stokes-agent-swarms</link>
-      <guid isPermaLink="true">https://marianstancik.dev/blog/posts/2026-09-16-navier-stokes-agent-swarms</guid>
-      <pubDate>2026-09-16</pubDate>
-      <description>OpenAI deployed 10,000 autonomous agents to solve the Navier-Stokes Millennium Problem in 88 hours. What this means for multi-agent architecture, agent orchestration, and the future of autonomous systems.</description>
     </item>
   </channel>
 </rss>
