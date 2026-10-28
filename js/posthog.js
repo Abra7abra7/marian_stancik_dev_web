@@ -134,6 +134,25 @@
       disable_session_recording: true
     });
     window.posthog.opt_in_capturing();
+    markSelfVisit();
+  }
+
+  // ---------- self-visit tagging ----------
+  // Own browser: open /?self=1 once -> localStorage ms_self = '1' -> PostHog flags
+  // this visitor as internal/test. Cohort 276838 (the project's default
+  // test-account filter) then excludes these visits from every insight.
+  // Undo with /?self=0.
+  // UTM params in the URL are picked up by PostHog automatically and land on the
+  // first pageview of a session as utm_source / utm_medium / utm_campaign.
+  function markSelfVisit() {
+    try {
+      var q = new URLSearchParams(location.search);
+      if (q.get('self') === '1') localStorage.setItem('ms_self', '1');
+      if (q.get('self') === '0') localStorage.removeItem('ms_self');
+      if (localStorage.getItem('ms_self') === '1' && window.posthog) {
+        window.posthog.setInternalOrTestUser(true);
+      }
+    } catch (e) {}
   }
 
   function stopPostHog() {
