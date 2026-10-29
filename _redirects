@@ -1,5 +1,23 @@
+# --- Multilingual static URLs (scripts/build_i18n.py) ---
+# Root serves the default language (EN, x-default). 302 so the default can change later without cached 301s.
+/ /en/ 302
+# Legacy single-URL pages (client-side language switching) -> per-language static URLs
+/about /en/about 301
+/skills /en/skills 301
+/drones /en/drones 301
+/expertise /en/expertise 301
+/contact /en/contact 301
+/services /en/services 301
+/services-sk /sk/services 301
+/cs/services /sk/services 302
+/de/services /en/services 302
+/pl/services /en/services 302
+/blog /en/blog/ 301
+/blog/ /en/blog/ 301
+
+# --- Existing rules ---
 /posts/:slug /blog/posts/:slug 301
 /posts/:slug.html /blog/posts/:slug 301
-/lead-magnet/* / 301
-/lead-magnet / 301
-/subscribe /#leadForm 302
+/lead-magnet/* /en/ 301
+/lead-magnet /en/ 301
+/subscribe /en/#leadForm 302

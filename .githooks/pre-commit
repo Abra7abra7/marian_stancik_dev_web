@@ -30,6 +30,15 @@ else
     exit 1
 fi
 
+# L10 — Static multilingual pages (/en /sk /cs /de /pl) must be rebuilt after template/locale changes
+echo "  ── L10: i18n static build ──"
+if python3 scripts/build_i18n.py --check >/dev/null 2>&1; then
+    echo "    ✅ /{lang}/ pages up to date"
+else
+    echo "    ❌ Generated pages are stale — run: python3 scripts/build_i18n.py"
+    exit 1
+fi
+
 # L8 — API health check
 echo "  ── L8: API Health ──"
 API_RESULT=$(curl -s --max-time 8 -X POST "https://www.marianstancik.dev/api/subscribe" \

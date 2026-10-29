@@ -6,7 +6,7 @@
 **Apex & WWW Support:** https://marianstancik.dev & https://www.marianstancik.dev  
 **Cloudflare Pages Project:** `marian-stancik` (`marian-stancik.pages.dev`)  
 **Repo:** https://github.com/Abra7abra7/marian_stancik_dev_web  
-**Backend VPS:** `188.245.224.189` (Hetzner Cloud — Caddy + Python WSGI + Hermes Agent + Umami)  
+**Backend VPS:** Hetzner Cloud behind `api.marianstancik.dev` (Caddy + Python WSGI + Hermes Agent + Umami). IP address intentionally not stored in this public repo.  
 **Default Branch:** `main` (Single-branch trunk-based GitOps)
 
 ---
@@ -93,7 +93,7 @@ flowchart TD
         EdgeMiddleware -->|/api/*| EdgeFunctions["Cloudflare Pages Functions (/functions/api)"]
     end
 
-    subgraph European VPS ["Dedicated Hetzner Cloud VPS (188.245.224.189 - Germany)"]
+    subgraph European VPS ["Dedicated Hetzner Cloud VPS (Germany)"]
         Caddy[Caddy 2 Reverse Proxy + Automatic SSL]
         HermesAgent["Hermes Agent Autonomous Runtime (24/7)"]
         HermesCRM["Hermes CRM Dispatcher (/crm/)"]
@@ -136,7 +136,7 @@ flowchart TD
    * Located in `functions/_middleware.js`:
      * Intercepts `Accept: text/markdown` from AI crawlers and routes directly to clean `.md` alternates.
 3. **Backend VPS (Hetzner Cloud — Germany):**
-   * **IP Address:** `188.245.224.189` (`api.marianstancik.dev`).
+   * **Hostname:** `api.marianstancik.dev` (proxied through Cloudflare; the origin IP is kept out of the public repo).
    * **Caddy 2 Reverse Proxy:** Reverse proxies internal services, handles SSL termination via Let's Encrypt / ZeroSSL.
    * **Hermes Agent Runtime:** Background autonomous loops handling content publishing, social syndication, sentinel monitoring, and CRM sync.
    * **Hermes CRM Dispatcher:** Receives webhooks at `https://api.marianstancik.dev/crm/`, syncs leads to SQLite and Google Sheets.
@@ -293,3 +293,16 @@ python scripts/dev_server.py 8080
 - **Branching Model:** Trunk-based GitOps on `main`.
 - **Production Tag:** `v1.3.0`
 - **Git Push Trigger:** Every push to GitHub `main` synchronizes trunk-based changes and keeps remote repository in lockstep with Cloudflare Pages edge.
+
+---
+
+## Multilingual site (since 2026-10-29)
+
+* **Languages:** EN (default, `x-default`), SK, CS, DE, PL. Every page has its own static URL: `/en/`, `/sk/about`, `/cs/blog/`, …
+* **Source of truth for UI strings:** `locales/ui/{en,sk,cs,de,pl}.json` (flat keys = element ids / `data-i18n`).
+* **Templates:** the root files (`index.html`, `about.html`, `skills.html`, `drones.html`, `expertise.html`, `contact.html`, `services.html` + `services-sk.html`, `blog/index.html`) are EN source templates. Old root URLs 301-redirect to `/en/...` (see `_redirects`).
+* **Build:** `python3 scripts/build_i18n.py` renders `/{lang}/…` and regenerates the `translations` block in `js/i18n.js`. Generated files are committed (Cloudflare Pages has no build step). `--check` fails when they are stale (pre-commit L10, `verify_site.py` section 10).
+* **Validation:** `python3 scripts/check_i18n.py` — self-canonical, reciprocal hreflang + x-default, internal links, sitemap URLs.
+* **Products page** exists only in EN and SK (`/cs/services` → `/sk/services`, `/de|pl/services` → `/en/services`).
+* **Blog:** posts keep their URLs (`/blog/posts/{slug}`, `/blog/posts/{lang}/{slug}`). A language blog index without any post in that language is `noindex` and shows the fallback language (CS → SK).
+* **Hermes publishing:** `scripts/publish_post.py --langs sk,en,cs,de,pl --pr` writes all languages (missing ones translated via OpenRouter + structural QA), rebuilds sitemap/llms/blog indexes and opens a **Pull Request** — it never pushes to `main`. After merge: `--ping-slug <slug>` for IndexNow.

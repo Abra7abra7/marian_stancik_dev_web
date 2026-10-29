@@ -160,7 +160,7 @@ SONA (Self-Organising Neural Architecture) pamäťový systém Ruflo zachytáva 
 
   
 
-Toto je architektonická medzera, ktorú obchádzam SQLite pamäťovou perzistenciou. Môj Hermes Agent má perzistentnú pamäť — fakty o používateľovi, serveri, projektoch — ktorá pretrváva medzi sedeniami. Ale je deklaratívna, nie procedurálna. Ukladám "VPS je na 188.245.224.189" ale nie "tu je, ako sa ti podarilo nasadiť CRM API minule." SONA procedurálna pamäť — ukladanie trajektórií, nielen faktov — je smer, ktorým sa celá agentová pamäťová vrstva musí uberať.
+Toto je architektonická medzera, ktorú obchádzam SQLite pamäťovou perzistenciou. Môj Hermes Agent má perzistentnú pamäť — fakty o používateľovi, serveri, projektoch — ktorá pretrváva medzi sedeniami. Ale je deklaratívna, nie procedurálna. Ukladám "VPS beží na konkrétnej adrese" ale nie "tu je, ako sa ti podarilo nasadiť CRM API minule." SONA procedurálna pamäť — ukladanie trajektórií, nielen faktov — je smer, ktorým sa celá agentová pamäťová vrstva musí uberať.
 
   
 

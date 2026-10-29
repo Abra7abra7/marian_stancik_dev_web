@@ -47,6 +47,15 @@
       settings: 'Cookie-Einstellungen',
       privacy: '/privacy'
     },
+    cs: {
+      title: 'Soubory cookies a analytika',
+      body: 'S vaším souhlasem použijeme analytiku PostHog (EU, Frankfurt), která ukládá cookies a data v prohlížeči, abychom pochopili, jak se web používá, a mohli ho zlepšovat. Bez souhlasu se nic takového neukládá. Souhlas můžete kdykoli změnit přes „Nastavení cookies“ v patičce.',
+      more: 'Více o cookies',
+      accept: 'Souhlasím',
+      reject: 'Odmítnout',
+      settings: 'Nastavení cookies',
+      privacy: '/privacy-sk'
+    },
     pl: {
       title: 'Pliki cookie i analityka',
       body: 'Za Twoją zgodą używamy analityki PostHog (UE, Frankfurt), która zapisuje pliki cookie i dane w przeglądarce, abyśmy mogli zrozumieć, jak korzystasz z witryny. Bez zgody nic takiego nie jest zapisywane. Wybór możesz zmienić w każdej chwili w „Ustawieniach cookie” w stopce.',
@@ -59,8 +68,9 @@
   };
 
   function lang() {
-    var l = '';
-    try { l = localStorage.getItem('ms_lang') || ''; } catch (e) {}
+    // Pre-rendered /{lang}/ pages carry their language; it wins over the stored preference.
+    var l = document.documentElement.getAttribute('data-i18n-static') || '';
+    if (!l) { try { l = localStorage.getItem('ms_lang') || ''; } catch (e) {} }
     if (!l) l = (document.documentElement.lang || 'en');
     l = String(l).toLowerCase().slice(0, 2);
     return TEXT[l] ? l : 'en';
