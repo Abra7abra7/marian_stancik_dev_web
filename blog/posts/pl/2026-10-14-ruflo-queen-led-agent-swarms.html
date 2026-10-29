@@ -231,7 +231,7 @@ Winner for production: Queen-led
 
   <p>Ruflo's SONA (Self-Organising Neural Architecture) memory system captures successful execution patterns as local embeddings in HNSW-indexed AgentDB memory. When an agent figures out how to configure a PostgreSQL MCP server, that knowledge persists. The next time a similar task appears, the agent retrieves the relevant trajectory instead of starting from zero.</p>
 
-  <p>This is the architectural gap I have been working around with SQLite memory persistence. My Hermes Agent has persistent memory — facts about the user, the server, the projects — that carries across sessions. But it is declarative, not procedural. I store "the VPS is at 188.245.224.189" but not "here is how you successfully deployed the CRM API last time." SONA's procedural memory — storing trajectories, not just facts — is the direction the entire agent memory layer needs to go.</p>
+  <p>This is the architectural gap I have been working around with SQLite memory persistence. My Hermes Agent has persistent memory — facts about the user, the server, the projects — that carries across sessions. But it is declarative, not procedural. I store "the VPS lives at a specific address" but not "here is how you successfully deployed the CRM API last time." SONA's procedural memory — storing trajectories, not just facts — is the direction the entire agent memory layer needs to go.</p>
 
   <p>The difference matters because agent systems are not stateless functions. They are stateful processes that learn from execution. A declarative memory store tells the agent what is true. A procedural memory store tells the agent what worked. Production agent systems need both.</p>
 

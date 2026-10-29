@@ -168,7 +168,7 @@ Ruflo's SONA (Self-Organising Neural Architecture) memory system captures succes
 
   
 
-This is the architectural gap I have been working around with SQLite memory persistence. My Hermes Agent has persistent memory — facts about the user, the server, the projects — that carries across sessions. But it is declarative, not procedural. I store "the VPS is at 188.245.224.189" but not "here is how you successfully deployed the CRM API last time." SONA's procedural memory — storing trajectories, not just facts — is the direction the entire agent memory layer needs to go.
+This is the architectural gap I have been working around with SQLite memory persistence. My Hermes Agent has persistent memory — facts about the user, the server, the projects — that carries across sessions. But it is declarative, not procedural. I store "the VPS lives at a specific address" but not "here is how you successfully deployed the CRM API last time." SONA's procedural memory — storing trajectories, not just facts — is the direction the entire agent memory layer needs to go.
 
   
 

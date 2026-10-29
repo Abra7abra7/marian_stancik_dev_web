@@ -153,81 +153,47 @@ def main():
             print(f"❌ Missing locale file: {loc_path}")
             cfg_ok = False
 
-    # Check that all posts have 4-language .md and .html alternates
+    # Blog posts: EN + SK are required for every post; CS/DE/PL are reported (published per --langs)
     if os.path.exists('blog/posts.json'):
         with open('blog/posts.json', 'r', encoding='utf-8') as f:
             posts = json.load(f)
-        missing_md = 0
-        missing_html = 0
+        missing_required = 0
+        optional_counts = {'cs': 0, 'de': 0, 'pl': 0}
         for p in posts:
             slug = p['slug']
-            for l_dir, l_label in [('', 'EN'), ('sk/', 'SK'), ('de/', 'DE'), ('pl/', 'PL')]:
-                if not os.path.exists(f"blog/posts/{l_dir}{slug}.md"):
-                    print(f"❌ Missing .md alternate for {l_dir}{slug}")
-                    missing_md += 1
-                if not os.path.exists(f"blog/posts/{l_dir}{slug}.html"):
-                    print(f"❌ Missing HTML alternate for {l_dir}{slug} ({l_label})")
-                    missing_html += 1
-        total_expected = len(posts) * 4
-        if missing_md == 0:
-            print(f"✅ All {len(posts)} blog posts have 4-language (EN/SK/DE/PL) .md alternates (all {total_expected} files present)")
+            for l_dir, l_label in [('', 'EN'), ('sk/', 'SK')]:
+                for ext in ('html', 'md'):
+                    if not os.path.exists(f"blog/posts/{l_dir}{slug}.{ext}"):
+                        print(f"❌ Missing {l_label} .{ext} for {slug}")
+                        missing_required += 1
+            for l in optional_counts:
+                if os.path.exists(f"blog/posts/{l}/{slug}.html"):
+                    optional_counts[l] += 1
+        if missing_required == 0:
+            print(f"✅ All {len(posts)} blog posts have EN + SK (HTML + MD)")
         else:
             cfg_ok = False
-        if missing_html == 0:
-            print(f"✅ All {len(posts)} blog posts have 4-language (EN/SK/DE/PL) HTML alternates (all {total_expected} files present)")
-        else:
-            cfg_ok = False
-        if missing_md == 0 and missing_html == 0:
-            print(f"✅ Full 4-language blog parity: {total_expected}/{total_expected} HTML + MD files")
-
-        # Check blog/index.html has correct number of entries per language
-        try:
-            with open('blog/index.html', 'r', encoding='utf-8') as f:
-                idx = f.read()
-            for lang_section, label in [('postsEn', 'EN'), ('postsSk', 'SK'), ('postsDe', 'DE'), ('postsPl', 'PL')]:
-                count = len(re.findall(rf'id="posts{lang_section[6:]}".*?</div>\s*<!--', idx, re.DOTALL))
-                posts_in_section = idx.count(f'<a href="/blog/posts/')
-                # Count actual post items in each section
-                section_start = idx.find(f'id="{lang_section}"')
-                section_end = idx.find('<!--', section_start) if lang_section != 'postsPl' else idx.find('<footer>', section_start)
-                section_html = idx[section_start:section_end]
-                post_count = len(re.findall(r'class="post-item"', section_html))
-                if post_count < len(posts):
-                    print(f"❌ blog/index.html ({label}): found {post_count} posts, expected {len(posts)}")
-                    cfg_ok = False
-                else:
-                    print(f"✅ blog/index.html ({label}): all {post_count} posts listed correctly")
-        except Exception as e:
-            print(f"❌ blog/index.html check failed: {e}")
-            cfg_ok = False
+        print("ℹ️  Optional translations: " + ", ".join(f"{k.upper()} {v}/{len(posts)}" for k, v in optional_counts.items()))
+        print("ℹ️  Blog indexes are generated per language (/{lang}/blog/) by scripts/build_i18n.py — see section 10")
 
     if cfg_ok:
         print("✅ Config, Markdown & HTML parity checks passed")
 
     print("\n========================================")
-    print(" 8. I18N 4-LANGUAGE PARITY CHECK")
+    print(" 8. I18N 5-LANGUAGE PARITY CHECK (locales/ui)")
     print("========================================")
-    if os.path.exists('js/i18n.js'):
-        with open('js/i18n.js', 'r', encoding='utf-8') as f:
-            js_code = f.read()
-        match = re.search(r'const translations = ({[\s\S]*?});\s*\n\s*let currentLang', js_code)
-        if match:
-            t = json.loads(match.group(1))
-            en_keys = set(t.get('en', {}).keys())
-            print(f"Total dictionary keys: {len(en_keys)}")
-            parity_ok = True
-            for lang in ['sk', 'de', 'pl']:
-                l_keys = set(t.get(lang, {}).keys())
-                missing = en_keys - l_keys
-                if missing:
-                    print(f"❌ {lang.upper()} missing keys: {missing}")
-                    parity_ok = False
-                else:
-                    print(f"✅ {lang.upper()} parity: 100% ({len(l_keys)}/{len(en_keys)} keys present)")
-            if parity_ok:
-                print("✅ Full 4-language i18n parity verified")
+    ui = {}
+    for lang in ['en', 'sk', 'cs', 'de', 'pl']:
+        with open(f'locales/ui/{lang}.json', 'r', encoding='utf-8') as f:
+            ui[lang] = json.load(f)
+    en_keys = set(ui['en'])
+    print(f"Total dictionary keys: {len(en_keys)}")
+    for lang in ['sk', 'cs', 'de', 'pl']:
+        missing = en_keys - set(ui[lang])
+        if missing:
+            print(f"❌ {lang.upper()} missing keys: {sorted(missing)}")
         else:
-            print("❌ Could not parse translations dictionary from js/i18n.js")
+            print(f"✅ {lang.upper()} parity: 100% ({len(ui[lang])}/{len(en_keys)} keys present)")
 
     print("\n========================================")
     print(" 9. DEPLOY SAFETY (root output directories)")
@@ -247,6 +213,16 @@ def main():
     else:
         print("✅ No root output directories (public/ dist/ out/ build/) — full site is deployed")
 
+
+    print("\n========================================")
+    print(" 10. STATIC MULTILINGUAL PAGES (/en /sk /cs /de /pl)")
+    print("========================================")
+    r = subprocess.run([sys.executable, 'scripts/check_i18n.py'], capture_output=True, text=True)
+    print(r.stdout.strip())
+    if r.returncode != 0:
+        print("❌ scripts/check_i18n.py failed")
+        if r.stderr:
+            print(r.stderr.strip())
 
 if __name__ == '__main__':
     import contextlib, io

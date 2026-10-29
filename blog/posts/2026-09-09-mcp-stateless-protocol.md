@@ -295,7 +295,7 @@ This is the right pattern for long-running autonomous agent workflows — and it
 
 ### 10. What This Means for My Stack
 
-I run Hermes Agent (Nous Research, v0.20.0 "The Herald") on a Hetzner VPS at 188.245.224.189, with multiple MCP servers providing tools for content generation, CRM, legal monitoring, and system health. The stateful session model was always the weakest link in the chain:
+I run Hermes Agent (Nous Research, v0.20.0 "The Herald") on a Hetzner VPS in Germany, with multiple MCP servers providing tools for content generation, CRM, legal monitoring, and system health. The stateful session model was always the weakest link in the chain:
 
   
 - Before: Each MCP server needed sticky sessions or a shared session store. Scaling horizontally required Redis. A single server restart could drop in-flight tool calls.

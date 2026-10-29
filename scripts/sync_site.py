@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Sync Site Engine — Single Source of Truth Orchestration
-Reads site.config.json + locales/{en,sk,de,pl}.json and automatically:
+Reads site.config.json + locales/{en,sk,de,pl}.json (+ per-language pages from build_i18n.py) and automatically:
 1. Generates clean .md markdown alternates for all blog posts (fixing 404 on Link headers).
 2. Generates updated llms.txt & llms-full.txt (with all 6 articles + products).
 3. Generates complete sitemap.xml with proper hreflang alternate tags.
@@ -146,6 +146,15 @@ def sync_blog_markdown_files():
                 f.write(md)
             print(f"  [PL] Created pl/{slug}.md")
 
+        cs_html = os.path.join(POSTS_DIR, 'cs', f"{slug}.html")
+        if os.path.exists(cs_html):
+            with open(cs_html, 'r', encoding='utf-8') as f:
+                content = f.read()
+            md = extract_markdown_from_html(content, p.get('titleCs') or p['title'], p['date'], p.get('excerptCs') or p['excerpt'])
+            with open(os.path.join(POSTS_DIR, 'cs', f"{slug}.md"), 'w', encoding='utf-8') as f:
+                f.write(md)
+            print(f"  [CS] Created cs/{slug}.md")
+
 def sync_llms_txt(config):
     print("Generating llms.txt & llms-full.txt...")
     posts = []
@@ -249,69 +258,60 @@ His core differentiation is the intersection of three domains:
     print("  Updated llms-full.txt")
 
 def sync_sitemap(config):
+    """sitemap.xml: per-language static pages (from build_i18n) + legal pages + blog posts.
+    Only URLs that really exist are listed, and every hreflang cluster lists only existing translations."""
     print("Generating sitemap.xml with full hreflang alternates...")
+    import sys as _sys
+    _sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from build_i18n import sitemap_page_entries, LANGS, post_exists, post_rel, SITE
+
     today = datetime.date.today().isoformat()
-    
-    pages = [
-        {"loc": "/", "priority": "1.0", "changefreq": "weekly"},
-        {"loc": "/about", "priority": "0.9", "changefreq": "monthly"},
-        {"loc": "/services", "priority": "0.9", "changefreq": "weekly"},
-        {"loc": "/services-sk", "priority": "0.9", "changefreq": "weekly"},
-        {"loc": "/drones", "priority": "0.7", "changefreq": "monthly"},
-        {"loc": "/contact", "priority": "0.8", "changefreq": "monthly"},
-        {"loc": "/blog", "priority": "0.9", "changefreq": "weekly"},
-        {"loc": "/impressum", "priority": "0.5", "changefreq": "monthly"},
-        {"loc": "/cookie", "priority": "0.5", "changefreq": "monthly"},
-        {"loc": "/privacy", "priority": "0.5", "changefreq": "monthly"},
-        {"loc": "/privacy-sk", "priority": "0.5", "changefreq": "monthly"},
-        {"loc": "/terms", "priority": "0.5", "changefreq": "monthly"},
-        {"loc": "/terms-sk", "priority": "0.5", "changefreq": "monthly"},
-        {"loc": "/disclaimer", "priority": "0.5", "changefreq": "monthly"},
-        {"loc": "/disclaimer-sk", "priority": "0.5", "changefreq": "monthly"},
-        {"loc": "/llms.txt", "priority": "0.5", "changefreq": "monthly"},
-        {"loc": "/llms-full.txt", "priority": "0.5", "changefreq": "monthly"}
+    xml = ['<?xml version="1.0" encoding="UTF-8"?>']
+    xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"')
+    xml.append('        xmlns:xhtml="http://www.w3.org/1999/xhtml">')
+
+    def add(loc, alts, lastmod, changefreq, priority):
+        xml.append('  <url>')
+        xml.append(f'    <loc>{loc}</loc>')
+        for hl, href in (alts or {}).items():
+            xml.append(f'    <xhtml:link rel="alternate" hreflang="{hl}" href="{href}"/>')
+        xml.append(f'    <lastmod>{lastmod}</lastmod>')
+        xml.append(f'    <changefreq>{changefreq}</changefreq>')
+        xml.append(f'    <priority>{priority}</priority>')
+        xml.append('  </url>')
+
+    for loc, alts, priority, changefreq in sitemap_page_entries():
+        add(loc, alts, today, changefreq, priority)
+
+    legal = [
+        ("/impressum", None), ("/cookie", None),
+        ("/privacy", "/privacy-sk"), ("/terms", "/terms-sk"), ("/disclaimer", "/disclaimer-sk"),
     ]
-    
+    for en_path, sk_path in legal:
+        if sk_path:
+            alts = {'en': SITE + en_path, 'sk': SITE + sk_path, 'x-default': SITE + en_path}
+            add(SITE + en_path, alts, today, 'monthly', '0.5')
+            add(SITE + sk_path, alts, today, 'monthly', '0.5')
+        else:
+            add(SITE + en_path, None, today, 'monthly', '0.5')
+    for extra in ["/llms.txt", "/llms-full.txt"]:
+        add(SITE + extra, None, today, 'monthly', '0.5')
+
     posts = []
     if os.path.exists(POSTS_JSON):
         with open(POSTS_JSON, 'r', encoding='utf-8') as f:
             posts = json.load(f)
-            
-    xml = ['<?xml version="1.0" encoding="UTF-8"?>']
-    xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"')
-    xml.append('        xmlns:xhtml="http://www.w3.org/1999/xhtml">')
-    
-    for p in pages:
-        loc = f"https://www.marianstancik.dev{p['loc']}"
-        xml.append('  <url>')
-        xml.append(f'    <loc>{loc}</loc>')
-        xml.append(f'    <lastmod>{today}</lastmod>')
-        xml.append(f'    <changefreq>{p["changefreq"]}</changefreq>')
-        xml.append(f'    <priority>{p["priority"]}</priority>')
-        xml.append('  </url>')
-        
     for post in posts:
         slug = post['slug']
-        en_url = f"https://www.marianstancik.dev/blog/posts/{slug}"
-        sk_url = f"https://www.marianstancik.dev/blog/posts/sk/{slug}"
-        de_url = f"https://www.marianstancik.dev/blog/posts/de/{slug}"
-        pl_url = f"https://www.marianstancik.dev/blog/posts/pl/{slug}"
-        
-        for lang_code, url in [('en', en_url), ('sk', sk_url), ('de', de_url), ('pl', pl_url)]:
-            xml.append('  <url>')
-            xml.append(f'    <loc>{url}</loc>')
-            xml.append(f'    <xhtml:link rel="alternate" hreflang="en" href="{en_url}"/>')
-            xml.append(f'    <xhtml:link rel="alternate" hreflang="sk" href="{sk_url}"/>')
-            xml.append(f'    <xhtml:link rel="alternate" hreflang="de" href="{de_url}"/>')
-            xml.append(f'    <xhtml:link rel="alternate" hreflang="pl" href="{pl_url}"/>')
-            xml.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{en_url}"/>')
-            xml.append(f'    <lastmod>{post.get("date", today)}</lastmod>')
-            xml.append('    <changefreq>monthly</changefreq>')
-            xml.append('    <priority>0.7</priority>')
-            xml.append('  </url>')
-        
+        langs = [l for l in LANGS if post_exists(l, slug)]
+        if not langs:
+            continue
+        alts = {l: f"{SITE}/{post_rel(l, slug)}" for l in langs}
+        alts['x-default'] = alts.get('en', alts[langs[0]])
+        for l in langs:
+            add(alts[l], alts, post.get("date", today), 'monthly', '0.7')
+
     xml.append('</urlset>')
-    
     with open(SITEMAP_XML, 'w', encoding='utf-8') as f:
         f.write("\n".join(xml) + "\n")
     print("  Updated sitemap.xml")

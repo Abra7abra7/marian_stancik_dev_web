@@ -295,7 +295,7 @@ Toto je správny vzor pre dlhotrvajúce autonómne agentové workflow — a prir
 
 ### 10. Čo to znamená pre môj stack
 
-Prevádzkujem Hermes Agent (Nous Research, v0.20.0 "The Herald") na Hetzner VPS na 188.245.224.189, s viacerými MCP servermi poskytujúcimi tooly na generovanie obsahu, CRM, právny monitoring a systémové zdravie. Stavový session model bol vždy najslabším článkom reťaze:
+Prevádzkujem Hermes Agent (Nous Research, v0.20.0 "The Herald") na Hetzner VPS v Nemecku, s viacerými MCP servermi poskytujúcimi tooly na generovanie obsahu, CRM, právny monitoring a systémové zdravie. Stavový session model bol vždy najslabším článkom reťaze:
 
   
 - Predtým: Každý MCP server potreboval sticky sessions alebo zdieľaný session store. Horizontálne škálovanie vyžadovalo Redis. Reštart servera mohol zhodiť prebiehajúce tool volania.
