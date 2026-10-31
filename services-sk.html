@@ -104,7 +104,7 @@
 <meta name="twitter:creator" content="@marian_s_ai">
 <meta name="twitter:image" content="https://www.marianstancik.dev/profile-big.webp">
 
-<link rel="stylesheet" href="/css/main.css?v=131">
+<link rel="stylesheet" href="/css/main.css?v=132">
 <script defer src="/js/posthog.js?v=consent2"></script>
 
 </head>
@@ -129,11 +129,11 @@
         <button class="lang-btn" id="btnDe" onclick="switchLanguage('de')">DE</button>
         <button class="lang-btn" id="btnPl" onclick="switchLanguage('pl')">PL</button>
       </div>
-      <button class="mobile-toggle" aria-label="Otvoriť menu" aria-expanded="false">☰</button>
-      <div class="nav-links"><div class="lang-switcher lang-switcher-mobile"><button class="lang-btn" id="btnEn" onclick="switchLanguage('en')">EN</button>
-        <button class="lang-btn active" id="btnSk" onclick="switchLanguage('sk')">SK</button>
-        <button class="lang-btn" id="btnDe" onclick="switchLanguage('de')">DE</button>
-        <button class="lang-btn" id="btnPl" onclick="switchLanguage('pl')">PL</button></div>
+      <button class="mobile-toggle" aria-expanded="false"><span aria-hidden="true">☰</span><span class="visually-hidden">Menu</span></button>
+      <div class="nav-links"><div class="lang-switcher lang-switcher-mobile"><button class="lang-btn" onclick="switchLanguage('en')">EN</button>
+        <button class="lang-btn active" onclick="switchLanguage('sk')">SK</button>
+        <button class="lang-btn" onclick="switchLanguage('de')">DE</button>
+        <button class="lang-btn" onclick="switchLanguage('pl')">PL</button></div>
         <a href="/" class="nav-link" id="navHome">Domov</a>
         <a href="/about" class="nav-link" id="navAbout">O mne</a>
         <a href="/services-sk" class="nav-link active" id="navServices">Produkty</a>

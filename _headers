@@ -6,7 +6,7 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   Vary: Accept
-  Cache-Control: public, max-age=300, s-maxage=600, stale-while-revalidate=86400, no-transform
+  Cache-Control: public, max-age=300, s-maxage=600, stale-while-revalidate=86400
   Link: </llms.txt>; rel="describedby", </llms-full.txt>; rel="describedby"
 
 /*.md

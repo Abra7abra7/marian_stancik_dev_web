@@ -31,7 +31,7 @@
 <meta name="twitter:creator" content="@marian_s_ai">
 <meta name="twitter:image" content="https://www.marianstancik.dev/profile-big.webp">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' https://*.r2.cloudflarestorage.com; connect-src 'self' https://cdn.jsdelivr.net; font-src 'self'">
-<link rel="stylesheet" href="/css/main.css?v=131">
+<link rel="stylesheet" href="/css/main.css?v=132">
 
 <script type="application/ld+json">
 {
@@ -106,11 +106,11 @@
         <button class="lang-btn" id="btnDe" onclick="switchLanguage('de')">DE</button>
         <button class="lang-btn" id="btnPl" onclick="switchLanguage('pl')">PL</button>
       </div>
-      <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-      <div class="nav-links"><div class="lang-switcher lang-switcher-mobile"><button class="lang-btn active" id="btnEn" onclick="switchLanguage('en')">EN</button>
-        <button class="lang-btn" id="btnSk" onclick="switchLanguage('sk')">SK</button>
-        <button class="lang-btn" id="btnDe" onclick="switchLanguage('de')">DE</button>
-        <button class="lang-btn" id="btnPl" onclick="switchLanguage('pl')">PL</button></div>
+      <button class="mobile-toggle" aria-expanded="false"><span aria-hidden="true">☰</span><span class="visually-hidden">Menu</span></button>
+      <div class="nav-links"><div class="lang-switcher lang-switcher-mobile"><button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="switchLanguage('sk')">SK</button>
+        <button class="lang-btn" onclick="switchLanguage('de')">DE</button>
+        <button class="lang-btn" onclick="switchLanguage('pl')">PL</button></div>
         <a href="/" class="nav-link" id="navHome">Home</a>
         <a href="/about" class="nav-link" id="navAbout">About</a>
         <a href="/services" class="nav-link" id="navServices">Products</a>
