@@ -111,7 +111,7 @@ The platform operates across three foundational pillars:
 ### Name & Visual Identity
 - **Name Standard:** Always **Marian Stancik** (strictly without diacritics in code, filenames, schemas, and English/Slovak metadata).
 - **Professional Title:** **AI Agent Developer & Autonomous Systems Builder** (studying law, building sovereign multi-agent architectures).
-- **Social / OG Image Standard:** All pages and articles use Marian's photo (`https://www.marianstancik.dev/profile-big.webp` or `profile.webp`) as `og:image` and `twitter:image` with `width="800" height="800"` and `alt="Marian Stancik"`.
+- **Social / OG Image Standard:** All pages and articles use the generated 1200×630 card `https://www.marianstancik.dev/og-image.webp` (source: `og-image.png`, regenerated from `profile-big.webp`) as `og:image` and `twitter:image` with `og:image:width="1200"`, `og:image:height="630"` and `alt="Marian Stancik — AI Agent Developer"`. Social platforms crop 800×800 squares badly in link previews; do not use a square portrait as the OG image.
 - **Search Snippet & Favicon Standard:** Circular portrait favicon with high-contrast bronze ring border generated from `profile.webp` across standard resolutions (`favicon.ico`, `favicon-32x32.png`, `favicon-48x48.png`, `apple-touch-icon.png`).
 - **Design Tokens & Visual Architecture:**
   - **Celestial Midnight Navy Theme:** Single consolidated source of truth in `css/main.css` (`--color-bg: #0A111C;`, `--color-bg-deep: #060B12;`, `--color-bg-secondary: #080E18;`, `--color-bg-card: rgba(14, 25, 42, 0.72);`, `--color-bg-card-hover: rgba(22, 38, 62, 0.88);`, `--color-primary: #CD7F32;`, `--color-accent: #EBC37D;`).

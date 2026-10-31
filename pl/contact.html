@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Kontakt — Marian Stancik | Deweloper Agentów AI</title>
+<title>Kontakt — Marian Stancik | Systemy Autonomiczne</title>
 <meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots"/>
 <link href="https://www.marianstancik.dev/pl/contact" rel="canonical"/>
 <link href="https://www.marianstancik.dev/en/contact" hreflang="en" rel="alternate"/>
@@ -21,7 +21,7 @@
 <meta content="cs_CZ" property="og:locale:alternate"/>
 <meta content="de_DE" property="og:locale:alternate"/>
 <style data-i18n-build="1">a.lang-btn{text-decoration:none;display:inline-block;line-height:1.4}</style>
-<meta content="Marian Stancik — Buduję agentów AI, którzy zarządzają Twoimi procesami. Dedykowane agenty autonomiczne i audyty stron AI." name="description"/>
+<meta content="Kontakt — Marian Stancik — Buduję agentów AI, którzy zarządzają Twoimi procesami. Dedykowane agenty autonomiczne i audyty stron AI." name="description"/>
 <meta content="AI Agent Developer, AI Agents, autonomous AI agents, Hermes Agent, MCP" name="keywords"/>
 
 <meta content="Marian Stancik" name="author"/>
@@ -32,13 +32,13 @@
 <link href="/favicon.ico?v=4" rel="shortcut icon"/>
 <link href="/apple-touch-icon.png?v=4" rel="apple-touch-icon" sizes="180x180"/>
 <meta content="#0A111C" name="theme-color"/>
-<meta content="Kontakt — Marian Stancik | Deweloper Agentów AI" property="og:title"/>
-<meta content="Marian Stancik — Buduję agentów AI, którzy zarządzają Twoimi procesami. Dedykowane agenty autonomiczne i audyty stron AI." property="og:description"/>
+<meta content="Kontakt — Marian Stancik | Systemy Autonomiczne" property="og:title"/>
+<meta content="Kontakt — Marian Stancik — Buduję agentów AI, którzy zarządzają Twoimi procesami. Dedykowane agenty autonomiczne i audyty stron AI." property="og:description"/>
 
 <meta content="website" property="og:type"/>
-<meta content="https://www.marianstancik.dev/profile-big.webp" property="og:image"/>
-<meta content="800" property="og:image:width"/>
-<meta content="800" property="og:image:height"/>
+<meta content="https://www.marianstancik.dev/og-image.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
 <meta content="Marian Stancik — Contact" property="og:image:alt"/>
 
 
@@ -46,7 +46,7 @@
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="@marian_s_ai" name="twitter:site"/>
 <meta content="@marian_s_ai" name="twitter:creator"/>
-<meta content="https://www.marianstancik.dev/profile-big.webp" name="twitter:image"/>
+<meta content="https://www.marianstancik.dev/og-image.webp" name="twitter:image"/>
 <meta content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' https://*.r2.cloudflarestorage.com; connect-src 'self' https://cdn.jsdelivr.net; font-src 'self'" http-equiv="Content-Security-Policy"/>
 <link href="/css/main.css?v=132" rel="stylesheet"/>
 <script type="application/ld+json">
@@ -61,7 +61,7 @@
       "givenName": "Marian",
       "familyName": "Stancik",
       "url": "https://www.marianstancik.dev",
-      "image": "https://www.marianstancik.dev/profile.webp",
+      "image": "https://www.marianstancik.dev/og-image.webp",
       "sameAs": [
         "https://x.com/marian_s_ai",
         "https://www.youtube.com/@marian_ai",
@@ -77,8 +77,8 @@
       "@id": "https://www.marianstancik.dev/#organization",
       "name": "Marian Stancik",
       "url": "https://www.marianstancik.dev",
-      "logo": "https://www.marianstancik.dev/profile-big.webp",
-      "image": "https://www.marianstancik.dev/profile-big.webp"
+      "logo": "https://www.marianstancik.dev/og-image.webp",
+      "image": "https://www.marianstancik.dev/og-image.webp"
     },
     {
       "@type": "ContactPage",
@@ -218,14 +218,14 @@
 <div class="fade-in" style="max-width: 580px; margin: 0 auto; background: rgba(18, 18, 30, 0.65); border: 1px solid rgba(205, 127, 50, 0.2); border-radius: 16px; padding: 32px 28px; box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4); text-align: left;">
 <form id="contactForm" style="display: flex; flex-direction: column; gap: 18px;">
 <!-- Honeypot -->
-<input autocomplete="off" id="contactHp" name="website_url_hp" style="display:none;" tabindex="-1" type="text"/>
+<input aria-hidden="true" autocomplete="off" enterkeyhint="next" id="contactHp" name="website_url_hp" style="display:none;" tabindex="-1" type="url"/>
 <div>
 <label for="contactName" id="contactNameLabel" style="display:block; font-size: 0.85rem; color: #D0D0E0; margin-bottom: 6px; font-weight: 500;">Twoje imię</label>
-<input id="contactName" name="name" placeholder="Name or Company" required="" style="width: 100%; box-sizing: border-box; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: #F0F0F5; font-family: inherit; font-size: 0.9rem; outline: none; transition: border-color 0.3s;" type="text"/>
+<input autocomplete="name" enterkeyhint="next" id="contactName" name="name" placeholder="Name or Company" required="" style="width: 100%; box-sizing: border-box; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: #F0F0F5; font-family: inherit; font-size: 0.9rem; outline: none; transition: border-color 0.3s;" type="text"/>
 </div>
 <div>
 <label for="contactEmail" id="contactEmailLabel" style="display:block; font-size: 0.85rem; color: #D0D0E0; margin-bottom: 6px; font-weight: 500;">Adres e-mail</label>
-<input id="contactEmail" name="email" placeholder="your@email.com" required="" style="width: 100%; box-sizing: border-box; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: #F0F0F5; font-family: inherit; font-size: 0.9rem; outline: none; transition: border-color 0.3s;" type="email"/>
+<input autocomplete="email" enterkeyhint="send" id="contactEmail" name="email" placeholder="your@email.com" required="" style="width: 100%; box-sizing: border-box; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: #F0F0F5; font-family: inherit; font-size: 0.9rem; outline: none; transition: border-color 0.3s;" type="email"/>
 </div>
 <div>
 <label for="contactMessage" id="contactMessageLabel" style="display:block; font-size: 0.85rem; color: #D0D0E0; margin-bottom: 6px; font-weight: 500;">Wiadomość</label>

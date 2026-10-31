@@ -320,8 +320,15 @@ def render_page(page, lang, strings, posts):
         title = title_el.get_text() if title_el else d['docTitle']
         desc = desc_el.get('content') if desc_el else d['docDesc']
     else:
-        title = f"{strip_label(d[page['title_key']])} — Marian Stancik | {d['roleAi']}"
-        desc = d['docDesc']
+        tagline = d['docTitle'].split('|')[-1].strip() if '|' in d['docTitle'] else d['roleAi']
+        title = f"{strip_label(d[page['title_key']])} — Marian Stancik | {tagline}"
+        # per-page description: unikatna, 50-158 znakov
+        label = strip_label(d[page['title_key']])
+        base = d['docDesc']
+        cand = f"{label} — {base}"
+        if len(cand) > 158:
+            cand = cand[:155].rsplit(' ', 1)[0] + '…'
+        desc = cand
     if title_el is not None:
         title_el.string = title
     if desc_el is not None:

@@ -19,9 +19,9 @@
 <meta property="og:description" content="Connect with Marian Stancik — AI Agent Developer. Custom autonomous agents, AI web audits, and technical readiness scans.">
 <meta property="og:url" content="https://www.marianstancik.dev/contact">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://www.marianstancik.dev/profile-big.webp">
-<meta property="og:image:width" content="800">
-<meta property="og:image:height" content="800">
+<meta property="og:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Marian Stancik — Contact">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="sk_SK">
@@ -29,7 +29,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@marian_s_ai">
 <meta name="twitter:creator" content="@marian_s_ai">
-<meta name="twitter:image" content="https://www.marianstancik.dev/profile-big.webp">
+<meta name="twitter:image" content="https://www.marianstancik.dev/og-image.webp">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' https://*.r2.cloudflarestorage.com; connect-src 'self' https://cdn.jsdelivr.net; font-src 'self'">
 <link rel="stylesheet" href="/css/main.css?v=132">
 
@@ -45,7 +45,7 @@
       "givenName": "Marian",
       "familyName": "Stancik",
       "url": "https://www.marianstancik.dev",
-      "image": "https://www.marianstancik.dev/profile.webp",
+      "image": "https://www.marianstancik.dev/og-image.webp",
       "sameAs": [
         "https://x.com/marian_s_ai",
         "https://www.youtube.com/@marian_ai",
@@ -61,8 +61,8 @@
       "@id": "https://www.marianstancik.dev/#organization",
       "name": "Marian Stancik",
       "url": "https://www.marianstancik.dev",
-      "logo": "https://www.marianstancik.dev/profile-big.webp",
-      "image": "https://www.marianstancik.dev/profile-big.webp"
+      "logo": "https://www.marianstancik.dev/og-image.webp",
+      "image": "https://www.marianstancik.dev/og-image.webp"
     },
     {
       "@type": "ContactPage",
@@ -220,16 +220,16 @@
     <div class="fade-in" style="max-width: 580px; margin: 0 auto; background: rgba(18, 18, 30, 0.65); border: 1px solid rgba(205, 127, 50, 0.2); border-radius: 16px; padding: 32px 28px; box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4); text-align: left;">
       <form id="contactForm" style="display: flex; flex-direction: column; gap: 18px;">
         <!-- Honeypot -->
-        <input type="text" name="website_url_hp" id="contactHp" style="display:none;" tabindex="-1" autocomplete="off">
+        <input enterkeyhint="next" aria-hidden="true" type="url" name="website_url_hp" id="contactHp" style="display:none;" tabindex="-1" autocomplete="off">
         
         <div>
           <label for="contactName" id="contactNameLabel" style="display:block; font-size: 0.85rem; color: #D0D0E0; margin-bottom: 6px; font-weight: 500;">Your Name</label>
-          <input type="text" id="contactName" name="name" required placeholder="Name or Company" style="width: 100%; box-sizing: border-box; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: #F0F0F5; font-family: inherit; font-size: 0.9rem; outline: none; transition: border-color 0.3s;">
+          <input enterkeyhint="next" autocomplete="name" type="text" id="contactName" name="name" required placeholder="Name or Company" style="width: 100%; box-sizing: border-box; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: #F0F0F5; font-family: inherit; font-size: 0.9rem; outline: none; transition: border-color 0.3s;">
         </div>
         
         <div>
           <label for="contactEmail" id="contactEmailLabel" style="display:block; font-size: 0.85rem; color: #D0D0E0; margin-bottom: 6px; font-weight: 500;">Email Address</label>
-          <input type="email" id="contactEmail" name="email" required placeholder="your@email.com" style="width: 100%; box-sizing: border-box; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: #F0F0F5; font-family: inherit; font-size: 0.9rem; outline: none; transition: border-color 0.3s;">
+          <input enterkeyhint="send" autocomplete="email" type="email" id="contactEmail" name="email" required placeholder="your@email.com" style="width: 100%; box-sizing: border-box; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: #F0F0F5; font-family: inherit; font-size: 0.9rem; outline: none; transition: border-color 0.3s;">
         </div>
         
         <div>

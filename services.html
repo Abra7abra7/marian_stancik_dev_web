@@ -21,13 +21,14 @@
       "@id": "https://www.marianstancik.dev/#person",
       "name": "Marian Stancik",
       "jobTitle": "AI Agent Developer",
-      "image": "https://www.marianstancik.dev/profile-big.webp",
+      "image": "https://www.marianstancik.dev/og-image.webp",
       "url": "https://www.marianstancik.dev",
       "sameAs": [
         "https://x.com/marian_s_ai",
         "https://www.youtube.com/@marian_ai",
         "https://github.com/Abra7abra7",
-        "https://www.linkedin.com/in/marian-stancik-924b41298/"
+        "https://www.linkedin.com/in/marian-stancik-924b41298/",
+        "https://www.threads.net/@marian_stancik"
       ]
     },
     {
@@ -93,16 +94,16 @@
 <meta property="og:description" content="AI agent audits, GEO optimization for Perplexity/ChatGPT, and custom autonomous agents on 24/7 VPS. Instant Stripe checkout.">
 <meta property="og:url" content="https://www.marianstancik.dev/services">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://www.marianstancik.dev/profile-big.webp">
-<meta property="og:image:width" content="800">
-<meta property="og:image:height" content="800">
+<meta property="og:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Marian Stancik — Products &amp; Audits">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Marian Stancik">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@marian_s_ai">
 <meta name="twitter:creator" content="@marian_s_ai">
-<meta name="twitter:image" content="https://www.marianstancik.dev/profile-big.webp">
+<meta name="twitter:image" content="https://www.marianstancik.dev/og-image.webp">
 
 <link rel="stylesheet" href="/css/main.css?v=132">
 <script defer src="/js/posthog.js?v=consent2"></script>
@@ -430,15 +431,15 @@
       <form id="stripeCheckoutForm" onsubmit="handleStripeRedirect(event)">
         <div class="stripe-form-group">
           <label for="stripeEmail">Your Work Email</label>
-          <input type="email" id="stripeEmail" class="stripe-form-input" placeholder="founder@company.com" required>
+          <input enterkeyhint="next" autocomplete="email" type="email" id="stripeEmail" class="stripe-form-input" placeholder="founder@company.com" required>
         </div>
         <div class="stripe-form-group">
           <label for="stripeUrl">Website URL to Audit / Automate</label>
-          <input type="text" id="stripeUrl" class="stripe-form-input" placeholder="https://example.com" required>
+          <input enterkeyhint="next" autocomplete="url" type="url" id="stripeUrl" class="stripe-form-input" placeholder="https://example.com" required>
         </div>
         <div class="stripe-form-group">
           <label for="stripeNotes">Notes / Special Requests (Optional)</label>
-          <input type="text" id="stripeNotes" class="stripe-form-input" placeholder="e.g. EU AI Act focus, fast turnaround">
+          <input enterkeyhint="send" type="text" id="stripeNotes" class="stripe-form-input" placeholder="e.g. EU AI Act focus, fast turnaround">
         </div>
         <div class="stripe-form-group" style="margin-top: 14px; text-align: left;">
           <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.78rem; color: #B0B0C5; cursor: pointer; line-height: 1.45;">
