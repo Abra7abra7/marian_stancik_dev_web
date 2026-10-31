@@ -17,9 +17,14 @@ async function initThreeBackground() {
   const canvas = document.getElementById('three-canvas');
   if (!canvas) return;
 
-  // Check WebGL support
-  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  // Check WebGL support on a throwaway canvas — calling getContext('webgl') on the real
+  // canvas would lock it to WebGL1 and make three.js fail with
+  // "Canvas has an existing context of a different type" when it requests WebGL2.
+  const probe = document.createElement('canvas');
+  const gl = probe.getContext('webgl2') || probe.getContext('webgl');
   if (!gl) return;
+  const loseProbe = gl.getExtension('WEBGL_lose_context');
+  if (loseProbe) loseProbe.loseContext();
 
   try {
     // Dynamic import — no importmap in HTML, avoid early pre-fetch of 250KB

@@ -302,7 +302,15 @@ align-items: flex-start;
 }
 .nav-links.open { display: flex; animation: slideDown 0.25s ease-out; }
 .mobile-toggle { display: block; }
+/* Mobil: jazyky sa presuvaju do rozbalovacieho menu, aby burger ostal v obrazovke */
+.nav-right > .lang-switcher { display: none; }
+.nav-right { gap: 8px; }
+.nav-container { gap: 8px; }
+.nav-logo-text { font-size: 0.85rem; }
 }
+/* mobilna kopia jazykov je na desktope skryta */
+.lang-switcher-mobile { display: none; }
+@media (max-width: 768px) { .lang-switcher-mobile { display: inline-flex; } }
 @keyframes slideDown {
 from { opacity: 0; transform: translateY(-10px); }
 to { opacity: 1; transform: translateY(0); }

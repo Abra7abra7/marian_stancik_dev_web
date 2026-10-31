@@ -122,7 +122,6 @@ footer a{color:#9A8A78;text-decoration:none}
 footer a:hover{color:#CD7F32}
 @media(max-width:600px){article{padding:32px 0 60px}}
 </style>
-<script defer src="https://api.marianstancik.dev/script.js" data-website-id="ec1c0df8-e51f-4236-9ad0-e3992f0b1637"></script>
 <script defer src="/js/posthog.js?v=consent1"></script>
 </head>
 <body>
@@ -141,6 +140,7 @@ footer a:hover{color:#CD7F32}
     </div>
   </div>
 </nav>
+<main id="main-content">
 
 <div class="container">
 <article>
@@ -179,14 +179,14 @@ footer a:hover{color:#CD7F32}
 &lt;/style&gt;
 
 &lt;!-- After: external, cached once --&gt;
-&lt;link rel="stylesheet" href="/css/main.css?v=130"&gt;</code></pre>
+&lt;link rel="stylesheet" href="/css/main.css?v=131"&gt;</code></pre>
 
 <h3>2. Externalize JavaScript (Three.js + i18n)</h3>
 
 <p>Two major JS blocks were extracted: the Three.js neural network module (5KB, deferred via <code>type="module"</code>) and the i18n translations + helpers (25KB, loaded at the bottom of <code>&lt;body&gt;</code>). Both are now cached across all 6 pages.</p>
 
 <pre><code>&lt;!-- Three.js — deferred by nature of type="module" --&gt;
-&lt;script type="module" src="/js/three-bg.js?v=130"&gt;&lt;/script&gt;
+&lt;script type="module" src="/js/three-bg.js?v=132"&gt;&lt;/script&gt;
 
 &lt;!-- i18n — loaded at body bottom, not render-blocking --&gt;
 &lt;script src="/js/i18n.js"&gt;&lt;/script&gt;</code></pre>
@@ -244,6 +244,7 @@ footer a:hover{color:#CD7F32}
 </article>
 </div>
 
+</main>
 <footer>
 <p class="ai-disclaimer" style="font-size:0.8rem; color:#9A8A78; margin-bottom:0.5rem; border-top:1px solid rgba(205,127,50,0.15); padding-top:1rem;">🤖 <strong>AI-generated</strong> — This article was generated with the assistance of an autonomous AI agent (Hermes Agent by Nous Research) and reviewed by Marian Stancik before publication. <a href="/disclaimer" style="color:#CD7F32;">Full disclaimer</a>.</p>
   <p>© 2026 <a href="/">Marian Stancik</a> — <a href="../../index.html">marianstancik.dev</a></p>
