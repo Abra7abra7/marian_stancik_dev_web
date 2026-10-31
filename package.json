@@ -6,10 +6,11 @@
     "dev": "python3 scripts/dev_server.py",
     "verify": "python3 scripts/verify_site.py",
     "sync": "python3 scripts/sync_site.py",
-    "deploy": "python3 scripts/build_i18n.py && python3 scripts/verify_site.py && npx wrangler pages deploy . --project-name=marian-stancik --branch=main",
+    "deploy": "python3 scripts/build_i18n.py && node scripts/minify_js.mjs && python3 scripts/verify_site.py && npx wrangler pages deploy . --project-name=marian-stancik --branch=main",
     "audit": "squirrel audit https://www.marianstancik.dev --format llm",
-    "build": "python3 scripts/build_i18n.py",
-    "check:i18n": "python3 scripts/check_i18n.py"
+    "build": "python3 scripts/build_i18n.py && node scripts/minify_js.mjs",
+    "check:i18n": "python3 scripts/check_i18n.py",
+    "minify": "node scripts/minify_js.mjs"
   },
   "keywords": [
     "ai-agents",

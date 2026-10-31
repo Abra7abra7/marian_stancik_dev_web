@@ -5,9 +5,11 @@
   'use strict';
 
   var lang = document.documentElement.getAttribute('data-i18n-static') || 'en';
-  var t = (typeof translations !== 'undefined' && translations[lang]) || {};
-
-  function txt(id, fallback) { return t[id] || fallback; }
+  // translations arrive via a lazy-locale chunk — read at call time, not parse time
+  function txt(id, fallback) {
+    var t = (typeof translations !== 'undefined' && translations[lang]) || {};
+    return t[id] || fallback;
+  }
   function esc(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];

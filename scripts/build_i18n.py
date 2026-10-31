@@ -8,7 +8,8 @@ expertise.html, contact.html, services.html (+ services-sk.html), blog/index.htm
 
 Outputs (committed to the repo, Cloudflare Pages serves them as static files):
   /{lang}/index.html, /{lang}/about.html, ... , /{lang}/blog/index.html
-  js/i18n.js  -> the `translations` object is regenerated from locales/ui/*.json
+  js/i18n.js          -> engine only; __I18N_BUILD__ placeholder gets the build stamp
+  js/i18n/{lang}.js   -> per-locale translation chunks (the engine lazy-loads one)
 
 Usage:
   python3 scripts/build_i18n.py           # build
@@ -366,14 +367,27 @@ def render_page(page, lang, strings, posts):
     return out.replace('<!DOCTYPE html>\n', '<!DOCTYPE html>\n' + banner, 1) if out.startswith('<!DOCTYPE html>\n') else banner + out
 
 
+def i18n_build_stamp(strings):
+    """Deterministic cache-busting version for the locale chunks (content hash),
+    so `--check` stays stable and the chunks are re-fetched only when they change."""
+    import hashlib
+    h = hashlib.sha256()
+    for lang in LANGS:
+        h.update(json.dumps(strings[lang], ensure_ascii=False, sort_keys=True).encode('utf-8'))
+    return h.hexdigest()[:10]
+
+
 def render_i18n_js(strings):
+    """Engine file: only swap the build-stamp placeholder; chunks carry the strings."""
     with open(I18N_JS, encoding='utf-8') as f:
         js = f.read()
-    start = js.index('const translations = {')
-    end = js.index('\n};', start) + 3
-    block = 'const translations = ' + json.dumps({l: strings[l] for l in LANGS}, ensure_ascii=False, indent=2) + ';'
-    js = js[:start] + block + js[end:]
-    return js
+    return js.replace('__I18N_BUILD__', i18n_build_stamp(strings))
+
+
+def render_i18n_chunk(lang, strings):
+    """Per-locale chunk: assigns into the engine's global `translations` binding."""
+    data = json.dumps(strings[lang], ensure_ascii=False, indent=1)
+    return f'translations["{lang}"] = ' + data + ';\n'
 
 
 def outputs():
@@ -386,6 +400,9 @@ def outputs():
                 continue
             files[os.path.join(lang, page['out'])] = render_page(page, lang, strings, posts)
     files[os.path.relpath(I18N_JS, BASE_DIR)] = render_i18n_js(strings)
+    for lang in LANGS:
+        chunk_path = os.path.join(BASE_DIR, 'js', 'i18n', lang + '.js')
+        files[os.path.relpath(chunk_path, BASE_DIR)] = render_i18n_chunk(lang, strings)
     return files
 
 

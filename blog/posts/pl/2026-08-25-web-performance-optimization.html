@@ -122,7 +122,7 @@ footer a{color:#9A8A78;text-decoration:none}
 footer a:hover{color:#CD7F32}
 @media(max-width:600px){article{padding:32px 0 60px}}
 </style>
-<script defer src="/js/posthog.js?v=consent1"></script>
+<script defer src="/js/posthog.min.js?v=consent1"></script>
 </head>
 <body>
 
@@ -189,7 +189,7 @@ footer a:hover{color:#CD7F32}
 <p>Two major JS blocks were extracted: the Three.js neural network module (5KB, deferred via <code>type="module"</code>) and the i18n translations + helpers (25KB, loaded at the bottom of <code>&lt;body&gt;</code>). Both are now cached across all 6 pages.</p>
 
 <pre><code>&lt;!-- Three.js — deferred by nature of type="module" --&gt;
-&lt;script type="module" src="/js/three-bg.js?v=132"&gt;&lt;/script&gt;
+&lt;script type="module" src="/js/three-bg.min.js?v=133"&gt;&lt;/script&gt;
 
 &lt;!-- i18n — loaded at body bottom, not render-blocking --&gt;
 &lt;script src="/js/i18n.js"&gt;&lt;/script&gt;</code></pre>
@@ -254,5 +254,5 @@ footer a:hover{color:#CD7F32}
 <p style="font-size:0.7rem; color:#8A7A6A; margin-top:0.25rem;"><a href="/privacy" style="color:#8A7A6A;">Privacy Policy</a> · <a href="/privacy-sk" style="color:#8A7A6A;">Privacy Policy (SK)</a> · <a href="/terms" style="color:#8A7A6A;">Terms of Service</a> · <a href="/disclaimer" style="color:#8A7A6A;">Disclaimer</a></p>
 </footer>
 
-<script src="/js/i18n.js?v=20260908_v6"></script></body>
+<script src="/js/i18n.min.js?v=20260908_v6"></script></body>
 </html>
