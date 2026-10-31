@@ -6,7 +6,9 @@
 
 ---
 
-October 21, 2026
+By Marian Stancik
+    ·
+    October 21, 2026
     ·
     12 min read
     AI Governance

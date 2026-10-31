@@ -6,7 +6,9 @@
 
 ---
 
-27. október 2026
+Autor Marian Stancik
+    ·
+    27. október 2026
     ·
     14 min čítania
     Kontajnment agentov

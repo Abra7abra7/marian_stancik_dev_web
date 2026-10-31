@@ -6,7 +6,9 @@
 
 ---
 
-October 7, 2026
+By Marian Stancik
+  ·
+  October 7, 2026
   Rogue Agents
   AI Governance
   EU AI Act

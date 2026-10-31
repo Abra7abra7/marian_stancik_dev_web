@@ -6,7 +6,9 @@
 
 ---
 
-26 września 2026
+By Marian Stancik
+  ·
+  26 września 2026
   MCP
   SIGGRAPH 2026
   AI Agents

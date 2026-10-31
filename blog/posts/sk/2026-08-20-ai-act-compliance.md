@@ -10,6 +10,8 @@ Právo & AI Compliance
 
 ### Súlad s EU AI Act pre malé AI firmy a startupy AI-generované
 
+Autor Marian Stancik
+·
 20. august 2026
 ·
 6 min čítania

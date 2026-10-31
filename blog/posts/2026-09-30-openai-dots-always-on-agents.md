@@ -6,7 +6,9 @@
 
 ---
 
-September 30, 2026
+By Marian Stancik
+  ·
+  September 30, 2026
   OpenAI
   Dots
   Autonomous Agents

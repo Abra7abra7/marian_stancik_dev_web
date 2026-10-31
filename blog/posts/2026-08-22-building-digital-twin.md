@@ -10,6 +10,8 @@ AI Agents & Autonomy
 
 ### Building a Digital Twin That Posts 9x Daily AI-generated
 
+By Marian Stancik
+·
 August 22, 2026
 ·
 4 min read

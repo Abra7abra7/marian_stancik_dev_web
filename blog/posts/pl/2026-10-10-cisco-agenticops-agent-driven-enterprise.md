@@ -6,7 +6,9 @@
 
 ---
 
-10 października 2026
+By Marian Stancik
+  ·
+  10 października 2026
   Cisco
   AgenticOps
   Autonomous Agents

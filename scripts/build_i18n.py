@@ -58,22 +58,32 @@ CONTENT_FALLBACK = {'cs': 'sk', 'de': 'en', 'pl': 'en', 'sk': 'en', 'en': 'en'}
 # Page registry. path = URL path after /{lang}/ ; title_key = nav label used for the <title> of subpages
 PAGES = [
     {'id': 'index', 'src': 'index.html', 'path': '', 'out': 'index.html', 'title_key': None, 'priority': '1.0', 'changefreq': 'weekly'},
-    {'id': 'about', 'src': 'about.html', 'path': 'about', 'out': 'about.html', 'title_key': 'navAbout', 'priority': '0.9', 'changefreq': 'monthly'},
-    {'id': 'services', 'src': {'en': 'services.html', 'sk': 'services-sk.html'}, 'path': 'services', 'out': 'services.html',
-     'title_key': 'navProducts', 'langs': ['en', 'sk'], 'priority': '0.9', 'changefreq': 'weekly'},
-    {'id': 'expertise', 'src': 'expertise.html', 'path': 'expertise', 'out': 'expertise.html', 'title_key': 'navExpertise', 'priority': '0.7', 'changefreq': 'monthly'},
-    {'id': 'skills', 'src': 'skills.html', 'path': 'skills', 'out': 'skills.html', 'title_key': 'navSkills', 'priority': '0.7', 'changefreq': 'monthly'},
-    {'id': 'drones', 'src': 'drones.html', 'path': 'drones', 'out': 'drones.html', 'title_key': 'navDrones', 'priority': '0.6', 'changefreq': 'monthly'},
-    {'id': 'contact', 'src': 'contact.html', 'path': 'contact', 'out': 'contact.html', 'title_key': 'navContact', 'priority': '0.8', 'changefreq': 'monthly'},
+    {'id': 'tools', 'src': 'tools/index.html', 'path': 'tools/', 'out': 'tools/index.html', 'title_key': 'navTools', 'priority': '0.9', 'changefreq': 'weekly'},
+    {'id': 'promptlibrary', 'src': 'tools/prompt-library.html', 'path': 'tools/prompt-library', 'out': 'tools/prompt-library.html', 'title_key': 'navTools', 'priority': '0.9', 'changefreq': 'weekly'},
+    {'id': 'starterkit', 'src': {'en': 'tools/starter-kit.html', 'sk': 'tools/starter-kit-sk.html'}, 'path': 'tools/starter-kit', 'out': 'tools/starter-kit.html',
+     'title_key': 'navTools', 'priority': '0.9', 'changefreq': 'weekly'},
+    {'id': 'missionplanner', 'src': 'tools/mission-planner.html', 'path': 'tools/mission-planner', 'out': 'tools/mission-planner.html', 'title_key': 'navTools', 'priority': '0.6', 'changefreq': 'monthly'},
+    {'id': 'howitworks', 'src': 'how-it-works.html', 'path': 'how-it-works', 'out': 'how-it-works.html', 'title_key': 'navHowItWorks', 'priority': '0.9', 'changefreq': 'weekly'},
+    {'id': 'contact', 'src': 'contact.html', 'path': 'contact', 'out': 'contact.html', 'title_key': 'navContact', 'priority': '0.6', 'changefreq': 'monthly'},
     {'id': 'blog', 'src': 'blog/index.html', 'path': 'blog/', 'out': 'blog/index.html', 'title_key': 'navBlog', 'priority': '0.9', 'changefreq': 'weekly'},
 ]
 PAGE_BY_ID = {p['id']: p for p in PAGES}
 LEGACY_PATHS = {
-    '/': 'index', '/index.html': 'index', '/about': 'about', '/about.html': 'about',
-    '/services': 'services', '/services.html': 'services', '/services-sk': 'services', '/services-sk.html': 'services',
-    '/expertise': 'expertise', '/expertise.html': 'expertise', '/skills': 'skills', '/skills.html': 'skills',
-    '/drones': 'drones', '/drones.html': 'drones', '/contact': 'contact', '/contact.html': 'contact',
+    '/': 'index', '/index.html': 'index',
+    # deleted pages (redesign 31.10.2026) -> their redirect targets, so internal
+    # hrefs from surviving pages (blog posts, contact) are rewritten, not broken
+    '/about': 'index', '/about.html': 'index',
+    '/services': 'tools', '/services.html': 'tools', '/services-sk': 'tools', '/services-sk.html': 'tools',
+    '/expertise': 'index', '/expertise.html': 'index', '/skills': 'index', '/skills.html': 'index',
+    '/drones': 'index', '/drones.html': 'index',
+    '/contact': 'contact', '/contact.html': 'contact',
     '/blog': 'blog', '/blog/': 'blog', '/blog/index.html': 'blog',
+    # new structure
+    '/tools': 'tools', '/tools/': 'tools', '/tools/index.html': 'tools',
+    '/tools/prompt-library': 'promptlibrary', '/tools/prompt-library/': 'promptlibrary',
+    '/tools/starter-kit': 'starterkit', '/tools/starter-kit/': 'starterkit',
+    '/tools/mission-planner': 'missionplanner', '/tools/mission-planner/': 'missionplanner',
+    '/how-it-works': 'howitworks', '/how-it-works/': 'howitworks',
 }
 LEGAL = ['privacy', 'terms', 'disclaimer']  # have EN + SK variants (-sk)
 PROTECTED_TAGS = {'section', 'main', 'nav', 'header', 'footer', 'body', 'html', 'div', 'article', 'aside'}
@@ -296,7 +306,11 @@ def set_meta(soup, name=None, prop=None, value=None):
 
 
 def render_page(page, lang, strings, posts):
-    src = page['src'][lang] if isinstance(page['src'], dict) else page['src']
+    if isinstance(page['src'], dict):
+        # dict sources cover a language subset; other languages use the default (EN) template
+        src = page['src'].get(lang, page['src'].get(DEFAULT_LANG, page['src'][DEFAULT_LANG]))
+    else:
+        src = page['src']
     with open(os.path.join(BASE_DIR, src), encoding='utf-8') as f:
         soup = BeautifulSoup(f.read().replace('\r\n', '\n'), 'html.parser')
     d = strings[lang]

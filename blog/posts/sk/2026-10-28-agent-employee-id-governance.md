@@ -6,7 +6,9 @@
 
 ---
 
-28. október 2026
+Autor Marian Stancik
+    ·
+    28. október 2026
     ·
     12 min čítania
     AI Governance

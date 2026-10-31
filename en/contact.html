@@ -47,7 +47,7 @@
 <meta content="@marian_s_ai" name="twitter:site"/>
 <meta content="@marian_s_ai" name="twitter:creator"/>
 <meta content="https://www.marianstancik.dev/og-image.webp" name="twitter:image"/>
-<link href="/css/main.css?v=133" rel="stylesheet"/>
+<link href="/css/main.css?v=135" rel="stylesheet"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -116,10 +116,10 @@
 <div aria-label="Language selector" class="lang-switcher"><a aria-current="true" class="lang-btn active" data-lang-btn="en" href="/en/contact" hreflang="en" id="btnEn" lang="en">EN</a><a class="lang-btn" data-lang-btn="sk" href="/sk/contact" hreflang="sk" id="btnSk" lang="sk">SK</a><a class="lang-btn" data-lang-btn="cs" href="/cs/contact" hreflang="cs" id="btnCs" lang="cs">CS</a><a class="lang-btn" data-lang-btn="de" href="/de/contact" hreflang="de" id="btnDe" lang="de">DE</a><a class="lang-btn" data-lang-btn="pl" href="/pl/contact" hreflang="pl" id="btnPl" lang="pl">PL</a></div>
 <button aria-expanded="false" class="mobile-toggle"><span aria-hidden="true">☰</span><span class="visually-hidden">Menu</span></button>
 <div class="nav-links"><div class="lang-switcher lang-switcher-mobile"><a aria-current="true" class="lang-btn active" data-lang-btn="en" href="/en/contact" hreflang="en" lang="en">EN</a><a class="lang-btn" data-lang-btn="sk" href="/sk/contact" hreflang="sk" lang="sk">SK</a><a class="lang-btn" data-lang-btn="cs" href="/cs/contact" hreflang="cs" lang="cs">CS</a><a class="lang-btn" data-lang-btn="de" href="/de/contact" hreflang="de" lang="de">DE</a><a class="lang-btn" data-lang-btn="pl" href="/pl/contact" hreflang="pl" lang="pl">PL</a></div>
-<a class="nav-link" href="/en/" id="navHome">Home</a>
-<a class="nav-link" href="/en/about" id="navAbout">About</a>
-<a class="nav-link" href="/en/services" id="navServices">Products</a>
-<a class="nav-link" href="/en/blog/" id="navBlog">Blog</a>
+<a class="nav-link" data-i18n="navHome" href="/en/" id="navHome">Home</a>
+<a class="nav-link" data-i18n="navTools" href="/en/tools/" id="navTools">Free Tools</a>
+<a class="nav-link" data-i18n="navHowItWorks" href="/en/how-it-works" id="navHow">How it works</a>
+<a class="nav-link" data-i18n="navBlog" href="/en/blog/" id="navBlog">Blog</a>
 <a class="nav-link nav-cta active" href="/en/contact" id="navContact">✦ Contact</a>
 </div>
 </div>
@@ -282,7 +282,7 @@
 <div aria-hidden="true" class="brand-mark"><img alt="Marian Stancik" class="brand-avatar" height="28" loading="eager" sizes="28px" src="/profile-56.webp" srcset="/profile-56.webp 56w, /profile.webp 400w" width="28"/></div>
 <span>marian<span class="highlight">stancik</span><span class="tld">.dev</span></span>
 </div>
-<p class="footer-tagline" id="footerTagline">I build AI agents that run your processes. Autonomous systems on my own infrastructure.</p>
+<p class="footer-tagline" id="footerTagline">Free AI agent tools and the story of a 14-agent team — built on own EU infrastructure.</p>
 <div class="footer-social">
 <a aria-label="X/Twitter" class="social-circle" href="https://x.com/marian_s_ai" rel="noopener" target="_blank">
 <svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
@@ -308,17 +308,18 @@
 </div>
 </div>
 <div class="footer-col">
-<div class="footer-col-title" id="fCol1Title">Navigate</div>
-<a href="/en/about" id="fNavAbout">About</a>
-<a href="/en/expertise" id="fNavExp">Expertise</a>
-<a href="/en/services" id="fNavServices">Products</a>
-<a href="/en/skills" id="fNavSkills">Skills</a>
-<a href="/en/contact" id="fNavConn">Connect</a>
+<div class="footer-col-title" data-i18n="fCol1Title" id="fCol1Title">Navigate</div>
+<a data-i18n="fNavHome" href="/en/" id="fNavHome">Home</a>
+<a data-i18n="fNavTools" href="/en/tools/" id="fNavTools">Free Tools</a>
+<a data-i18n="fNavHow" href="/en/how-it-works" id="fNavHow">How it works</a>
+<a data-i18n="fNavBlog" href="/en/blog/" id="fNavBlog">Blog</a>
+<a data-i18n="fNavConn" href="/en/contact" id="fNavConn">Contact</a>
 </div>
 <div class="footer-col">
-<div class="footer-col-title" id="fCol2Title">Projects</div>
-<a href="https://github.com/Abra7abra7" rel="noopener" target="_blank">Open Source</a>
-<a href="/en/blog/" id="fNavBlog">Blog</a>
+<div class="footer-col-title" data-i18n="fCol2Title" id="fCol2Title">Free tools</div>
+<a href="/en/tools/prompt-library" id="fToolPrompts">Prompt Library</a>
+<a href="/en/tools/starter-kit" id="fToolKit">AI Agent Starter Kit</a>
+<a href="/en/tools/mission-planner" id="fToolPlanner">Mission Planner <span class="status-pill status-soon">Soon</span></a>
 </div>
 <div class="footer-col">
 <div class="footer-col-title" id="fCol3Title">Contact</div>
@@ -329,7 +330,7 @@
 </div>
 <div class="footer-divider"></div>
 <div class="footer-bottom">
-<p>© 2026 Marian Stancik — <span id="fMotto">Build better. Stay legal.</span></p>
+<p>© 2026 Marian Stancik — <span id="fMotto">Free tools. Open process.</span></p>
 <p class="footer-tag">Built with <span class="bronze">✦</span> by Hermes Agent</p>
 </div>
 <div class="footer-legal" style="margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.06); font-size:0.65rem; color:#8A7A6A; line-height:1.6; text-align:center;">

@@ -10,6 +10,8 @@ AI Agents & Autonomy
 
 ### Budowa cyfrowego bliźniaka publikującego 9 razy dziennie
 
+By Marian Stancik
+·
 August 22, 2026
 ·
 4 min czytania

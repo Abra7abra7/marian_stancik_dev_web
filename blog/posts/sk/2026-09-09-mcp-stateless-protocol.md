@@ -6,7 +6,9 @@
 
 ---
 
-9. september 2026
+Autor Marian Stancik
+  ·
+  9. september 2026
   MCP
   AI Infrastructure
   8 min čítania

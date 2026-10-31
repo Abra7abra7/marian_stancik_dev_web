@@ -6,7 +6,9 @@
 
 ---
 
-September 16, 2026
+By Marian Stancik
+  ·
+  September 16, 2026
   Multi-Agent Systems
   Agent Architecture
   Autonomous Agents

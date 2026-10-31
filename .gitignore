@@ -21,3 +21,4 @@ profile-big.png
 *.png
 !images/ig/*.jpg
 .wrangler/
+.venv/

@@ -10,6 +10,8 @@ AI Agents & Autonomy
 
 ### Vom Solo-Gründer zum agentengesteuerten Unternehmen mit 19 Cron-Jobs
 
+By Marian Stancik
+·
 August 26, 2026
 ·
 6 Min. Lesezeit

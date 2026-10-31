@@ -6,7 +6,9 @@
 
 ---
 
-10. október 2026
+Autor Marian Stancik
+  ·
+  10. október 2026
   Cisco
   AgenticOps
   Autonómne agenty

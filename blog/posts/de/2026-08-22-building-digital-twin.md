@@ -10,6 +10,8 @@ AI Agents & Autonomy
 
 ### Aufbau eines digitalen Zwillings, der 9-mal täglich postet
 
+By Marian Stancik
+·
 August 22, 2026
 ·
 4 Min. Lesezeit

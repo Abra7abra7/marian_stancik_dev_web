@@ -10,6 +10,8 @@ AI Agenti & Autonómia
 
 ### Od sólo foundera k agent-riadeniu spoločnosti s 19 autonómnymi cron jobmi AI-generované
 
+Autor Marian Stancik
+·
 26. august 2026
 ·
 6 min čítania

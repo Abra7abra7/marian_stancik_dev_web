@@ -6,7 +6,9 @@
 
 ---
 
-September 09, 2026
+By Marian Stancik
+  ·
+  September 09, 2026
   MCP
   AI Infrastructure
   8 min read

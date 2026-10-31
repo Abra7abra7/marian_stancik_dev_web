@@ -10,6 +10,8 @@ Drony & UAV Inžinierstvo
 
 ### Autonómne misie dronov s ArduPilotom a Pythonom AI-generované
 
+Autor Marian Stancik
+·
 17. august 2026
 ·
 5 min čítania

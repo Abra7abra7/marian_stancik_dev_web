@@ -6,7 +6,9 @@
 
 ---
 
-25. august 2026
+Autor Marian Stancik
+  ·
+  25. august 2026
   Výkonnosť webu
   Lighthouse 100
   Optimalizácia
@@ -44,7 +46,7 @@ Najväčší posun. 22 KB CSS sa presunulo z inline blokov do jediného
 </style>
 
 <!-- Potom: externé, cachované raz -->
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/main.css?v=134">
 ```
 
 ```
@@ -65,7 +67,7 @@ requestIdleCallback
 
 ```
 <!-- Three.js — inicializované neblokujúco pri interakcii -->
-<script type="module" src="/js/three-bg.js"></script>
+<script type="module" src="/js/three-bg.min.js?v=133"></script>
 
 <!-- i18n — načítané na konci body bez blokovania vykresľovania -->
 <script src="/js/i18n.js"></script>

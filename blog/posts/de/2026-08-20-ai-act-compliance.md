@@ -10,6 +10,8 @@ Law & AI Compliance
 
 ### EU AI Act Compliance für kleine KI-Unternehmen
 
+By Marian Stancik
+·
 August 20, 2026
 ·
 6 Min. Lesezeit
