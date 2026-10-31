@@ -126,7 +126,7 @@
 <nav aria-label="Hlavná navigácia">
 <div class="nav-container">
 <a aria-label="marianstancik.dev domov" class="nav-logo" href="/sk/">
-<div aria-hidden="true" class="brand-mark"><img alt="Marian Stancik" class="brand-avatar" height="28" src="/profile.webp" width="28"/></div>
+<div aria-hidden="true" class="brand-mark"><img alt="Marian Stancik" class="brand-avatar" height="28" loading="eager" sizes="28px" src="/profile-56.webp" srcset="/profile-56.webp 56w, /profile.webp 400w" width="28"/></div>
 <span class="nav-logo-text">marian<span class="highlight">stancik</span><span class="tld">.dev</span></span>
 </a>
 <div class="nav-right">
@@ -410,15 +410,15 @@
 <form id="stripeCheckoutForm" onsubmit="handleStripeRedirect(event)">
 <div class="stripe-form-group">
 <label for="stripeEmail">Tvoj firemný e-mail</label>
-<input class="stripe-form-input" id="stripeEmail" placeholder="founder@firma.sk" required="" type="email"/>
+<input autocomplete="email" class="stripe-form-input" enterkeyhint="next" id="stripeEmail" placeholder="founder@firma.sk" required="" type="email"/>
 </div>
 <div class="stripe-form-group">
 <label for="stripeUrl">URL adresa webu na audit / automatizáciu</label>
-<input class="stripe-form-input" id="stripeUrl" placeholder="https://tvojweb.sk" required="" type="text"/>
+<input autocomplete="url" class="stripe-form-input" enterkeyhint="next" id="stripeUrl" placeholder="https://tvojweb.sk" required="" type="url"/>
 </div>
 <div class="stripe-form-group">
 <label for="stripeNotes">Poznámka / Špecifické požiadavky (voliteľné)</label>
-<input class="stripe-form-input" id="stripeNotes" placeholder="napr. zameranie na EU AI Act, expresné dodanie" type="text"/>
+<input class="stripe-form-input" enterkeyhint="send" id="stripeNotes" placeholder="napr. zameranie na EU AI Act, expresné dodanie" type="text"/>
 </div>
 <div class="stripe-form-group" style="margin-top: 14px; text-align: left;">
 <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.78rem; color: #B0B0C5; cursor: pointer; line-height: 1.45;">
@@ -471,7 +471,7 @@
 <div class="container">
 <div class="footer-grid">
 <div class="footer-brand">
-<div class="footer-logo"><div aria-hidden="true" class="brand-mark"><img alt="Marian Stancik" class="brand-avatar" height="28" src="/profile.webp" width="28"/></div><span>marian<span class="highlight">stancik</span><span class="tld">.dev</span></span></div>
+<div class="footer-logo"><div aria-hidden="true" class="brand-mark"><img alt="Marian Stancik" class="brand-avatar" height="28" loading="eager" sizes="28px" src="/profile-56.webp" srcset="/profile-56.webp 56w, /profile.webp 400w" width="28"/></div><span>marian<span class="highlight">stancik</span><span class="tld">.dev</span></span></div>
 <p class="footer-tagline">Staviam AI agentov, ktorí riadia tvoje procesy.</p>
 <div class="footer-social">
 <a aria-label="X/Twitter" class="social-circle" href="https://x.com/marian_s_ai?utm_source=marianstancik.dev&amp;utm_medium=social&amp;utm_campaign=profile-link&amp;utm_content=x" rel="noopener" target="_blank"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
