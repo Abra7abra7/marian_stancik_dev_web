@@ -1658,3 +1658,11 @@ document.getElementById('contactForm')?.addEventListener('submit', async functio
   btn.textContent = translations[currentLang]?.contactSubmitBtn || 'Send Message →';
 });
 
+
+// Delegated language-switch listener — replaces the former inline
+// onclick="switchLanguage('xx')" on nav buttons (CSP script-src 'self', no 'unsafe-inline').
+// Used by the root (client-side switching) templates; /{lang}/ copies use static links instead.
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest ? e.target.closest('[data-lang-switch]') : null;
+  if (btn) switchLanguage(btn.getAttribute('data-lang-switch'));
+});

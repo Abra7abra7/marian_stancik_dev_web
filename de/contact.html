@@ -47,7 +47,6 @@
 <meta content="@marian_s_ai" name="twitter:site"/>
 <meta content="@marian_s_ai" name="twitter:creator"/>
 <meta content="https://www.marianstancik.dev/og-image.webp" name="twitter:image"/>
-<meta content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' https://*.r2.cloudflarestorage.com; connect-src 'self' https://cdn.jsdelivr.net; font-src 'self'" http-equiv="Content-Security-Policy"/>
 <link href="/css/main.css?v=133" rel="stylesheet"/>
 <script type="application/ld+json">
 {
@@ -343,23 +342,5 @@
 
 <script src="/js/three-bg.js?v=132" type="module"></script>
 <script src="/js/i18n.js?v=20261029_v7"></script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const params = new URLSearchParams(window.location.search);
-  const ordered = params.get('ordered');
-  const email = params.get('email');
-  const url = params.get('url');
-
-  if (ordered || email || url) {
-    const box = document.getElementById('orderConfirmationBox');
-    if (box) {
-      box.style.display = 'block';
-      if (document.getElementById('orderBoxProduct')) document.getElementById('orderBoxProduct').textContent = ordered || 'AI Audit / Agent Service';
-      if (document.getElementById('orderBoxEmail')) document.getElementById('orderBoxEmail').textContent = email || 'Zadaný e-mail';
-      if (document.getElementById('orderBoxUrl')) document.getElementById('orderBoxUrl').textContent = url || 'Zadaná doména';
-      box.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-});
-</script>
+<script src="/js/order-confirm.js?v=1"></script>
 </body></html>
