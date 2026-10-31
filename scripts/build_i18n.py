@@ -241,11 +241,14 @@ def rewrite_links(soup, lang):
 
 def build_switcher(soup, page, lang):
     for sw in soup.select('.lang-switcher'):
+        # the mobile copy inside the nav menu must not repeat the desktop ids
+        mobile_copy = 'lang-switcher-mobile' in (sw.get('class') or [])
         sw.clear()
         for l in LANGS:
             a = soup.new_tag('a', href=resolved_url(page, l))
             a['class'] = ['lang-btn'] + (['active'] if l == lang else [])
-            a['id'] = 'btn' + l.capitalize()
+            if not mobile_copy:
+                a['id'] = 'btn' + l.capitalize()
             a['hreflang'] = l
             a['lang'] = l
             a['data-lang-btn'] = l
