@@ -12,12 +12,11 @@ if hasattr(sys.stdout, 'reconfigure'):
 def main():
     pages = [
         'index.html',
-        'about.html',
-        'services.html',
-        'services-sk.html',
-        'expertise.html',
-        'skills.html',
-        'drones.html',
+        'tools/index.html',
+        'tools/prompt-library.html',
+        'tools/starter-kit.html',
+        'tools/mission-planner.html',
+        'how-it-works.html',
         'contact.html',
         'blog/index.html'
     ]
