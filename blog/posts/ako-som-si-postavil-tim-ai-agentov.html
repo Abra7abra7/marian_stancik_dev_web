@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How I Built My Team of 14 Specialized AI Agents (and Why One Universal Assistant Was Not Enough) — Marian Stancik</title>
+<meta name="description" content="A team of 14 specialized AI agents instead of one chatbot: how it is set up, what rules every agent gets, and what it taught me. A practical breakdown.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/ako-som-si-postavil-tim-ai-agentov">
+<link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/ako-som-si-postavil-tim-ai-agentov">
+<link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/ako-som-si-postavil-tim-ai-agentov">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/ako-som-si-postavil-tim-ai-agentov">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#08080F">
+
+<!-- Open Graph -->
+<meta property="og:title" content="How I Built My Team of 14 Specialized AI Agents (and Why One Universal Assistant Was Not Enough) — Marian Stancik">
+<meta property="og:description" content="A universal assistant handles tasks, not work. A breakdown of my team of 14 specialized agents: roles, the three rules that hold it together, and how to start with three.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/ako-som-si-postavil-tim-ai-agentov">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Marian Stancik">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="sk_SK">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta name="ai-generated-content" content="true">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "How I Built My Team of 14 Specialized AI Agents (and Why One Universal Assistant Was Not Enough)",
+      "description": "A universal assistant handles tasks, not work. A breakdown of my team of 14 specialized agents: roles, the three rules that hold it together, and how to start with three.",
+      "datePublished": "2026-11-01",
+      "dateModified": "2026-11-01",
+      "author": {
+        "@type": "Person",
+        "name": "Marian Stancik",
+        "url": "https://www.marianstancik.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Marian Stancik"
+      },
+      "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/ako-som-si-postavil-tim-ai-agentov",
+      "keywords": ["AI agent team", "multi-agent system", "AI agent orchestration", "specialized AI agents", "Chief of Staff AI", "Hermes Agent"],
+      "isBasedOn": "https://schema.org/AIGeneratedContent",
+      "creativeWorkStatus": "AIGenerated"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.marianstancik.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.marianstancik.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How I Built My Team of 14 Specialized AI",
+          "item": "https://www.marianstancik.dev/blog/posts/ako-som-si-postavil-tim-ai-agentov"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:#08080F;color:#E8E8F0;line-height:1.8;-webkit-font-smoothing:antialiased}
+.container{max-width:740px;margin:0 auto;padding:0 24px}
+nav{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(8,8,15,0.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-inner a{color:#8888A0;text-decoration:none;font-size:0.85rem;transition:color 0.3s}
+.nav-inner a:hover{color:#CD7F32}
+article{padding:48px 0 80px}
+.post-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:32px;font-size:0.78rem;color:#9090A8}
+.post-meta .tag{background:rgba(205,127,50,0.08);color:#E8B86D;padding:3px 10px;border-radius:100px;font-size:0.65rem;border:1px solid rgba(205,127,50,0.15)}
+h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:#F0F0F5;line-height:1.25;letter-spacing:-0.02em;margin-bottom:8px}
+h2{font-size:1.3rem;font-weight:600;color:#F0F0F5;margin:36px 0 12px;line-height:1.35}
+h3{font-size:1.05rem;font-weight:600;color:#D0D0E0;margin:24px 0 8px}
+p{color:#B0B0C8;margin-bottom:16px;font-size:0.95rem}
+a{color:#E8B86D;transition:color 0.3s}
+a:hover{color:#CD7F32}
+ul,ol{padding-left:20px;margin-bottom:16px;color:#B0B0C8;font-size:0.95rem}
+li{margin-bottom:6px}
+pre{background:rgba(13,13,26,0.80);border:1px solid rgba(205,127,50,0.12);border-radius:10px;padding:16px 20px;overflow-x:auto;font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem;color:#D0D0E0;margin-bottom:20px;line-height:1.55}
+code{font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem}
+p code,li code{background:rgba(205,127,50,0.08);padding:1px 5px;border-radius:3px;color:#E8B86D}
+.callout{background:rgba(13,13,26,0.75);border-left:3px solid #CD7F32;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout strong{color:#E8B86D}
+.callout-green{background:rgba(46,204,113,0.06);border-left:3px solid #2ECC71;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout-green strong{color:#2ECC71}
+img{max-width:100%;height:auto;border-radius:8px;margin:24px 0}
+blockquote{border-left:2px solid rgba(205,127,50,0.2);padding:8px 20px;margin:20px 0;color:#A0A0B8;font-style:italic;background:rgba(13,13,26,0.4);border-radius:4px}
+hr{border:none;border-top:1px solid rgba(255,255,255,0.06);margin:40px 0}
+.btn-cta{display:inline-block;background:linear-gradient(135deg,rgba(205,127,50,0.15),rgba(232,184,109,0.08));color:#E8B86D;padding:10px 24px;border-radius:8px;text-decoration:none;border:1px solid rgba(205,127,50,0.25);font-weight:600;transition:all 0.3s}
+.btn-cta:hover{background:rgba(205,127,50,0.25);border-color:rgba(205,127,50,0.5);color:#F0E0C0}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/">&#8592; marianstancik.dev</a>
+    <a href="/blog">Blog</a>
+  </div>
+</nav>
+<main id="main-content">
+
+<div class="container">
+<article>
+  <div class="post-meta">
+    
+    <span class="byline">By <a href="/how-it-works" rel="author">Marian Stancik</a></span>
+    <span>·</span>
+    <span>November 1, 2026</span>
+    <span>&#183;</span>
+    <span>10 min read</span>
+    <span class="tag">AI Agents</span>
+    <span class="tag">Agent Teams</span>
+    <span class="tag">Multi-Agent Systems</span>
+    <span class="tag">Chief of Staff</span>
+    <span class="tag">Orchestration</span>
+  </div>
+
+  <h1>How I Built My Team of 14 Specialized AI Agents (and Why One Universal Assistant Was Not Enough)</h1>
+
+
+  <p><strong>Direct answer:</strong> One universal AI assistant handles tasks, but not work. I do not run one prompt — I run a team of 14 specialized agents with clearly divided roles: research, legal, finance, calendar, writing — and above them an orchestrator (Chief of Staff) who splits the work, quality-controls it and merges it into one answer. This article breaks down how the team is set up and the three rules that hold it together.</p>
+
+  <p>When someone tells me they use ChatGPT as an assistant, they usually mean one window into which they pour ten different jobs. That is exactly how I started — and exactly how it ends: an email reply mixed with hunting for a contract, half the tasks forgotten, quality dependent on how well the prompt happened to be written that day.</p>
+
+  <p>Today I do not run one window. I run a team of fourteen agents. Each has one role, one domain and one output format. Above them sits an orchestrator that takes an assignment, splits it, routes it to the right agent and merges the results into one answer. I do not write prompts — I assign tasks.</p>
+
+  <h2>Why not one assistant</h2>
+  <p>A universal assistant is fine for a sketch, but when the same context handles accounting, legal analysis and client copy, it loses depth in all of them. Specialization works the same way it does with people: a lawyer does not balance the books and an accountant does not draft resolutions.</p>
+  <p>Three mechanical causes come on top:</p>
+  <ul>
+    <li><strong>Mixed roles.</strong> The same conversation carries the brief, the arguments and the final text. Context grows, quality drops.</li>
+    <li><strong>Context loss.</strong> A long unstructured conversation forgets before the task is finished.</li>
+    <li><strong>Inconsistent quality.</strong> Without a fixed output format every answer is slightly different — and quality control cannot be delegated.</li>
+  </ul>
+
+  <h2>What the team looks like: roles and division of work</h2>
+  <p>The team is not a list of chatbots. It is an organizational structure in which every agent also has written down what is <em>not</em> its job. The main roles:</p>
+  <ul>
+    <li><strong>Chief of Staff (orchestrator)</strong> — receives assignments, splits them, quality-controls results and merges them into one briefing. Nothing vague reaches me.</li>
+    <li><strong>Research</strong> — brings only current, verifiable facts with a source and date. "Probably" has no place in its output.</li>
+    <li><strong>Legal</strong> — works with a method: facts → legal regime → subsumption → conclusion with citations. It never invents a paragraph; drafts are reviewed by a licensed lawyer.</li>
+    <li><strong>Finance</strong> — calculates only from verified documents and keeps the accounts of different entities strictly separate.</li>
+    <li><strong>Inbox and calendar</strong> — triage mail and protect the schedule; nothing is sent or moved without approval.</li>
+    <li><strong>Writer</strong> — all outgoing text in one consistent voice, studied from real sent messages.</li>
+    <li><strong>Documents, development, marketing, design, GitHub, social, support</strong> — each with its own scope and its own output format.</li>
+  </ul>
+  <p>The full map of the team, including what each agent does day to day, is written up on the <a href="/how-it-works">How it works</a> page.</p>
+
+  <h2>Rule 1: one task, one owner</h2>
+  <p>When two agents work on the same thing, there are two truths. So every task has exactly one owner. When an assignment spans two areas — say, a legal text that also needs final graphic design — the task goes to one owner and the other only receives inputs, not a parallel version of the same work.</p>
+  <p>Every agent has an explicit list of what is not its job. That sounds like a detail, but it is one of the things that most reduces wasted work: tasks do not wander between agents, because every agent knows when to say "this is not my task" and hand it over with full context.</p>
+
+  <h2>Rule 2: output format</h2>
+  <p>Every agent answers in one format:</p>
+  <ul>
+    <li><strong>Summary</strong> — key findings in short bullets.</li>
+    <li><strong>Proposal</strong> — the concrete proposal, draft or next step.</li>
+    <li><strong>Waiting for decision</strong> — one clear question answerable with yes/no.</li>
+  </ul>
+  <p>A human does not approve a hundred details — one question. And because the format is the same for all agents, review is fast: I can see at a glance whether the proposal is concrete, whether it has sources and whether the question is answerable with a simple yes or no.</p>
+
+  <h2>Rule 3: quality control between agents</h2>
+  <p>A weak result is not fixed by hand and not accepted — it goes back to its author with one concrete instruction. Not "try harder", but "add products, dates and leadership, with sources". It iterates until the result is specific, sourced and complete. A result without sources for key claims is not done.</p>
+
+  <h2>What it actually gives me</h2>
+  <p>I have no metrics like "hours saved", and even if I did, I would not trust them. Qualitatively it comes down to one sentence: instead of ten scattered conversations I get one consolidated output with a clear question at the end. Decisions take minutes, not evenings, and nothing gets lost between two chat windows.</p>
+
+  <h2>How to start</h2>
+  <p>You do not need fourteen agents. Start with three: an orchestrator, one specialist and the format rule. When that works, add roles for whatever keeps repeating.</p>
+  <div class="callout"><strong>Step by step:</strong> The exact prompts — including the orchestrator, the output format and the rules for what an agent must never do — are free in the <a href="/tools/starter-kit">AI Agent Starter Kit</a>. And if you want to see the whole team in practice, read <a href="/how-it-works">how the team works</a>.</div>
+ 
+  <hr>
+
+  <div style="background:rgba(13,13,26,0.75);border:1px solid rgba(205,127,50,0.15);border-radius:10px;padding:24px;margin:32px 0;text-align:center;">
+    <p style="font-size:1rem;color:#D0D0E0;margin-bottom:8px;"><strong>Want weekly updates on autonomous agent architecture and governance?</strong></p>
+    <p style="font-size:0.85rem;color:#A0A0B8;margin-bottom:16px;">One email per week. No spam. Unsubscribe anytime.</p>
+    <form action="https://www.marianstancik.dev/api/subscribe" method="POST" style="display:flex;gap:8px;max-width:400px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
+      <input type="email" name="email" placeholder="your@email.com" required style="flex:1;min-width:200px;padding:10px 14px;border-radius:6px;border:1px solid rgba(205,127,50,0.2);background:rgba(8,8,15,0.8);color:#E8E8F0;font-size:0.85rem;">
+      <input type="hidden" name="lang" value="en">
+      <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+
+  <p style="font-size:0.75rem;color:#707090;margin-top:32px;text-align:center;">⚠️ AI-generated | Info only | <a href="/disclaimer">marianstancik.dev/disclaimer</a></p>
+</article>
+</div>
+</body>
+</html>
+</main>

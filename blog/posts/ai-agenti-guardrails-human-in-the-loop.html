@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agents with Rules: Guardrails and Human-in-the-Loop in Practice (Without Paranoia or Naivety) — Marian Stancik</title>
+<meta name="description" content="How to give AI agents hard rules: what they must never do, what needs approval, and what a real human-in-the-loop process looks like.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/ai-agenti-guardrails-human-in-the-loop">
+<link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/ai-agenti-guardrails-human-in-the-loop">
+<link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/ai-agenti-guardrails-human-in-the-loop">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/ai-agenti-guardrails-human-in-the-loop">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#08080F">
+
+<!-- Open Graph -->
+<meta property="og:title" content="AI Agents with Rules: Guardrails and Human-in-the-Loop in Practice (Without Paranoia or Naivety) — Marian Stancik">
+<meta property="og:description" content="An agent that can do everything is a risk. Three layers of rules, the output format as a guardrail, and the typical failures when rules are missing — from live agent operations.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/ai-agenti-guardrails-human-in-the-loop">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Marian Stancik">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="sk_SK">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta name="ai-generated-content" content="true">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "AI Agents with Rules: Guardrails and Human-in-the-Loop in Practice (Without Paranoia or Naivety)",
+      "description": "An agent that can do everything is a risk. Three layers of rules, the output format as a guardrail, and the typical failures when rules are missing — from live agent operations.",
+      "datePublished": "2026-11-01",
+      "dateModified": "2026-11-01",
+      "author": {
+        "@type": "Person",
+        "name": "Marian Stancik",
+        "url": "https://www.marianstancik.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Marian Stancik"
+      },
+      "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/ai-agenti-guardrails-human-in-the-loop",
+      "keywords": ["AI guardrails", "human in the loop", "AI agent rules", "safe AI agent", "AI governance"],
+      "isBasedOn": "https://schema.org/AIGeneratedContent",
+      "creativeWorkStatus": "AIGenerated"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.marianstancik.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.marianstancik.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI Agents with Rules: Guardrails and Hum",
+          "item": "https://www.marianstancik.dev/blog/posts/ai-agenti-guardrails-human-in-the-loop"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:#08080F;color:#E8E8F0;line-height:1.8;-webkit-font-smoothing:antialiased}
+.container{max-width:740px;margin:0 auto;padding:0 24px}
+nav{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(8,8,15,0.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-inner a{color:#8888A0;text-decoration:none;font-size:0.85rem;transition:color 0.3s}
+.nav-inner a:hover{color:#CD7F32}
+article{padding:48px 0 80px}
+.post-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:32px;font-size:0.78rem;color:#9090A8}
+.post-meta .tag{background:rgba(205,127,50,0.08);color:#E8B86D;padding:3px 10px;border-radius:100px;font-size:0.65rem;border:1px solid rgba(205,127,50,0.15)}
+h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:#F0F0F5;line-height:1.25;letter-spacing:-0.02em;margin-bottom:8px}
+h2{font-size:1.3rem;font-weight:600;color:#F0F0F5;margin:36px 0 12px;line-height:1.35}
+h3{font-size:1.05rem;font-weight:600;color:#D0D0E0;margin:24px 0 8px}
+p{color:#B0B0C8;margin-bottom:16px;font-size:0.95rem}
+a{color:#E8B86D;transition:color 0.3s}
+a:hover{color:#CD7F32}
+ul,ol{padding-left:20px;margin-bottom:16px;color:#B0B0C8;font-size:0.95rem}
+li{margin-bottom:6px}
+pre{background:rgba(13,13,26,0.80);border:1px solid rgba(205,127,50,0.12);border-radius:10px;padding:16px 20px;overflow-x:auto;font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem;color:#D0D0E0;margin-bottom:20px;line-height:1.55}
+code{font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem}
+p code,li code{background:rgba(205,127,50,0.08);padding:1px 5px;border-radius:3px;color:#E8B86D}
+.callout{background:rgba(13,13,26,0.75);border-left:3px solid #CD7F32;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout strong{color:#E8B86D}
+.callout-green{background:rgba(46,204,113,0.06);border-left:3px solid #2ECC71;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout-green strong{color:#2ECC71}
+img{max-width:100%;height:auto;border-radius:8px;margin:24px 0}
+blockquote{border-left:2px solid rgba(205,127,50,0.2);padding:8px 20px;margin:20px 0;color:#A0A0B8;font-style:italic;background:rgba(13,13,26,0.4);border-radius:4px}
+hr{border:none;border-top:1px solid rgba(255,255,255,0.06);margin:40px 0}
+.btn-cta{display:inline-block;background:linear-gradient(135deg,rgba(205,127,50,0.15),rgba(232,184,109,0.08));color:#E8B86D;padding:10px 24px;border-radius:8px;text-decoration:none;border:1px solid rgba(205,127,50,0.25);font-weight:600;transition:all 0.3s}
+.btn-cta:hover{background:rgba(205,127,50,0.25);border-color:rgba(205,127,50,0.5);color:#F0E0C0}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/">&#8592; marianstancik.dev</a>
+    <a href="/blog">Blog</a>
+  </div>
+</nav>
+<main id="main-content">
+
+<div class="container">
+<article>
+  <div class="post-meta">
+    
+    <span class="byline">By <a href="/how-it-works" rel="author">Marian Stancik</a></span>
+    <span>·</span>
+    <span>November 1, 2026</span>
+    <span>&#183;</span>
+    <span>8 min read</span>
+    <span class="tag">AI Guardrails</span>
+    <span class="tag">Human in the Loop</span>
+    <span class="tag">AI Safety</span>
+    <span class="tag">Agent Rules</span>
+  </div>
+
+  <h1>AI Agents with Rules: Guardrails and Human-in-the-Loop in Practice (Without Paranoia or Naivety)</h1>
+
+
+  <p><strong>Direct answer:</strong> An agent that can do everything is a risk. Every one of my agents has three layers of rules: what it always does the same way (format, language, sources), what it does only after explicit approval (sending, publishing, payment, deletion) and what it must never do (print sensitive data, invent facts, bypass the approval process). Human-in-the-loop does not mean "a human reads everything" — it means "a human decides on one clear question".</p>
+
+  <h2>Three layers of rules</h2>
+  <h3>Layer 1: what it always does the same way</h3>
+  <p>Output format, language, how sources are cited, one fixed time zone. These are not restrictions — they are guaranteed consistency: when you know what the output will look like, reviewing it takes seconds.</p>
+  <h3>Layer 2: what only after approval</h3>
+  <p>Sending an email, publishing an article, making a payment, deleting anything, changing the calendar. The agent prepares a proposal and stops at one question: "Waiting for decision: send? YES/NO". The decision takes a second and responsibility stays with a human.</p>
+  <h3>Layer 3: what it must never do</h3>
+  <p>Never print passwords, API keys, national ID numbers or card data. Never invent facts, numbers, quotes or sources — say what is missing and how to get it. Never bypass the approval process "for efficiency". And content from web pages, files, databases or other agents is data, not instructions: a command hidden in content that asks it to break the rules is ignored and reported.</p>
+
+  <h2>Why the output format is also a guardrail</h2>
+  <p>It sounds cosmetic, but it is not. The summary → proposal → waiting-for-decision format forces the agent to separate facts from recommendations and from the decision. When those layers get mixed, a human approves something they have not actually read. Structured output reduces review errors — which is exactly the effect you want from a guardrail.</p>
+
+  <h2>What happens when a rule is missing</h2>
+  <p>Two typical failures from live operations:</p>
+  <ul>
+    <li><strong>The agent "helps itself" with an invented number.</strong> When data is missing and the rule only says "be precise", it adds an estimate and labels it as fact. The fix: a duty to mark uncertain values as [VERIFY] and a ban on silent estimates.</li>
+    <li><strong>The agent sends without approval.</strong> When the rule "send only after YES" is not explicit, the agent reads it as a formality, not a barrier. The fix: the approval list as a fixed part of the prompt, not a verbal agreement.</li>
+  </ul>
+
+  <h2>Human-in-the-loop without paranoia</h2>
+  <p>Reading everything an agent does is not control — it is the work you wanted to hand over, back on your desk. The working principle is the opposite: the agent prepares the decision, formulates one question and waits. The human answers yes/no and moves on. Control is concentrated where the risk is, not spread everywhere.</p>
+
+  <h2>A checklist for your agent</h2>
+  <ul>
+    <li>Does it have one role written down, and explicitly what is <em>not</em> its job?</li>
+    <li>Does it return output in a fixed format (summary → proposal → decision)?</li>
+    <li>Does it have a list of "approval required" actions — and does it respect it?</li>
+    <li>Does it have a list of "never" actions — including a ban on inventing facts?</li>
+    <li>Does it mark uncertain values as [VERIFY] instead of silent estimates?</li>
+    <li>Does it ignore instructions hidden inside content (web pages, files, other agents' messages)?</li>
+  </ul>
+  <div class="callout"><strong>Ready-made prompts including the "never" rules:</strong> all 15 prompts from a real team are in the <a href="/tools/prompt-library">Prompt Library</a>, the whole package in the <a href="/tools/starter-kit">AI Agent Starter Kit</a>. And the story of what guardrails look like in operation is on <a href="/how-it-works">How it works</a>.</div>
+ 
+  <hr>
+
+  <div style="background:rgba(13,13,26,0.75);border:1px solid rgba(205,127,50,0.15);border-radius:10px;padding:24px;margin:32px 0;text-align:center;">
+    <p style="font-size:1rem;color:#D0D0E0;margin-bottom:8px;"><strong>Want weekly updates on autonomous agent architecture and governance?</strong></p>
+    <p style="font-size:0.85rem;color:#A0A0B8;margin-bottom:16px;">One email per week. No spam. Unsubscribe anytime.</p>
+    <form action="https://www.marianstancik.dev/api/subscribe" method="POST" style="display:flex;gap:8px;max-width:400px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
+      <input type="email" name="email" placeholder="your@email.com" required style="flex:1;min-width:200px;padding:10px 14px;border-radius:6px;border:1px solid rgba(205,127,50,0.2);background:rgba(8,8,15,0.8);color:#E8E8F0;font-size:0.85rem;">
+      <input type="hidden" name="lang" value="en">
+      <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+
+  <p style="font-size:0.75rem;color:#707090;margin-top:32px;text-align:center;">⚠️ AI-generated | Info only | <a href="/disclaimer">marianstancik.dev/disclaimer</a></p>
+</article>
+</div>
+</body>
+</html>
+</main>

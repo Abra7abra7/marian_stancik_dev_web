@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEO: How to Get Cited by ChatGPT, Perplexity and Google AI Overviews — Marian Stancik</title>
+<meta name="description" content="GEO (generative engine optimization) in practice: what AI engines cite, how to structure content and what to fix technically — schema, llms.txt, the direct answer.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/geo-generative-engine-optimization">
+<link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/geo-generative-engine-optimization">
+<link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/geo-generative-engine-optimization">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/geo-generative-engine-optimization">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#08080F">
+
+<!-- Open Graph -->
+<meta property="og:title" content="GEO: How to Get Cited by ChatGPT, Perplexity and Google AI Overviews — Marian Stancik">
+<meta property="og:description" content="GEO is optimizing content for citations in AI answers. Three pillars, 8 practical steps — from the direct answer via schema.org to llms.txt — and what actually holds on this website.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/geo-generative-engine-optimization">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Marian Stancik">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="sk_SK">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta name="ai-generated-content" content="true">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "GEO: How to Get Cited by ChatGPT, Perplexity and Google AI Overviews",
+      "description": "GEO is optimizing content for citations in AI answers. Three pillars, 8 practical steps — from the direct answer via schema.org to llms.txt — and what actually holds on this website.",
+      "datePublished": "2026-11-01",
+      "dateModified": "2026-11-01",
+      "author": {
+        "@type": "Person",
+        "name": "Marian Stancik",
+        "url": "https://www.marianstancik.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Marian Stancik"
+      },
+      "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/geo-generative-engine-optimization",
+      "keywords": ["generative engine optimization", "GEO strategy", "how to get cited by ChatGPT", "AI search visibility", "llms.txt", "schema.org"],
+      "isBasedOn": "https://schema.org/AIGeneratedContent",
+      "creativeWorkStatus": "AIGenerated"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.marianstancik.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.marianstancik.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "GEO: How to Get Cited by ChatGPT, Perple",
+          "item": "https://www.marianstancik.dev/blog/posts/geo-generative-engine-optimization"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:#08080F;color:#E8E8F0;line-height:1.8;-webkit-font-smoothing:antialiased}
+.container{max-width:740px;margin:0 auto;padding:0 24px}
+nav{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(8,8,15,0.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-inner a{color:#8888A0;text-decoration:none;font-size:0.85rem;transition:color 0.3s}
+.nav-inner a:hover{color:#CD7F32}
+article{padding:48px 0 80px}
+.post-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:32px;font-size:0.78rem;color:#9090A8}
+.post-meta .tag{background:rgba(205,127,50,0.08);color:#E8B86D;padding:3px 10px;border-radius:100px;font-size:0.65rem;border:1px solid rgba(205,127,50,0.15)}
+h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:#F0F0F5;line-height:1.25;letter-spacing:-0.02em;margin-bottom:8px}
+h2{font-size:1.3rem;font-weight:600;color:#F0F0F5;margin:36px 0 12px;line-height:1.35}
+h3{font-size:1.05rem;font-weight:600;color:#D0D0E0;margin:24px 0 8px}
+p{color:#B0B0C8;margin-bottom:16px;font-size:0.95rem}
+a{color:#E8B86D;transition:color 0.3s}
+a:hover{color:#CD7F32}
+ul,ol{padding-left:20px;margin-bottom:16px;color:#B0B0C8;font-size:0.95rem}
+li{margin-bottom:6px}
+pre{background:rgba(13,13,26,0.80);border:1px solid rgba(205,127,50,0.12);border-radius:10px;padding:16px 20px;overflow-x:auto;font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem;color:#D0D0E0;margin-bottom:20px;line-height:1.55}
+code{font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem}
+p code,li code{background:rgba(205,127,50,0.08);padding:1px 5px;border-radius:3px;color:#E8B86D}
+.callout{background:rgba(13,13,26,0.75);border-left:3px solid #CD7F32;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout strong{color:#E8B86D}
+.callout-green{background:rgba(46,204,113,0.06);border-left:3px solid #2ECC71;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout-green strong{color:#2ECC71}
+img{max-width:100%;height:auto;border-radius:8px;margin:24px 0}
+blockquote{border-left:2px solid rgba(205,127,50,0.2);padding:8px 20px;margin:20px 0;color:#A0A0B8;font-style:italic;background:rgba(13,13,26,0.4);border-radius:4px}
+hr{border:none;border-top:1px solid rgba(255,255,255,0.06);margin:40px 0}
+.btn-cta{display:inline-block;background:linear-gradient(135deg,rgba(205,127,50,0.15),rgba(232,184,109,0.08));color:#E8B86D;padding:10px 24px;border-radius:8px;text-decoration:none;border:1px solid rgba(205,127,50,0.25);font-weight:600;transition:all 0.3s}
+.btn-cta:hover{background:rgba(205,127,50,0.25);border-color:rgba(205,127,50,0.5);color:#F0E0C0}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/">&#8592; marianstancik.dev</a>
+    <a href="/blog">Blog</a>
+  </div>
+</nav>
+<main id="main-content">
+
+<div class="container">
+<article>
+  <div class="post-meta">
+    
+    <span class="byline">By <a href="/how-it-works" rel="author">Marian Stancik</a></span>
+    <span>·</span>
+    <span>November 1, 2026</span>
+    <span>&#183;</span>
+    <span>9 min read</span>
+    <span class="tag">GEO</span>
+    <span class="tag">SEO</span>
+    <span class="tag">AI Search</span>
+    <span class="tag">Content</span>
+  </div>
+
+  <h1>GEO: How to Get Cited by ChatGPT, Perplexity and Google AI Overviews</h1>
+
+
+  <p><strong>Direct answer:</strong> GEO is optimizing content so that generated answers (ChatGPT, Perplexity, Google AI Overviews) pick it up and cite it. Three pillars: the direct answer to the question right at the start, verifiability (structure, facts, sources, author) and technical readability (schema, llms.txt, clean HTML).</p>
+
+  <p>Classic SEO fights for position in a list of links. GEO solves a different situation: an AI reads ten pages and cites three. The number one spot in search means nothing if the model does not cite you. That changes both how you write and how you prepare the site technically.</p>
+
+  <h2>What GEO is and how it differs from SEO</h2>
+  <p>SEO optimizes for the click: rank, meta description, preview. GEO optimizes for the model using your content: whether the answer to the question is right in the text, whether facts are precise and traceable, whether the author and the entity are clearly identifiable. The biggest difference: the model does not cite a page, it cites an answer. If your answer is buried in the fifth paragraph, a competitor with the answer in the first paragraph wins.</p>
+
+  <h2>How AI picks sources</h2>
+  <p>The consensus across GEO guides (Backlinko, Enrich Labs) agrees on four properties of cited content:</p>
+  <ul>
+    <li><strong>Specificity.</strong> Concrete numbers, dates, names and steps instead of generic phrases.</li>
+    <li><strong>Structure.</strong> Question → answer in H2/H3, short paragraphs, lists.</li>
+    <li><strong>Entity and author.</strong> Clear schema.org entities and a byline — the model needs to know who is speaking.</li>
+    <li><strong>Freshness.</strong> Updated pages with a visible date have a better chance of being cited.</li>
+  </ul>
+
+  <h2>8 practical steps</h2>
+  <ol>
+    <li><strong>The direct answer in the first paragraph.</strong> Answer the main question of the article in the first two sentences, then expand.</li>
+    <li><strong>Question → answer in H2/H3.</strong> Phrase the H2 as a question people actually ask; put the answer right under the heading.</li>
+    <li><strong>Schema.org Article/Person/Organization.</strong> JSON-LD with author, date and publisher entity; drop Product/Offer if you are not selling.</li>
+    <li><strong>llms.txt.</strong> A list of key pages and articles in the llmstxt.org standard at the site root; models read it as a map of the site.</li>
+    <li><strong>Consistent sameAs.</strong> The same profiles (X, LinkedIn, GitHub) linked in the schema and in llms.txt — an inconsistent entity weakens trust.</li>
+    <li><strong>Author and E-E-A-T.</strong> A byline with a name and a link to the author on every article; experience cannot be faked.</li>
+    <li><strong>Freshness and dates.</strong> A visible publish date and update date; refresh old articles instead of republishing them under a new date.</li>
+    <li><strong>Track citations.</strong> Once a month, check whether the models cite you for your key questions — GEO without measurement is whispering into the dark.</li>
+  </ol>
+
+  <h2>What actually holds on this website</h2>
+  <p>So this is not just a list of advice — facts from the audit of this website on October 31, 2026: score 88→89/100, SEO 94/100, fixed CSP and i18n splitting, bylines added to the articles. llms.txt and the schema.org @graph were already on the site before this update; the new page structure connects them with the new core pages. Everything that works on this site can be checked directly in the source code.</p>
+
+  <h2>Common myths</h2>
+  <p><strong>"GEO kills SEO."</strong> No. GEO extends SEO: without a solid technical base and readable content you have neither. <strong>"llms.txt is enough."</strong> No. llms.txt is a map; if the content behind it is not structured and verifiable, the map helps nobody. <strong>"Keywords no longer matter."</strong> They do — models map questions to content just like search engines, they just select the answer differently.</p>
+  <div class="callout"><strong>If you want to see GEO in practice:</strong> this article follows all eight steps — and the tools and the story behind this site are on <a href="/tools">Free Tools</a> and <a href="/how-it-works">How it works</a>.</div>
+ 
+  <hr>
+
+  <div style="background:rgba(13,13,26,0.75);border:1px solid rgba(205,127,50,0.15);border-radius:10px;padding:24px;margin:32px 0;text-align:center;">
+    <p style="font-size:1rem;color:#D0D0E0;margin-bottom:8px;"><strong>Want weekly updates on autonomous agent architecture and governance?</strong></p>
+    <p style="font-size:0.85rem;color:#A0A0B8;margin-bottom:16px;">One email per week. No spam. Unsubscribe anytime.</p>
+    <form action="https://www.marianstancik.dev/api/subscribe" method="POST" style="display:flex;gap:8px;max-width:400px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
+      <input type="email" name="email" placeholder="your@email.com" required style="flex:1;min-width:200px;padding:10px 14px;border-radius:6px;border:1px solid rgba(205,127,50,0.2);background:rgba(8,8,15,0.8);color:#E8E8F0;font-size:0.85rem;">
+      <input type="hidden" name="lang" value="en">
+      <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+
+  <p style="font-size:0.75rem;color:#707090;margin-top:32px;text-align:center;">⚠️ AI-generated | Info only | <a href="/disclaimer">marianstancik.dev/disclaimer</a></p>
+</article>
+</div>
+</body>
+</html>
+</main>

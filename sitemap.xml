@@ -544,33 +544,73 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/blog/posts/sk/ai-agenti-guardrails-human-in-the-loop</loc>
+    <loc>https://www.marianstancik.dev/blog/posts/ai-agenti-guardrails-human-in-the-loop</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/ai-agenti-guardrails-human-in-the-loop"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/ai-agenti-guardrails-human-in-the-loop"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/sk/ai-agenti-guardrails-human-in-the-loop"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/ai-agenti-guardrails-human-in-the-loop"/>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/blog/posts/sk/ai-agenti-guardrails-human-in-the-loop</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/ai-agenti-guardrails-human-in-the-loop"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/ai-agenti-guardrails-human-in-the-loop"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/ai-agenti-guardrails-human-in-the-loop"/>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/blog/posts/geo-generative-engine-optimization</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/geo-generative-engine-optimization"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/geo-generative-engine-optimization"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/geo-generative-engine-optimization"/>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/sk/geo-generative-engine-optimization</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/geo-generative-engine-optimization"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/geo-generative-engine-optimization"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/sk/geo-generative-engine-optimization"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/geo-generative-engine-optimization"/>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/blog/posts/specializovany-agent-vs-univerzalny-chatbot</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/specializovany-agent-vs-univerzalny-chatbot"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/specializovany-agent-vs-univerzalny-chatbot"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/specializovany-agent-vs-univerzalny-chatbot"/>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/sk/specializovany-agent-vs-univerzalny-chatbot</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/specializovany-agent-vs-univerzalny-chatbot"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/specializovany-agent-vs-univerzalny-chatbot"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/sk/specializovany-agent-vs-univerzalny-chatbot"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/specializovany-agent-vs-univerzalny-chatbot"/>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/blog/posts/ako-som-si-postavil-tim-ai-agentov</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/ako-som-si-postavil-tim-ai-agentov"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/ako-som-si-postavil-tim-ai-agentov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/ako-som-si-postavil-tim-ai-agentov"/>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/blog/posts/sk/ako-som-si-postavil-tim-ai-agentov</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/ako-som-si-postavil-tim-ai-agentov"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/ako-som-si-postavil-tim-ai-agentov"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/sk/ako-som-si-postavil-tim-ai-agentov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/ako-som-si-postavil-tim-ai-agentov"/>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

@@ -2,7 +2,7 @@
 
 > **Published:** 2026-11-01  
 > **Author:** Marian Stancik  
-> **Summary:** GEO je optimalizácia obsahu na citácie v AI odpovediach. Tri piliere, 8 praktických krokov — od priamej odpovedi cez schema.org až po llms.txt — a čo z toho platí na tomto webe.
+> **Summary:** GEO je optimalizácia obsahu na citácie v AI odpovediach. Tri piliere, 8 praktických krokov — od priamej odpovede cez schema.org až po llms.txt — a čo z toho platí na tomto webe.
 
 ---
 
