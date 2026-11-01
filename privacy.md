@@ -1,7 +1,6 @@
 # Privacy Policy — EN
 
 > **DRAFT – requires attorney review before publication.**
-> Version 3.0 (draft dated 1 November 2026). Publish only after Marián's final approval and attorney review. Replaces privacy.md v2.0. (Slovak version prevails.)
 
 For website https://marianstancik.dev
 
@@ -24,9 +23,16 @@ This website sells no products or services and collects personal data at **one p
 
 | Purpose | Categories of Data | Lawful Basis | Retention |
 | :--- | :--- | :--- | :--- |
-| Sending the free "Starter Kit" (prompt pack, playbook, checklist) and optional updates by e-mail | E-mail address, optionally name, date/time of submission, source tag ("starter-kit") | **Consent** — Art. 6(1)(a) GDPR; § 13 of Act No. 18/2018 Coll. (mandatory checkbox + double opt-in) | Until consent withdrawal (1-click unsubscribe); consent evidence (double opt-in record) max. 6 months after withdrawal to demonstrate compliance under Art. 5(2) GDPR |
+| Sending the free "Starter Kit" (prompt pack, playbook, checklist) and optional updates by e-mail | E-mail address, optionally name, date/time of submission, source tag ("starter-kit") | **Consent** — Art. 6(1)(a) GDPR; § 13 of Act No. 18/2018 Coll. (mandatory checkbox + double opt-in) | By opt-in status — detailed retention in the "Retention by opt-in status" table below |
 
-Double opt-in mechanism: after submitting the form (with a mandatory GDPR consent checkbox and spam protection via Turnstile/honeypot), the subscriber confirms the subscription by clicking a verification link in an e-mail; without confirmation the address is not activated for updates. *(Note: verify in implementation before publication — see open questions in the change summary.)*
+Double opt-in mechanism: after submitting the form (with a mandatory GDPR consent checkbox and spam protection via Turnstile/honeypot), the subscriber confirms the subscription by clicking a verification link in an e-mail; without confirmation the address is not activated for updates. Confirmation and welcome e-mails are sent via Gmail within Google Workspace (the operator sets **Data Region Europe** in the Google Workspace Admin console). *(Note: verify the activation step in the implementation before publication — see the change summary.)*
+
+**Retention by opt-in status:**
+
+| Record status | Retention |
+| :--- | :--- |
+| **Pending** (e-mail sent, opt-in unconfirmed) | **30 days**, then automatic deletion of the address with archiving of the record |
+| **Confirmed** (double opt-in completed) | Until consent withdrawal (1-click unsubscribe) + max. 6 months of consent evidence to demonstrate compliance under Art. 5(2) GDPR |
 
 ### 2.2 Operational and security logs
 
@@ -46,9 +52,7 @@ Double opt-in mechanism: after submitting the form (with a mandatory GDPR consen
 | Provider | Role | Country / Transfer |
 | :--- | :--- | :--- |
 | **Cloudflare, Inc.** | Hosting (Cloudflare Pages), CDN, security headers, form verification (Turnstile) | USA — EU-US Data Privacy Framework certified + SCCs |
-| **AgentMail** | Transactional e-mail (confirmation, welcome, unsubscribe) | Storage and transfer mechanism **to be verified before publication** (see open questions) |
-| **Hetzner Online GmbH** | CRM relay webhook (lead recording) | Germany (EU) |
-| **Google** (Google Sheets) | Lead list storage | Depending on account setup — **to be verified before publication** (see open questions) |
+| **Google Workspace / Google Ireland Ltd.** (Sheets + Gmail) | Transactional e-mail (confirmation, welcome, unsubscribe) and lead list storage (Sheets). The operator sets **Data Region Europe** in the Google Workspace Admin console — processing restricted to the EU data region; any transfer to the USA is governed by SCCs / DPF | Ireland (EU); EU data region (Admin console setting) |
 | **PostHog** (EU Cloud, Frankfurt) | Traffic analytics **only after opt-in consent** | Germany (EU), no marketing cookies |
 
 Data processing agreements (Art. 28 GDPR) are or will be concluded, or standard contractual clauses apply where the provider is not covered by applicable EU transfer mechanisms.

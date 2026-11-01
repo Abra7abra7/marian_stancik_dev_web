@@ -61,8 +61,10 @@ a:hover { color: #E8B86D; }
 
 <a href="/" class="back-link">← Back to marianstancik.dev</a>
 
-<h1>Privacy Policy</h1>
-<p><em>Version 3.0 · Effective from 1 November 2026</em></p>
+<h1>Privacy Policy — EN</h1>
+<p><em>Version 3.0.1 · Effective from 1 November 2026</em></p>
+<blockquote>
+</blockquote>
 <p>For website https://marianstancik.dev</p>
 <h2>1. Data Controller</h2>
 <p>The Controller pursuant to Article 4(7) of Regulation (EU) 2016/679 (GDPR) and Section 22 of Act No. 18/2018 Coll. on Personal Data Protection is:</p>
@@ -91,11 +93,30 @@ a:hover { color: #E8B86D; }
 <td style="text-align: left;">Sending the free &ldquo;Starter Kit&rdquo; (prompt pack, playbook, checklist) and optional updates by e-mail</td>
 <td style="text-align: left;">E-mail address, optionally name, date/time of submission, source tag (&ldquo;starter-kit&rdquo;)</td>
 <td style="text-align: left;"><strong>Consent</strong> — Art. 6(1)(a) GDPR; § 13 of Act No. 18/2018 Coll. (mandatory checkbox + double opt-in)</td>
-<td style="text-align: left;">Until consent withdrawal (1-click unsubscribe); consent evidence (double opt-in record) max. 6 months after withdrawal to demonstrate compliance under Art. 5(2) GDPR</td>
+<td style="text-align: left;">By opt-in status — detailed retention in the &ldquo;Retention by opt-in status&rdquo; table below</td>
 </tr>
 </tbody>
 </table>
-<p>Double opt-in mechanism: after submitting the form (with a mandatory GDPR consent checkbox and spam protection via Turnstile/honeypot), the subscriber confirms the subscription by clicking a verification link in an e-mail; without confirmation the address is not activated for updates. <em>(Note: verify in implementation before publication — see open questions in the change summary.)</em></p>
+<p>Double opt-in mechanism: after submitting the form (with a mandatory GDPR consent checkbox and spam protection via Turnstile/honeypot), the subscriber confirms the subscription by clicking a verification link in an e-mail; without confirmation the address is not activated for updates. Confirmation and welcome e-mails are sent via Gmail within Google Workspace (the operator sets <strong>Data Region Europe</strong> in the Google Workspace Admin console). <em>(Note: verify the activation step in the implementation before publication — see the change summary.)</em></p>
+<p><strong>Retention by opt-in status:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Record status</th>
+<th style="text-align: left;">Retention</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Pending</strong> (e-mail sent, opt-in unconfirmed)</td>
+<td style="text-align: left;"><strong>30 days</strong>, then automatic deletion of the address with archiving of the record</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Confirmed</strong> (double opt-in completed)</td>
+<td style="text-align: left;">Until consent withdrawal (1-click unsubscribe) + max. 6 months of consent evidence to demonstrate compliance under Art. 5(2) GDPR</td>
+</tr>
+</tbody>
+</table>
 <h3>2.2 Operational and security logs</h3>
 <table>
 <thead>
@@ -138,19 +159,9 @@ a:hover { color: #E8B86D; }
 <td style="text-align: left;">USA — EU-US Data Privacy Framework certified + SCCs</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>AgentMail</strong></td>
-<td style="text-align: left;">Transactional e-mail (confirmation, welcome, unsubscribe)</td>
-<td style="text-align: left;">Storage and transfer mechanism <strong>to be verified before publication</strong> (see open questions)</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Hetzner Online GmbH</strong></td>
-<td style="text-align: left;">CRM relay webhook (lead recording)</td>
-<td style="text-align: left;">Germany (EU)</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Google</strong> (Google Sheets)</td>
-<td style="text-align: left;">Lead list storage</td>
-<td style="text-align: left;">Depending on account setup — <strong>to be verified before publication</strong> (see open questions)</td>
+<td style="text-align: left;"><strong>Google Workspace / Google Ireland Ltd.</strong> (Sheets + Gmail)</td>
+<td style="text-align: left;">Transactional e-mail (confirmation, welcome, unsubscribe) and lead list storage (Sheets). The operator sets <strong>Data Region Europe</strong> in the Google Workspace Admin console — processing restricted to the EU data region; any transfer to the USA is governed by SCCs / DPF</td>
+<td style="text-align: left;">Ireland (EU); EU data region (Admin console setting)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>PostHog</strong> (EU Cloud, Frankfurt)</td>

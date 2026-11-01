@@ -22,8 +22,15 @@ Táto stránka nepredáva výrobky ani služby a nezhromažďuje osobné údaje 
 
 | Účel spracúvania | Kategória údajov | Právny základ | Doba uchovania |
 | :--- | :--- | :--- | :--- |
-| Zaslanie bezplatného „Starter Kitu“ (súbor promptov, playbook a checklist) a prípadných noviniek na e-mail | E-mailová adresa, voliteľne meno, dátum a čas odoslania, označenie zdroja („starter-kit“) | **Súhlas** — čl. 6 ods. 1 písm. a) GDPR; § 13 zákona č. 18/2018 Z. z. (zaškrtnutie checkboxu + dvojitý opt-in) | Do odvolania súhlasu odberateľom (odhlásenie 1 klikom); evidence súhlasu (záznam o dvojitom opt-ine) najviac 6 mesiacov po odvolaní na preukázanie splnenia povinností podľa čl. 5 ods. 2 GDPR |
+| Zaslanie bezplatného „Starter Kitu“ (súbor promptov, playbook a checklist) a prípadných noviniek na e-mail | E-mailová adresa, voliteľne meno, dátum a čas odoslania, označenie zdroja („starter-kit“) | **Súhlas** — čl. 6 ods. 1 písm. a) GDPR; § 13 zákona č. 18/2018 Z. z. (zaškrtnutie checkboxu + dvojitý opt-in) | Podľa stavu opt-inu — detailná retencia nižšie v tabuľke „Retencia podľa stavu opt-inu“ |
 
+
+**Retencia podľa stavu opt-inu:**
+
+| Stav záznamu | Retencia |
+| :--- | :--- |
+| **Pending** (e-mail odoslaný, opt-in nepotvrdený) | **30 dní**, potom automatické vymazanie adresy s archiváciou záznamu |
+| **Confirmed** (dvojitý opt-in potvrdený) | Do odvolania súhlasu (odhlásenie 1 klikom) + najviac 6 mesiacov evidence súhlasu na preukázanie splnenia povinností podľa čl. 5 ods. 2 GDPR |
 
 ### 2.2 Prevádzkové a bezpečnostné logy
 
@@ -42,9 +49,7 @@ Táto stránka nepredáva výrobky ani služby a nezhromažďuje osobné údaje 
 | Subjekt | Úloha | Krajina / transfer |
 | :--- | :--- | :--- |
 | **Cloudflare, Inc.** | Hosting (Cloudflare Pages), CDN, bezpečnostné hlavičky, overenie formulára (Turnstile) | USA — certifikovaný v EU-US Data Privacy Framework + SCC |
-| **AgentMail** | Transakčné e-maily (potvrdenie prihlásenia, welcome e-mail, odhlásenie) | Úložisko a transfer mechanizmus **doveriť pred publikáciou** (pozri otázky) |
-| **Hetzner Online GmbH** | Prepojovací webhook (CRM relay) na zapisovanie leadov | Nemecko (EÚ) |
-| **Google** (Google Sheets) | Evidencia prihlásených e-mailových adries (lead list) | Podľa nastavenia účtu — **doveriť pred publikáciou** (pozri otázky) |
+| **Google Workspace / Google Ireland Ltd.** (Sheets + Gmail) | Transakčné e-maily (potvrdenie prihlásenia, welcome e-mail, odhlásenie) a evidencia prihlásených adries (Sheets). Prevádzkovateľ nastavuje **Data Region Europe** v Admin konzole Google Workspace — spracúvanie obmedzené na dáta región EÚ; v prípade transferu do USA sa uplatnia SCC / DPF | Írsko (EÚ); dáta región EÚ (nastavenie Admin konzoly) |
 | **PostHog** (EU Cloud, Frankfurt) | Analytika návštevnosti **výhradne po opt-in súhlase** | Nemecko (EÚ), bez marketingových cookies |
 
 Zmluvy o spracúvaní (čl. 28 GDPR) sú / budú uzavreté alebo sa uplatňujú modelové zmluvné doložky, pokiaľ subjekt nie je certifikovaný podľa príslušných mechanizmov EÚ.

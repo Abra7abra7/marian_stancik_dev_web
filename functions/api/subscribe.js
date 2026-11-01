@@ -1,4 +1,9 @@
-// Cloudflare Pages Function — Lead capture with STRICT double opt-in (legal v3.0).
+import { sendGmail } from './_gmail.js';
+
+// Cloudflare Pages Function — Lead capture with STRICT double opt-in (legal v3.0.1).
+// Transactional e-mails go through Gmail (Google Workspace) via functions/api/_gmail.js —
+// AgentMail is fully removed from the personal-data flow.
+// TODO(Marián — Google Workspace Admin konzola, mimo repozitára): Data Region = Europe (Sheets + Gmail).
 // The welcome/kit email is sent from functions/api/confirm.js AFTER the confirmation link click.
 export async function onRequestOptions(context) {
   const origin = context.request.headers.get('origin') || '';
@@ -32,9 +37,8 @@ export async function onRequestPost(context) {
   };
 
   try {
-    const apiKey = env.AGENTMAIL_API_KEY;
-    if (!apiKey) {
-      return new Response(JSON.stringify({ error: 'API key not configured' }), { status: 500, headers: corsHeaders });
+    if (!env.GMAIL_REFRESH_TOKEN && !env.GMAIL_SERVICE_ACCOUNT_JSON) {
+      return new Response(JSON.stringify({ error: 'Gmail credentials not configured' }), { status: 500, headers: corsHeaders });
     }
 
     let body = {};
@@ -97,40 +101,11 @@ export async function onRequestPost(context) {
     const dateStr = now.toISOString().split('T')[0];
     const timeStr = now.toTimeString().split(' ')[0];
 
-    const agentMailUrl = 'https://mcp.agentmail.to/mcp';
-    const agentMailHeaders = {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json, text/event-stream',
-      'x-api-key': apiKey
-    };
-
-    async function sendEmail(to, subject, text, html, inboxId = 'marianstancik@agentmail.to') {
-      const initBody = JSON.stringify({
-        jsonrpc: '2.0', id: '1', method: 'initialize',
-        params: { protocolVersion: '2025-11-25', capabilities: {}, clientInfo: { name: 'hermes-crm', version: '1.0' } }
-      });
-      const initRes = await fetch(agentMailUrl, { method: 'POST', headers: agentMailHeaders, body: initBody });
-      const initText = await initRes.text();
-      const sessionMatch = initText.match(/"sessionId"\s*:\s*"([^"]+)"/);
-      const sessionId = sessionMatch ? sessionMatch[1] : null;
-      const msgHeaders = { ...agentMailHeaders };
-      if (sessionId) msgHeaders['Mcp-Session-Id'] = sessionId;
-
-      await fetch(agentMailUrl, { method: 'POST', headers: msgHeaders, body: JSON.stringify({ jsonrpc: '2.0', method: 'notifications/initialized' }) });
-
-      const args = { inboxId, to: [to], subject, text };
-      if (html) args.html = html;
-
-      const sendBody = JSON.stringify({
-        jsonrpc: '2.0', id: '2', method: 'tools/call',
-        params: { name: 'send_message', arguments: args }
-      });
-      const msgRes = await fetch(agentMailUrl, { method: 'POST', headers: msgHeaders, body: sendBody });
-      const msgText = await msgRes.text();
-      if (msgText.includes('"isError":true')) {
-        const errMsg = msgText.match(/"message"\s*:\s*"([^"]+)"/)?.[1] || 'Unknown error';
-        throw new Error(`AgentMail: ${errMsg}`);
-      }
+    // E-mail sending via Gmail (Google Workspace) — see functions/api/_gmail.js
+    const ADMIN_EMAIL = env.ADMIN_EMAIL || env.GMAIL_USER || 'stancikmarian8@gmail.com';
+    async function notifyAdmin(subject, text) {
+      await sendGmail(env, ADMIN_EMAIL, subject, text, null)
+        .catch(e => console.error('Admin notify failed:', e.message));
     }
 
     // CRM forward to Hetzner VPS webhook
@@ -164,8 +139,7 @@ export async function onRequestPost(context) {
         + (data.website ? `Web: ${data.website}\n` : '')
         + `Zdroj: ${data.source || '-'}\n\n`
         + `Tento lead sa NEDOSTAL do CRM Sheets - zapis ho rucne.\n`;
-      await sendEmail('marianstancik@agentmail.to',
-        `[CRM DOWN] Nezapisany lead: ${data.email || entryType}`, alertText, null)
+      await notifyAdmin(`[CRM DOWN] Nezapisany lead: ${data.email || entryType}`, alertText)
         .catch(e => console.error('Lost-lead alert email failed:', e.message));
       return { ok: false, reason: lastError };
     }
@@ -184,7 +158,11 @@ export async function onRequestPost(context) {
 
     const crmRes = await crmToSheets('newsletter', { email, source, status: 'pending', date: dateStr, time: timeStr });
 
-    const optinSecret = env.OPTIN_SECRET || env.CRM_WEBHOOK_KEY || apiKey;
+    const optinSecret = env.OPTIN_SECRET || env.CRM_WEBHOOK_KEY || env.GMAIL_CLIENT_SECRET;
+    if (!optinSecret) {
+      // signing secret is required for the opt-in token — never sign with an empty/default key
+      return new Response(JSON.stringify({ error: 'Opt-in signing secret not configured (set OPTIN_SECRET)' }), { status: 500, headers: corsHeaders });
+    }
     const lang = (body.lang === 'sk') ? 'sk' : 'en';
     const payload = btoa(JSON.stringify({ e: email, s: source, l: lang, t: Date.now() }))
       .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
@@ -208,13 +186,13 @@ export async function onRequestPost(context) {
     </body></html>`;
 
     try {
-      await sendEmail(email, confSubject, confText, confHtml);
+      await sendGmail(env, email, confSubject, confText, confHtml);
     } catch (e) {
       console.error('Confirmation email failed:', e.message);
       return new Response(JSON.stringify({ error: 'Confirmation email could not be sent. Try again later.' }), { status: 502, headers: corsHeaders });
     }
 
-    await sendEmail('marianstancik@agentmail.to', `✦ Nový PENDING opt-in: ${email}`, `Nový pending opt-in (čaká na potvrdenie):\nEmail: ${email}\nZdroj: ${source}\nDátum: ${dateStr} ${timeStr}\nCRM: ${crmRes.ok ? 'ok' : 'FAILED — zapis rucne'}`, null)
+    await notifyAdmin(`✦ Nový PENDING opt-in: ${email}`, `Nový pending opt-in (čaká na potvrdenie):\nEmail: ${email}\nZdroj: ${source}\nDátum: ${dateStr} ${timeStr}\nCRM: ${crmRes.ok ? 'ok' : 'FAILED — zapis rucne'}`, null)
       .catch(e => console.error('Admin notify failed:', e.message));
 
     return new Response(JSON.stringify({ status: 'ok', type: 'newsletter', double_optin: 'pending', email, crm: crmRes.ok ? 'ok' : 'failed' }), { status: 200, headers: corsHeaders });
