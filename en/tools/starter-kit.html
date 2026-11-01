@@ -48,6 +48,7 @@
 <link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
 <script defer="" src="/js/posthog.min.js?v=consent2"></script>
 <link href="/css/main.css?v=135" rel="stylesheet"/>
+<link href="/llms.txt" rel="alternate" title="LLM Knowledge Graph" type="text/plain"/>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -132,6 +133,7 @@
 <input aria-label="GDPR consent" name="gdpr_consent_check" required="" style="margin-top:2px;" type="checkbox"/>
 <span data-i18n="leadConsentText" id="leadConsentText">I agree to the <a href="/privacy" style="color:#CD7F32;text-decoration:underline;">Privacy Policy</a> and consent to processing my email so the Starter Kit can be sent to me.</span>
 </label>
+<div aria-hidden="true" class="cf-turnstile" data-sitekey="" data-theme="dark" hidden=""></div>
 <button data-i18n="kitCta" id="subscribeBtn" type="submit">Subscribe</button>
 <p class="lead-note" data-i18n="kitConfirmNote" id="leadConfirmNote" style="margin-top:10px;">We’ll send you a confirmation email. Click it and the Kit is on its way. Nothing gets sent without confirmation.</p>
 </form>
@@ -213,6 +215,7 @@
 </footer>
 </div>
 <script src="/js/three-bg.min.js?v=133" type="module"></script>
+<script defer="" src="/js/turnstile.min.js?v=1"></script>
 <script src="/js/i18n.min.js?v=20261031_v2"></script>
 </body>
 </html>

@@ -46,7 +46,7 @@ Najväčší posun. 22 KB CSS sa presunulo z inline blokov do jediného
 </style>
 
 <!-- Potom: externé, cachované raz -->
-<link rel="stylesheet" href="/css/main.css?v=134">
+<link rel="stylesheet" href="/css/main.css?v=135">
 ```
 
 ```

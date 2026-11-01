@@ -135,6 +135,7 @@
         <input type="checkbox" name="gdpr_consent_check" required aria-label="GDPR súhlas" style="margin-top:2px;">
         <span id="leadConsentText" data-i18n="leadConsentText">Súhlasím s <a href="/privacy-sk" style="color:#CD7F32;text-decoration:underline;">Zásadami ochrany súkromia</a> a so spracovaním môjho e-mailu, aby som dostal Starter Kit.</span>
       </label>
+      <div class="cf-turnstile" data-sitekey="" data-theme="dark" hidden aria-hidden="true"></div>
       <button type="submit" id="subscribeBtn" data-i18n="kitCta">Poslať mi Kit</button>
       <p class="lead-note" id="leadConfirmNote" data-i18n="kitConfirmNote" style="margin-top:10px;">
         Po odoslaní ti príde potvrdzovací e-mail. Klikni na potvrdenie a Kit ti pošleme hneď. Bez potvrdenia ti nič nepošleme.
@@ -222,5 +223,6 @@
 </div>
 
 <script type="module" src="/js/three-bg.min.js?v=133"></script>
+<script src="/js/turnstile.min.js?v=1" defer></script>
 <script src="/js/i18n.min.js?v=20261031_v2"></script>
 </body>

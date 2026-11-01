@@ -406,7 +406,7 @@ document.getElementById('leadForm')?.addEventListener('submit', async function(e
     const res = await fetch('/api/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, source: 'marianstancik.dev' })
+      body: JSON.stringify({ email, source: 'marianstancik.dev', turnstile: window.__turnstileToken || '' })
     });
     const data = await res.json();
     if (res.ok && data.status === 'ok') {

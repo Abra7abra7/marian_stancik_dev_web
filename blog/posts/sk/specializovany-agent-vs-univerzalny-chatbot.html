@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Špecializovaný agent vs. univerzálny chatbot: kedy sa oplatí ktorý — Marian Stancik</title>
+<meta name="description" content="Kedy stačí univerzálny chatbot a kedy sa oplatí špecializovaný AI agent. Rozhodovacie kritériá, príklady rolí a typické chyby pri prvom agentovi.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/sk/specializovany-agent-vs-univerzalny-chatbot">
+<link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/specializovany-agent-vs-univerzalny-chatbot">
+<link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/specializovany-agent-vs-univerzalny-chatbot">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/specializovany-agent-vs-univerzalny-chatbot">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#08080F">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Špecializovaný agent vs. univerzálny chatbot: kedy sa oplatí ktorý — Marian Stancik">
+<meta property="og:description" content="Univerzálny chatbot je lepší na jednorazové, rôznorodé úlohy. Špecializovaný agent sa oplatí, keď sa úloha opakuje, potrebuje pevný formát a pravidlá. Rozhodovacie kritériá.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/sk/specializovany-agent-vs-univerzalny-chatbot">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Marian Stancik">
+<meta property="og:locale" content="sk_SK">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta name="ai-generated-content" content="true">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Špecializovaný agent vs. univerzálny chatbot: kedy sa oplatí ktorý",
+      "description": "Univerzálny chatbot je lepší na jednorazové, rôznorodé úlohy. Špecializovaný agent sa oplatí, keď sa úloha opakuje, potrebuje pevný formát a pravidlá. Rozhodovacie kritériá.",
+      "datePublished": "2026-11-01",
+      "dateModified": "2026-11-01",
+      "author": {
+        "@type": "Person",
+        "name": "Marian Stancik",
+        "url": "https://www.marianstancik.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Marian Stancik"
+      },
+      "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/sk/specializovany-agent-vs-univerzalny-chatbot",
+      "keywords": ["špecializovaný AI agent", "univerzálny chatbot", "AI agent pre firmu", "vlastný AI agent", "kedy použiť AI agenta"],
+      "isBasedOn": "https://schema.org/AIGeneratedContent",
+      "creativeWorkStatus": "AIGenerated"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Domov",
+          "item": "https://www.marianstancik.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.marianstancik.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Špecializovaný agent vs. univerzálny cha",
+          "item": "https://www.marianstancik.dev/blog/posts/sk/specializovany-agent-vs-univerzalny-chatbot"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:#08080F;color:#E8E8F0;line-height:1.8;-webkit-font-smoothing:antialiased}
+.container{max-width:740px;margin:0 auto;padding:0 24px}
+nav{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(8,8,15,0.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-inner a{color:#8888A0;text-decoration:none;font-size:0.85rem;transition:color 0.3s}
+.nav-inner a:hover{color:#CD7F32}
+article{padding:48px 0 80px}
+.post-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:32px;font-size:0.78rem;color:#9090A8}
+.post-meta .tag{background:rgba(205,127,50,0.08);color:#E8B86D;padding:3px 10px;border-radius:100px;font-size:0.65rem;border:1px solid rgba(205,127,50,0.15)}
+h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:#F0F0F5;line-height:1.25;letter-spacing:-0.02em;margin-bottom:8px}
+h2{font-size:1.3rem;font-weight:600;color:#F0F0F5;margin:36px 0 12px;line-height:1.35}
+h3{font-size:1.05rem;font-weight:600;color:#D0D0E0;margin:24px 0 8px}
+p{color:#B0B0C8;margin-bottom:16px;font-size:0.95rem}
+a{color:#E8B86D;transition:color 0.3s}
+a:hover{color:#CD7F32}
+ul,ol{padding-left:20px;margin-bottom:16px;color:#B0B0C8;font-size:0.95rem}
+li{margin-bottom:6px}
+pre{background:rgba(13,13,26,0.80);border:1px solid rgba(205,127,50,0.12);border-radius:10px;padding:16px 20px;overflow-x:auto;font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem;color:#D0D0E0;margin-bottom:20px;line-height:1.55}
+code{font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem}
+p code,li code{background:rgba(205,127,50,0.08);padding:1px 5px;border-radius:3px;color:#E8B86D}
+.callout{background:rgba(13,13,26,0.75);border-left:3px solid #CD7F32;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout strong{color:#E8B86D}
+.callout-green{background:rgba(46,204,113,0.06);border-left:3px solid #2ECC71;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout-green strong{color:#2ECC71}
+img{max-width:100%;height:auto;border-radius:8px;margin:24px 0}
+blockquote{border-left:2px solid rgba(205,127,50,0.2);padding:8px 20px;margin:20px 0;color:#A0A0B8;font-style:italic;background:rgba(13,13,26,0.4);border-radius:4px}
+hr{border:none;border-top:1px solid rgba(255,255,255,0.06);margin:40px 0}
+.btn-cta{display:inline-block;background:linear-gradient(135deg,rgba(205,127,50,0.15),rgba(232,184,109,0.08));color:#E8B86D;padding:10px 24px;border-radius:8px;text-decoration:none;border:1px solid rgba(205,127,50,0.25);font-weight:600;transition:all 0.3s}
+.btn-cta:hover{background:rgba(205,127,50,0.25);border-color:rgba(205,127,50,0.5);color:#F0E0C0}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/">&#8592; marianstancik.dev</a>
+    <a href="/blog">Blog</a>
+  </div>
+</nav>
+<main id="main-content">
+
+<div class="container">
+<article>
+  <div class="post-meta">
+    
+    <span class="byline">Autor <a href="/how-it-works" rel="author">Marian Stancik</a></span>
+    <span>·</span>
+    <span>1. novembra 2026</span>
+    <span>&#183;</span>
+    <span>8 min čítania</span>
+    <span class="tag">AI agenti</span>
+    <span class="tag">Chatbot</span>
+    <span class="tag">Špecializácia</span>
+    <span class="tag">Automatizácia</span>
+    </div>
+
+  <h1>Špecializovaný agent vs. univerzálny chatbot: kedy sa oplatí ktorý</h1>
+
+
+  <p><strong>Priama odpoveď:</strong> Univerzálny chatbot je lepší na jednorazové, rôznorodé úlohy. Špecializovaný agent sa oplatí, keď sa istý typ úlohy opakuje, potrebuje pevný formát výstupu a pravidlá, ktoré nesmú byť prekročené. Rozhoduje opakovanosť, riziko a potreba kontroly — nie technologická móda.</p>
+
+  <p>Otázku „potrebujem agenta alebo stačí ChatGPT?“ počujem najčastejšie. Odpoveď nie je technická, ale organizačná: agent nie je lepší model, je to model plus rola, plus pravidlá a plus formát výstupu. Ak nič z toho nepotrebuješ, agent je len drahší chatbot.</p>
+
+  <h2>Štyri kritériá, podľa ktorých sa rozhodnúť</h2>
+  <h3>1. Opakovanosť úlohy</h3>
+  <p>Raz za mesiac zhrnúť jeden PDF dokument? Chatbot. Každý pondelok triediť inbox, každý deň kontrolovať termíny, každý týždeň písať report? To je práca pre agenta — práve preto, že sa opakuje a stojí za to ju popísať raz poriadne.</p>
+  <h3>2. Potreba pevného výstupu</h3>
+  <p>Ak potrebuješ, aby výstup vždy vyzeral rovnako — zhrnutie → návrh → čaká na rozhodnutie, tabuľka s presnými stĺpcami, text v tvojom hlase — potrebuješ agenta s formátom zapísaným v prompte. Chatbot ti to urobí raz, agent to robí vždy.</p>
+  <h3>3. Riziko chyby</h3>
+  <p>Čím vyššie riziko, tým viac pravidiel a kontrol. Právna analýza, financie a všetko, čo odchádza k tretej strane, potrebujú agenta s guardrails: čo nesmie nikdy, čo len po schválení, ako označiť neisté údaje. Písanie vtipného popisu na sociálnu sieť riziko nemá.</p>
+  <h3>4. Súkromie a dáta</h3>
+  <p>Ak úloha pracuje s osobnými alebo firemnými údajmi, záleží na tom, kde beží model a čo agent smie odoslať. Agent s pravidlami „nikdy nevypisovať citlivé údaje“ a vlastnou infraštruktúrou je tu zásadne bezpečnejší voľba než ad-hoc chat.</p>
+
+  <h2>Ukážkové úlohy a čo im sedí</h2>
+  <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+    <tr style="border-bottom:1px solid rgba(205,127,50,0.25);"><th style="text-align:left;padding:8px;color:#E8B86D;">Úloha</th><th style="text-align:left;padding:8px;color:#E8B86D;">Riešenie</th><th style="text-align:left;padding:8px;color:#E8B86D;">Prečo</th></tr>
+    <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="padding:8px;">Raz za čas zhrnúť dlhý dokument</td><td style="padding:8px;">Chatbot</td><td style="padding:8px;">Jednorazová, nízke riziko</td></tr>
+    <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="padding:8px;">Triediť inbox každý deň</td><td style="padding:8px;">Agent</td><td style="padding:8px;">Opakovaná, pevný formát</td></tr>
+    <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="padding:8px;">Právna analýza zmluvy</td><td style="padding:8px;">Agent + ľudský revíor</td><td style="padding:8px;">Vysoké riziko, nutná kontrola</td></tr>
+    <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="padding:8px;">Text v tvojom hlase na odoslanie</td><td style="padding:8px;">Agent (writer)</td><td style="padding:8px;">Opakovaná, konzistentný hlas</td></tr>
+    <tr><td style="padding:8px;">Bájka nápadu na obsah</td><td style="padding:8px;">Chatbot</td><td style="padding:8px;">Kreatívna, jednorazová</td></tr>
+  </table>
+
+  <h2>Typické chyby pri prvom agentovi</h2>
+  <ul>
+    <li><strong>Agent „na všetko“.</strong> Jeden agent, ktorý robí výskum, píše texty aj riadi kalendár, skončí ako univerzálny chatbot s nadmernejšími nákladmi. Rozdeľ roly skôr, než škáluješ.</li>
+    <li><strong>Chýbajúce pravidlá „čo nesmie“.</strong> Agent bez zoznamu zakázaných akcií si raz „uľahčí“ prácu — odošle, zmaže, vymyslí číslo. Pravidlá píš ako prvú vetu promptu, nie ako dodatočnú poznámku.</li>
+    <li><strong>Žiadny formát výstupu.</strong> Bez pevného formátu nedokážeš kontrolu delegovať späť na agenta a každá kontrola je ručna.</li>
+  </ul>
+
+  <h2>Postup: od checklistu k prvému agentovi</h2>
+  <p>Píš si, čo ti opakovane prichádza do inboxu alebo kalendára. Po dvoch týždňoch vidíš, ktoré úlohy sa opakujú. Prvú z nich premeň na agenta: jedna rola, jeden formát, pravidlá hore. Ostatné nechaj bežať v chate, kým agent preukáže, že zvláda úlohu bez teba.</p>
+  <div class="callout"><strong>Konkrétne prompty a checklist guardrailov:</strong> dávam zadarmo v <a href="/tools/starter-kit">AI Agent Starter Kite</a>. A celý príbeh tímu 14 agentov je rozpísaný v článku <a href="/blog/ako-som-si-postavil-tim-ai-agentov">Ako som si postavil tím 14 špecializovaných AI agentov</a>.</div>
+ 
+  <hr>
+
+  <div style="background:rgba(13,13,26,0.75);border:1px solid rgba(205,127,50,0.15);border-radius:10px;padding:24px;margin:32px 0;text-align:center;">
+    <p style="font-size:1rem;color:#D0D0E0;margin-bottom:8px;"><strong>Chceš týždenné novinky o architektúre a governance autonómnych agentov?</strong></p>
+    <p style="font-size:0.85rem;color:#A0A0B8;margin-bottom:16px;">Jeden email týždenne. Žiadny spam. Kedykoľvek sa odhlás.</p>
+    <form action="https://www.marianstancik.dev/api/subscribe" method="POST" style="display:flex;gap:8px;max-width:400px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
+      <input type="email" name="email" placeholder="tvoj@email.com" required style="flex:1;min-width:200px;padding:10px 14px;border-radius:6px;border:1px solid rgba(205,127,50,0.2);background:rgba(8,8,15,0.8);color:#E8E8F0;font-size:0.85rem;">
+      <input type="hidden" name="lang" value="sk">
+      <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Odoberať</button>
+    </form>
+  </div>
+
+  <p style="font-size:0.75rem;color:#707090;margin-top:32px;text-align:center;">⚠️ AI-generated | Len info | <a href="/disclaimer">marianstancik.dev/disclaimer</a></p>
+</article>
+</div>
+</body>
+</html>
+</main>

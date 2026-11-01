@@ -198,6 +198,18 @@ with socketserver.TCPServer(('127.0.0.1', 0), Handler) as httpd:
     (ok if not inline else fail)(f'no inline event handlers on new pages: {inline}')
 
     # prompt library cards
+    # SK body variants + Turnstile prep
+    print('9b) SK body variants & Turnstile')
+    plsk = open('sk/tools/prompt-library.html', encoding='utf-8').read()
+    (ok if 'Ako rozdeliť prácu medzi AI agentov' in plsk else fail)('SK prompt-library body is Slovak')
+    hwsk = open('sk/how-it-works.html', encoding='utf-8').read()
+    (ok if 'Inbox agent triedi novú poštu' in hwsk else fail)('SK how-it-works body is Slovak')
+    st = open('tools/starter-kit.html', encoding='utf-8').read()
+    stk = open('tools/starter-kit-sk.html', encoding='utf-8').read()
+    (ok if 'cf-turnstile' in st and 'cf-turnstile' in stk else fail)('Turnstile widget on both Starter Kit pages')
+    (ok if 'data-sitekey=""' in st else fail)('Turnstile sitekey empty (inert until key provided)')
+    (ok if '/js/turnstile.min.js' in st else fail)('turnstile.js referenced')
+
     print('9) prompt library')
     pl = open('tools/prompt-library.html', encoding='utf-8').read()
     n_cards = len(re.findall(r'class="prompt-card fade-in"', pl))
@@ -205,6 +217,20 @@ with socketserver.TCPServer(('127.0.0.1', 0), Handler) as httpd:
     (ok if n_cards == 15 else fail)(f'prompt cards: {n_cards}/15')
     (ok if n_copy >= 15 else fail)(f'copy buttons: {n_copy}')
     (ok if '/js/tools.min.js' in pl or '/js/tools.js' in pl else fail)('tools.js referenced')
+
+    # new blog posts
+    print('11) new GEO posts')
+    import json as _json
+    posts_json = _json.loads(open('blog/posts.json', encoding='utf-8').read())
+    new_slugs = ['ako-som-si-postavil-tim-ai-agentov', 'specializovany-agent-vs-univerzalny-chatbot',
+                 'geo-generative-engine-optimization', 'ai-agenti-guardrails-human-in-the-loop']
+    for s in new_slugs:
+        f = Path('blog/posts/sk') / f'{s}.html'
+        exists = f.exists()
+        in_json = any(p_['slug'] == s for p_ in posts_json)
+        (ok if exists and in_json else fail)(f'post {s}: file={exists}, posts.json={in_json}')
+    ll = open('llms.txt', encoding='utf-8').read()
+    (ok if new_slugs[0] in ll else fail)('llms.txt lists new posts')
 
     httpd.shutdown()
 

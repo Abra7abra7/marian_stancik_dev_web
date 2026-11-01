@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEO: Ako sa dostať do odpovedí ChatGPT, Perplexity a Google AI Overviews — Marian Stancik</title>
+<meta name="description" content="GEO (generative engine optimization) v praxi: čo AI vyhľadávače citujú, ako štruktúrovať obsah a čo spraviť technicky — schema, llms.txt, priama odpoveď.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/sk/geo-generative-engine-optimization">
+<link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/geo-generative-engine-optimization">
+<link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/geo-generative-engine-optimization">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/geo-generative-engine-optimization">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#08080F">
+
+<!-- Open Graph -->
+<meta property="og:title" content="GEO: Ako sa dostať do odpovedí ChatGPT, Perplexity a Google AI Overviews — Marian Stancik">
+<meta property="og:description" content="GEO je optimalizácia obsahu na citácie v AI odpovediach. Tri piliere, 8 praktických krokov — od priamej odpovedi cez schema.org až po llms.txt — a čo z toho platí na tomto webe.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/sk/geo-generative-engine-optimization">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Marian Stancik">
+<meta property="og:locale" content="sk_SK">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta name="ai-generated-content" content="true">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "GEO: Ako sa dostať do odpovedí ChatGPT, Perplexity a Google AI Overviews",
+      "description": "GEO je optimalizácia obsahu na citácie v AI odpovediach. Tri piliere, 8 praktických krokov — od priamej odpovedi cez schema.org až po llms.txt — a čo z toho platí na tomto webe.",
+      "datePublished": "2026-11-01",
+      "dateModified": "2026-11-01",
+      "author": {
+        "@type": "Person",
+        "name": "Marian Stancik",
+        "url": "https://www.marianstancik.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Marian Stancik"
+      },
+      "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/sk/geo-generative-engine-optimization",
+      "keywords": ["GEO", "generative engine optimization", "viditeľnosť v AI", "ChatGPT citácie", "AI Overviews", "llms.txt", "schema.org"],
+      "isBasedOn": "https://schema.org/AIGeneratedContent",
+      "creativeWorkStatus": "AIGenerated"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Domov",
+          "item": "https://www.marianstancik.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.marianstancik.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "GEO: Ako sa dostať do odpovedí ChatGPT, ",
+          "item": "https://www.marianstancik.dev/blog/posts/sk/geo-generative-engine-optimization"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:#08080F;color:#E8E8F0;line-height:1.8;-webkit-font-smoothing:antialiased}
+.container{max-width:740px;margin:0 auto;padding:0 24px}
+nav{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(8,8,15,0.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-inner a{color:#8888A0;text-decoration:none;font-size:0.85rem;transition:color 0.3s}
+.nav-inner a:hover{color:#CD7F32}
+article{padding:48px 0 80px}
+.post-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:32px;font-size:0.78rem;color:#9090A8}
+.post-meta .tag{background:rgba(205,127,50,0.08);color:#E8B86D;padding:3px 10px;border-radius:100px;font-size:0.65rem;border:1px solid rgba(205,127,50,0.15)}
+h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:#F0F0F5;line-height:1.25;letter-spacing:-0.02em;margin-bottom:8px}
+h2{font-size:1.3rem;font-weight:600;color:#F0F0F5;margin:36px 0 12px;line-height:1.35}
+h3{font-size:1.05rem;font-weight:600;color:#D0D0E0;margin:24px 0 8px}
+p{color:#B0B0C8;margin-bottom:16px;font-size:0.95rem}
+a{color:#E8B86D;transition:color 0.3s}
+a:hover{color:#CD7F32}
+ul,ol{padding-left:20px;margin-bottom:16px;color:#B0B0C8;font-size:0.95rem}
+li{margin-bottom:6px}
+pre{background:rgba(13,13,26,0.80);border:1px solid rgba(205,127,50,0.12);border-radius:10px;padding:16px 20px;overflow-x:auto;font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem;color:#D0D0E0;margin-bottom:20px;line-height:1.55}
+code{font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem}
+p code,li code{background:rgba(205,127,50,0.08);padding:1px 5px;border-radius:3px;color:#E8B86D}
+.callout{background:rgba(13,13,26,0.75);border-left:3px solid #CD7F32;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout strong{color:#E8B86D}
+.callout-green{background:rgba(46,204,113,0.06);border-left:3px solid #2ECC71;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout-green strong{color:#2ECC71}
+img{max-width:100%;height:auto;border-radius:8px;margin:24px 0}
+blockquote{border-left:2px solid rgba(205,127,50,0.2);padding:8px 20px;margin:20px 0;color:#A0A0B8;font-style:italic;background:rgba(13,13,26,0.4);border-radius:4px}
+hr{border:none;border-top:1px solid rgba(255,255,255,0.06);margin:40px 0}
+.btn-cta{display:inline-block;background:linear-gradient(135deg,rgba(205,127,50,0.15),rgba(232,184,109,0.08));color:#E8B86D;padding:10px 24px;border-radius:8px;text-decoration:none;border:1px solid rgba(205,127,50,0.25);font-weight:600;transition:all 0.3s}
+.btn-cta:hover{background:rgba(205,127,50,0.25);border-color:rgba(205,127,50,0.5);color:#F0E0C0}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/">&#8592; marianstancik.dev</a>
+    <a href="/blog">Blog</a>
+  </div>
+</nav>
+<main id="main-content">
+
+<div class="container">
+<article>
+  <div class="post-meta">
+    
+    <span class="byline">Autor <a href="/how-it-works" rel="author">Marian Stancik</a></span>
+    <span>·</span>
+    <span>1. novembra 2026</span>
+    <span>&#183;</span>
+    <span>9 min čítania</span>
+    <span class="tag">GEO</span>
+    <span class="tag">SEO</span>
+    <span class="tag">AI vyhľadávanie</span>
+    <span class="tag">Obsah</span>
+    </div>
+
+  <h1>GEO: Ako sa dostať do odpovedí ChatGPT, Perplexity a Google AI Overviews</h1>
+
+
+  <p><strong>Priama odpoveď:</strong> GEO je optimalizácia obsahu na to, aby ho generované odpovede (ChatGPT, Perplexity, Google AI Overviews) vybrali a citovali. Tri piliere: priama odpoveď na otázku hneď na začiatku, overiteľnosť (štruktúra, fakty, zdroje, autor) a technická čitateľnosť (schema, llms.txt, čistý HTML).</p>
+
+  <p>Klasické SEO bojuje o pozíciu v zozname linkov. GEO rieši inú situáciu: AI si prečíta desať stránok a cituje tri. Prvá pozícia vo vyhľadávaní nemá význam, ak ťa model necituje. Preto sa mení spôsob písania aj technická príprava webu.</p>
+
+  <h2>Čo je GEO a čím sa líši od SEO</h2>
+  <p>SEO optimalizuje na kliknutie: rank, meta description, preview. GEO optimalizuje na zdieľanie obsahu modelom: či je odpoveď na otázku hneď v texte, či sú fakty presné a dohľadateľné, či autor a entita sú jasne identifikovateľné. Najväčší rozdiel: model necituje stránku, cituje odpoveď. Ak je odpoveď rozpotá až v piatom odseku, konkurujúci sa zdroj s odpoveďou v prvom odseku vyhrá.</p>
+
+  <h2>Ako AI vyberá zdroje</h2>
+  <p>Konsenzus zo sprievodcov GEO (Backlinko, Enrich Labs) sa zhoduje na štyroch vlastnostiach citovaného obsahu:</p>
+  <ul>
+    <li><strong>Špecifickosť.</strong> Konkrétne čísla, dátumy, názvy a kroky namiesto všeobecných fráz.</li>
+    <li><strong>Štruktúra.</strong> Otázka → odpoveď v H2/H3, krátke odseky, zoznamy.</li>
+    <li><strong>Entita a autor.</strong> Jasné schema.org entity a byline — model potrebuje vedieť, kto hovorí.</li>
+    <li><strong>Čerstvosť.</strong> Aktualizované stránky s viditeľným dátumom majú väčšiu šancu byť citované.</li>
+  </ul>
+
+  <h2>8 praktických krokov</h2>
+  <ol>
+    <li><strong>Priama odpoveď v prvom odseku.</strong> Odpovedz na hlavnú otázku článku v prvých dvoch vetách, potom rozvíjaj.</li>
+    <li><strong>Otázka → odpoveď v H2/H3.</strong> H2 formuluj ako otázku, ktorú ľudia reálne kladú; odpoveď daj hneď pod nadpis.</li>
+    <li><strong>Schema.org Article/Person/Organization.</strong> JSON-LD s autorom, dátumom a entitou vydavateľa; bez ťah nechaj Product/Offer, ak nepredávaš.</li>
+    <li><strong>llms.txt.</strong> Zoznam kľúčových stránok a článkov v štandarde llmstxt.org v koreňovom adresári; model ho číta ako mapu webu.</li>
+    <li><strong>Jednotné sameAs.</strong> Rovnaké profily (X, LinkedIn, GitHub) prepojené v schema aj v llms.txt — nekonzistentná entita oslabuje dôveru.</li>
+    <li><strong>Autor a E-E-A-T.</strong> Byline s menom a odkazom na autora na každom článku; skúsenosti sa nedajú predstierať.</li>
+    <li><strong>Čerstvosť a dátum.</strong> Viditeľný dátum publikovania aj update; staré články aktualizuj, nie prepisuj pod nový dátum.</li>
+    <li><strong>Tracking citácií.</strong> Raz mesačne si vyskúšaj, či ťa modely citujú na tvoje kľúčové otázky — GEO bez merania je šepkanie do tmy.</li>
+  </ol>
+
+  <h2>Čo na mojom webe reálne platí</h2>
+  <p>Aby to nebol len zoznam rad — fakty z auditu tohto webu z 31. októbra 2026: skóre 88→89/100, SEO 94/100, opravené CSP a i18n rozdelenie, pridané byline k článkom. llms.txt a schema.org @graph boli na webe už pred touto úpravou; nová štruktúra stránok ich prepojuje s novými Core Pages. Všetko, čo na webe funguje, si môžeš pozrieť priamo v zdrojovom kóde.</p>
+
+  <h2>Časté mýty</h2>
+  <p><strong>„GEO zabíja SEO.“</strong> Nie. GEO dopĺňa SEO: bez poriadnej technickej základne a čitateľného obsahu nemáš ani jedno. <strong>„Stačí llms.txt.“</strong> Nie. llms.txt je mapa; ak obsah za ňou nie je štruktúrovaný a overiteľný, mapa ničomu nepomôže. <strong>„Kľúčové slová už nezáležia.“</strong> Záleží — modely mapujú otázky na obsah rovnako ako vyhľadávače, len odpoveď vyberajú inak.</p>
+  <div class="callout"><strong>Ak chceš vidieť GEO v praxi:</strong> tento článok nasleduje všetkých osem krokov — a nástroje a príbeh, ktoré stojia za webom, nájdeš na <a href="/tools">Nástrojoch zadarmo</a> a <a href="/how-it-works">Ako to funguje</a>.</div>
+ 
+  <hr>
+
+  <div style="background:rgba(13,13,26,0.75);border:1px solid rgba(205,127,50,0.15);border-radius:10px;padding:24px;margin:32px 0;text-align:center;">
+    <p style="font-size:1rem;color:#D0D0E0;margin-bottom:8px;"><strong>Chceš týždenné novinky o architektúre a governance autonómnych agentov?</strong></p>
+    <p style="font-size:0.85rem;color:#A0A0B8;margin-bottom:16px;">Jeden email týždenne. Žiadny spam. Kedykoľvek sa odhlás.</p>
+    <form action="https://www.marianstancik.dev/api/subscribe" method="POST" style="display:flex;gap:8px;max-width:400px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
+      <input type="email" name="email" placeholder="tvoj@email.com" required style="flex:1;min-width:200px;padding:10px 14px;border-radius:6px;border:1px solid rgba(205,127,50,0.2);background:rgba(8,8,15,0.8);color:#E8E8F0;font-size:0.85rem;">
+      <input type="hidden" name="lang" value="sk">
+      <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Odoberať</button>
+    </form>
+  </div>
+
+  <p style="font-size:0.75rem;color:#707090;margin-top:32px;text-align:center;">⚠️ AI-generated | Len info | <a href="/disclaimer">marianstancik.dev/disclaimer</a></p>
+</article>
+</div>
+</body>
+</html>
+</main>

@@ -135,6 +135,7 @@
         <input type="checkbox" name="gdpr_consent_check" required aria-label="GDPR consent" style="margin-top:2px;">
         <span id="leadConsentText" data-i18n="leadConsentText">I agree to the <a href="/privacy" style="color:#CD7F32;text-decoration:underline;">Privacy Policy</a> and consent to processing my email so the Starter Kit can be sent to me.</span>
       </label>
+      <div class="cf-turnstile" data-sitekey="" data-theme="dark" hidden aria-hidden="true"></div>
       <button type="submit" id="subscribeBtn" data-i18n="kitCta">Send me the Kit</button>
       <p class="lead-note" id="leadConfirmNote" data-i18n="kitConfirmNote" style="margin-top:10px;">
         We'll send you a confirmation email. Click it and the Kit is on its way. Nothing gets sent without confirmation.
@@ -222,5 +223,6 @@
 </div>
 
 <script type="module" src="/js/three-bg.min.js?v=133"></script>
+<script src="/js/turnstile.min.js?v=1" defer></script>
 <script src="/js/i18n.min.js?v=20261031_v2"></script>
 </body>
