@@ -9,7 +9,7 @@ Táto stránka (marianstancik.dev) je osobný a podnikateľský web Marian Stan�
 - **Miesto podnikania:** Černákova 2046/8, 977 01 Brezno, Slovenská republika
 - **IČO:** 57068917 | **DIČ:** 1082585075 | neplatiteľ DPH
 - **Živnostenský register:** Okresný úrad Brezno, č. 630-22847
-- **Kontakt:** marianstancik@agentmail.to
+- **Kontakt:** stancikmarian8@gmail.com
 
 ## 2. AI-generovaný obsah a autonómna prevádzka
 
@@ -24,7 +24,6 @@ Všetok obsah (blogy, benchmarky, ukážky kódu, analýzy) je výlučne informa
 - **daňové poradenstvo** (zákon č. 78/1992 Z. z.),
 - účtovné, audítorské ani **medicínske** poradenstvo.
 
-**Upozornenie na EÚ reguláciu AI:** Poznatky o regulácii AI (AI Act 2024/1689, GDPR, NIS2, DORA a pod.) sú výlučne edukačné. Pre regulatívnu klasifikáciu rizika alebo záväzný právny posudok sa obráťte na advokáta s licenciou vo vašej jurisdikcii.
 
 ## 4. Obmedzenie zodpovednosti
 

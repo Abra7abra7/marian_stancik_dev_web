@@ -505,7 +505,7 @@ export async function runAudit(domain, type, env, clientId = null) {
       if (resolvedClientId && env.AGENTMAIL_API_KEY) {
         const passedCount = checks.filter(c => c.passed).length;
         const totalCount = checks.length;
-        await fetch('https://api.agentmail.to/v0/inboxes/marianstancik@agentmail.to/messages/send', {
+        await fetch('https://api.agentmail.to/v0/inboxes/stancikmarian8@gmail.com/messages/send', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -566,7 +566,7 @@ export async function runComplianceCheck(domain, env, clientId) {
           'Authorization': `Bearer ${env.AGENTMAIL_API_KEY}`
         },
         body: JSON.stringify({
-          to: 'marianstancik@agentmail.to',
+          to: 'stancikmarian8@gmail.com',
           subject: `⚠️ Site DOWN — ${domain}`,
           text: `${domain} returned HTTP ${result.status} (${result.response_ms}ms) at ${timestamp}`
         })

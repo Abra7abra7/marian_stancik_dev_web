@@ -1,5 +1,5 @@
 // Cloudflare Pages Function — Double opt-in CONFIRMATION endpoint (legal v3.0.1).
-// E-mails via Gmail (Google Workspace) — AgentMail removed from the personal-data flow.
+// E-mails via Gmail (Google Workspace) — Legacy third-party inbox provider removed from the personal-data flow.
 // TODO(Marián — Google Workspace Admin konzola, mimo repozitára): Data Region = Europe (Sheets + Gmail).
 // GET /api/confirm?token=<payload>.<hmac>
 //  - verifies the signed token (HMAC-SHA256, 30-day validity)

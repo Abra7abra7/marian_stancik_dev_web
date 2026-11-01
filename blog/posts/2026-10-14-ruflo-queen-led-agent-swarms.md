@@ -114,7 +114,7 @@ Ruflo ships 314 native MCP tools covering CI checks, local security scans, cloud
 Every time an agent must step outside MCP — execute a raw shell command, parse custom output, handle a non-standard protocol — it introduces a failure mode. The output format might change. The error handling might differ. The escape sequence might break the agent's reasoning loop. A sufficiently rich MCP surface eliminates these seams. The agent stays inside the protocol's structured input/output contract for its entire workflow.
 
   
-    What I run: My Hermes stack exposes approximately 12 MCP tools via my custom MCP servers — SQLite memory access, AgentMail email dispatch, Git operation wrappers, blog publishing pipeline integration. Each tool is one fewer raw shell command the agent needs to execute. At 12, I see the benefit clearly. At 314, I suspect the failure rate drops to near zero for standard development workflows.
+    What I run: My Hermes stack exposes approximately 12 MCP tools via my custom MCP servers — SQLite memory access, e-mail dispatch, Git operation wrappers, blog publishing pipeline integration. Each tool is one fewer raw shell command the agent needs to execute. At 12, I see the benefit clearly. At 314, I suspect the failure rate drops to near zero for standard development workflows.
   
 
   
@@ -346,7 +346,7 @@ If you are building a production multi-agent system, the architectural decisions
   
 
   
-    My deployment context: I write this from a Hetzner VPS running Hermes Agent with 20+ autonomous cron jobs, custom MCP servers for SQLite memory and AgentMail, and an OpenRouter multi-LLM routing layer that swaps models per task. The architecture has been in production since May 2026 with 99.7% uptime and zero security incidents. Ruflo's architecture validates the pattern. The gap between my €6/mo VPS stack and Ruflo's enterprise ruOS platform is not one of design — it is one of scale, tooling surface, and organisational maturity.
+    My deployment context: I write this from a Hetzner VPS running Hermes Agent with 20+ autonomous cron jobs, custom MCP servers for SQLite memory and e-mail, and an OpenRouter multi-LLM routing layer that swaps models per task. The architecture has been in production since May 2026 with 99.7% uptime and zero security incidents. Ruflo's architecture validates the pattern. The gap between my €6/mo VPS stack and Ruflo's enterprise ruOS platform is not one of design — it is one of scale, tooling surface, and organisational maturity.
   
 
   

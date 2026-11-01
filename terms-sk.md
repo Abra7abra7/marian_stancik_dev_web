@@ -9,7 +9,7 @@ Pre webovú stránku https://marianstancik.dev
 - **Miesto podnikania:** Černákova 2046/8, 977 01 Brezno, Slovenská republika
 - **IČO:** 57068917 | **DIČ:** 1082585075 | neplatiteľ DPH
 - **Živnostenský register:** Okresný úrad Brezno, č. 630-22847
-- **Kontakt:** marianstancik@agentmail.to
+- **Kontakt:** stancikmarian8@gmail.com
 - **Web:** https://marianstancik.dev (hosting: Cloudflare Pages)
 
 Web **nepredáva** tovary ani služby, neprijíma platby ani objednávky; neuzatvára sa tu kúpna alebo iná zaplatená zmluva.
@@ -49,7 +49,7 @@ Tieto Podmienky upravujú bezplatné používanie:
 
 ## 6. Reklamácie a riešenie sporov
 
-6.1 Podnety a reklamácie prijíme na marianstancik@agentmail.to; reagujeme bez zbytočného odkladu (do 30 dní).
+6.1 Podnety a reklamácie prijíme na stancikmarian8@gmail.com; reagujeme bez zbytočného odkladu (do 30 dní).
 
 6.2 Web nepredáva, preto sa právo spotrebiteľa na odstúpenie od zmluvy (§ 18 – § 19 zákona č. 108/2024 Z. z.) a alternatívne riešenie sporov (zákon č. 391/2015 Z. z.) nevzťahuje na používanie bezplatných nástrojov; informatívne sa ODR platforma EÚ nachádza na https://ec.europa.eu/consumers/odr.
 

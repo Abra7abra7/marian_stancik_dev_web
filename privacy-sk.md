@@ -11,7 +11,7 @@ Správcom osobných údajov podľa čl. 4 bodu 7 nariadenia (EÚ) 2016/679 (GDPR
 - **Miesto podnikania:** Černákova 2046/8, 977 01 Brezno, Slovenská republika
 - **IČO:** 57068917 | **DIČ:** 1082585075 | neplatiteľ DPH
 - **Živnostenský register:** Okresný úrad Brezno, č. 630-22847
-- **Kontakt na GDPR:** marianstancik@agentmail.to
+- **Kontakt na GDPR:** stancikmarian8@gmail.com
 - **Web:** https://marianstancik.dev
 
 ## 2. Aké osobné údaje spracúvame a na aký účel
@@ -65,7 +65,7 @@ Podľa čl. 15 až 22 GDPR a zákona č. 18/2018 Z. z. (§§ 28 až 48) máte na
 - namietať (čl. 21) a kedykoľvek odvolať súhlas (bez vplyvu na zákonnosť spracovania pred odvolaním),
 - na sťažnosť u dozorného orgána.
 
-Uplatnenie: **marianstancik@agentmail.to** (odpovedáme do 30 dní).
+Uplatnenie: **stancikmarian8@gmail.com** (odpovedáme do 30 dní).
 
 **Dozorný orgán:** Úrad na ochranu osobných údajov Slovenskej republiky, Hraničná 12, 820 07 Bratislava 27, https://dataprotection.gov.sk
 

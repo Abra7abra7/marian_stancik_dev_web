@@ -51,7 +51,7 @@ Web (marianstancik.dev) je na Verceli — nezmenený.
 │   Webhook → api.marianstancik.dev/api/stripe/webhook │
 ├──────────────────────────────────────────────────────┤
 │ AgentMail                                             │
-│   marianstancik@agentmail.to — notifikácie, reporty  │
+│   stancikmarian8@gmail.com — notifikácie, reporty  │
 │   ascentia@agentmail.to — CRM                        │
 └──────────────────────────────────────────────────────┘
 ```

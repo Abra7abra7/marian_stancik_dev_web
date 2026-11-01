@@ -56,7 +56,7 @@
 - **Result:** Works seamlessly in offline/local disk testing (`file:///C:/...`) without triggering Chrome directory listings ("Index adresára"), and works seamlessly on Vercel CDN.
 
 ### E. Lead Capture & Resilience (Score: 96/100)
-- **Dual-Layer Delivery:** Submits directly to Hetzner VPS (`/api/subscribe` ➔ SQLite `leads.db`) with automatic fallback to pre-filled `mailto:marianstancik@agentmail.to`.
+- **Dual-Layer Delivery:** Submits directly to Hetzner VPS (`/api/subscribe` ➔ SQLite `leads.db`) with automatic fallback to pre-filled `mailto:stancikmarian8@gmail.com`.
 - **Hermes C2 Integration:** Automated lead monitoring ready for Telegram and WhatsApp notifications.
 
 ---
@@ -71,7 +71,7 @@
 - **Official Threads:** https://www.threads.net/@marian_stancik
 - **Official LinkedIn:** https://www.linkedin.com/in/marian-stancik-924b41298/
 - **Official GitHub:** https://github.com/Abra7abra7
-- **Official Contact Inbox:** `marianstancik@agentmail.to`
+- **Official Contact Inbox:** `stancikmarian8@gmail.com`
 
 ---
 

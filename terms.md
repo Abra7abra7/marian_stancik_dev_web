@@ -1,7 +1,5 @@
 # Terms of Use (Website & Free Tools) — EN
 
-> **DRAFT – requires attorney review before publication.**
-> Version 3.0 (draft dated 1 November 2026). Publish only after Marián's final approval and attorney review. Replaces current terms.md/terms-sk.md v2.0, which governed the **sale** of services — the website no longer sells; these Terms govern **free use** of the website and its tools only. (Slovak version prevails.)
 
 For website https://marianstancik.dev
 
@@ -11,7 +9,7 @@ For website https://marianstancik.dev
 - **Place of Business:** Černákova 2046/8, 977 01 Brezno, Slovak Republic
 - **Business ID (IČO):** 57068917 | **Tax ID (DIČ):** 1082585075 | Non-VAT payer
 - **Trade Register:** District Office Brezno, No. 630-22847
-- **Contact:** marianstancik@agentmail.to
+- **Contact:** stancikmarian8@gmail.com
 - **Web:** https://marianstancik.dev (hosting: Cloudflare Pages)
 
 The website **does not sell** goods or services, accepts no payments or orders; no paid contract is concluded here.
@@ -51,7 +49,7 @@ These Terms govern free use of:
 
 ## 6. Complaints and Dispute Resolution
 
-6.1 Complaints are received at marianstancik@agentmail.to; we respond without undue delay (within 30 days).
+6.1 Complaints are received at stancikmarian8@gmail.com; we respond without undue delay (within 30 days).
 
 6.2 The website does not sell; therefore the consumer's right of withdrawal (§§ 18–19 of Act No. 108/2024 Coll.) and alternative dispute resolution (Act No. 391/2015 Coll.) do not apply to the use of free tools. For information, the EU ODR platform is at https://ec.europa.eu/consumers/odr.
 

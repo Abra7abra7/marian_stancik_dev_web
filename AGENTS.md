@@ -100,7 +100,7 @@ This repository represents the official personal brand website, technical knowle
 The platform serves both as Marian's personal brand and as a **live production showcase for clients**, demonstrating how modern web engineering, autonomous AI agents, regulatory compliance (Legal-by-Design), and sovereign infrastructure integrate seamlessly without costly SaaS overhead.
 
 The platform operates across three foundational pillars:
-1. **AI Engineering & Autonomous Multi-Agent Systems:** 24/7 Hermes Agent orchestration, custom Model Context Protocol (MCP) servers (Google Drive, PostHog, OpenSEO, AgentMail), OpenRouter multi-LLM dynamic routing, and an Obsidian persistent memory layer running on dedicated European Hetzner Cloud infrastructure.
+1. **AI Engineering & Autonomous Multi-Agent Systems:** 24/7 Hermes Agent orchestration, custom Model Context Protocol (MCP) servers (Google Drive, PostHog, OpenSEO, Gmail/Google Workspace), OpenRouter multi-LLM dynamic routing, and an Obsidian persistent memory layer running on dedicated European Hetzner Cloud infrastructure.
 2. **Law, EU AI Act & Regulatory Governance (Legal-by-Design):** Practical compliance architectures covering the EU AI Act (risk tiering, GPAI, technical files, Art. 50 disclosure), GDPR (Art. 7(3) opt-out), NIS2 Directive, DORA, EU Data Act, and statutory consumer protection (Act No. 108/2024 Coll. & Act No. 452/2021 Coll.).
 3. **Tactical UAV Systems & Edge Robotics (Hobby Project):** Hand-soldered carbon quadcopter, ArduPilot Copter autopilot, Raspberry Pi 5 onboard companion computer with real-time edge vision AI, certified EASA A1/A3 with €2.6M Coverdrone insurance.
 
@@ -186,13 +186,13 @@ flowchart TD
     subgraph Sovereign Cloud & APIs ["Sovereign Integrations & MCP Services"]
         GoogleDrive["Google Drive & Sheets CRM (hermes-gdrive MCP)"]
         PostHogEU["PostHog Analytics (Frankfurt EU - posthog-mcp)"]
-        AgentMail["AgentMail MCP (mcp.agentmail.to)"]
+        Gmail["Gmail API (Google Workspace)"]
         StripeAPI["Stripe Billing & Checkout"]
         OpenRouter["OpenRouter Multi-LLM Routing"]
         IndexNow["IndexNow API (Bing, Yandex, Seznam)"]
     end
 
-    EdgeFunctions -->|JSON-RPC 2.0| AgentMail
+    EdgeFunctions -->|Gmail API| Gmail
     EdgeFunctions -->|Webhook + X-CRM-Key| HermesCRM
     HermesCRM --> SQLiteStore
     HermesCRM --> GoogleDrive
@@ -235,7 +235,7 @@ flowchart TD
 | **Hetzner Cloud VPS** | 24/7 Hermes runtime, CRM service, Umami analytics | HTTPS / SSH / Caddy | Germany (Nuremberg) | ✅ Active |
 | **Google Drive & Sheets CRM** | Double-entry sovereign CRM for leads & client folders | Google Service Account / Sheets API v4 | Sovereign Google Drive | ✅ Active (`hermes-gdrive` MCP) |
 | **PostHog Analytics** | Session replays, heatmaps, autocapture & funnel metrics | JavaScript SDK + REST API | Germany (Frankfurt EU Cloud) | ✅ Active (`posthog-mcp`) |
-| **AgentMail MCP** | Transactional & notification email sending without SMTP | JSON-RPC 2.0 (`mcp.agentmail.to`) | Cloud API (`x-api-key`) | ✅ Active |
+| **Gmail API (Google Workspace)** | Transactional & notification e-mail sending without SMTP | Gmail API (Google Workspace, Data Region Europe) | OAuth2 / service account | ✅ Active |
 | **Stripe** | Payment processing for 4 audits & 3 subscriptions | Stripe Checkout Links | Global / EU compliant | ✅ Active |
 | **OpenRouter** | Multi-LLM dynamic routing (DeepSeek, Claude 3.5, GPT-4o) | REST API (`Bearer ${key}`) | US/EU multi-provider | ✅ Active |
 | **Umami Analytics** | Cookieless GDPR-compliant traffic analytics | Lightweight JS Beacon | Hetzner VPS (`api.marianstancik.dev`) | ✅ Active |
@@ -323,9 +323,9 @@ To guarantee instant, authoritative discovery and citations across AI engines (*
 flowchart LR
     Visitor[Client Web Form] -->|POST /api/subscribe| EdgeFunction[Cloudflare Pages Function]
     EdgeFunction -->|Honeypot Check| SpamDrop[Silently drop bots]
-    EdgeFunction -->|JSON-RPC 2.0| AgentMail[mcp.agentmail.to]
-    AgentMail -->|Branded HTML + Unsubscribe| CustomerInbox[Customer Inbox]
-    AgentMail -->|Instant Alert| MarianInbox[marianstancik@agentmail.to]
+    EdgeFunction -->|Gmail API| Gmail[Google Workspace]
+    Gmail -->|Branded HTML + Unsubscribe| CustomerInbox[Customer Inbox]
+    Gmail -->|Instant Alert| MarianInbox[stancikmarian8@gmail.com]
     EdgeFunction -->|POST /crm/ Webhook| HetznerCRM[api.marianstancik.dev]
     HetznerCRM -->|Storage| Sheets[(Google Sheets CRM)]
     EdgeFunction -.->|Failover Alert| DownAlert["[CRM DOWN] Alert Email"]
@@ -337,7 +337,7 @@ flowchart LR
      > *"I explicitly consent to the commencement of digital service provision before the expiry of the statutory 14-day withdrawal period, and I acknowledge that by granting this consent, I lose the right of withdrawal under § 19 of Act No. 108/2024 Coll. once the service is fully provided."*
 2. **Statutory Unsubscribe & Consent Withdrawal (GDPR Art. 7(3) & § 116 Act No. 452/2021 Coll.):**
    * Every outgoing email generated by `functions/api/email-templates.js` contains full sender identification (Marián Stančík, IČO: 57068917, DIČ: 1082585075), Art. 50 AI disclosure, and a direct, free, one-click opt-out link:
-     > *"Tento e-mail ste dostali na základe udeleného súhlasu na marianstancik.dev. Odber môžete kedykoľvek bezplatne zrušiť: [Odhlásiť sa z odberu](mailto:marianstancik@agentmail.to?subject=Unsubscribe%20Newsletter)."*
+     > *"Tento e-mail ste dostali na základe udeleného súhlasu na marianstancik.dev. Odber môžete kedykoľvek bezplatne zrušiť: [Odhlásiť sa z odberu](mailto:stancikmarian8@gmail.com?subject=Unsubscribe%20Newsletter)."*
 3. **Cookieless EU Privacy Architecture:**
    * 100% cookieless analytics via self-hosted Umami on European infrastructure (`api.marianstancik.dev`).
    * Zero third-party cookies, no tracking pixels, fully compliant with GDPR Art. 6(1)(f) and the ePrivacy Directive without intrusive cookie consent banners.

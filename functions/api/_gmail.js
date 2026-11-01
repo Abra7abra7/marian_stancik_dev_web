@@ -1,5 +1,5 @@
 // Gmail API sender for Cloudflare Pages Functions (Google Workspace) — legal v3.0.1.
-// Replaces AgentMail in the personal-data flow: transactional e-mails (opt-in
+// Legacy third-party inbox provider fully removed from the personal-data flow: transactional e-mails (opt-in
 // confirmation, welcome/kit, admin alerts) are sent from the operator's own
 // Google Workspace mailbox.
 //
@@ -15,7 +15,7 @@
 //     nastavenie je v Admin konzole (Account > Data regions).
 // TODO(Marián — Google Cloud Console): vytvor OAuth client / service account
 //   a vlož credentials do Pages env varsov. Bez nich vracia sendGmail chybu
-//   a /api/subscribe odpovedá 500 (rovnako ako predtým chýbajúci AgentMail key).
+//   a /api/subscribe odpovedá 500 (rovnako ako predtým chýbajúci e-mail credentials).
 
 const TOKEN_URL = 'https://oauth2.googleapis.com/token';
 const SCOPE = 'https://www.googleapis.com/auth/gmail.send';

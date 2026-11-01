@@ -286,7 +286,7 @@ def sync_sitemap(config):
         add(loc, alts, today, changefreq, priority)
 
     legal = [
-        ("/impressum", None), ("/cookie", None),
+        ("/impressum", None), ("/impressum-en", None), ("/cookie", None),
         ("/privacy", "/privacy-sk"), ("/terms", "/terms-sk"), ("/disclaimer", "/disclaimer-sk"),
     ]
     for en_path, sk_path in legal:

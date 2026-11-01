@@ -1,7 +1,5 @@
 # Disclaimer — EN
 
-> **DRAFT – requires attorney review before publication.**
-> Version 3.0 (draft dated 1 November 2026). Publish only after Marián's final approval and attorney review. Replaces disclaimer.md v2.0 — infrastructure updated (Cloudflare instead of Vercel/Hetzner edge), AI Act Art. 50 clarified. (Slovak version prevails.)
 
 ## 1. Nature of the Website & Operator
 
@@ -11,7 +9,7 @@ This website (marianstancik.dev) is the personal and business website of Marian 
 - **Place of business:** Černákova 2046/8, 977 01 Brezno, Slovak Republic
 - **Business ID (IČO):** 57068917 | **Tax ID (DIČ):** 1082585075 | Non-VAT payer
 - **Trade Register:** District Office Brezno, No. 630-22847
-- **Contact:** marianstancik@agentmail.to
+- **Contact:** stancikmarian8@gmail.com
 
 ## 2. AI-Generated Content & Autonomous Operations
 
@@ -26,7 +24,6 @@ All content (blog posts, benchmarks, code snippets, analyses) is informational a
 - **tax advice** (Act No. 78/1992 Coll.),
 - accounting, audit or **medical** advice.
 
-**EU AI regulation notice:** Knowledge shared about AI regulation (AI Act 2024/1689, GDPR, NIS2, DORA, etc.) is educational only. For regulatory risk classification or binding legal counsel, consult an attorney licensed in your jurisdiction.
 
 ## 4. Limitation of Liability
 

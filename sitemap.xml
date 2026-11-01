@@ -472,6 +472,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.marianstancik.dev/impressum-en</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.marianstancik.dev/cookie</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>

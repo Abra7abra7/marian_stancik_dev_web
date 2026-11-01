@@ -2,7 +2,7 @@ import { sendGmail } from './_gmail.js';
 
 // Cloudflare Pages Function — Lead capture with STRICT double opt-in (legal v3.0.1).
 // Transactional e-mails go through Gmail (Google Workspace) via functions/api/_gmail.js —
-// AgentMail is fully removed from the personal-data flow.
+// The legacy third-party inbox provider is fully removed from the personal-data flow.
 // TODO(Marián — Google Workspace Admin konzola, mimo repozitára): Data Region = Europe (Sheets + Gmail).
 // The welcome/kit email is sent from functions/api/confirm.js AFTER the confirmation link click.
 export async function onRequestOptions(context) {

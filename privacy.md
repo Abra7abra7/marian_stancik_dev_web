@@ -1,6 +1,5 @@
 # Privacy Policy — EN
 
-> **DRAFT – requires attorney review before publication.**
 
 For website https://marianstancik.dev
 
@@ -12,7 +11,7 @@ The Controller pursuant to Article 4(7) of Regulation (EU) 2016/679 (GDPR) and S
 - **Place of Business:** Černákova 2046/8, 977 01 Brezno, Slovak Republic
 - **Business ID (IČO):** 57068917 | **Tax ID (DIČ):** 1082585075 | Non-VAT payer
 - **Trade Register:** District Office Brezno, No. 630-22847
-- **GDPR Contact:** marianstancik@agentmail.to
+- **GDPR Contact:** stancikmarian8@gmail.com
 - **Web:** https://marianstancik.dev
 
 ## 2. What Personal Data We Process and Why
@@ -25,7 +24,6 @@ This website sells no products or services and collects personal data at **one p
 | :--- | :--- | :--- | :--- |
 | Sending the free "Starter Kit" (prompt pack, playbook, checklist) and optional updates by e-mail | E-mail address, optionally name, date/time of submission, source tag ("starter-kit") | **Consent** — Art. 6(1)(a) GDPR; § 13 of Act No. 18/2018 Coll. (mandatory checkbox + double opt-in) | By opt-in status — detailed retention in the "Retention by opt-in status" table below |
 
-Double opt-in mechanism: after submitting the form (with a mandatory GDPR consent checkbox and spam protection via Turnstile/honeypot), the subscriber confirms the subscription by clicking a verification link in an e-mail; without confirmation the address is not activated for updates. Confirmation and welcome e-mails are sent via Gmail within Google Workspace (the operator sets **Data Region Europe** in the Google Workspace Admin console). *(Note: verify the activation step in the implementation before publication — see the change summary.)*
 
 **Retention by opt-in status:**
 
@@ -68,7 +66,7 @@ Under Articles 15–22 GDPR and Act No. 18/2018 Coll. (§§ 28–48), you have i
 - the right to object (Art. 21) and to withdraw consent at any time (without affecting the lawfulness of processing before withdrawal),
 - the right to lodge a complaint with a supervisory authority.
 
-Requests: **marianstancik@agentmail.to** (answered within 30 days).
+Requests: **stancikmarian8@gmail.com** (answered within 30 days).
 
 **Supervisory Authority:** Office for Personal Data Protection of the Slovak Republic, Hraničná 12, 820 07 Bratislava 27, https://dataprotection.gov.sk
 

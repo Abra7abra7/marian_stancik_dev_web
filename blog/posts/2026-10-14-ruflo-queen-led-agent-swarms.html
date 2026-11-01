@@ -203,7 +203,7 @@ User Mission → Mod Decomposer
   <p>Every time an agent must step outside MCP — execute a raw shell command, parse custom output, handle a non-standard protocol — it introduces a failure mode. The output format might change. The error handling might differ. The escape sequence might break the agent's reasoning loop. A sufficiently rich MCP surface eliminates these seams. The agent stays inside the protocol's structured input/output contract for its entire workflow.</p>
 
   <div class="callout">
-    <strong>What I run:</strong> My Hermes stack exposes approximately 12 MCP tools via my custom MCP servers — SQLite memory access, AgentMail email dispatch, Git operation wrappers, blog publishing pipeline integration. Each tool is one fewer raw shell command the agent needs to execute. At 12, I see the benefit clearly. At 314, I suspect the failure rate drops to near zero for standard development workflows.
+    <strong>What I run:</strong> My Hermes stack exposes approximately 12 MCP tools via my custom MCP servers — SQLite memory access, e-mail dispatch, Git operation wrappers, blog publishing pipeline integration. Each tool is one fewer raw shell command the agent needs to execute. At 12, I see the benefit clearly. At 314, I suspect the failure rate drops to near zero for standard development workflows.
   </div>
 
   <p>The practical implication: if you are building an agent system today, every tool that your agent calls through a raw shell or hardcoded API client is a liability. Port it to MCP. The standard has won. 97 million monthly SDK downloads across Python and TypeScript, 10,000 active public servers, 28% of the Fortune 500 in production. Ruflo's 314-tool surface is not exceptional — it is the logical endpoint of the protocol's adoption curve.</p>
@@ -350,7 +350,7 @@ Winner for production: Queen-led
   </ul>
 
   <div class="callout-green">
-    <strong>My deployment context:</strong> I write this from a Hetzner VPS running Hermes Agent with 20+ autonomous cron jobs, custom MCP servers for SQLite memory and AgentMail, and an OpenRouter multi-LLM routing layer that swaps models per task. The architecture has been in production since May 2026 with 99.7% uptime and zero security incidents. Ruflo's architecture validates the pattern. The gap between my €6/mo VPS stack and Ruflo's enterprise ruOS platform is not one of design — it is one of scale, tooling surface, and organisational maturity.
+    <strong>My deployment context:</strong> I write this from a Hetzner VPS running Hermes Agent with 20+ autonomous cron jobs, custom MCP servers for SQLite memory and e-mail, and an OpenRouter multi-LLM routing layer that swaps models per task. The architecture has been in production since May 2026 with 99.7% uptime and zero security incidents. Ruflo's architecture validates the pattern. The gap between my €6/mo VPS stack and Ruflo's enterprise ruOS platform is not one of design — it is one of scale, tooling surface, and organisational maturity.
   </div>
 
   <h2>What Comes Next</h2>
@@ -384,7 +384,7 @@ Winner for production: Queen-led
 <footer>
   <div class="container">
     <p>&copy; 2026 Marian Stancik — <a href="/">marianstancik.dev</a></p>
-    <p style="margin-top:8px;"><a href="mailto:marianstancik@agentmail.to">marianstancik@agentmail.to</a></p>
+    <p style="margin-top:8px;"><a href="mailto:stancikmarian8@gmail.com">stancikmarian8@gmail.com</a></p>
   </div>
 </footer>
 </body>

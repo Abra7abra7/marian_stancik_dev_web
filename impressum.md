@@ -15,13 +15,13 @@ Podľa § 4 zákona č. 22/2004 Z. z. o elektronickom obchode (v platnom znení;
 
 ## 2. Kontakt
 
-- **E-mail:** marianstancik@agentmail.to (elektronický kontaktný bod)
+- **E-mail:** stancikmarian8@gmail.com (elektronický kontaktný bod)
 - **Web:** https://marianstancik.dev
 
 ## 3. Hosting a technická prevádzka
 
 - **Hosting/CDN:** Cloudflare Pages (Cloudflare, Inc.)
-- **E-mailová prevádzka (transakčná):** AgentMail
+- **E-mailová prevádzka (transakčná):** Gmail / Google Workspace (Google Ireland Ltd., dáta región EÚ)
 - **Analytika:** PostHog EU (Frankfurt) — len po opt-in súhlase (viď Cookie a úložisková politika)
 
 ## 4. Charakter služby
