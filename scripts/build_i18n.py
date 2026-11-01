@@ -59,11 +59,13 @@ CONTENT_FALLBACK = {'cs': 'sk', 'de': 'en', 'pl': 'en', 'sk': 'en', 'en': 'en'}
 PAGES = [
     {'id': 'index', 'src': 'index.html', 'path': '', 'out': 'index.html', 'title_key': None, 'priority': '1.0', 'changefreq': 'weekly'},
     {'id': 'tools', 'src': 'tools/index.html', 'path': 'tools/', 'out': 'tools/index.html', 'title_key': 'navTools', 'priority': '0.9', 'changefreq': 'weekly'},
-    {'id': 'promptlibrary', 'src': 'tools/prompt-library.html', 'path': 'tools/prompt-library', 'out': 'tools/prompt-library.html', 'title_key': 'navTools', 'priority': '0.9', 'changefreq': 'weekly'},
+    {'id': 'promptlibrary', 'src': {'en': 'tools/prompt-library.html', 'sk': 'tools/prompt-library-sk.html'}, 'path': 'tools/prompt-library', 'out': 'tools/prompt-library.html',
+     'title_key': 'navTools', 'priority': '0.9', 'changefreq': 'weekly'},
     {'id': 'starterkit', 'src': {'en': 'tools/starter-kit.html', 'sk': 'tools/starter-kit-sk.html'}, 'path': 'tools/starter-kit', 'out': 'tools/starter-kit.html',
      'title_key': 'navTools', 'priority': '0.9', 'changefreq': 'weekly'},
     {'id': 'missionplanner', 'src': 'tools/mission-planner.html', 'path': 'tools/mission-planner', 'out': 'tools/mission-planner.html', 'title_key': 'navTools', 'priority': '0.6', 'changefreq': 'monthly'},
-    {'id': 'howitworks', 'src': 'how-it-works.html', 'path': 'how-it-works', 'out': 'how-it-works.html', 'title_key': 'navHowItWorks', 'priority': '0.9', 'changefreq': 'weekly'},
+    {'id': 'howitworks', 'src': {'en': 'how-it-works.html', 'sk': 'how-it-works-sk.html'}, 'path': 'how-it-works', 'out': 'how-it-works.html',
+     'title_key': 'navHowItWorks', 'priority': '0.9', 'changefreq': 'weekly'},
     {'id': 'contact', 'src': 'contact.html', 'path': 'contact', 'out': 'contact.html', 'title_key': 'navContact', 'priority': '0.6', 'changefreq': 'monthly'},
     {'id': 'blog', 'src': 'blog/index.html', 'path': 'blog/', 'out': 'blog/index.html', 'title_key': 'navBlog', 'priority': '0.9', 'changefreq': 'weekly'},
 ]

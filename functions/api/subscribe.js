@@ -51,6 +51,35 @@ export async function onRequestPost(context) {
       return new Response(JSON.stringify({ status: 'ok', type: 'bot_dropped' }), { status: 200, headers: corsHeaders });
     }
 
+    // Cloudflare Turnstile verification — active ONLY when TURNSTILE_SECRET_KEY is configured.
+    // While the env var is unset the form works as before (honeypot-only), so deploying this
+    // code does not change behaviour until Marián adds the secret key in Cloudflare Pages settings.
+    if (env.TURNSTILE_SECRET_KEY) {
+      const turnstileToken = body.turnstile || body['cf-turnstile-response'] || '';
+      if (!turnstileToken) {
+        return new Response(JSON.stringify({ error: 'Captcha verification missing. Please retry.' }), { status: 403, headers: corsHeaders });
+      }
+      try {
+        const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({
+            secret: env.TURNSTILE_SECRET_KEY,
+            response: turnstileToken,
+            remoteip: request.headers.get('cf-connecting-ip') || ''
+          })
+        });
+        const verify = await verifyRes.json();
+        if (!verify.success) {
+          console.warn('Turnstile verification failed', verify['error-codes'] || []);
+          return new Response(JSON.stringify({ error: 'Captcha verification failed. Please retry.' }), { status: 403, headers: corsHeaders });
+        }
+      } catch (e) {
+        console.error('Turnstile verification error', e);
+        return new Response(JSON.stringify({ error: 'Captcha verification error. Please retry.' }), { status: 502, headers: corsHeaders });
+      }
+    }
+
     const email = (body.email || '').trim().toLowerCase();
     const name = (body.name || '').slice(0, 100);
     const source = (body.source || 'web').slice(0, 50);

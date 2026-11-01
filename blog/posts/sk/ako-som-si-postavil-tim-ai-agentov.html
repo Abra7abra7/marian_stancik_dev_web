@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ako som si postavil tím 14 špecializovaných AI agentov (a prečo jeden univerzálny asistent nestačil) — Marian Stancik</title>
+<meta name="description" content="Tím 14 špecializovaných AI agentov namiesto jedného chatbota: ako to mám postavené, aké pravidlá dostávajú a čo ma to naučilo. Praktický rozpis.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/sk/ako-som-si-postavil-tim-ai-agentov">
+<link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/ako-som-si-postavil-tim-ai-agentov">
+<link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/ako-som-si-postavil-tim-ai-agentov">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/ako-som-si-postavil-tim-ai-agentov">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#08080F">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Ako som si postavil tím 14 špecializovaných AI agentov (a prečo jeden univerzálny asistent nestačil) — Marian Stancik">
+<meta property="og:description" content="Jeden univerzálny asistent zvláda úlohy, ale nie prácu. Rozpis tímu 14 špecializovaných agentov: role, tri pravidlá, ktoré držia tím pokope, a ako začať tromi agentmi.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/sk/ako-som-si-postavil-tim-ai-agentov">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Marian Stancik">
+<meta property="og:locale" content="sk_SK">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta name="ai-generated-content" content="true">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Ako som si postavil tím 14 špecializovaných AI agentov (a prečo jeden univerzálny asistent nestačil)",
+      "description": "Jeden univerzálny asistent zvláda úlohy, ale nie prácu. Rozpis tímu 14 špecializovaných agentov: role, tri pravidlá, ktoré držia tím pokope, a ako začať tromi agentmi.",
+      "datePublished": "2026-11-01",
+      "dateModified": "2026-11-01",
+      "author": {
+        "@type": "Person",
+        "name": "Marian Stancik",
+        "url": "https://www.marianstancik.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Marian Stancik"
+      },
+      "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/sk/ako-som-si-postavil-tim-ai-agentov",
+      "keywords": ["AI agenti", "tím AI agentov", "multi-agent systém", "Chief of Staff AI", "orkestrácia agentov", "Hermes Agent", "AI workflow"],
+      "isBasedOn": "https://schema.org/AIGeneratedContent",
+      "creativeWorkStatus": "AIGenerated"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Domov",
+          "item": "https://www.marianstancik.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.marianstancik.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Ako som si postavil tím 14 špecializovan",
+          "item": "https://www.marianstancik.dev/blog/posts/sk/ako-som-si-postavil-tim-ai-agentov"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:#08080F;color:#E8E8F0;line-height:1.8;-webkit-font-smoothing:antialiased}
+.container{max-width:740px;margin:0 auto;padding:0 24px}
+nav{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(8,8,15,0.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-inner a{color:#8888A0;text-decoration:none;font-size:0.85rem;transition:color 0.3s}
+.nav-inner a:hover{color:#CD7F32}
+article{padding:48px 0 80px}
+.post-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:32px;font-size:0.78rem;color:#9090A8}
+.post-meta .tag{background:rgba(205,127,50,0.08);color:#E8B86D;padding:3px 10px;border-radius:100px;font-size:0.65rem;border:1px solid rgba(205,127,50,0.15)}
+h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:#F0F0F5;line-height:1.25;letter-spacing:-0.02em;margin-bottom:8px}
+h2{font-size:1.3rem;font-weight:600;color:#F0F0F5;margin:36px 0 12px;line-height:1.35}
+h3{font-size:1.05rem;font-weight:600;color:#D0D0E0;margin:24px 0 8px}
+p{color:#B0B0C8;margin-bottom:16px;font-size:0.95rem}
+a{color:#E8B86D;transition:color 0.3s}
+a:hover{color:#CD7F32}
+ul,ol{padding-left:20px;margin-bottom:16px;color:#B0B0C8;font-size:0.95rem}
+li{margin-bottom:6px}
+pre{background:rgba(13,13,26,0.80);border:1px solid rgba(205,127,50,0.12);border-radius:10px;padding:16px 20px;overflow-x:auto;font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem;color:#D0D0E0;margin-bottom:20px;line-height:1.55}
+code{font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem}
+p code,li code{background:rgba(205,127,50,0.08);padding:1px 5px;border-radius:3px;color:#E8B86D}
+.callout{background:rgba(13,13,26,0.75);border-left:3px solid #CD7F32;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout strong{color:#E8B86D}
+.callout-green{background:rgba(46,204,113,0.06);border-left:3px solid #2ECC71;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout-green strong{color:#2ECC71}
+img{max-width:100%;height:auto;border-radius:8px;margin:24px 0}
+blockquote{border-left:2px solid rgba(205,127,50,0.2);padding:8px 20px;margin:20px 0;color:#A0A0B8;font-style:italic;background:rgba(13,13,26,0.4);border-radius:4px}
+hr{border:none;border-top:1px solid rgba(255,255,255,0.06);margin:40px 0}
+.btn-cta{display:inline-block;background:linear-gradient(135deg,rgba(205,127,50,0.15),rgba(232,184,109,0.08));color:#E8B86D;padding:10px 24px;border-radius:8px;text-decoration:none;border:1px solid rgba(205,127,50,0.25);font-weight:600;transition:all 0.3s}
+.btn-cta:hover{background:rgba(205,127,50,0.25);border-color:rgba(205,127,50,0.5);color:#F0E0C0}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/">&#8592; marianstancik.dev</a>
+    <a href="/blog">Blog</a>
+  </div>
+</nav>
+<main id="main-content">
+
+<div class="container">
+<article>
+  <div class="post-meta">
+    
+    <span class="byline">Autor <a href="/how-it-works" rel="author">Marian Stancik</a></span>
+    <span>·</span>
+    <span>1. novembra 2026</span>
+    <span>&#183;</span>
+    <span>10 min čítania</span>
+    <span class="tag">AI agenti</span>
+    <span class="tag">Tím AI agentov</span>
+    <span class="tag">Multi-agent systém</span>
+    <span class="tag">Chief of Staff</span>
+    <span class="tag">Orkestrácia</span>
+    </div>
+
+  <h1>Ako som si postavil tím 14 špecializovaných AI agentov (a prečo jeden univerzálny asistent nestačil)</h1>
+
+
+  <p><strong>Priama odpoveď:</strong> Jeden univerzálny AI asistent zvládne úlohy, ale nie prácu. Ja nevediem jeden prompt, ale tím 14 špecializovaných agentov s jasne delenými rolami — výskum, právo, financie, kalendár, písanie textov — a nad nimi orkestrátora (Chief of Staff), ktorý úlohy rozdelí, skontroluje a spojí do jednej odpovede. V tomto článku rozpíšem, ako je tím postavený a aké tri pravidlá ho držia pokope.</p>
+
+  <p>Keď mi niekto povie, že používa ChatGPT ako asistent, väčšinou myslí jedno okno, do ktorého naleje desať rôznych úloh. Presne tak som začínal aj ja — a presne tak sa to končí: odpoveď na e-mail miešaná s hľadaním zmluvy, polovica úloh zabudnutá, kvalita závislá od toho, ako dobre sa práve popísal prompt.</p>
+
+  <p>Dnes nevediem jedno okno. Vedím tím štrnástich agentov. Každý má jednu rolu, jednu oblasť a jeden formát výstupu. Nad nimi stojí orkestrátor, ktorý berie zadanie, rozdelí ho, pošle správnemu agentovi a spojí výsledky do jednej odpovede. Nepíšem prompty — zadávam úlohy.</p>
+
+  <h2>Prečo nie jeden asistent</h2>
+  <p>Univerzálny asistent je fajn na náčrt, ale keď v jednom kontexte rieši účtovníctvo, právnu analýzu aj text pre klienta, stráca hĺbku v každom z nich. Špecializácia je to isté, čo u ľudí: právnik nebalancuje knihy a účtovník nepíše uznesenia.</p>
+  <p>K problému sa pridávajú tri mechanické príčiny:</p>
+  <ul>
+    <li><strong>Zmiešané roly.</strong> Rovnaká konverzácia nesie zadanie, argumenty aj finálny text. Kontext rastie, kvalita klesá.</li>
+    <li><strong>Strata kontextu.</strong> Dlhá konverzácia bez štruktúry zabúda skôr, než sa úloha dotiahne do konca.</li>
+    <li><strong>Nekonzistentná kvalita.</strong> Bez pevného formátu výstupu je každá odpoveď trochu iná — a kontrola kvality sa nedá delegovať.</li>
+  </ul>
+
+  <h2>Ako vyzerá môj tím: role a delenie práce</h2>
+  <p>Tím nie je zoznam chatbotov. Je to organizačná štruktúra, v ktorej má každý agent napísané aj to, čo <em>nie je</em> jeho práca. Hlavné roly:</p>
+  <ul>
+    <li><strong>Chief of Staff (orkestrátor)</strong> — prijíma úlohy, rozdeľuje ich, kontroluje kvalitu a spája výsledky do jedného brífingu. Nič vágne sa ku mne nedostane.</li>
+    <li><strong>Výskum</strong> — prináša len aktuálne, overiteľné fakty so zdrojom a dátumom. „Pravdepodobne“ nemá vo výstupe miesto.</li>
+    <li><strong>Právo</strong> — pracuje s metódou: fakty → právny režim → subsumpcia → záver so zdrojmi. Nikdy si nevymyslí paragraf; návrhy kontroluje licencovaný právnik.</li>
+    <li><strong>Financie</strong> — počíta len z overených podkladov a účty rôznych subjektov drží striktne oddelené.</li>
+    <li><strong>Inbox a kalendár</strong> — triedia poštu a chránia rozvrh; nič neodosielajú ani nepresúvajú bez schválenia.</li>
+    <li><strong>Písanie (writer)</strong> — všetky odchádzajúce texty v jednom hlase, študovanom z reálnych odoslaných správ.</li>
+    <li><strong>Dokumenty, vývoj, marketing, dizajn, GitHub, sociálne siete, podpora</strong> — každý s vlastným rozsahom a vlastným formátom výstupu.</li>
+  </ul>
+  <p>Celú mapu tímu, vrátane toho, čo každý agent robí deň za dňom, rozpísaná na stránke <a href="/how-it-works">Ako to funguje</a>.</p>
+
+  <h2>Pravidlo 1: jedna úloha = jeden vlastník</h2>
+  <p>Ak dvaja agenti riešia tú istú vec, vznikajú dve pravdy. Preto má každá úloha presne jedného vlastníka. Keď zadanie spadá do dvoch oblastí — napríklad právny text, ktorý treba aj graficky spracovať — úloha putuje k jednému vlastníkovi a druhý dostane len podklady, nie paralelnú verziu tej istej práce.</p>
+  <p>Každý agent má v profile explicitne napísané, čo nie je jeho práca. To znie ako detail, ale je to jedna z vecí, ktoré najviac znižujú množstvo zbytočnej práce: úlohy neblúdia medzi agentmi, pretože každý vie, kedy má povedať „toto nie je moja úloha“ a odovzdať ju ďalej s plným kontextom.</p>
+
+  <h2>Pravidlo 2: formát výstupu</h2>
+  <p>Každý agent vracia odpoveď v jednom formáte:</p>
+  <ul>
+    <li><strong>Zhrnutie</strong> — kľúčové zistenia v krátkych bodoch.</li>
+    <li><strong>Návrh</strong> — konkrétny návrh, draft alebo ďalší krok.</li>
+    <li><strong>Čaká na rozhodnutie</strong> — jedna jasná otázka, na ktorú odpovieš áno/nie.</li>
+  </ul>
+  <p>Človek neschvaľuje sto detailov, ale jednu otázku. A keďže je formát rovnaký pre všetkých agentov, kontrola je rýchla: vidím hneď, či je návrh konkrétny, či má zdroje a či je otázka zodpovedateľná jednoduchým áno/nie.</p>
+
+  <h2>Pravidlo 3: kontrola kvality medzi agentmi</h2>
+  <p>Slabý výstup sa neopravuje ručne a neprijíma sa — vracia sa autorovi s jednou konkrétnou inštrukciou. Nie „skús to lepšie“, ale „pridaj produkty, termíny a vedenie so zdrojmi“. Iteruje sa, kým nie je výstup konkrétny, so zdrojmi a kompletný. Výstup bez zdrojov pre kľúčové tvrdenia nie je hotový.</p>
+
+  <h2>Čo mi to reálne dáva</h2>
+  <p>Nemám merné jednotky typu „ušetrené hodiny“, a aj keby ich mal, neveril by som im. Kvalitatívne sa to dá popísať jednou vetou: namiesto desiatich rozpätých konverzácií dostávam jeden konsolidovaný výstup s jasnou otázkou na konci. Rozhodnutia trvajú minúty, nie večery, a nič sa nestratí medzi dvoma oknami chatu.</p>
+
+  <h2>Ako začať</h2>
+  <p>Nepotrebuješ štrnásť agentov. Začni tromi: orkestrátor, jeden špecialista a pravidlo formátu. Keď to funguje, pridávaj ďalšie roly podľa toho, čo sa opakuje.</p>
+  <div class="callout"><strong>Krok za krokom:</strong> Presné prompty — vrátane orkestrátora, formátu výstupu a pravidiel „čo agent nikdy nesmie urobiť“ — dávam zadarmo v <a href="/tools/starter-kit">AI Agent Starter Kite</a>. A ak chceš vidieť, ako vyzerá celý tím v praxi, pozri <a href="/how-it-works">ako tím funguje</a>.</div>
+ 
+  <hr>
+
+  <div style="background:rgba(13,13,26,0.75);border:1px solid rgba(205,127,50,0.15);border-radius:10px;padding:24px;margin:32px 0;text-align:center;">
+    <p style="font-size:1rem;color:#D0D0E0;margin-bottom:8px;"><strong>Chceš týždenné novinky o architektúre a governance autonómnych agentov?</strong></p>
+    <p style="font-size:0.85rem;color:#A0A0B8;margin-bottom:16px;">Jeden email týždenne. Žiadny spam. Kedykoľvek sa odhlás.</p>
+    <form action="https://www.marianstancik.dev/api/subscribe" method="POST" style="display:flex;gap:8px;max-width:400px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
+      <input type="email" name="email" placeholder="tvoj@email.com" required style="flex:1;min-width:200px;padding:10px 14px;border-radius:6px;border:1px solid rgba(205,127,50,0.2);background:rgba(8,8,15,0.8);color:#E8E8F0;font-size:0.85rem;">
+      <input type="hidden" name="lang" value="sk">
+      <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Odoberať</button>
+    </form>
+  </div>
+
+  <p style="font-size:0.75rem;color:#707090;margin-top:32px;text-align:center;">⚠️ AI-generated | Len info | <a href="/disclaimer">marianstancik.dev/disclaimer</a></p>
+</article>
+</div>
+</body>
+</html>
+</main>

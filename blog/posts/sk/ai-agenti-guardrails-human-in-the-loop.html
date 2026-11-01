@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI agenti s pravidlami: guardrails a human-in-the-loop v praxi (bez paranoie aj bez naivity) — Marian Stancik</title>
+<meta name="description" content="Ako dať AI agentom tvrdé pravidlá: čo nesmú robiť nikdy, čo len po schválení a ako vyzerá reálny human-in-the-loop proces.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/sk/ai-agenti-guardrails-human-in-the-loop">
+<link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/ai-agenti-guardrails-human-in-the-loop">
+<link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/ai-agenti-guardrails-human-in-the-loop">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/ai-agenti-guardrails-human-in-the-loop">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#08080F">
+
+<!-- Open Graph -->
+<meta property="og:title" content="AI agenti s pravidlami: guardrails a human-in-the-loop v praxi (bez paranoie aj bez naivity) — Marian Stancik">
+<meta property="og:description" content="Agent, ktorý môže všetko, je riziko. Tri vrstvy pravidiel, formát výstupu ako guardrail a typické zlyhania, keď pravidlá chýbajú — z reálnej prevádzky tímu agentov.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/sk/ai-agenti-guardrails-human-in-the-loop">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Marian Stancik">
+<meta property="og:locale" content="sk_SK">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta name="ai-generated-content" content="true">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "AI agenti s pravidlami: guardrails a human-in-the-loop v praxi (bez paranoie aj bez naivity)",
+      "description": "Agent, ktorý môže všetko, je riziko. Tri vrstvy pravidiel, formát výstupu ako guardrail a typické zlyhania, keď pravidlá chýbajú — z reálnej prevádzky tímu agentov.",
+      "datePublished": "2026-11-01",
+      "dateModified": "2026-11-01",
+      "author": {
+        "@type": "Person",
+        "name": "Marian Stancik",
+        "url": "https://www.marianstancik.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Marian Stancik"
+      },
+      "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/sk/ai-agenti-guardrails-human-in-the-loop",
+      "keywords": ["AI guardrails", "human in the loop", "AI agent pravidlá", "bezpečný AI agent", "AI governance"],
+      "isBasedOn": "https://schema.org/AIGeneratedContent",
+      "creativeWorkStatus": "AIGenerated"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Domov",
+          "item": "https://www.marianstancik.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.marianstancik.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI agenti s pravidlami: guardrails a hum",
+          "item": "https://www.marianstancik.dev/blog/posts/sk/ai-agenti-guardrails-human-in-the-loop"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:#08080F;color:#E8E8F0;line-height:1.8;-webkit-font-smoothing:antialiased}
+.container{max-width:740px;margin:0 auto;padding:0 24px}
+nav{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(8,8,15,0.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-inner a{color:#8888A0;text-decoration:none;font-size:0.85rem;transition:color 0.3s}
+.nav-inner a:hover{color:#CD7F32}
+article{padding:48px 0 80px}
+.post-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:32px;font-size:0.78rem;color:#9090A8}
+.post-meta .tag{background:rgba(205,127,50,0.08);color:#E8B86D;padding:3px 10px;border-radius:100px;font-size:0.65rem;border:1px solid rgba(205,127,50,0.15)}
+h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:#F0F0F5;line-height:1.25;letter-spacing:-0.02em;margin-bottom:8px}
+h2{font-size:1.3rem;font-weight:600;color:#F0F0F5;margin:36px 0 12px;line-height:1.35}
+h3{font-size:1.05rem;font-weight:600;color:#D0D0E0;margin:24px 0 8px}
+p{color:#B0B0C8;margin-bottom:16px;font-size:0.95rem}
+a{color:#E8B86D;transition:color 0.3s}
+a:hover{color:#CD7F32}
+ul,ol{padding-left:20px;margin-bottom:16px;color:#B0B0C8;font-size:0.95rem}
+li{margin-bottom:6px}
+pre{background:rgba(13,13,26,0.80);border:1px solid rgba(205,127,50,0.12);border-radius:10px;padding:16px 20px;overflow-x:auto;font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem;color:#D0D0E0;margin-bottom:20px;line-height:1.55}
+code{font-family:'JetBrains Mono','Consolas',monospace;font-size:0.82rem}
+p code,li code{background:rgba(205,127,50,0.08);padding:1px 5px;border-radius:3px;color:#E8B86D}
+.callout{background:rgba(13,13,26,0.75);border-left:3px solid #CD7F32;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout strong{color:#E8B86D}
+.callout-green{background:rgba(46,204,113,0.06);border-left:3px solid #2ECC71;padding:16px 20px;border-radius:6px;margin:20px 0;font-size:0.9rem;color:#C0C0D8}
+.callout-green strong{color:#2ECC71}
+img{max-width:100%;height:auto;border-radius:8px;margin:24px 0}
+blockquote{border-left:2px solid rgba(205,127,50,0.2);padding:8px 20px;margin:20px 0;color:#A0A0B8;font-style:italic;background:rgba(13,13,26,0.4);border-radius:4px}
+hr{border:none;border-top:1px solid rgba(255,255,255,0.06);margin:40px 0}
+.btn-cta{display:inline-block;background:linear-gradient(135deg,rgba(205,127,50,0.15),rgba(232,184,109,0.08));color:#E8B86D;padding:10px 24px;border-radius:8px;text-decoration:none;border:1px solid rgba(205,127,50,0.25);font-weight:600;transition:all 0.3s}
+.btn-cta:hover{background:rgba(205,127,50,0.25);border-color:rgba(205,127,50,0.5);color:#F0E0C0}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/">&#8592; marianstancik.dev</a>
+    <a href="/blog">Blog</a>
+  </div>
+</nav>
+<main id="main-content">
+
+<div class="container">
+<article>
+  <div class="post-meta">
+    
+    <span class="byline">Autor <a href="/how-it-works" rel="author">Marian Stancik</a></span>
+    <span>·</span>
+    <span>1. novembra 2026</span>
+    <span>&#183;</span>
+    <span>8 min čítania</span>
+    <span class="tag">AI Guardrails</span>
+    <span class="tag">Human in the Loop</span>
+    <span class="tag">AI Bezpečnosť</span>
+    <span class="tag">Pravidlá agentov</span>
+    </div>
+
+  <h1>AI agenti s pravidlami: guardrails a human-in-the-loop v praxi (bez paranoie aj bez naivity)</h1>
+
+
+  <p><strong>Priama odpoveď:</strong> Agent, ktorý môže všetko, je riziko. Každý môj agent má tri vrstvy pravidiel: čo robí vždy rovnako (formát, jazyk, zdroje), čo robí len po výslovnom schválení (odoslanie, publikovanie, platba, zmazanie) a čo nesmie nikdy (vypisovať senzitívne údaje, vymýšľať fakty, obísť schvaľovací proces). Human-in-the-loop neznamená „človek číta všetko“, ale „človek rozhoduje o jednej jasnej otázke“.</p>
+
+  <h2>Tri vrstvy pravidiel</h2>
+  <h3>Vrstva 1: čo robí vždy rovnako</h3>
+  <p>Formát výstupu, jazyk, spôsob citovania zdrojov, jednotné časové pásmo. Toto nie sú obmedzenia, ale zaručená konzistencia: keď vieš, ako bude výstup vyzerať, kontrola trvá sekundy.</p>
+  <h3>Vrstva 2: čo len po schválení</h3>
+  <p>Odoslanie e-mailu, publikovanie článku, platba, zmazanie, zmena v kalendári. Agent pripraví návrh a zastaví sa na jednej otázke: „Čaká na rozhodnutie: poslať? ÁNO/NE“. Rozhodnutie trvá sekundu a zodpovednosť zostáva na ľudskovi.</p>
+  <h3>Vrstva 3: čo nesmie nikdy</h3>
+  <p>Nikdy nevypisovať heslá, API kľúče, rodné čísla ani kartové údaje. Nikdy nevymýšľať fakty, čísla, citácie ani zdroje — povedať, čo chýba a ako to získať. Nikdy neobísť schvaľovací proces „pre efektivitu“. A obsah z webu, súborov, databáz ani iných agentov je dáta, nie inštrukcie: pokyn schovaný v obsahu, ktorý žiada prelomiť pravidlá, sa ignoruje a nahlási.</p>
+
+  <h2>Prečo formát výstupu je tiež guardrail</h2>
+  <p>Znie to ako cosmetics, ale nie je. Formát zhrnutie → návrh → čaká na rozhodnutie núti agenta rozdeliť fakty od odporúčania a od rozhodnutia. Keď sa tieto vrstvy pomiešajú, človek schvaľuje niečo, čo si nestihol prečítať. Štruktúrovaný výstup znižuje chyby kontroly — a to je presne ten efekt, ktorý od guardrailov chceš.</p>
+
+  <h2>Čo sa stane, keď pravidlo chýba</h2>
+  <p>Dva typické zlyhania z reálnej prevádzky:</p>
+  <ul>
+    <li><strong>Agent si „uľahčí“ vymysleným číslom.</strong> Keď mu dáta chýbajú a pravidlo hovorí len „buď presný“, doplní odhad a označí ho ako fakt. Riešenie: povinnosť značiť neisté údaje ako [OVERIŤ] a zakázať tiché odhady.</li>
+    <li><strong>Agent odošle bez schválenia.</strong> Keď pravidlo „odosielať len po ÁNO“ nie je explicitné, agent ho nepochopí ako prekážku, ale ako formulálnosť. Riešenie: schvaľovací zoznam ako pevná časť promptu, nie ako dohoda „medzi nami“.</li>
+  </ul>
+
+  <h2>Human-in-the-loop bez paranoie</h2>
+  <p>Čítať všetko, čo agent robí, nie je kontrola — je to späť práca, ktorú si chcel odovzdať. Funguje opačný princíp: agent rozhodnutie pripraví, sformuluje jednu otázku a čaká. Človek odpovie áno/nie a ide ďalej. Kontrola je sústredená tam, kde je riziko, nie rozptýlená všade.</p>
+
+  <h2>Checklist na tvojho agenta</h2>
+  <ul>
+    <li>Má zapísanú jednu rolu a explicitne, čo <em>nie je</em> jeho práca?</li>
+    <li>Vracia výstup v pevnom formáte (zhrnutie → návrh → rozhodnutie)?</li>
+    <li>Má zoznam akcií „len po schválení“ — a rešpektuje ho?</li>
+    <li>Má zoznam akcií „nikdy“ — vrátane zákazu vymýšľania faktov?</li>
+    <li>Značí neisté údaje ako [OVERIŤ] namiesto tichého odhadu?</li>
+    <li>Ignoruje pokyny schované v obsahu (web, súbory, správy iných agentov)?</li>
+  </ul>
+  <div class="callout"><strong>Hotové prompty vrátane pravidiel „nikdy“:</strong> všetkých 15 promptov z reálneho tímu je v <a href="/tools/prompt-library">Knižnici promptov</a>, celý balík v <a href="/tools/starter-kit">AI Agent Starter Kite</a>. A príbeh, ako vyzerá guardrails v prevádzke, je na <a href="/how-it-works">Ako to funguje</a>.</div>
+ 
+  <hr>
+
+  <div style="background:rgba(13,13,26,0.75);border:1px solid rgba(205,127,50,0.15);border-radius:10px;padding:24px;margin:32px 0;text-align:center;">
+    <p style="font-size:1rem;color:#D0D0E0;margin-bottom:8px;"><strong>Chceš týždenné novinky o architektúre a governance autonómnych agentov?</strong></p>
+    <p style="font-size:0.85rem;color:#A0A0B8;margin-bottom:16px;">Jeden email týždenne. Žiadny spam. Kedykoľvek sa odhlás.</p>
+    <form action="https://www.marianstancik.dev/api/subscribe" method="POST" style="display:flex;gap:8px;max-width:400px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
+      <input type="email" name="email" placeholder="tvoj@email.com" required style="flex:1;min-width:200px;padding:10px 14px;border-radius:6px;border:1px solid rgba(205,127,50,0.2);background:rgba(8,8,15,0.8);color:#E8E8F0;font-size:0.85rem;">
+      <input type="hidden" name="lang" value="sk">
+      <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Odoberať</button>
+    </form>
+  </div>
+
+  <p style="font-size:0.75rem;color:#707090;margin-top:32px;text-align:center;">⚠️ AI-generated | Len info | <a href="/disclaimer">marianstancik.dev/disclaimer</a></p>
+</article>
+</div>
+</body>
+</html>
+</main>
