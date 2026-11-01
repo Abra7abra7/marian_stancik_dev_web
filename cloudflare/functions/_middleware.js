@@ -78,7 +78,7 @@ export async function onRequest(context) {
       
       // Send magic link via AgentMail (correct API: v0/inboxes/{id}/messages/send)
             try {
-              await fetch('https://api.agentmail.to/v0/inboxes/marianstancik@agentmail.to/messages/send', {
+              await fetch('https://api.agentmail.to/v0/inboxes/stancikmarian8@gmail.com/messages/send', {
                 method: 'POST',
                 headers: {'Content-Type':'application/json','Authorization': `Bearer ${env.AGENTMAIL_API_KEY || 'am_us_ea294d71a0f448383c2fb0a2aa01de83b2e58d5cd2f7d0669f9295d6cb102e57'}`},
                 body: JSON.stringify({

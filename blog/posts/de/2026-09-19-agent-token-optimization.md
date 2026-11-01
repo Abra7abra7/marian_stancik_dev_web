@@ -168,12 +168,12 @@ agents:
 global:
   daily_spend_limit: €2.00
   weekly_spend_limit: €10.00
-  alert_channel: marianstancik@agentmail.to
+  alert_channel: stancikmarian8@gmail.com
 ```
 
 ```
 
-When any agent exceeds its per-call token limit or its daily average by more than 2x, the system sends an alert via AgentMail. When the global daily spend limit is hit, all non-critical cron jobs auto-pause until the next day. This is not a theoretical design — it runs on my Hetzner VPS today and has prevented at least three runaway-spend incidents since July.
+When any agent exceeds its per-call token limit or its daily average by more than 2x, the system sends an alert by e-mail. When the global daily spend limit is hit, all non-critical cron jobs auto-pause until the next day. This is not a theoretical design — it runs on my Hetzner VPS today and has prevented at least three runaway-spend incidents since July.
 
 ### 4. Structured Logging for Token Attribution
 

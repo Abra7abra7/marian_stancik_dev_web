@@ -74,13 +74,13 @@ body { background: #05050A; color: #F0F0F5; padding: 24px 10px; }
       <strong>Marian Stancik</strong><br>
       <span style="color:#CD7F32; font-weight:600;">✦ AI Agent Developer &amp; Autonomous Systems Builder</span><br>
       Building autonomous systems that run without you.<br>
-      <span style="color:#64748B; font-size:11.5px;">marianstancik.dev · marianstancik@agentmail.to</span>
+      <span style="color:#64748B; font-size:11.5px;">marianstancik.dev · stancikmarian8@gmail.com</span>
     </div>
   </div>
   <div class="footer">
     <strong>Marián Stančík</strong> — fyzická osoba, podnikateľ (živnostník) · Černákova 2046/8, 977 01 Brezno · IČO: 57068917 · DIČ: 1082585075<br>
     Tento systém využíva asistenciu autonómnych AI agentov podľa čl. 50 EU AI Act.<br>
-    <span style="color:#64748B; font-size:10.5px; display:inline-block; margin-top:6px;">Tento e-mail ste dostali na základe udeleného súhlasu na marianstancik.dev. Odber môžete kedykoľvek bezplatne zrušiť: <a href="mailto:marianstancik@agentmail.to?subject=Unsubscribe%20Newsletter" style="color:#CD7F32; text-decoration:underline;">Odhlásiť sa z odberu</a>.</span>
+    <span style="color:#64748B; font-size:10.5px; display:inline-block; margin-top:6px;">Tento e-mail ste dostali na základe udeleného súhlasu na marianstancik.dev. Odber môžete kedykoľvek bezplatne zrušiť: <a href="mailto:stancikmarian8@gmail.com?subject=Unsubscribe%20Newsletter" style="color:#CD7F32; text-decoration:underline;">Odhlásiť sa z odberu</a>.</span>
   </div>
 </div></body></html>`;
   },
@@ -205,7 +205,7 @@ ${safeMsg ? `<blockquote style="border-left:3px solid #CD7F32; padding:12px 18px
 
   // PLAIN TEXT FALLBACKS
   welcomeText() {
-    return `MARIAN STANCIK — HERMES AGENT\n\nVitaj v newslettri!\nBlog: https://www.marianstancik.dev/blog\n\nOdber môžete kedykoľvek bezplatne odhlásiť zaslaním odpovede na marianstancik@agentmail.to s predmetom 'Unsubscribe'.\n\nS pozdravom, Marian Stancik`;
+    return `MARIAN STANCIK — HERMES AGENT\n\nVitaj v newslettri!\nBlog: https://www.marianstancik.dev/blog\n\nOdber môžete kedykoľvek bezplatne odhlásiť zaslaním odpovede na stancikmarian8@gmail.com s predmetom 'Unsubscribe'.\n\nS pozdravom, Marian Stancik`;
   },
   orderConfirmationText(name, product, price, website = '', notes = '') {
     return `MARIAN STANCIK — AI AGENT DEVELOPER\n\nAhoj ${name},\nĎakujem za objednávku: ${product} (${price ? '€' + price : 'Na mieru'}).\nWeb: ${website}\n\nS pozdravom, Marian Stancik`;

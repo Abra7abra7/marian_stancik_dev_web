@@ -1,26 +1,44 @@
-# Cookie Policy (Zásady používania súborov cookies)
+# Cookie a úložisková politika — SK
 
-*Effective date: 5 October 2026 / Účinnosť od 5. októbra 2026*
 
-## 1. Čo sú súbory cookies?
-Súbory cookies sú malé textové súbory, ktoré sa ukladajú do vášho zariadenia (počítač, tablet, smartfón) pri návšteve webovej stránky. Umožňujú stránke zapamätať si vaše preferencie a základné nastavenia.
+Pre webovú stránku https://marianstancik.dev
 
-## 2. Aké technológie používame na marianstancik.dev?
-Naším cieľom je maximálne súkromie používateľov v súlade s princípmi Privacy by Design (čl. 25 GDPR).
+## 1. Právny základ (ePrivacy)
 
-### A. Nevyhnutné (technické) cookies / LocalStorage
-- **Účel:** Slúžia výhradne na zabezpečenie správneho fungovania webu a uchovanie vašich osobných preferencií (napr. zvolený jazyk – SK / EN / DE / PL, svetlý / tmavý režim zobrazenia).
-- **Právny základ:** § 109 ods. 8 zákona č. 452/2021 Z. z. o elektronických komunikáciách (výnimka pre technicky nevyhnutné ukladanie).
-- **Doba uchovávania:** Do ukončenia relácie prehliadača (session) alebo maximálne 12 mesiacov v lokálnom úložisku prehliadača.
+Podľa § 109 ods. 8 zákona č. 452/2021 Z. z. (v platnom znení; transpozícia čl. 5 ods. 3 smernice 2002/58/ES) je každý, kto ukladá alebo získava prístup k informáciám uloženým v koncovom zariadení užívateľa, oprávnený na to **iba so súhlasom užívateľa**. To nebráni **technickému uloženiu údajov alebo prístupu k nim**, ktorých jediným účelom je prenos alebo uľahčenie prenosu správy, alebo ktoré je **bezpodmienečne potrebné na poskytovanie služby informačnej spoločnosti, ktorú si užívateľ výslovne vyžiadal** (výnimka pre technicky nevyhnutné ukladanie).
 
-### B. Analytika s rešpektom k súkromiu (Umami & PostHog EU)
-- Na analýzu návštevnosti využívame open-source nástroj Umami Analytics (vlastný server v EÚ) a PostHog EU Cloud (Frankfurt, Nemecko).
-- Obe technológie fungujú v režime bez ukladania cookies (in-memory persistence) do vášho prehliadača.
-- Nevykonáva sa žiadne krížové sledovanie medzi webmi (cross-site tracking) ani remarketing.
-- Meranie prebieha technicky anonymne bez nutnosti invazívneho cookie banneru.
+## 2. Čo web reálne používa (overené v implementácii)
 
-### C. Žiadne marketingové alebo sledovacie cookies tretích strán
-- Na našom webe nepoužívame reklamné, remarketingové ani sledovacie pixely tretích strán (ako napr. Meta Pixel, Google Ads remarketing).
+### A. Technicky nevyhnutné ukladanie (bez súhlasu — výnimka § 109 ods. 8)
 
-## 3. Práva a možnosti správy cookies
-Technické cookies alebo lokálne dáta môžete kedykoľvek vymazať priamo vo vašom internetovom prehliadači v sekcii Nastavenia -> Súkromie a bezpečnosť -> Vymazať údaje prehliadania.
+| Úložisko | Účel | Doba |
+| :--- | :--- | :--- |
+| LocalStorage: jazyk (SK/EN/DE/PL), svetlý/tmavý režim | Uloženie zvolených preferencií | Do vymazania používateľom |
+| LocalStorage: `ms_consent_analytics` | Zapamätanie vášho rozhodnutia o analytických cookies | 12 mesiacov |
+| Session storage / token: **Cloudflare Turnstile** | Ochrana formulára Starter Kit proti spamu/botom (bez sledovania, bez marketingu) | Krátkodobo, pri odoslaní formulára |
+| Ochrana proti spamu (honeypot polia) | Filtrovanie botov | Neukladá sa do prehliadača |
+
+### B. Analytika — **len po súhlase (opt-in)**
+
+- Po kliknutí na „Súhlasím“ (dialog „Cookies a analytika“ v pätičke) sa načíta **PostHog EU Cloud (Frankfurt, Nemecko)** s persistence `localStorage+cookie` a začne sa zaznamenávať návštevnosť (page views, udalosti používania nástrojov).
+- **Bez súhlasu sa nič neukladá ani sa neposiela žiadny request na PostHog** (overené v js/posthog.js: pred opt-inom nie je vytvorený žiadny ph_* cookie ani localStorage záznam).
+- Nesťa sa žiadne krížové sledovanie medzi webmi ani remarketing.
+- Súhlas môžete kedykoľvek zmeniť cez „Nastavenia cookies“ (odhlásenie = opt-out, ďalšie zaznamenávanie sa zastaví).
+
+### C. Čo web NEPOUŽÍVA
+
+- Žiadne reklamné, remarketingové ani sledovacie cookies tretích strán (Meta Pixel, Google Ads a pod.).
+- Žiadne newsletter cookies; odber je založený na e-mailovom súhlase (viď Zásady ochrany osobných údajov), nie na cookies.
+
+## 3. Záver pre banner
+
+- Technicky nevyhnutné ukladanie nespadá pod povinnosť súhlasu → nie je potrebný banner pre túto kategóriu.
+- Analytika (PostHog) je implementovaná ako **opt-in** → spĺňa požiadavku aktívneho súhlasu; pasívny banner („pokračovaním súhlasíte“) sa nepoužíva.
+- Pokiaľ by sa v budúcnosti pridala analytika s predvolenými cookies alebo marketingové nástroje, je potrebná novelizácia tejto politiky a súhlasu.
+
+## 4. Ako uložené dáta zrušiť
+
+LocalStorage a cookies môžete kedykoľvek vymazať v prehliadači (Nastavenia → Súkromie a bezpečnosť → Vymazať údaje prehliadania), prípadne cez „Nastavenia cookies“ v pätičke webu.
+
+---
+*Zdroj: § 109 ods. 8 zákona č. 452/2021 Z. z., aktuálne znenie (overené na Slov-Lex 1. 11. 2026, verzia účinná od 18. 8. 2026).*

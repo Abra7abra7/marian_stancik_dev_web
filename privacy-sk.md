@@ -1,55 +1,81 @@
-# Privacy Policy (Zásady ochrany osobných údajov)
+# Zásady ochrany osobných údajov (Privacy Policy) — SK
 
-pre webové sídlo https://marianstancik.dev · Verzia 2.0 · Účinnosť od 5. októbra 2026
 
-## 1. Kto je prevádzkovateľom vašich osobných údajov?
-Prevádzkovateľom osobných údajov v zmysle čl. 4 bod 7 Nariadenia Európskeho parlamentu a Rady (EÚ) 2016/679 (GDPR) a zákona č. 18/2018 Z. z. o ochrane osobných údajov je:
+Pre webovú stránku https://marianstancik.dev
 
-- **Meno a priezvisko:** Marian Stancik
-- **Právna forma:** Fyzická osoba – podnikateľ (živnostník)
-- **Miesto podnikania / Sídlo:** Černákova 2046/8, 977 01 Brezno, Slovenská republika
-- **IČO:** 57068917 | **DIČ:** 1082585075 | **Status DPH:** Neplatiteľ DPH
-- **Živnostenský register:** Okresný úrad Brezno, Číslo ŽR: 630-22847
-- **Kontaktný e-mail pre oblasť GDPR:** marianstancik@agentmail.to
+## 1. Prevádzkovateľ (správca osobných údajov)
+
+Správcom osobných údajov podľa čl. 4 bodu 7 nariadenia (EÚ) 2016/679 (GDPR) a § 22 zákona č. 18/2018 Z. z. o ochrane osobných údajov je:
+
+- **Prevádzkovateľ:** Marian Stancik — fyzická osoba – podnikateľ (živnostník)
+- **Miesto podnikania:** Černákova 2046/8, 977 01 Brezno, Slovenská republika
+- **IČO:** 57068917 | **DIČ:** 1082585075 | neplatiteľ DPH
+- **Živnostenský register:** Okresný úrad Brezno, č. 630-22847
+- **Kontakt na GDPR:** stancikmarian8@gmail.com
 - **Web:** https://marianstancik.dev
 
-Tieto zásady sa vzťahujú na spracúvanie osobných údajov návštevníkov webu marianstancik.dev a klientov objednávajúcich digitálne služby.
+## 2. Aké osobné údaje spracúvame a na aký účel
 
-## 2. Aké údaje spracúvame, na aký účel a na akom právnom základe?
+Táto stránka nepredáva výrobky ani služby a nezhromažďuje osobné údaje na iných miestach ako na jedinom mieste uvedenom nižšie. Blog a knižnica promptov (prompt library) osobné údaje neshromažďujú.
 
-| Účel spracúvania | Kategórie osobných údajov | Právny základ (GDPR) | Doba uchovávania |
+### 2.1 Jediné miesto zberu: formulár #leadForm na /tools/starter-kit/
+
+| Účel spracúvania | Kategória údajov | Právny základ | Doba uchovania |
 | :--- | :--- | :--- | :--- |
-| **Plnenie zmluvy** (vyhotovenie a dodanie auditu, vývoj agenta) | Meno, priezvisko, e-mail, fakturačná adresa, cieľová URL adresa | Čl. 6 ods. 1 písm. b) GDPR (plnenie zmluvy) | Po dobu trvania zmluvného vzťahu + do uplynutia premlčacích lehôt |
-| **Plnenie zákonných povinností** (vedenie účtovníctva a daňovej evidencie) | Fakturačné a platobné údaje | Čl. 6 ods. 1 písm. c) GDPR (zákon č. 431/2002 Z. z. o účtovníctve) | 10 rokov nasledujúcich po roku, ktorého sa týkajú |
-| **Komunikácia a kontaktné dopyty** | Meno, e-mail, obsah správy / dopytu | Čl. 6 ods. 1 písm. f) GDPR (oprávnený záujem na vybavení dopytu) | 1 rok od poslednej vzájomnej komunikácie |
-| **Newsletter / Engineering briefs** | E-mailová adresa | Čl. 6 ods. 1 písm. a) GDPR (dobrovoľný súhlas dotknutej osoby) | Do odvolania súhlasu (odhlásenie jedným klikom) |
-| **Bezpečnosť servera a prevádzka webu** (serverové logy) | IP adresa, čas prístupu, user-agent, stavový kód HTTP | Čl. 6 ods. 1 písm. f) GDPR (oprávnený záujem na zaistení bezpečnosti) | Maximálne 90 dní v rotujúcich logoch |
-| **Spracúvanie dát klienta pri tvorbe agentov na mieru** | Dátové toky podľa inštrukcií a špecifikácie klienta | Čl. 28 GDPR (rola Sprostredkovateľa / Data Processor) | Upravené v osobitnej zmluve DPA (Data Processing Agreement) |
+| Zaslanie bezplatného „Starter Kitu“ (súbor promptov, playbook a checklist) a prípadných noviniek na e-mail | E-mailová adresa, voliteľne meno, dátum a čas odoslania, označenie zdroja („starter-kit“) | **Súhlas** — čl. 6 ods. 1 písm. a) GDPR; § 13 zákona č. 18/2018 Z. z. (zaškrtnutie checkboxu + dvojitý opt-in) | Podľa stavu opt-inu — detailná retencia nižšie v tabuľke „Retencia podľa stavu opt-inu“ |
 
-## 3. Príjemcovia a sprostredkovatelia (Sub-procesori)
-Osobné údaje sprístupňujeme výhradne overeným zmluvným partnerom, ktorí poskytujú dostatočné záruky bezpečnosti a sú viazaní zmluvou o spracúvaní osobných údajov (DPA) podľa čl. 28 GDPR:
-1. **Vercel Inc. (USA / EÚ)** – cloudový webhosting a edge funkcie (EU-US Data Privacy Framework a SCC).
-2. **Hetzner Online GmbH (Nemecko / EÚ)** – dedikovaná serverová infraštruktúra na území EÚ.
-3. **Stripe Payments Europe Ltd. (Írsko / EÚ)** – licencovaná platobná inštitúcia pre bezpečné online platby kartou.
-4. **AgentMail** – doručovanie transakčných e-mailových potvrdení a auditov.
-5. **Umami Analytics** – self-hosted analytický systém prevádzkovaný na vlastnom serveri v EÚ (bez cookies a bez identifikácie používateľov).
 
-## 4. Automatizované rozhodovanie, profilovanie a AI Act
-- Prevádzkovateľ nevykonáva automatizované individuálne rozhodovanie ani profilovanie s právnymi účinkami alebo obdobne významným dosahom v zmysle čl. 22 GDPR.
-- Všetky výstupy, analýzy a odporúčania generované autonómnymi systémami (Hermes Agent) podliehajú finálnej ľudskej kontrole (human-in-the-loop), čím sa plnia aj povinnosti transparentnosti podľa čl. 50 Nariadenia (EÚ) 2024/1689 (AI Act).
+**Retencia podľa stavu opt-inu:**
 
-## 5. Práva dotknutých osôb podľa GDPR
-Ako dotknutá osoba máte podľa článkov 15 až 22 GDPR nasledujúce práva:
-- Právo na prístup k údajom (čl. 15 GDPR)
-- Právo na opravu (čl. 16 GDPR)
-- Právo na vymazanie („právo na zabudnutie“, čl. 17 GDPR)
-- Právo na obmedzenie spracúvania (čl. 18 GDPR)
-- Právo na prenosnosť údajov (čl. 20 GDPR)
-- Právo namietať (čl. 21 GDPR)
-- Právo odvolať súhlas
-- Právo podať sťažnosť dozornému orgánu: **Úrad na ochranu osobných údajov Slovenskej republiky**, Hraničná 12, 820 07 Bratislava 27, https://dataprotection.gov.sk
+| Stav záznamu | Retencia |
+| :--- | :--- |
+| **Pending** (e-mail odoslaný, opt-in nepotvrdený) | **30 dní**, potom automatické vymazanie adresy s archiváciou záznamu |
+| **Confirmed** (dvojitý opt-in potvrdený) | Do odvolania súhlasu (odhlásenie 1 klikom) + najviac 6 mesiacov evidence súhlasu na preukázanie splnenia povinností podľa čl. 5 ods. 2 GDPR |
 
-Žiadosti o uplatnenie práv zasielajte na: marianstancik@agentmail.to.
+### 2.2 Prevádzkové a bezpečnostné logy
 
-## 6. Bezpečnosť spracúvania
-V súlade s čl. 32 GDPR uplatňujeme primerané technické a organizačné opatrenia: šifrovaný prenos dát protokolom TLS 1.3, striktné bezpečnostné hlavičky (HSTS), izolovanú infraštruktúru v EÚ dátových centrách a obmedzený prístup na báze princípu least privilege.
+| Účel | Kategória údajov | Právny základ | Doba uchovania |
+| :--- | :--- | :--- | :--- |
+
+### 2.3 Čo NESPRACÚVAME
+
+- Žiadne platobné údaje (web neprijíma platby).
+- Žiadne marketingové, sledovacie ani reklamné cookies bez súhlasu (viď Cookie politika; analytika PostHog EU beží **len po výslovnom opt-in súhlase**).
+- Žiadne profilovanie ani automatizované rozhodovanie v zmysle čl. 22 GDPR.
+- Osobné údaje detí: stránka nie je určená osobám mladším ako 16 rokov (čl. 8 GDPR; § 20 zákona č. 18/2018 Z. z. — zodpovedajúca úroveň ochrany); takto mladé osoby nevyžiadame súhlas ani údaje.
+
+## 3. Príjemcovia a poverenci (processors)
+
+| Subjekt | Úloha | Krajina / transfer |
+| :--- | :--- | :--- |
+| **Cloudflare, Inc.** | Hosting (Cloudflare Pages), CDN, bezpečnostné hlavičky, overenie formulára (Turnstile) | USA — certifikovaný v EU-US Data Privacy Framework + SCC |
+| **Google Workspace / Google Ireland Ltd.** (Sheets + Gmail) | Transakčné e-maily (potvrdenie prihlásenia, welcome e-mail, odhlásenie) a evidencia prihlásených adries (Sheets). Prevádzkovateľ nastavuje **Data Region Europe** v Admin konzole Google Workspace — spracúvanie obmedzené na dáta región EÚ; v prípade transferu do USA sa uplatnia SCC / DPF | Írsko (EÚ); dáta región EÚ (nastavenie Admin konzoly) |
+| **PostHog** (EU Cloud, Frankfurt) | Analytika návštevnosti **výhradne po opt-in súhlase** | Nemecko (EÚ), bez marketingových cookies |
+
+Zmluvy o spracúvaní (čl. 28 GDPR) sú / budú uzavreté alebo sa uplatňujú modelové zmluvné doložky, pokiaľ subjekt nie je certifikovaný podľa príslušných mechanizmov EÚ.
+
+## 4. Práva dotknutej osoby
+
+Podľa čl. 15 až 22 GDPR a zákona č. 18/2018 Z. z. (§§ 28 až 48) máte najmä právo:
+
+- na prístup k údajom a informácie o ich spracúvaní (čl. 15 GDPR),
+- na opravu (čl. 16) a výmaz (čl. 17),
+- na obmedzenie spracúvania (čl. 18),
+- na prenositeľnosť údajov (čl. 20),
+- namietať (čl. 21) a kedykoľvek odvolať súhlas (bez vplyvu na zákonnosť spracovania pred odvolaním),
+- na sťažnosť u dozorného orgána.
+
+Uplatnenie: **stancikmarian8@gmail.com** (odpovedáme do 30 dní).
+
+**Dozorný orgán:** Úrad na ochranu osobných údajov Slovenskej republiky, Hraničná 12, 820 07 Bratislava 27, https://dataprotection.gov.sk
+
+## 5. Bezpečnosť spracúvania
+
+Podľa čl. 32 GDPR zabezpečujeme vhodné technické a organizačné opatrenia: TLS 1.3, prísne bezpečnostné hlavičky (HSTS), ochrana formulára proti spamu (Turnstile + honeypot), princíp minimálneho prístupu, oddelená európska infraštruktúra.
+
+## 6. Zmeny Zásad
+
+O podstatných zmenách informujeme na tejto stránke; pri spracúvaní založenom na súhlase sú zmeny účinné po novom súhlase, ak to vyžaduje rozsah zmeny.
+
+---
+*Aplikované predpisy: nariadenie (EÚ) 2016/679 (GDPR) — účinné od 25. 5. 2018; zákon č. 18/2018 Z. z. v platnom znení; § 109 zákona č. 452/2021 Z. z. (ukladanie do koncových zariadení, viď Cookie politika); nariadenie (EÚ) 2024/1689 (AI Act), čl. 50 — uplatňuje sa od 2. 8. 2026 (transparencia AI-obsahu).*

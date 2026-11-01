@@ -1,47 +1,46 @@
-# Disclaimer
+# Disclaimer — EN
 
-*Last updated: 5 October 2026*
 
-## 1. Nature of This Website & Operator
+## 1. Nature of the Website & Operator
+
 This website (marianstancik.dev) is the personal and business website of Marian Stancik — AI Agent Developer and Autonomous Systems Builder.
 
-- **Provider & Operator:** Marian Stancik — Sole Proprietor (fyzická osoba – podnikateľ)
-- **Place of Business:** Černákova 2046/8, 977 01 Brezno, Slovak Republic
-- **Business ID (IČO):** 57068917 | **Tax ID (DIČ):** 1082585075 | **VAT Status:** Non-VAT payer
-- **Trade Register:** District Office Brezno, Trade Register No. 630-22847
-- **Supervisory Authority:** Inspectorate of the Slovak Trade Inspection (SOI) for the Banská Bystrica Region, Dolná 46, 974 00 Banská Bystrica 1, Slovak Republic
-- **Contact:** marianstancik@agentmail.to
+- **Operator:** Marian Stancik — Sole Proprietor
+- **Place of business:** Černákova 2046/8, 977 01 Brezno, Slovak Republic
+- **Business ID (IČO):** 57068917 | **Tax ID (DIČ):** 1082585075 | Non-VAT payer
+- **Trade Register:** District Office Brezno, No. 630-22847
+- **Contact:** stancikmarian8@gmail.com
 
 ## 2. AI-Generated Content & Autonomous Operations
-Content on this website is generated or assisted by autonomous AI systems (Hermes Agent) operating on European infrastructure (Hetzner Cloud, Vercel Edge). All AI-generated content published directly on this Website is subject to human review and editorial control prior to or immediately upon release.
+
+Part of the content is generated or assisted by autonomous AI systems. Pursuant to **Article 50 of Regulation (EU) 2024/1689 (AI Act, applicable from 2 August 2026)**, AI-generated content is published with labeling and subject to human editorial review (human-in-the-loop) before or promptly upon release. Final editorial responsibility rests with Marian Stancik as the operator.
 
 ## 3. Informational Purpose Only — No Professional Advice
-All content, code snippets, blog posts, benchmarks, and analyses on this Website are provided for informational and educational purposes only.
 
-Nothing on this Website constitutes:
-- Legal advice under Act No. 586/2003 Coll. on Advocacy (Slovakia);
-- Financial or investment advice under Act No. 566/2001 Coll. on Securities and Investment Services;
-- Tax advice under Act No. 78/1992 Coll. on Tax Advisors;
-- Audit, accounting, or medical advice.
+All content (blog posts, benchmarks, code snippets, analyses) is informational and educational only. Nothing on this website constitutes:
 
-**EU AI & Technology Regulation Notice:** Knowledge shared concerning EU AI regulation (including Regulation (EU) 2024/1689 – EU AI Act, GDPR, NIS2, DORA, and related frameworks) is purely educational. For regulatory risk classification or binding legal counsel, consult a qualified attorney licensed in your jurisdiction.
+- **legal advice** (Act No. 586/2003 Coll. on Advocacy),
+- **investment advice** (Act No. 566/2001 Coll. on Securities),
+- **tax advice** (Act No. 78/1992 Coll.),
+- accounting, audit or **medical** advice.
+
 
 ## 4. Limitation of Liability
-- **4.1** Content is provided on an "AS-IS" and "AS-AVAILABLE" basis, without warranties of any kind, whether express or implied.
-- **4.2** In accordance with § 424 of the Slovak Civil Code (Act No. 40/1964 Coll.), liability for damage caused intentionally or through gross negligence cannot be waived, excluded, or limited, nor is liability limited for injury to natural rights of a human person.
-- **4.3 (B2B Limitation):** In contractual and business relationships with business clients (B2B governed by Act No. 513/1991 Coll., Commercial Code), the Provider’s aggregate liability for ordinary negligence shall not exceed the total price actually paid by the client for the specific service under the relevant contract.
-- **4.4 (Consumer Protection):** Nothing in this Disclaimer shall restrict, prejudice, or exclude any mandatory statutory consumer rights under Act No. 108/2024 Coll. on Consumer Protection or Act No. 40/1964 Coll. Civil Code.
 
-## 5. AI Act Transparency (Regulation (EU) 2024/1689)
-Pursuant to Article 50 of the EU AI Act:
-- This website discloses that content may be created or assisted by AI systems (Hermes Agent).
-- AI-generated outputs are clearly labeled on this Website.
-- Final editorial control remains with Marian Stancik as the human operator.
+4.1 Content is provided "AS-IS", without warranties to the extent permitted by law.
 
-## 6. Intellectual Property & External Links
-- **Human-authored works:** All proprietary text, graphics, and architectural designs are protected under Act No. 185/2015 Coll. (Copyright Act).
-- **Open Source:** Hermes Agent is an open-source framework by Nous Research (MIT License). Marian Stancik is a user/deployer of this technology.
-- **External Links:** The Provider assumes no responsibility for content or data handling on third-party websites linked from this domain.
+4.2 Liability for damage caused intentionally or by gross negligence cannot be excluded or limited (§ 424 of the Civil Code, Act No. 40/1964 Coll.).
 
-## 7. Governing Law & Jurisdiction
-This Disclaimer is governed by the laws of the Slovak Republic. Disputes shall be submitted to the exclusive jurisdiction of the competent courts of the Slovak Republic.
+4.3 In relations with businesses (Commercial Code, Act No. 513/1991 Coll.), statutory liability rules apply; nothing here limits contractual protection agreed in an individual contract.
+
+4.4 Nothing here restricts statutory consumer rights under Act No. 108/2024 Coll. and the Civil Code.
+
+## 5. Intellectual Property & External Links
+
+- Human-authored texts and designs are protected under Act No. 185/2015 Coll. (Copyright Act); the license to use prompts is set out in the Terms of Use (license, not transfer).
+- Open-source tools and frameworks are subject to their own licenses (e.g., MIT).
+- The operator is not responsible for the content of linked third-party websites.
+
+## 6. Governing Law & Jurisdiction
+
+Governed by the law of the Slovak Republic; disputes are subject to the competent courts of the Slovak Republic.

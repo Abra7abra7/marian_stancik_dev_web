@@ -1,79 +1,65 @@
-# Terms of Service (ToS) / Všeobecné obchodné podmienky
+# Podmienky používania webu a bezplatných nástrojov — SK
 
-pre digitálne služby na https://marianstancik.dev · Verzia 2.0 · Účinnosť od 5. októbra 2026
 
-## Poskytovateľ služby / Provider
-- **Obchodné meno:** Marian Stancik
-- **Právna forma:** Fyzická osoba – podnikateľ (živnostník)
-- **Miesto podnikania / Sídlo:** Černákova 2046/8, 977 01 Brezno, Slovenská republika
-- **IČO:** 57068917
-- **DIČ:** 1082585075
-- **IČ DPH:** Neplatiteľ DPH
-- **Živnostenský register:** Okresný úrad Brezno, Číslo ŽR: 630-22847 (oprávnenie od 27. 6. 2025)
-- **Bankové spojenie:** Tatra banka, a.s., IBAN: SK60 1100 0000 0029 4827 4072, SWIFT: TATRSKBX
-- **Dozorný orgán:** Inšpektorát Slovenskej obchodnej inšpekcie (SOI) pre Banskobystrický kraj, Dolná 46, 974 00 Banská Bystrica 1
-- **Kontakt:** marianstancik@agentmail.to
-- **Web:** https://marianstancik.dev
+Pre webovú stránku https://marianstancik.dev
 
-## DÔLEŽITÉ UPOZORNENIE K DIGITÁLNYM SLUŽBÁM A AI
-Poskytované služby majú výhradne digitálny, technický a analytický charakter. Výstupy a audity sú generované alebo asistované autonómnymi systémami umelej inteligencie (Hermes Agent). Výstupy nepredstavujú autorizované právne, daňové ani finančné poradenstvo. Označovanie transparentnosti AI je v plnom súlade s čl. 50 Nariadenia (EÚ) 2024/1689 (AI Act).
+## 1. Poskytovateľ a prevádzkovateľ
 
-## Článok I: Definície a rozsah pôsobnosti
-- **1.1** Tieto Všeobecné obchodné podmienky („Podmienky“) upravujú zmluvné vzťahy medzi Poskytovateľom a Klientom pri poskytovaní digitálnych služieb prostredníctvom https://marianstancik.dev.
-- **1.2 Klient:**
-  - **Spotrebiteľ (B2C):** Fyzická osoba, ktorá pri uzatváraní a plnení zmluvy nekoná v rámci predmetu svojej podnikateľskej činnosti, zamestnania alebo povolania v zmysle zákona č. 108/2024 Z. z. o ochrane spotrebiteľa a Občianskeho zákonníka (zákon č. 40/1964 Zb.).
-  - **Podnikateľ (B2B):** Fyzická alebo právnická osoba zapísaná v obchodnom či živnostenskom registri, konajúca v rámci svojej podnikateľskej činnosti v zmysle Obchodného zákonníka (zákon č. 513/1991 Zb.).
-- **1.3 Služby:** Analytické a architektonické digitálne služby, najmä:
-  - AI GEO Audit (€199)
-  - AI Web Readiness Scan (€200)
-  - Full Web Audit Combo (€300)
-  - Zákazková architektúra autonómnych agentov (Custom Autonomous Agent architecture – záloha od €500).
-- **1.4 Rozhodné právo:** Zmluvné vzťahy sa spravujú právnym poriadkom Slovenskej republiky, najmä zákonom č. 108/2024 Z. z. o ochrane spotrebiteľa, zákonom č. 22/2004 Z. z. o elektronickom obchode, Občianskym zákonníkom, Obchodným zákonníkom, Nariadením GDPR a Nariadením AI Act.
+- **Prevádzkovateľ:** Marian Stancik — fyzická osoba – podnikateľ (živnostník)
+- **Miesto podnikania:** Černákova 2046/8, 977 01 Brezno, Slovenská republika
+- **IČO:** 57068917 | **DIČ:** 1082585075 | neplatiteľ DPH
+- **Živnostenský register:** Okresný úrad Brezno, č. 630-22847
+- **Kontakt:** stancikmarian8@gmail.com
+- **Web:** https://marianstancik.dev (hosting: Cloudflare Pages)
 
-## Článok II: Objednávka a uzavretie zmluvy
-- **2.1** Objednávka sa uskutočňuje elektronicky odoslaním formulára s online platbou kartou (platobná brána Stripe) alebo prostredníctvom bankového prevodu na základe vystavenej proforma faktúry na účet Poskytovateľa.
-- **2.2** Pred odoslaním objednávky je Klient povinný oboznámiť sa s týmito Podmienkami a Zásadami ochrany osobných údajov a potvrdiť s nimi súhlas.
-- **2.3 (Osobitné predzmluvné poučenie pre spotrebiteľa):** Spotrebiteľ pri objednaní digitálnej služby vyjadruje výslovný súhlas so začatím poskytovania služby pred uplynutím zákonnej 14-dňovej lehoty na odstúpenie od zmluvy a vyhlasuje, že bol riadne poučený o tom, že udelením tohto súhlasu stráca po úplnom poskytnutí služby právo na odstúpenie od zmluvy podľa § 19 zákona č. 108/2024 Z. z.
-- **2.4 Tlačidlo objednávky:** V súlade s § 15 ods. 6 zákona č. 108/2024 Z. z. je odosielacie tlačidlo v objednávkovom procese označené jednoznačnou formuláciou o platobnej povinnosti: „Objednávka s povinnosťou platby“ (resp. v EN verzii „Order with obligation to pay“).
+Web **nepredáva** tovary ani služby, neprijíma platby ani objednávky; neuzatvára sa tu kúpna alebo iná zaplatená zmluva.
 
-## Článok III: Ceny a platobné podmienky
-- **3.1** Všetky ceny uvedené na webe sú konečné v mene EUR. Poskytovateľ nie je platiteľom DPH v zmysle zákona č. 222/2004 Z. z. o dani z pridanej hodnoty; DPH sa k cene nepripočítava.
-- **3.2** Daňový doklad (faktúra) je vystavený a doručený Klientovi elektronicky na e-mailovú adresu zadanú pri objednávke v zmysle zákona č. 222/2004 Z. z.
+## 2. Rozsah a predmet
 
-## Článok IV: Dodacie podmienky (Digitálne plnenie)
-- **4.1** Dodanie služby prebieha výlučne elektronickou formou – zaslaním analytickej správy vo formáte PDF/HTML, poskytnutím prístupu ku kódu v repozitári alebo elektronickou poštou.
-- **4.2** Štandardná lehota na vypracovanie auditu je 48 hodín od pripísania platby a dodania cieľovej URL adresy Klientom.
+Tieto Podmienky upravujú bezplatné používanie:
 
-## Článok V: Duševné vlastníctvo a licencie
-- **5.1** Vlastnícke práva k interným metodikám, systémovým promptom a proprietárnym nástrojom agenta Hermes zostávajú výlučným majetkom Poskytovateľa (chránené zákonom č. 185/2015 Z. z. Autorský zákon).
-- **5.2** Klientovi je udelená nevýhradná, časovo a územne neobmedzená licencia na interné obchodné a prevádzkové použitie dodanej audítorskej správy a navrhnutého kódu.
+- **Knižnice promptov** (prompt library) a blogu (čítanie, prezeranie, použitie promptov),
+- **Starter Kitu** (bezplatný balík stiahnuteľných materiálov po prihlásení e-mailu podľa Zásad ochrany osobných údajov),
+- **Mission Planner** (ukážkový/placeholder nástroj),
+- ostatného obsahu zverejneného na doméne marianstancik.dev.
 
-## Článok VI: Transparentnosť AI (čl. 50 AI Act)
-- **6.1** Klient berie na vedomie, že dodávané materiály vznikajú s asistenciou autonómnych AI modelov v súlade s čl. 50 Nariadenia (EÚ) 2024/1689.
-- **6.2** Výstupy predstavujú technické a architektonické zhodnotenie stavu, nie záväzné stanovisko akreditovanej certifikačnej autority alebo advokáta.
+## 3. Licencia k obsahu a promptom (autorské právo)
 
-## Článok VII: Zodpovednosť za vady a škodu
-- **7.1** Zodpovednosť za škodu spôsobenú úmyselne alebo hrubou nedbalosťou je nevylúčiteľná podľa § 424 Občianskeho zákonníka.
-- **7.2 (B2B zmluvy):** V zmluvách s podnikateľmi sa celková kumulatívna zodpovednosť Poskytovateľa za bežnú nedbalosť obmedzuje na výšku sumy skutočne uhradenej Klientom za konkrétnu objednanú Službu.
-- **7.3 (B2C spotrebiteľské zmluvy):** Vo vzťahu k spotrebiteľom sa zodpovednosť za vady a nároky na náhradu škody spravujú kogentnými ustanoveniami Občianskeho zákonníka a zákona č. 108/2024 Z. z. Žiadne ustanovenie týchto Podmienok neobmedzuje práva spotrebiteľa zaručené zákonom.
+3.1 Obsah webu (texty, prompty, postupy, grafika) je dielom chráneným autorským právom podľa zákona č. 185/2015 Z. z. (Autorský zákon; počítačové programy a databázy § 87 a nasl.). Prevádzkovateľ používateľovi **udeľuje bezplatnú, nevýhradnú, časovo neobmedzenú licenciu na osobné a vnútroorganizačné použitie promptov a materiálov** (licenčná zmluva — § 39 a § 40 AZ). **Prevod autorských práv sa neuskutočňuje** — použitie je licencia, nie prevod.
 
-## Článok VIII: Reklamačný poriadok
-- **8.1** Vady dodanej služby je Klient povinný uplatniť bez zbytočného odkladu písomne na e-mail: marianstancik@agentmail.to.
-- **8.2** Poskytovateľ vybaví reklamáciu bezodkladne, najneskôr do 30 dní od jej uplatnenia, formou opravy výstupu, doplnenia analýzy alebo primeranej zľavy z ceny.
+3.2 Zakázané: predaj či sublicencia promptov alebo materiálov ako vlastných, ich publikovanie ako celku na iných zdrojoch, odstránenie označení pôvodu. Uvádzanie krátkych častí s uvedením zdroja a odkazu je povolené.
 
-## Článok IX: Odstúpenie od zmluvy spotrebiteľom (§ 19 zákona č. 108/2024 Z. z.)
-- **9.1 Poučenie spotrebiteľa:** Spotrebiteľ má právo odstúpiť od zmluvy bez uvedenia dôvodu v lehote 14 dní odo dňa jej uzavretia.
-- **9.2 Výnimka z práva na odstúpenie:** Podľa § 19 ods. 1 písm. a) a písm. l) zákona č. 108/2024 Z. z. spotrebiteľ nemôže odstúpiť od zmluvy, ak:
-  1. Poskytovanie služby začalo s výslovným predchádzajúcim súhlasom spotrebiteľa a spotrebiteľ vyhlásil, že bol riadne poučený o tom, že udelením tohto súhlasu stráca právo na odstúpenie od zmluvy po úplnom poskytnutí služby, a došlo k úplnému poskytnutiu služby.
-  2. Predmetom je dodanie digitálneho obsahu, ktorý sa nedodáva na hmotnom nosiči, ak sa dodávanie začalo s výslovným súhlasom spotrebiteľa a s jeho vyhlásením o zániku práva na odstúpenie.
+3.3 Stiahnutý Starter Kit je na rovnakých podmienkach; šírenie odkazu na prihlasovaciu stránku je vítané, odovzdávanie samotného súbora tretím stranám ako celku nie je predmetom licencie.
 
-## Článok X: Alternatívne riešenie sporov (ARS)
-- **10.1** Spotrebiteľ má právo obrátiť sa na Poskytovateľa so žiadosťou o nápravu. Ak Poskytovateľ odpovie zamietavo alebo neodpovie do 30 dní, spotrebiteľ má právo podať návrh na začatie alternatívneho riešenia sporu podľa zákona č. 391/2015 Z. z.
-- **10.2 Príslušným subjektom ARS je:**
-  - Slovenská obchodná inšpekcia (Inšpektorát SOI pre Banskobystrický kraj, Dolná 46, 974 00 Banská Bystrica 1, www.soi.sk), alebo
-  - Oprávnená právnická osoba zapísaná v zozname subjektov ARS vedenom Ministerstvom hospodárstva SR.
-  - Spotrebiteľ môže využiť aj platformu pre riešenie sporov online (ODR) zriadenú Európskou komisiou.
+## 4. AI obsah a transparentnosť (AI Act)
 
-## Článok XI: Záverečné ustanovenia
-- **11.1** Tieto Podmienky nadobúdajú účinnosť 5. októbra 2026.
-- **11.2** Súčasťou právneho rámca sú Zásady ochrany osobných údajov (Privacy Policy), Zásady používania cookies (Cookie Policy), Zrieknutie sa zodpovednosti (Disclaimer) a Impressum.
+4.1 Časť obsahu je generovaná alebo asistovaná autonómnymi AI systémami. Podľa čl. 50 nariadenia (EÚ) 2024/1689 (AI Act, uplatňovaný od 2. 8. 2026) je AI-generovaný obsah zverejňovaný s označením a podlieha redakčnej kontrole človeka (human-in-the-loop).
+
+4.2 Výstupy sú technické a analytické hodnotenia; nie sú právne, daňové, finančné ani medicínske poradenstvo a nenahrádzajú odborníka. Viď aj Disclaimer.
+
+## 5. Vylúčenie/zodpovednosť
+
+5.1 Bezplatné nástroje a obsah sú poskytované „také, aké sú“ (AS-IS), bez záruk akéhokoľvek druhu v rozsahu dovolenom právom.
+
+5.2 Zodpovednosť sa riadi zákonom č. 40/1964 Z. z. (OZ): zodpovednosť za škodu spôsobenú **úmyslom alebo veľkou ľahostajnosťou sa nevylučuje ani neobmedzuje** (§ 424 OZ); zodpovednosť za inú škodu je vymedzená § 420 – § 422 OZ. Vo vzťahu k podnikateľom sa použijú ust. ObchZ (č. 513/1991 Z. z.), ak sa ich dotknú.
+
+5.3 Prevádzkovateľ nezodpovedá za obsah externých odkazov a za služby tretích strán (Cloudflare, e-mail provider), ani za občasné prerušenia dostupnosti.
+
+5.4 Zneužitie (automatizovaný scraping cielený proti zabezpečeniu, spam, pokusy o obídenie ochrán formulára) je dôvodom na blokovanie prístupu.
+
+## 6. Reklamácie a riešenie sporov
+
+6.1 Podnety a reklamácie prijíme na stancikmarian8@gmail.com; reagujeme bez zbytočného odkladu (do 30 dní).
+
+6.2 Web nepredáva, preto sa právo spotrebiteľa na odstúpenie od zmluvy (§ 18 – § 19 zákona č. 108/2024 Z. z.) a alternatívne riešenie sporov (zákon č. 391/2015 Z. z.) nevzťahuje na používanie bezplatných nástrojov; informatívne sa ODR platforma EÚ nachádza na https://ec.europa.eu/consumers/odr.
+
+## 7. Konečné ustanovenia
+
+7.1 Právnym poriadkom je právo Slovenskej republiky (OZ, ObchZ, zákon č. 108/2024 Z. z., zákon č. 22/2004 Z. z. o elektronickom obchode, GDPR/AI Act).
+
+7.2 Súvisiace dokumenty: Zásady ochrany osobných údajov, Cookie/úložisková politika, Impressum, Disclaimer.
+
+7.3 Prevádzkovateľ môže Podmienky zmeniť; zmeny sa vzťahujú na používanie po ich zverejnení.
+
+---
+*Zdroje citácií: § 39, § 40, § 87 a nasl. zákona č. 185/2015 Z. z.; § 420 – § 424 zákona č. 40/1964 Z. z.; § 18 – § 19 zákona č. 108/2024 Z. z.; čl. 50 nariadenia (EÚ) 2024/1689 (účinné od 2. 8. 2026). Všetky citácie v platnom znení k 1. 11. 2026 (overené Slov-Lex/EUR-Lex).*

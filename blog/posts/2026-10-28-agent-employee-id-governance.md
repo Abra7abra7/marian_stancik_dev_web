@@ -170,7 +170,7 @@ Every agent has a signed capability manifest that defines exactly what it can an
   "agentId": "A-0003",
   "name": "hermes-watchdog",
   "autonomyLevel": "Level 2 — Act on Behalf",
-  "humanSupervisor": "marianstancik@agentmail.to",
+  "humanSupervisor": "stancikmarian8@gmail.com",
   "capabilities": [
     "read:/var/log/*.log",
     "write:/opt/hermes-vault/05-ALERTS/",
@@ -226,7 +226,7 @@ for agent in $(ls /etc/hermes/agents/*.manifest.json); do
   if [ "$last_active" -lt 10 ]; then
     echo "Agent $id: inactive — recommend suspension"
     mail -s "[GOVERNANCE] Agent $id inactive" \
-      marianstancik@agentmail.to <<< "Agent $id has been inactive for 7+ days."
+      stancikmarian8@gmail.com <<< "Agent $id has been inactive for 7+ days."
   fi
 done
 ```
@@ -246,7 +246,7 @@ X-Agent-ID: A-0007
 X-Agent-Name: hermes-content-publisher
 X-Action-ID: act_20261028_001
 X-Autonomy-Level: Level 2
-X-Human-Supervisor: marianstancik@agentmail.to
+X-Human-Supervisor: stancikmarian8@gmail.com
 X-Content-Disclosure: AI-generated | Info only | marianstancik.dev/disclaimer
 ```
 
@@ -356,15 +356,10 @@ This is not compliance overhead. It is the difference between a system you trust
   
     
 
-Want weekly updates on autonomous agent architecture and governance?
+Staviaš vlastných AI agentov? 15 promptov z reálneho tímu 14 agentov, návod na prvého agenta a checklist guardrailov — zadarmo v AI Agent Starter Kite.
     
 
-One email per week. No spam. Unsubscribe anytime.
-    
-      
-      
-      Subscribe
-    
+Získať Starter Kit →
   
 
   

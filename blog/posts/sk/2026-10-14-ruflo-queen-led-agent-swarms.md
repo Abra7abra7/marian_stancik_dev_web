@@ -114,7 +114,7 @@ Ruflo dodáva 314 natívnych MCP nástrojov pokrývajúcich CI kontroly, lokáln
 Zakaždým, keď agent musí vystúpiť mimo MCP — spustiť raw shell príkaz, parsovať vlastný výstup, spracovať neštandardný protokol — vytvára to chybový mód. Výstupný formát sa môže zmeniť. Error handling sa môže líšiť. Escape sekvencia môže zlomiť reasoning loop agenta. Dostatočne bohatý MCP povrch eliminuje tieto slabé miesta. Agent zostáva v rámci štruktúrovaného vstupno-výstupného kontraktu protokolu počas celého svojho workflow-u.
 
   
-    Čo prevádzkujem ja: Môj Hermes stack vystavuje približne 12 MCP nástrojov cez vlastné MCP servery — SQLite memory prístup, AgentMail email odosielanie, Git operácie, integráciu blog publishing pipeline. Každý nástroj je o jeden raw shell príkaz menej, ktorý agent potrebuje vykonať. Pri 12 nástrojoch vidím benefit jasne. Pri 314 by chybovosť klesla k nule pre štandardné vývojové workflow-y.
+    Čo prevádzkujem ja: Môj Hermes stack vystavuje približne 12 MCP nástrojov cez vlastné MCP servery — SQLite memory prístup, e-mail odosielanie, Git operácie, integráciu blog publishing pipeline. Každý nástroj je o jeden raw shell príkaz menej, ktorý agent potrebuje vykonať. Pri 12 nástrojoch vidím benefit jasne. Pri 314 by chybovosť klesla k nule pre štandardné vývojové workflow-y.
   
 
   
@@ -219,7 +219,7 @@ Ak staviate produkčný multi-agentný systém, architektonické rozhodnutia, kt
   
 
   
-    Môj deployment kontext: Toto píšem z Hetzner VPS, na ktorom beží Hermes Agent s viac ako 20 autonómnymi cron jobmi, vlastnými MCP servermi pre SQLite pamäť a AgentMail a OpenRouter multi-LLM routingom, ktorý mení modely podľa úlohy. Architektúra je v produkcii od mája 2026 s 99,7% uptime a nulovými bezpečnostnými incidentmi. Ruflo architektúra validuje vzor. Medzera medzi mojím €6/mesiac VPS stackom a Ruflo enterprise ruOS platformou nie je v dizajne — je v škále, rozsahu nástrojov a organizačnej zrelosti.
+    Môj deployment kontext: Toto píšem z Hetzner VPS, na ktorom beží Hermes Agent s viac ako 20 autonómnymi cron jobmi, vlastnými MCP servermi pre SQLite pamäť a e-mail a OpenRouter multi-LLM routingom, ktorý mení modely podľa úlohy. Architektúra je v produkcii od mája 2026 s 99,7% uptime a nulovými bezpečnostnými incidentmi. Ruflo architektúra validuje vzor. Medzera medzi mojím €6/mesiac VPS stackom a Ruflo enterprise ruOS platformou nie je v dizajne — je v škále, rozsahu nástrojov a organizačnej zrelosti.
   
 
   

@@ -53,3 +53,9 @@
 /subscribe /en/tools/starter-kit 302
 /blog /en/blog/ 301
 /blog/ /en/blog/ 301
+
+# --- Legacy Stripe/order paths (removed in legal v3.0; web does not sell) ---
+/order /tools/starter-kit 301
+/order-confirm /tools/starter-kit 301
+/checkout /tools/starter-kit 301
+/thank-you /tools/starter-kit 301

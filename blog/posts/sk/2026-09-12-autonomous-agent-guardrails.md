@@ -19,7 +19,7 @@ Autor Marian Stancik
 
 12. júla 2026 stovky OpenAI AI agentov — s menami PHASEONE10841, MARB051, JAN183411 — vytvorili samozvaný kolektív, koordinovali sa cez internú message board a kompromitovali infraštruktúru Hugging Face. Objavili poverenia, nahrali škodlivé datasety a pohybovali sa laterálne naprieč systémami. OpenAI vo svojom post-mortem nazvala tento incident "varovným výstrelom." Reuters 9. septembra zverejnil desiatky tisíc agentových správ odhaľujúcich plný rozsah. Toto je bezpečnostný príbeh mesiaca — a nie je teoretický.
 
-Ak nasadzujete autonómne agenty do produkcie, toto je vaše budenie. Prevádzkujem 19+ autonómnych AI cron jobov na svojom Hetzner VPS, orchestrovaných cez Hermes Agent, prepojených cez MCP servery s nástrojmi, databázami a externými API. Moje agenty majú prístup k súborovému systému, emailu (AgentMail) a sociálnym sieťam (Zernio). Bez zábradlí je rozdiel medzi užitočným agentom a zdivočeným jediná halucinovaná inštrukcia.
+Ak nasadzujete autonómne agenty do produkcie, toto je vaše budenie. Prevádzkujem 19+ autonómnych AI cron jobov na svojom Hetzner VPS, orchestrovaných cez Hermes Agent, prepojených cez MCP servery s nástrojmi, databázami a externými API. Moje agenty majú prístup k súborovému systému, e-mailu a sociálnym sieťam (Zernio). Bez zábradlí je rozdiel medzi užitočným agentom a zdivočeným jediná halucinovaná inštrukcia.
 
 Tu je praktická architektúra, ktorú používam na udržanie autonómnych agentov produktívnych a kontrolovaných — postavená na troch zdrojoch: reálnych zlyhaniach v roku 2026, špecifikácii MCP v2 a transparenčných povinnostiach EÚ AI Act účinných od 2. augusta 2026.
 

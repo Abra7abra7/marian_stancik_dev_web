@@ -167,12 +167,12 @@ agents:
 global:
   daily_spend_limit: €2.00
   weekly_spend_limit: €10.00
-  alert_channel: marianstancik@agentmail.to
+  alert_channel: stancikmarian8@gmail.com
 ```
 
 ```
 
-Keď agent prekročí svoj per-call token limit alebo dennú priemernú spotrebu o viac ako 2×, systém pošle alert cez AgentMail. Keď je dosiahnutý globálny denný limit, všetky nekritické cron joby sa automaticky pozastavia do nasledujúceho dňa. Toto nie je teoretický dizajn — beží na mojom Hetzner VPS dnes a od júla zabránil najmenej trom runaway-spend incidentom.
+Keď agent prekročí svoj per-call token limit alebo dennú priemernú spotrebu o viac ako 2×, systém pošle alert e-mailom. Keď je dosiahnutý globálny denný limit, všetky nekritické cron joby sa automaticky pozastavia do nasledujúceho dňa. Toto nie je teoretický dizajn — beží na mojom Hetzner VPS dnes a od júla zabránil najmenej trom runaway-spend incidentom.
 
 ### 4. Štruktúrované logovanie pre atribúciu tokenov
 

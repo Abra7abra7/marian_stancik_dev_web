@@ -170,7 +170,7 @@ Každý agent má podpísaný manifest schopností, ktorý definuje, čo presne 
   "agentId": "A-0003",
   "name": "hermes-watchdog",
   "autonomyLevel": "Level 2 — Koná v mene",
-  "humanSupervisor": "marianstancik@agentmail.to",
+  "humanSupervisor": "stancikmarian8@gmail.com",
   "capabilities": [
     "read:/var/log/*.log",
     "write:/opt/hermes-vault/05-ALERTS/",
@@ -226,7 +226,7 @@ for agent in $(ls /etc/hermes/agents/*.manifest.json); do
   if [ "$last_active" -lt 10 ]; then
     echo "Agent $id: neaktívny — odporúčam suspendáciu"
     mail -s "[GOVERNANCE] Agent $id neaktívny" \
-      marianstancik@agentmail.to <<< "Agent $id je neaktívny 7+ dní."
+      stancikmarian8@gmail.com <<< "Agent $id je neaktívny 7+ dní."
   fi
 done
 ```
@@ -246,7 +246,7 @@ X-Agent-ID: A-0007
 X-Agent-Name: hermes-content-publisher
 X-Action-ID: act_20261028_001
 X-Autonomy-Level: Level 2
-X-Human-Supervisor: marianstancik@agentmail.to
+X-Human-Supervisor: stancikmarian8@gmail.com
 X-Content-Disclosure: AI-generated | Len info | marianstancik.dev/disclaimer
 ```
 
@@ -356,15 +356,10 @@ Toto nie je compliance réžia. Je to rozdiel medzi systémom, ktorému dôveruj
   
     
 
-Chceš týždenné novinky o architektúre a governance autonómnych agentov?
+Staviaš vlastných AI agentov? 15 promptov z reálneho tímu 14 agentov, návod na prvého agenta a checklist guardrailov — zadarmo v AI Agent Starter Kite.
     
 
-Jeden email týždenne. Žiadny spam. Kedykoľvek sa odhlás.
-    
-      
-      
-      Odoberať
-    
+Získať Starter Kit →
   
 
   

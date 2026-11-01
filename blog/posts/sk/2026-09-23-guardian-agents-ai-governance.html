@@ -254,7 +254,7 @@ global:
     - terminal: "akákoľvek zápisová operácia"
     - write_file: "mimo scope projektu"</code></pre>
 
-<p>Toto nie je teória — každý agent na mojom VPS je viazaný touto presnou politikou. Pravidlo deny-by-default znamená, že ak nástroj nie je explicitne v povolenom zozname, guardian ho zablokuje. Keď sa agent pokúsi zavolať deny-listovaný nástroj, guardian zaloguje pokus, pošle alert na marianstancik@agentmail.to a pokračuje bez prerušenia. Za 4 mesiace v produkcii som dostal presne 2 takéto alerty — oba spôsobené legitímnymi chybami v konfigurácii počas vývoja, zachytené skôr než sa stali incidentmi.</p>
+<p>Toto nie je teória — každý agent na mojom VPS je viazaný touto presnou politikou. Pravidlo deny-by-default znamená, že ak nástroj nie je explicitne v povolenom zozname, guardian ho zablokuje. Keď sa agent pokúsi zavolať deny-listovaný nástroj, guardian zaloguje pokus, pošle alert na stancikmarian8@gmail.com a pokračuje bez prerušenia. Za 4 mesiace v produkcii som dostal presne 2 takéto alerty — oba spôsobené legitímnymi chybami v konfigurácii počas vývoja, zachytené skôr než sa stali incidentmi.</p>
 
 <div class="callout">
 <strong>Kľúčový princíp:</strong> Agenti by nemali žiadať o povolenie volať nástroje. Mali by volať nástroje cez vrstvu, ktorá kontroluje povolenia automaticky. Toto je rozdiel medzi "bezpečné dizajnom" a "bezpečné dúfaním, že agent dodrží inštrukcie."
@@ -348,7 +348,7 @@ monitoring:
 <p>Vynucujem tri metagovernančné pravidlá od prvého dňa:</p>
 
 <ol>
-<li><strong>Scope-ovaná identita pre samotného guardiana.</strong> Guardian agent má vlastnú identitu a zoznam prístupov k nástrojom. Môže čítať politiky, kontrolovať logy a spravovať sessions — ale nemôže modifikovať vlastné politiky, mazať audit logy alebo meniť identity bindings. Tieto akcie vyžadujú ľudský podpis (AgentMail inbox Mariana Stančíka).</li>
+<li><strong>Scope-ovaná identita pre samotného guardiana.</strong> Guardian agent má vlastnú identitu a zoznam prístupov k nástrojom. Môže čítať politiky, kontrolovať logy a spravovať sessions — ale nemôže modifikovať vlastné politiky, mazať audit logy alebo meniť identity bindings. Tieto akcie vyžadujú ľudský podpis (inbox Mariana Stančíka).</li>
 
 <li><strong>Sandboxovaný runtime.</strong> Guardian beží v separátnom process namespace s vlastným filesystem mountom. Nemôže byť zabitý alebo modifikovaný žiadnym execution agentom. Guardian proces reštartuje z read-only konfigurácie po každej session, takže policy drift sa nemôže akumulovať.</li>
 
@@ -372,7 +372,7 @@ guardian_self_policy:
   runtime_containment:
     - process_namespace: isolated
     - filesystem: read-only after boot
-    - network: outbound only to: mcp.agentmail.to, openrouter.ai
+    - network: outbound only to: mcp.e-mail.to, openrouter.ai
     - restart_policy: "from read-only config every session"
   
   audit:
@@ -410,7 +410,7 @@ Agent Runtime (Hermes Agent)
   → Guardian Proxy Layer (Policy Check + Identity)
     → Tool Call (MCP Server)
       → Audit Trail (Immutable Hash Chain)
-        → Alert Pipeline (AgentMail)
+        → Alert Pipeline (inbox Mariana Stančíka)
 ──────────────────────────────────────────────────────────
 19 × 24/7 agentov | 0 incidentov za 4 mesiace
 ~15ms réžia policy checkov | &lt;€0.30/mesiac náklady guardiana
@@ -429,7 +429,7 @@ Agent Runtime (Hermes Agent)
 <footer>
   <div class="container">
     <p>&copy; 2026 Marian Stancik — <a href="/">marianstancik.dev</a></p>
-    <p style="margin-top:8px;"><a href="mailto:marianstancik@agentmail.to">marianstancik@agentmail.to</a></p>
+    <p style="margin-top:8px;"><a href="mailto:stancikmarian8@gmail.com">stancikmarian8@gmail.com</a></p>
   </div>
 </footer>
 </body>

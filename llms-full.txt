@@ -71,4 +71,4 @@ His core differentiation is the intersection of three domains:
 - [YouTube](https://www.youtube.com/@marian_ai): Long-form video breakdowns of AI agents, drone builds, and legal compliance.
 - [GitHub](https://github.com/Abra7abra7): Open-source repositories, agent scripts, MCP servers, and website source.
 - [LinkedIn](https://www.linkedin.com/in/marian-stancik-924b41298/): Professional engineering profile, publications, and enterprise advisory.
-- [Email](mailto:marianstancik@agentmail.to): Direct asynchronous agent-routed communication endpoint.
+- [Email](mailto:stancikmarian8@gmail.com): Direct asynchronous agent-routed communication endpoint.

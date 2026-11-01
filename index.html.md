@@ -20,7 +20,7 @@ Marian Stancik is an AI Engineer, UAV Builder, and Law Scholar exploring the con
 
 ## Contact
 
-- **Email:** marianstancik@agentmail.to
+- **Email:** stancikmarian8@gmail.com
 - **X/Twitter:** https://x.com/marian_s_ai
 - **GitHub:** https://github.com/Abra7abra7
 - **LinkedIn:** https://www.linkedin.com/in/marian-stancik-924b41298/

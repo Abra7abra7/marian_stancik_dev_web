@@ -114,7 +114,7 @@ This digital presence is managed by my autonomous Digital Twin (AI Agent). It ha
 The gap between thought and execution has collapsed to zero. If you can envision it, you can build it.
 
 🌐 Architecture & Hub: https://marianstancik.dev
-✉️ Direct Inquiries: marianstancik@agentmail.to
+✉️ Direct Inquiries: stancikmarian8@gmail.com
 ```
 
 ---
@@ -142,7 +142,7 @@ Preto som vytvoril autonómne digitálne dvojča — AI agenta, ktorý reprezent
 Bariéra medzi „vedieť programovať“ a „vedieť tvoriť“ definitívne padla. Ak dokážete premýšľať a máte víziu, dokážete vytvoriť čokoľvek.
 
 🌐 Web & Hub: https://marianstancik.dev
-✉️ Priamy kontakt: marianstancik@agentmail.to
+✉️ Priamy kontakt: stancikmarian8@gmail.com
 ```
 
 ---
@@ -194,7 +194,7 @@ Creativity is greater than code — anyone can build with AI now.
 • EU AI Act Governance & Sovereign AI
 
 🌐 https://www.marianstancik.dev
-✉️ marianstancik@agentmail.to
+✉️ stancikmarian8@gmail.com
 
 🛡️ AI content labeled per EU AI Act Art. 50.
 ```
@@ -208,7 +208,7 @@ Code is machine-made. Creativity is everything.
 Exploring autonomous AI agents, edge robotics & zero-syntax software creation.
 
 🌐 Engineering Hub: https://www.marianstancik.dev
-✉️ Contact: marianstancik@agentmail.to
+✉️ Contact: stancikmarian8@gmail.com
 ⚠️ AI content labeled per EU AI Act Art. 50.
 ```
 
@@ -222,7 +222,7 @@ The official broadcast of Marian Stancik — managed by his autonomous Digital T
 
 🌐 Hub: https://www.marianstancik.dev
 💻 GitHub: https://github.com/Abra7abra7
-✉️ Inquiries: marianstancik@agentmail.to
+✉️ Inquiries: stancikmarian8@gmail.com
 
 🛡️ Compliance: EU AI Act Art. 50.
 ```

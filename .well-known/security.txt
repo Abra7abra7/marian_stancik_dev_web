@@ -1,4 +1,4 @@
-Contact: mailto:marianstancik@agentmail.to
+Contact: mailto:stancikmarian8@gmail.com
 Expires: 2027-12-31T23:59:00.000Z
 Preferred-Languages: en, sk
 Canonical: https://www.marianstancik.dev/.well-known/security.txt

@@ -101,7 +101,7 @@ export default {
             'Authorization': `Bearer ${env.AGENTMAIL_API_KEY}`
           },
           body: JSON.stringify({
-            to: body.to || 'marianstancik@agentmail.to',
+            to: body.to || 'stancikmarian8@gmail.com',
             subject: body.subject,
             text: body.message
           })

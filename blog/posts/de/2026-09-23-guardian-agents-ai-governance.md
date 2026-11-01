@@ -124,7 +124,7 @@ global:
 
 ```
 
-This is not theoretical — every agent on my VPS is bound by this exact policy. The deny-by-default rule means that if a tool is not explicitly in the allowed list, the guardian blocks it. When an agent tries to call deny-listed tools, the guardian logs the attempt, sends an alert to marianstancik@agentmail.to, and continues without interruption. In 4 months of production, I have received exactly 2 such alerts — both caused by legitimate config errors during development, caught before they became incidents.
+This is not theoretical — every agent on my VPS is bound by this exact policy. The deny-by-default rule means that if a tool is not explicitly in the allowed list, the guardian blocks it. When an agent tries to call deny-listed tools, the guardian logs the attempt, sends an alert to stancikmarian8@gmail.com, and continues without interruption. In 4 months of production, I have received exactly 2 such alerts — both caused by legitimate config errors during development, caught before they became incidents.
 
 Key principle: Agents should not ask for permission to call tools. They should call tools through a layer that checks permissions automatically. This is the difference between "safe by design" and "safe by hoping the agent follows its instructions."
 
@@ -231,7 +231,7 @@ Gartner's Market Guide includes a specific section titled "Guard the Guardians" 
 
 I enforce three metagovernance rules from day one:
 
-- Scoped identity for the guardian itself. The guardian agent has its own identity and tool access list. It can read policies, check logs, and manage sessions — but it cannot modify its own policies, delete audit logs, or change identity bindings. Those actions require a human signature (Marian's AgentMail inbox).
+- Scoped identity for the guardian itself. The guardian agent has its own identity and tool access list. It can read policies, check logs, and manage sessions — but it cannot modify its own policies, delete audit logs, or change identity bindings. Those actions require a human signature (Marian's e-mail inbox).
 
 - Sandboxed runtime. The guardian runs in a separate process namespace with its own filesystem mount. It cannot be killed or modified by any execution agent. The guardian process restarts from a read-only configuration after every session, so policy drift cannot accumulate.
 
@@ -257,7 +257,7 @@ guardian_self_policy:
   runtime_containment:
     - process_namespace: isolated
     - filesystem: read-only after boot
-    - network: outbound only to: mcp.agentmail.to, openrouter.ai
+    - network: outbound only to: mcp.e-mail.to, openrouter.ai
     - restart_policy: "from read-only config every session"
   
   audit:
@@ -302,7 +302,7 @@ Agent Runtime (Hermes Agent)
   → Guardian Proxy Layer (Policy Check + Identity)
     → Tool Call (MCP Server)
       → Audit Trail (Immutable Hash Chain)
-        → Alert Pipeline (AgentMail)
+        → Alert Pipeline (Marian Stancik’s own inbox)
 ──────────────────────────────────────────────────────────
 19 × 24/7 agents | 0 incidents in 4 months
 ~15ms policy check overhead | <€0.30/month guardian cost

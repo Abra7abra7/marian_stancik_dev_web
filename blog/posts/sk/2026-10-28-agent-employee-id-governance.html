@@ -237,7 +237,7 @@ WantedBy=multi-user.target</pre>
   "agentId": "A-0003",
   "name": "hermes-watchdog",
   "autonomyLevel": "Level 2 — Koná v mene",
-  "humanSupervisor": "marianstancik@agentmail.to",
+  "humanSupervisor": "stancikmarian8@gmail.com",
   "capabilities": [
     "read:/var/log/*.log",
     "write:/opt/hermes-vault/05-ALERTS/",
@@ -273,7 +273,7 @@ for agent in $(ls /etc/hermes/agents/*.manifest.json); do
   if [ "$last_active" -lt 10 ]; then
     echo "Agent $id: neaktívny — odporúčam suspendáciu"
     mail -s "[GOVERNANCE] Agent $id neaktívny" \
-      marianstancik@agentmail.to <<< "Agent $id je neaktívny 7+ dní."
+      stancikmarian8@gmail.com <<< "Agent $id je neaktívny 7+ dní."
   fi
 done</pre>
 
@@ -286,7 +286,7 @@ X-Agent-ID: A-0007
 X-Agent-Name: hermes-content-publisher
 X-Action-ID: act_20261028_001
 X-Autonomy-Level: Level 2
-X-Human-Supervisor: marianstancik@agentmail.to
+X-Human-Supervisor: stancikmarian8@gmail.com
 X-Content-Disclosure: AI-generated | Len info | marianstancik.dev/disclaimer</pre>
 
   <p>Toto nie je voliteľné. AI Office poslal prvé informačné výzvy 30+ AI laboratóriám v auguste 2026 a pokuty za nedodržanie dosahujú €15M alebo 3% globálneho obratu. Ak tvoj agent pôsobí na trhu EÚ, potrebuje pas.</p>
@@ -350,13 +350,8 @@ X-Content-Disclosure: AI-generated | Len info | marianstancik.dev/disclaimer</pr
   <hr>
 
   <div style="background:rgba(13,13,26,0.75);border:1px solid rgba(205,127,50,0.15);border-radius:10px;padding:24px;margin:32px 0;text-align:center;">
-    <p style="font-size:1rem;color:#D0D0E0;margin-bottom:8px;"><strong>Chceš týždenné novinky o architektúre a governance autonómnych agentov?</strong></p>
-    <p style="font-size:0.85rem;color:#A0A0B8;margin-bottom:16px;">Jeden email týždenne. Žiadny spam. Kedykoľvek sa odhlás.</p>
-    <form action="https://www.marianstancik.dev/api/subscribe" method="POST" style="display:flex;gap:8px;max-width:400px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
-      <input type="email" name="email" placeholder="tvoj@email.com" required style="flex:1;min-width:200px;padding:10px 14px;border-radius:6px;border:1px solid rgba(205,127,50,0.2);background:rgba(8,8,15,0.8);color:#E8E8F0;font-size:0.85rem;">
-      <input type="hidden" name="lang" value="sk">
-      <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Odoberať</button>
-    </form>
+    <p style="font-size:0.95rem;color:#D0D0E0;margin-bottom:16px;">Staviaš vlastných AI agentov? 15 promptov z reálneho tímu 14 agentov, návod na prvého agenta a checklist guardrailov — zadarmo v AI Agent Starter Kite.</p>
+    <p style="margin-bottom:0;"><a href="/tools/starter-kit" class="btn-cta">Získať Starter Kit →</a></p>
   </div>
 
   <p style="font-size:0.75rem;color:#707090;margin-top:32px;text-align:center;">⚠️ AI-generated | Len info | <a href="/disclaimer">marianstancik.dev/disclaimer</a></p>

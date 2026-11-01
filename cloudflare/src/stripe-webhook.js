@@ -13,7 +13,7 @@
 
 import { runAudit } from './audit-worker';
 
-async function sendAgentMail(env, to, subject, text, html = null, inboxId = 'marianstancik@agentmail.to') {
+async function sendAgentMail(env, to, subject, text, html = null, inboxId = 'stancikmarian8@gmail.com') {
   const apiKey = env.AGENTMAIL_API_KEY;
   if (!apiKey) {
     console.warn('AGENTMAIL_API_KEY not configured — skipping email delivery');
@@ -65,7 +65,7 @@ async function sendAgentMail(env, to, subject, text, html = null, inboxId = 'mar
 }
 
 async function sendAdminAlert(env, subject, message) {
-  return await sendAgentMail(env, 'marianstancik@agentmail.to', subject, message);
+  return await sendAgentMail(env, 'stancikmarian8@gmail.com', subject, message);
 }
 
 async function verifyStripeSignature(rawBody, header, secret) {
