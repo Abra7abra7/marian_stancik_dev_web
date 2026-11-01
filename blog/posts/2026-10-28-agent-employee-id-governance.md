@@ -356,15 +356,10 @@ This is not compliance overhead. It is the difference between a system you trust
   
     
 
-Want weekly updates on autonomous agent architecture and governance?
+Staviaš vlastných AI agentov? 15 promptov z reálneho tímu 14 agentov, návod na prvého agenta a checklist guardrailov — zadarmo v AI Agent Starter Kite.
     
 
-One email per week. No spam. Unsubscribe anytime.
-    
-      
-      
-      Subscribe
-    
+Získať Starter Kit →
   
 
   

@@ -406,11 +406,11 @@ document.getElementById('leadForm')?.addEventListener('submit', async function(e
     const res = await fetch('/api/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, source: 'marianstancik.dev', turnstile: window.__turnstileToken || '' })
+      body: JSON.stringify({ email, source: document.querySelector('#leadForm input[name="source"]')?.value || 'marianstancik.dev', turnstile: window.__turnstileToken || '', lang: currentLang })
     });
     const data = await res.json();
     if (res.ok && data.status === 'ok') {
-      status.textContent = currentLang === 'sk' ? '✅ Prihlásené! Skontrolujte si schránku.' : (currentLang === 'de' ? '✅ Abonniert! Prüfen Sie Ihr Postfach.' : (currentLang === 'pl' ? '✅ Zapisano! Sprawdź skrzynkę.' : '✅ Subscribed! Check your inbox.'));
+      status.textContent = currentLang === 'sk' ? '✅ Takmer hotovo! Poslali sme ti potvrdzovací e-mail — klikni na odkaz v ňom a Kit ti príde.' : (currentLang === 'de' ? '✅ Fast fertig! Wir haben dir eine Bestätigungs-E-Mail geschickt — klicke auf den Link darin.' : (currentLang === 'pl' ? '✅ Prawie gotowe! Wysłaliśmy e-mail potwierdzający — kliknij link w nim.' : '✅ Almost done! We sent you a confirmation email — click the link in it and the Kit is on its way.'));
       status.className = 'lead-status lead-success';
       document.getElementById('leadEmail').value = '';
     } else {
@@ -426,55 +426,6 @@ document.getElementById('leadForm')?.addEventListener('submit', async function(e
 });
 
 // Contact form
-document.getElementById('contactForm')?.addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const btn = document.getElementById('contactSubmitBtn');
-  const status = document.getElementById('contactStatus');
-  const name = document.getElementById('contactName')?.value.trim();
-  const email = document.getElementById('contactEmail')?.value.trim();
-  const message = document.getElementById('contactMessage')?.value.trim();
-  const hp = document.getElementById('contactHp')?.value;
-  
-  if (hp) return; // Silent honeypot drop
-  if (!email || !message) return;
-  
-  btn.disabled = true;
-  btn.textContent = '...';
-  status.textContent = '';
-  status.className = 'lead-status';
-  
-  try {
-    const res = await fetch('/api/subscribe', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name,
-        email,
-        message,
-        source: 'contact_form'
-      })
-    });
-    const data = await res.json();
-    if (res.ok && data.status === 'ok') {
-      status.textContent = currentLang === 'sk' ? '✅ Správa úspešne odoslaná! Ozvem sa do 24 hodín.' :
-        (currentLang === 'de' ? '✅ Nachricht erfolgreich gesendet! Antwort innerhalb von 24h.' :
-        (currentLang === 'pl' ? '✅ Wiadomość wysłana! Odpowiem w ciągu 24h.' :
-        '✅ Message sent successfully! Fast reply within 24h.'));
-      status.className = 'lead-status lead-success';
-      document.getElementById('contactForm').reset();
-    } else {
-      status.textContent = '❌ ' + (data.error || 'Error sending message. Please try again.');
-      status.className = 'lead-status lead-error';
-    }
-  } catch (err) {
-    status.textContent = '❌ Network error. Write directly to marianstancik@agentmail.to';
-    status.className = 'lead-status lead-error';
-  }
-  btn.disabled = false;
-  btn.textContent = translations[currentLang]?.contactSubmitBtn || 'Send Message →';
-});
-
-
 // Delegated language-switch listener — replaces the former inline
 // onclick="switchLanguage('xx')" on nav buttons (CSP script-src 'self', no 'unsafe-inline').
 // Used by the root (client-side switching) templates; /{lang}/ copies use static links instead.

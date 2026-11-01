@@ -1,6 +1,5 @@
-// Cloudflare Pages Function — Lead & Order capture → AgentMail (branded HTML email templates + admin alerts)
-import emailTpl from './email-templates.js';
-
+// Cloudflare Pages Function — Lead capture with STRICT double opt-in (legal v3.0).
+// The welcome/kit email is sent from functions/api/confirm.js AFTER the confirmation link click.
 export async function onRequestOptions(context) {
   const origin = context.request.headers.get('origin') || '';
   return new Response(null, {
@@ -81,13 +80,7 @@ export async function onRequestPost(context) {
     }
 
     const email = (body.email || '').trim().toLowerCase();
-    const name = (body.name || '').slice(0, 100);
     const source = (body.source || 'web').slice(0, 50);
-    const message = (body.message || '').slice(0, 5000);
-    const product = (body.product || '').slice(0, 150);
-    const price = (body.price || '').toString().slice(0, 20);
-    const website = (body.website || '').slice(0, 200);
-    const notes = (body.notes || '').slice(0, 1000);
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return new Response(JSON.stringify({ error: 'Invalid email' }), { status: 400, headers: corsHeaders });
@@ -95,10 +88,8 @@ export async function onRequestPost(context) {
 
     // Safety guard
     const isTest = source.startsWith('pre-commit') || email.endsWith('.local');
-    const isOrder = Boolean(product) || source === 'product_order' || source === 'stripe_checkout_intent';
-    const isContact = Boolean(message) || source === 'contact_form';
 
-    if (isTest && !isOrder && !isContact) {
+    if (isTest) {
       return new Response(JSON.stringify({ status: 'ok', type: 'test-skip', email, note: 'Test request - email not sent' }), { status: 200, headers: corsHeaders });
     }
 
@@ -179,44 +170,54 @@ export async function onRequestPost(context) {
       return { ok: false, reason: lastError };
     }
 
-    if (isOrder) {
-      const custHtml = emailTpl.orderConfirmation(name || 'zákazník', product, price, website);
-      const custText = emailTpl.orderConfirmationText(name || 'zákazník', product, price, website, notes);
-      await sendEmail(email, `Potvrdenie objednávky: ${product}`, custText, custHtml);
+    // ---- Lead capture: STRICT double opt-in (legal v3.0) ----
+    // Step 1: store the contact as "pending". NO welcome email and NO kit here —
+    // the kit is sent only after the subscriber clicks the confirmation link
+    // (see functions/api/confirm.js).
 
-      const alertBody = `NOVÁ OBJEDNÁVKA\nDatum: ${dateStr} ${timeStr}\nProdukt: ${product}\nCena: €${price}\nZakaznik: ${name || '-'} <${email}>\nWeb: ${website || '-'}\nPoznamky: ${notes || '-'}\nZdroj: ${source}`;
-      await sendEmail('marianstancik@agentmail.to', `★ OBJEDNÁVKA: ${product} (€${price}) — ${name || email}`, alertBody, null);
-
-      const crmRes = await crmToSheets('order', { email, name, product, price, website, notes, source, date: dateStr, time: timeStr });
-      return new Response(JSON.stringify({ status: 'ok', type: 'order', email, product, crm: crmRes.ok ? 'ok' : 'failed' }), { status: 200, headers: corsHeaders });
+    async function hmacSign(data, secretStr) {
+      const enc = new TextEncoder();
+      const key = await crypto.subtle.importKey('raw', enc.encode(secretStr), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+      const sig = await crypto.subtle.sign('HMAC', key, enc.encode(data));
+      return [...new Uint8Array(sig)].map(b => b.toString(16).padStart(2, '0')).join('');
     }
 
-    if (isContact) {
-      const custHtml = emailTpl.contactConfirmation(name, message);
-      const custText = emailTpl.contactConfirmationText(name, message);
-      await sendEmail(email, 'Správa prijatá — Marian Stancik', custText, custHtml);
+    const crmRes = await crmToSheets('newsletter', { email, source, status: 'pending', date: dateStr, time: timeStr });
 
-      const alertBody = `NOVÁ SPRÁVA Z KONTAKTNÉHO FORMULÁRA\nDatum: ${dateStr} ${timeStr}\nOdosielatel: ${name || '-'} <${email}>\nSprava:\n${message}\nZdroj: ${source}`;
-      await sendEmail('marianstancik@agentmail.to', `✉ SPRÁVA: ${name || email}`, alertBody, null);
+    const optinSecret = env.OPTIN_SECRET || env.CRM_WEBHOOK_KEY || apiKey;
+    const lang = (body.lang === 'sk') ? 'sk' : 'en';
+    const payload = btoa(JSON.stringify({ e: email, s: source, l: lang, t: Date.now() }))
+      .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    const sig = await hmacSign(payload, optinSecret);
+    const token = `${payload}.${sig}`;
+    const confirmUrl = `https://www.marianstancik.dev/api/confirm?token=${encodeURIComponent(token)}`;
 
-      const crmRes = await crmToSheets('contact', { email, name, message, source, date: dateStr, time: timeStr });
-      return new Response(JSON.stringify({ status: 'ok', type: 'contact', email, crm: crmRes.ok ? 'ok' : 'failed' }), { status: 200, headers: corsHeaders });
-    }
+    const confSubject = lang === 'sk'
+      ? 'Potvrď prihlásenie — AI Agent Starter Kit'
+      : 'Confirm your subscription — AI Agent Starter Kit';
+    const confText = lang === 'sk'
+      ? `Ahoj,\n\nraz si požiadal(a) o AI Agent Starter Kit na marianstancik.dev.\n\nPosledný krok: potvrď prihlásenie kliknutím na tento odkaz:\n${confirmUrl}\n\nBez potvrdenia ti nič nepošleme. Odkaz platí 30 dní.\n\nAk si o to nepožiadal(a), tento e-mail ignoruj a nič sa nestane.\n\n— Marian Stancik`
+      : `Hi,\n\nyou requested the AI Agent Starter Kit on marianstancik.dev.\n\nOne last step: confirm your subscription by clicking this link:\n${confirmUrl}\n\nNothing gets sent without confirmation. The link is valid for 30 days.\n\nIf you did not request this, ignore this email and nothing happens.\n\n— Marian Stancik`;
+    const confHtml = `<!DOCTYPE html><html><body style="font-family:Arial,Helvetica,sans-serif;max-width:560px;margin:0 auto;color:#222;">
+      <h2 style="color:#CD7F32;">${lang === 'sk' ? 'Potvrď prihlásenie' : 'Confirm your subscription'}</h2>
+      <p>${lang === 'sk'
+        ? 'Raz si požiadal(a) o AI Agent Starter Kit. Posledný krok: klikni na potvrdzovacie tlačidlo nižšie. Bez potvrdenia ti nič nepošleme.'
+        : 'You requested the AI Agent Starter Kit. One last step: click the confirmation button below. Nothing gets sent without confirmation.'}</p>
+      <p><a href="${confirmUrl}" style="display:inline-block;background:#CD7F32;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">${lang === 'sk' ? 'Potvrdiť prihlásenie' : 'Confirm subscription'}</a></p>
+      <p style="font-size:0.8rem;color:#888;">${lang === 'sk' ? 'Odkaz platí 30 dní. Ak si o to nepožiadal(a), ignoruj tento e-mail.' : 'The link is valid for 30 days. If you did not request this, ignore this email.'}</p>
+    </body></html>`;
 
-    // Newsletter subscription
-    let welcomeSent = false;
     try {
-      const welcomeHtml = emailTpl.welcome(name, source);
-      const welcomeText = emailTpl.welcomeText();
-      await sendEmail(email, 'Vitaj v AI newslettri — Marian Stancik', welcomeText, welcomeHtml);
-      welcomeSent = true;
+      await sendEmail(email, confSubject, confText, confHtml);
     } catch (e) {
-      console.error('Welcome email failed:', e.message);
+      console.error('Confirmation email failed:', e.message);
+      return new Response(JSON.stringify({ error: 'Confirmation email could not be sent. Try again later.' }), { status: 502, headers: corsHeaders });
     }
 
-    await sendEmail('marianstancik@agentmail.to', `✦ Nový odberateľ newslettra: ${email}`, `Nový odberateľ newslettra:\nEmail: ${email}\nZdroj: ${source}\nDátum: ${dateStr} ${timeStr}`, null);
-    const crmRes = await crmToSheets('newsletter', { email, source, date: dateStr, time: timeStr });
-    return new Response(JSON.stringify({ status: 'ok', type: 'newsletter', email, welcome_sent: welcomeSent, crm: crmRes.ok ? 'ok' : 'failed' }), { status: 200, headers: corsHeaders });
+    await sendEmail('marianstancik@agentmail.to', `✦ Nový PENDING opt-in: ${email}`, `Nový pending opt-in (čaká na potvrdenie):\nEmail: ${email}\nZdroj: ${source}\nDátum: ${dateStr} ${timeStr}\nCRM: ${crmRes.ok ? 'ok' : 'FAILED — zapis rucne'}`, null)
+      .catch(e => console.error('Admin notify failed:', e.message));
+
+    return new Response(JSON.stringify({ status: 'ok', type: 'newsletter', double_optin: 'pending', email, crm: crmRes.ok ? 'ok' : 'failed' }), { status: 200, headers: corsHeaders });
 
   } catch (err) {
     console.error('Subscribe handler error:', err.message);
