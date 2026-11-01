@@ -10,6 +10,8 @@ Law & AI Compliance
 
 ### Zgodność z EU AI Act dla małych firm AI
 
+By Marian Stancik
+·
 August 20, 2026
 ·
 6 min czytania

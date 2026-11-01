@@ -6,7 +6,9 @@
 
 ---
 
-August 25, 2026
+By Marian Stancik
+  ·
+  August 25, 2026
   Web Performance
   Lighthouse
   Optimization
@@ -44,7 +46,7 @@ The biggest win. 22KB of CSS went from inline every page to a single
 </style>
 
 <!-- After: external, cached once -->
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/main.css?v=134">
 ```
 
 ```
@@ -65,7 +67,7 @@ type="module"
 
 ```
 <!-- Three.js — deferred by nature of type="module" -->
-<script type="module" src="/js/three-bg.js"></script>
+<script type="module" src="/js/three-bg.min.js?v=133"></script>
 
 <!-- i18n — loaded at body bottom, not render-blocking -->
 <script src="/js/i18n.js"></script>

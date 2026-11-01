@@ -10,6 +10,8 @@ Drones & UAV Engineering
 
 ### Autonome Drohnenmissionen mit ArduPilot & Python
 
+By Marian Stancik
+·
 August 17, 2026
 ·
 5 Min. Lesezeit

@@ -171,12 +171,13 @@ Marian Stancik builds autonomous agent ecosystems (Hermes Agent, MCP), hand-sold
 
 ## Core Pages
 
-- [Home](https://www.marianstancik.dev/): High-impact hero, autonomous agent stats, live 24/7 cron orchestrations, and connect channels.
-- [About](https://www.marianstancik.dev/about): Technical bio, 4-layer engineering stack (Hetzner VPS, OpenRouter, Obsidian, Zero-build Web), and career timeline.
-- [Products & Audits](https://www.marianstancik.dev/services): 4 production-ready products (AI GEO Audit €199, Web Readiness Scan €200, Full Web Audit €300, Custom Agent from €500).
-- [Tactical UAV Systems](https://www.marianstancik.dev/drones): Hand-soldered 1500g carbon quadcopter, ArduPilot Copter autopilot, Raspberry Pi 5 edge vision AI (Hobby project).
+- [Home](https://www.marianstancik.dev/): Hero with the 14-agent team stats, three entry points (Free Tools / How it works / Blog) and the latest posts.
+- [Free Tools](https://www.marianstancik.dev/tools/): Index of free tools — Prompt Library, AI Agent Starter Kit, Mission Planner (coming soon). No sign-up, no gate.
+- [Prompt Library](https://www.marianstancik.dev/tools/prompt-library): 15 field-tested agent prompts from a real 14-agent team — prompt → input → output → known failures. Free, no registration.
+- [AI Agent Starter Kit](https://www.marianstancik.dev/tools/starter-kit): The prompts and playbook behind the team, plus a 3-step start for the first agent — delivered by email, free.
+- [How it works](https://www.marianstancik.dev/how-it-works): The story of the 14-agent team — roles, rules, one owner per task, human approval on decisions. Neutral, no selling.
 - [Blog](https://www.marianstancik.dev/blog): Technical articles on autonomous AI workflows, legal-by-design compliance (AI Act, GDPR), and robotics.
-- [Contact](https://www.marianstancik.dev/contact): Direct lead capture, communication channels, and social profiles.
+- [Contact](https://www.marianstancik.dev/contact): Direct communication channels and social profiles.
 
 ## Technical Articles
 
@@ -208,12 +209,13 @@ Marian Stancik builds autonomous agent ecosystems (Hermes Agent, MCP), hand-sold
 
 ## Core Endpoints & Pages
 
-- [Home](https://www.marianstancik.dev/): High-impact hero, autonomous agent stats, live 24/7 cron orchestrations, and connect channels.
-- [About](https://www.marianstancik.dev/about): Technical bio, 4-layer engineering stack (Hetzner VPS, OpenRouter, Obsidian, Zero-build Web), and career timeline.
-- [Products & Audits](https://www.marianstancik.dev/services): AI GEO Audit (€199), AI Web Readiness Scan (€200), Full Web Audit (€300), Custom Autonomous Agent (€500 deposit).
-- [Tactical UAV Systems](https://www.marianstancik.dev/drones): Hand-soldered 1500g carbon quadcopter, ArduPilot Copter autopilot, Raspberry Pi 5 edge vision AI (Hobby project).
+- [Home](https://www.marianstancik.dev/): Hero with the 14-agent team stats, three entry points (Free Tools / How it works / Blog) and the latest posts.
+- [Free Tools](https://www.marianstancik.dev/tools/): Index of free tools — Prompt Library, AI Agent Starter Kit, Mission Planner (coming soon). No sign-up, no gate.
+- [Prompt Library](https://www.marianstancik.dev/tools/prompt-library): 15 field-tested agent prompts from a real 14-agent team — prompt → input → output → known failures. Free, no registration.
+- [AI Agent Starter Kit](https://www.marianstancik.dev/tools/starter-kit): The prompts and playbook behind the team, plus a 3-step start for the first agent — delivered by email, free.
+- [How it works](https://www.marianstancik.dev/how-it-works): The story of the 14-agent team — roles, rules, one owner per task, human approval on decisions. Neutral, no selling.
 - [Blog Archive](https://www.marianstancik.dev/blog): Technical articles on autonomous AI workflows, legal-by-design compliance (AI Act, GDPR), and robotics.
-- [Contact & Connect](https://www.marianstancik.dev/contact): Direct lead capture, communication channels, and social profiles.
+- [Contact & Connect](https://www.marianstancik.dev/contact): Direct communication channels and social profiles.
 
 ## Blog Articles
 

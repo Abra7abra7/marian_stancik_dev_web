@@ -6,7 +6,9 @@
 
 ---
 
-16. september 2026
+Autor Marian Stancik
+  ·
+  16. september 2026
   Multi-Agentové Systémy
   Agentová Architektúra
   Autonómne Agenty

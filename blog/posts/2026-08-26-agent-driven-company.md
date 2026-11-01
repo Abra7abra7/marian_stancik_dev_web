@@ -10,6 +10,8 @@ AI Agents & Autonomy
 
 ### From Solo Founder to Agent-Driven Company with 19 Autonomous Cron Jobs AI-generated
 
+By Marian Stancik
+·
 August 26, 2026
 ·
 6 min read

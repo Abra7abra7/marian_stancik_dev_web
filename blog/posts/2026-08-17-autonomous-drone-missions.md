@@ -10,6 +10,8 @@ Drones & UAV Engineering
 
 ### Autonomous Drone Missions with ArduPilot & Python AI-generated
 
+By Marian Stancik
+·
 August 17, 2026
 ·
 5 min read

@@ -6,7 +6,9 @@
 
 ---
 
-12. september 2026
+Autor Marian Stancik
+  ·
+  12. september 2026
   Autonómne agenty
   Bezpečnosť AI
   Zábradlia

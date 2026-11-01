@@ -9,7 +9,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -21,7 +21,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -33,7 +33,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -45,7 +45,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -57,267 +57,309 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/en/about</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/about"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/about"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/about"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/about"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/about"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/about"/>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.marianstancik.dev/sk/about</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/about"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/about"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/about"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/about"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/about"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/about"/>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.marianstancik.dev/cs/about</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/about"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/about"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/about"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/about"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/about"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/about"/>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.marianstancik.dev/de/about</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/about"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/about"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/about"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/about"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/about"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/about"/>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.marianstancik.dev/pl/about</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/about"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/about"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/about"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/about"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/about"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/about"/>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.marianstancik.dev/en/services</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/services"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/services"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/services"/>
-    <lastmod>2026-10-29</lastmod>
+    <loc>https://www.marianstancik.dev/en/tools/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/"/>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/sk/services</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/services"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/services"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/services"/>
-    <lastmod>2026-10-29</lastmod>
+    <loc>https://www.marianstancik.dev/sk/tools/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/"/>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/en/expertise</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/expertise"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/expertise"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/expertise"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/expertise"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/expertise"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/expertise"/>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.marianstancik.dev/cs/tools/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/sk/expertise</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/expertise"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/expertise"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/expertise"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/expertise"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/expertise"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/expertise"/>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.marianstancik.dev/de/tools/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/cs/expertise</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/expertise"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/expertise"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/expertise"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/expertise"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/expertise"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/expertise"/>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.marianstancik.dev/pl/tools/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/de/expertise</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/expertise"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/expertise"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/expertise"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/expertise"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/expertise"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/expertise"/>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.marianstancik.dev/en/tools/prompt-library</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/prompt-library"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/pl/expertise</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/expertise"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/expertise"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/expertise"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/expertise"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/expertise"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/expertise"/>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.marianstancik.dev/sk/tools/prompt-library</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/prompt-library"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/en/skills</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/skills"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/skills"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/skills"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/skills"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/skills"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/skills"/>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.marianstancik.dev/cs/tools/prompt-library</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/prompt-library"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/sk/skills</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/skills"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/skills"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/skills"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/skills"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/skills"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/skills"/>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.marianstancik.dev/de/tools/prompt-library</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/prompt-library"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/cs/skills</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/skills"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/skills"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/skills"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/skills"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/skills"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/skills"/>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.marianstancik.dev/pl/tools/prompt-library</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/prompt-library"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/prompt-library"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/de/skills</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/skills"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/skills"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/skills"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/skills"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/skills"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/skills"/>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.marianstancik.dev/en/tools/starter-kit</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/starter-kit"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/pl/skills</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/skills"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/skills"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/skills"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/skills"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/skills"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/skills"/>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.marianstancik.dev/sk/tools/starter-kit</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/starter-kit"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/en/drones</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/drones"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/drones"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/drones"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/drones"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/drones"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/drones"/>
-    <lastmod>2026-10-29</lastmod>
+    <loc>https://www.marianstancik.dev/cs/tools/starter-kit</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/starter-kit"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/de/tools/starter-kit</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/starter-kit"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/pl/tools/starter-kit</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/starter-kit"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/en/tools/mission-planner</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/mission-planner"/>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/sk/drones</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/drones"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/drones"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/drones"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/drones"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/drones"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/drones"/>
-    <lastmod>2026-10-29</lastmod>
+    <loc>https://www.marianstancik.dev/sk/tools/mission-planner</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/mission-planner"/>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/cs/drones</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/drones"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/drones"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/drones"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/drones"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/drones"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/drones"/>
-    <lastmod>2026-10-29</lastmod>
+    <loc>https://www.marianstancik.dev/cs/tools/mission-planner</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/mission-planner"/>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/de/drones</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/drones"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/drones"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/drones"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/drones"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/drones"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/drones"/>
-    <lastmod>2026-10-29</lastmod>
+    <loc>https://www.marianstancik.dev/de/tools/mission-planner</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/mission-planner"/>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.marianstancik.dev/pl/drones</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/drones"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/drones"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/drones"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/drones"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/drones"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/drones"/>
-    <lastmod>2026-10-29</lastmod>
+    <loc>https://www.marianstancik.dev/pl/tools/mission-planner</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/tools/mission-planner"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/tools/mission-planner"/>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/en/how-it-works</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/how-it-works"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/sk/how-it-works</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/how-it-works"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/cs/how-it-works</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/how-it-works"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/de/how-it-works</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/how-it-works"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.marianstancik.dev/pl/how-it-works</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/en/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/sk/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/cs/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/how-it-works"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/en/contact</loc>
@@ -327,9 +369,9 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/contact"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/contact"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/contact"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/sk/contact</loc>
@@ -339,9 +381,9 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/contact"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/contact"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/contact"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/cs/contact</loc>
@@ -351,9 +393,9 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/contact"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/contact"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/contact"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/de/contact</loc>
@@ -363,9 +405,9 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/contact"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/contact"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/contact"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/pl/contact</loc>
@@ -375,9 +417,9 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/contact"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/contact"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/contact"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/en/blog/</loc>
@@ -386,7 +428,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/blog/"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/blog/"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -397,7 +439,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/blog/"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/blog/"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -408,7 +450,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/blog/"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/blog/"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -419,19 +461,19 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/de/blog/"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/pl/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/en/blog/"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/impressum</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/cookie</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -440,7 +482,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/privacy"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/privacy-sk"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/privacy"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -449,7 +491,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/privacy"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/privacy-sk"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/privacy"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -458,7 +500,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/terms"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/terms-sk"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/terms"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -467,7 +509,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/terms"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/terms-sk"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/terms"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -476,7 +518,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/disclaimer"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/disclaimer-sk"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/disclaimer"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -485,19 +527,19 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/disclaimer"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/disclaimer-sk"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/disclaimer"/>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/llms.txt</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.marianstancik.dev/llms-full.txt</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -6,7 +6,9 @@
 
 ---
 
-September 19, 2026
+By Marian Stancik
+  ·
+  September 19, 2026
   Autonomous Agents
   AI Infrastructure
   Cost Optimization

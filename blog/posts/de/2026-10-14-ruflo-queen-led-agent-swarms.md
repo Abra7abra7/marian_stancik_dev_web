@@ -6,7 +6,9 @@
 
 ---
 
-14. Oktober 2026
+By Marian Stancik
+    ·
+    14. Oktober 2026
     ·
     11 Min. Lesezeit
     Ruflo

@@ -10,6 +10,8 @@ AI Agents & Autonomy
 
 ### Od jednoosobowej firmy do przedsiębiorstwa sterowanego przez 19 zadań cron
 
+By Marian Stancik
+·
 August 26, 2026
 ·
 6 min czytania

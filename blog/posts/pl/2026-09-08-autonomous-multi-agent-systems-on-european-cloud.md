@@ -6,7 +6,9 @@
 
 ---
 
-8 września 2026
+By Marian Stancik
+  ·
+  8 września 2026
   Autonomous Agents
   6 min czytania
   Marian Stancik

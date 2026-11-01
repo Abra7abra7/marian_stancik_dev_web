@@ -6,7 +6,9 @@
 
 ---
 
-October 27, 2026
+By Marian Stancik
+    ·
+    October 27, 2026
     ·
     14 min read
     Agent Containment

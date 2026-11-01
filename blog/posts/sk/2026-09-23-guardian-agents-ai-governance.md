@@ -6,7 +6,9 @@
 
 ---
 
-23. september 2026
+Autor Marian Stancik
+  ·
+  23. september 2026
   Guardian Agents
   AI Governance
   Autonomous Agents

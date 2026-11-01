@@ -6,7 +6,9 @@
 
 ---
 
-12. September 2026
+By Marian Stancik
+  ·
+  12. September 2026
   Autonomous Agents
   AI Safety
   Guardrails

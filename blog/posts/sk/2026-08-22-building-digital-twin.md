@@ -10,6 +10,8 @@ AI Agenti & Autonómia
 
 ### Stavba digitálneho dvojčaťa, ktoré publikuje 9× denne AI-generované
 
+Autor Marian Stancik
+·
 22. august 2026
 ·
 4 min čítania

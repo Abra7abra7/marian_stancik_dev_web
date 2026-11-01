@@ -6,7 +6,9 @@
 
 ---
 
-26. september 2026
+Autor Marian Stancik
+  ·
+  26. september 2026
   MCP
   SIGGRAPH 2026
   AI Agenti

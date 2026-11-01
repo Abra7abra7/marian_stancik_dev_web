@@ -1,23 +1,55 @@
 # --- Multilingual static URLs (scripts/build_i18n.py) ---
 # Root serves the default language (EN, x-default). 302 so the default can change later without cached 301s.
 / /en/ 302
-# Legacy single-URL pages (client-side language switching) -> per-language static URLs
-/about /en/about 301
-/skills /en/skills 301
-/drones /en/drones 301
-/expertise /en/expertise 301
-/contact /en/contact 301
-/services /en/services 301
-/services-sk /sk/services 301
-/cs/services /sk/services 302
-/de/services /en/services 302
-/pl/services /en/services 302
-/blog /en/blog/ 301
-/blog/ /en/blog/ 301
+
+# --- Deleted pages (redesign 31.10.2026): services, about, drones, skills, expertise, audit-report ---
+# Redirects live here in _redirects (Cloudflare Pages), NOT in build_i18n.py —
+# build_i18n only rewrites internal hrefs; no duplicate redirect logic in the build pipeline.
+/services /tools/ 301
+/services-sk /tools/ 301
+/services.html /tools/ 301
+/services-sk.html /tools/ 301
+/about / 301
+/about.html / 301
+/drones / 301
+/drones.html / 301
+/skills / 301
+/skills.html / 301
+/expertise / 301
+/expertise.html / 301
+/audit-report / 301
+/audit-report.html / 301
+/en/services /en/tools/ 301
+/sk/services /sk/tools/ 301
+/cs/services /cs/tools/ 301
+/de/services /de/tools/ 301
+/pl/services /pl/tools/ 301
+/en/about /en/ 301
+/sk/about /sk/ 301
+/cs/about /cs/ 301
+/de/about /de/ 301
+/pl/about /pl/ 301
+/en/drones /en/ 301
+/sk/drones /sk/ 301
+/cs/drones /cs/ 301
+/de/drones /de/ 301
+/pl/drones /pl/ 301
+/en/skills /en/ 301
+/sk/skills /sk/ 301
+/cs/skills /cs/ 301
+/de/skills /de/ 301
+/pl/skills /pl/ 301
+/en/expertise /en/ 301
+/sk/expertise /sk/ 301
+/cs/expertise /cs/ 301
+/de/expertise /de/ 301
+/pl/expertise /pl/ 301
 
 # --- Existing rules ---
 /posts/:slug /blog/posts/:slug 301
 /posts/:slug.html /blog/posts/:slug 301
 /lead-magnet/* /en/ 301
 /lead-magnet /en/ 301
-/subscribe /en/#leadForm 302
+/subscribe /en/tools/starter-kit 302
+/blog /en/blog/ 301
+/blog/ /en/blog/ 301

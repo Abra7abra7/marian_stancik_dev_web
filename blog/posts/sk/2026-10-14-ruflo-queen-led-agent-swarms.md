@@ -6,7 +6,9 @@
 
 ---
 
-14. október 2026
+Autor Marian Stancik
+    ·
+    14. október 2026
     ·
     11 min čítania
     Ruflo

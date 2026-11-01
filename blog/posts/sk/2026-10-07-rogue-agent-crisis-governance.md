@@ -6,7 +6,9 @@
 
 ---
 
-7. október 2026
+Autor Marian Stancik
+  ·
+  7. október 2026
   Rogue agenty
   AI Governance
   EU AI Act
