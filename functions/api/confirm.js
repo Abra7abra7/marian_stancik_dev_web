@@ -67,23 +67,12 @@ export async function onRequestGet(context) {
   const dateStr = now.toISOString().split('T')[0];
   const timeStr = now.toTimeString().split(' ')[0];
 
-  const CRM_URL = env.CRM_WEBHOOK_URL || 'https://api.marianstancik.dev/crm/';
-  const CRM_KEY = env.CRM_WEBHOOK_KEY || '';
+  // CRM webhook bol odstránený (mŕtvy Hermes Hetzner) — 5.11.2026. Archivácia len e-mailom.
   async function crmToSheets(entryType, data) {
-    if (!CRM_KEY) return { ok: false, reason: 'CRM_WEBHOOK_KEY missing' };
-    try {
-      const res = await fetch(CRM_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'X-CRM-Key': CRM_KEY },
-        body: JSON.stringify({ type: entryType, ...data }),
-      });
-      return res.ok ? { ok: true } : { ok: false, reason: `HTTP ${res.status}` };
-    } catch (e) {
-      return { ok: false, reason: e.message };
-    }
+    return { ok: false, reason: 'CRM webhook removed' };
   }
 
-  // 1. Flip status to confirmed in the CRM (Sheets)
+  // (kdysi) Flip statusu v CRM — teraz no-op
   const crmRes = await crmToSheets('newsletter_confirm', { email, source, status: 'confirmed', date: dateStr, time: timeStr });
 
   // 2. Welcome email with the Starter Kit (sent ONLY now, after the confirmed click)
@@ -111,7 +100,7 @@ export async function onRequestGet(context) {
   }
 
   await sendGmail(env, env.ADMIN_EMAIL || env.GMAIL_USER || 'stancikmarian8@gmail.com', `✅ Opt-in POTVRDENÝ: ${email}`,
-    `Opt-in potvrdený (status=confirmed), kit odoslaný:\nEmail: ${email}\nZdroj: ${source}\nDátum: ${dateStr} ${timeStr}\nCRM: ${crmRes.ok ? 'ok' : 'FAILED — zapis rucne'}`)
+    `Opt-in potvrdený (status=confirmed), kit odoslaný:\nEmail: ${email}\nZdroj: ${source}\nDátum: ${dateStr} ${timeStr}`)
     .catch(e => console.error('Admin notify failed:', e.message));
 
   return Response.redirect(`${SITE}/${lang}/tools/starter-kit?confirmed=1`, 302);
