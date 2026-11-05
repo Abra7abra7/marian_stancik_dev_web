@@ -108,40 +108,9 @@ export async function onRequestPost(context) {
         .catch(e => console.error('Admin notify failed:', e.message));
     }
 
-    // CRM forward to Hetzner VPS webhook
-    const CRM_URL = env.CRM_WEBHOOK_URL || 'https://api.marianstancik.dev/crm/';
-    const CRM_KEY = env.CRM_WEBHOOK_KEY || '';
+    // CRM webhook bol odstránený (mŕtvy Hermes Hetzner) — 5.11.2026. Leads sa archivujú len e-mailom.
     async function crmToSheets(entryType, data) {
-      if (!CRM_KEY) {
-        return { ok: false, reason: 'CRM_WEBHOOK_KEY missing' };
-      }
-      let lastError = 'unknown';
-      for (let attempt = 1; attempt <= 2; attempt++) {
-        try {
-          const res = await fetch(CRM_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CRM-Key': CRM_KEY },
-            body: JSON.stringify({ type: entryType, ...data }),
-          });
-          if (res.ok) return { ok: true };
-          lastError = `HTTP ${res.status}`;
-        } catch (e) {
-          lastError = e.message;
-        }
-        if (attempt === 1) await new Promise(r => setTimeout(r, 400));
-      }
-
-      const alertText = `LEAD NEZAPISANY DO CRM - webhook ${lastError}\n`
-        + `Typ: ${entryType}\nDatum: ${dateStr} ${timeStr}\n`
-        + `Lead: ${data.name || '-'} <${data.email || '-'}>\n`
-        + (data.message ? `Sprava: ${data.message}\n` : '')
-        + (data.product ? `Produkt: ${data.product} ${data.price ? '(' + data.price + ')' : ''}\n` : '')
-        + (data.website ? `Web: ${data.website}\n` : '')
-        + `Zdroj: ${data.source || '-'}\n\n`
-        + `Tento lead sa NEDOSTAL do CRM Sheets - zapis ho rucne.\n`;
-      await notifyAdmin(`[CRM DOWN] Nezapisany lead: ${data.email || entryType}`, alertText)
-        .catch(e => console.error('Lost-lead alert email failed:', e.message));
-      return { ok: false, reason: lastError };
+      return { ok: false, reason: 'CRM webhook removed' };
     }
 
     // ---- Lead capture: STRICT double opt-in (legal v3.0) ----
@@ -192,7 +161,7 @@ export async function onRequestPost(context) {
       return new Response(JSON.stringify({ error: 'Confirmation email could not be sent. Try again later.' }), { status: 502, headers: corsHeaders });
     }
 
-    await notifyAdmin(`✦ Nový PENDING opt-in: ${email}`, `Nový pending opt-in (čaká na potvrdenie):\nEmail: ${email}\nZdroj: ${source}\nDátum: ${dateStr} ${timeStr}\nCRM: ${crmRes.ok ? 'ok' : 'FAILED — zapis rucne'}`, null)
+    await notifyAdmin(`✦ Nový PENDING opt-in: ${email}`, `Nový pending opt-in (čaká na potvrdenie):\nEmail: ${email}\nZdroj: ${source}\nDátum: ${dateStr} ${timeStr}\nCRM: vypnutý (webhook odstránený)`, null)
       .catch(e => console.error('Admin notify failed:', e.message));
 
     return new Response(JSON.stringify({ status: 'ok', type: 'newsletter', double_optin: 'pending', email, crm: crmRes.ok ? 'ok' : 'failed' }), { status: 200, headers: corsHeaders });
