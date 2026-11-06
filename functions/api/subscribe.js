@@ -164,7 +164,7 @@ export async function onRequestPost(context) {
     await notifyAdmin(`✦ Nový PENDING opt-in: ${email}`, `Nový pending opt-in (čaká na potvrdenie):\nEmail: ${email}\nZdroj: ${source}\nDátum: ${dateStr} ${timeStr}\nCRM: vypnutý (webhook odstránený)`, null)
       .catch(e => console.error('Admin notify failed:', e.message));
 
-    return new Response(JSON.stringify({ status: 'ok', type: 'newsletter', double_optin: 'pending', email, crm: crmRes.ok ? 'ok' : 'failed' }), { status: 200, headers: corsHeaders });
+    return new Response(JSON.stringify({ status: 'ok', type: 'newsletter', double_optin: 'pending', email, crm: 'disabled' }), { status: 200, headers: corsHeaders });
 
   } catch (err) {
     console.error('Subscribe handler error:', err.message);
