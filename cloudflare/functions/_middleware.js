@@ -11,11 +11,28 @@ export async function onRequest(context) {
   const host = request.headers.get('host') || '';
   const path = url.pathname;
 
+  // 0sec-labs HIGH B (SSRF): worker proxy accepts only a strict path whitelist
+  // and a sanitized query string — never arbitrary pathname/search from the request.
+  const WORKER = 'https://marian-stancik.stancikmarian8.workers.dev';
+  const WORKER_HOST = 'marian-stancik.stancikmarian8.workers.dev';
+  const ALLOWED_PROXY_PREFIXES = ['/tools', '/blog', '/success', '/api/report/', '/api/contact', '/api/login'];
+  const SEARCH_RE = /^[A-Za-z0-9=&?._~\/-]*$/;
+  function safeWorkerUrl(reqUrl) {
+    const p = reqUrl.pathname;
+    if (p === '/') return WORKER + '/';
+    if (p.includes('..') || p.includes('//')) return null;
+    if (!ALLOWED_PROXY_PREFIXES.some(pre => p.startsWith(pre))) return null;
+    const s = reqUrl.search || '';
+    if (!SEARCH_RE.test(s)) return null;
+    return `${WORKER}${p}${s}`;
+  }
+
   // API subdomain: proxy to Worker
   if (host.startsWith('api.')) {
-    const workerUrl = `https://marian-stancik.stancikmarian8.workers.dev${url.pathname}${url.search}`;
+    const workerUrl = safeWorkerUrl(url);
+    if (!workerUrl) return new Response('Not found', { status: 404 });
     const headers = new Headers(request.headers);
-    headers.set('Host', 'marian-stancik.stancikmarian8.workers.dev');
+    headers.set('Host', WORKER_HOST);
     const workerResponse = await fetch(workerUrl, {
       method: request.method,
       headers: headers,
@@ -30,9 +47,10 @@ export async function onRequest(context) {
 
   // Success page (served from Worker on main domain)
   if (path.startsWith('/success')) {
-    const workerUrl = `https://marian-stancik.stancikmarian8.workers.dev${url.pathname}${url.search}`;
+    const workerUrl = safeWorkerUrl(url);
+    if (!workerUrl) return new Response('Not found', { status: 404 });
     const headers = new Headers(request.headers);
-    headers.set('Host', 'marian-stancik.stancikmarian8.workers.dev');
+    headers.set('Host', WORKER_HOST);
     const workerResponse = await fetch(workerUrl, {
       method: request.method,
       headers: headers,
@@ -47,9 +65,10 @@ export async function onRequest(context) {
 
   // Report export (proxy to Worker) — check before app routing
   if (path.startsWith('/api/report/')) {
-    const workerUrl = `https://marian-stancik.stancikmarian8.workers.dev${url.pathname}${url.search}`;
+    const workerUrl = safeWorkerUrl(url);
+    if (!workerUrl) return new Response('Not found', { status: 404 });
     const workerResponse = await fetch(workerUrl, {
-      headers: { 'Host': 'marian-stancik.stancikmarian8.workers.dev' }
+      headers: { 'Host': WORKER_HOST }
     });
     return new Response(workerResponse.body, {
       status: workerResponse.status,
@@ -78,9 +97,14 @@ export async function onRequest(context) {
       
       // Send magic link via AgentMail (correct API: v0/inboxes/{id}/messages/send)
             try {
+              const apiKey = env.AGENTMAIL_API_KEY;
+              if (!apiKey) {
+                // 0sec-labs CRITICAL A: no hardcoded fallback — revoked key removed.
+                return new Response(JSON.stringify({ error: 'Internal error' }), { status: 500, headers: {'content-type':'application/json'} });
+              }
               await fetch('https://api.agentmail.to/v0/inboxes/stancikmarian8@gmail.com/messages/send', {
                 method: 'POST',
-                headers: {'Content-Type':'application/json','Authorization': `Bearer ${env.AGENTMAIL_API_KEY || 'am_us_ea294d71a0f448383c2fb0a2aa01de83b2e58d5cd2f7d0669f9295d6cb102e57'}`},
+                headers: {'Content-Type':'application/json','Authorization': `Bearer ${apiKey}`},
                 body: JSON.stringify({
                   to: [email],
                   subject: '🔑 Dashboard Login — marianstancik.dev',

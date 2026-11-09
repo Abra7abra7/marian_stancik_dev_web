@@ -39,7 +39,20 @@ def get_umami_pass():
     except: pass
     return ""
 
+# 0sec-labs CRITICAL C (SQL injection): psql receives only whitelisted, prepared
+# constant SQL — never f-string composed from user-controlled input.
+_SQL_WHITELIST = {
+    "SELECT COUNT(*)::text FROM session WHERE created_at > now()-interval'7 days'",
+    "SELECT COUNT(*)::text FROM session",
+    "SELECT COALESCE(country,'?'),COUNT(*)::text FROM session WHERE created_at>now()-interval'7 days' AND country IS NOT NULL AND country!='' GROUP BY country ORDER BY COUNT(*) DESC",
+    "SELECT COALESCE(browser,'?'),COUNT(*)::text FROM session WHERE created_at>now()-interval'7 days' AND browser IS NOT NULL AND browser!='' GROUP BY browser ORDER BY COUNT(*) DESC",
+    "SELECT COALESCE(os,'?'),COUNT(*)::text FROM session WHERE created_at>now()-interval'7 days' AND os IS NOT NULL AND os!='' GROUP BY os ORDER BY COUNT(*) DESC",
+    "SELECT created_at::date::text,COUNT(*)::text FROM session WHERE created_at>now()-interval'7 days' GROUP BY created_at::date ORDER BY created_at::date",
+}
+
 def query_umami(sql):
+    if sql not in _SQL_WHITELIST:
+        raise ValueError("Rejected SQL: not in whitelist")
     pw = get_umami_pass()
     if not pw: return []
     r = subprocess.run(["docker","exec","-e",f"PGPASSWORD={pw}","umami-umami-db-1",
