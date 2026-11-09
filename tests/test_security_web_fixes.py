@@ -18,10 +18,12 @@ def test_middleware_no_hardcoded_key():
 
 
 # --- HIGH B: SSRF — whitelist + search sanitization (mirror of JS regex) ---
-ALLOWED_PREFIXES = ['/', '/tools', '/blog', '/api/report/', '/api/contact', '/api/login']
+ALLOWED_PREFIXES = ['/tools', '/blog', '/success', '/api/report/', '/api/contact', '/api/login']
 SEARCH_RE = re.compile(r'^[A-Za-z0-9=&?._~\-/]*$')
 
 def safe_worker_url(pathname, search):
+    if pathname == '/':
+        return 'https://worker/'
     if not SEARCH_RE.match(search):
         return None
     if '..' in pathname or '//' in pathname:
@@ -34,6 +36,7 @@ def safe_worker_url(pathname, search):
 @pytest.mark.parametrize("path,search,ok", [
     ("/tools?x=1", "", True), ("/blog?page=2", "", True),
     ("/../admin", "", False), ("/api/report//evil", "", False),
+    ("/internal/debug", "", False), ("/tools/x", "", True),
 ])
 def test_worker_url_traversal(path, search, ok):
     assert bool(safe_worker_url(path, search)) is ok

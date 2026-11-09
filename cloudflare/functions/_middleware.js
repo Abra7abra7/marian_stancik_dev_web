@@ -15,12 +15,13 @@ export async function onRequest(context) {
   // and a sanitized query string — never arbitrary pathname/search from the request.
   const WORKER = 'https://marian-stancik.stancikmarian8.workers.dev';
   const WORKER_HOST = 'marian-stancik.stancikmarian8.workers.dev';
-  const ALLOWED_PROXY_PREFIXES = ['/', '/tools', '/blog', '/api/report/', '/api/contact', '/api/login'];
+  const ALLOWED_PROXY_PREFIXES = ['/tools', '/blog', '/success', '/api/report/', '/api/contact', '/api/login'];
   const SEARCH_RE = /^[A-Za-z0-9=&?._~\/-]*$/;
   function safeWorkerUrl(reqUrl) {
     const p = reqUrl.pathname;
-        if (p.includes('..') || p.includes('//')) return null;
-    if (!ALLOWED_PROXY_PREFIXES.some(pre => pre === '/' ? p.startsWith('/') : p.startsWith(pre))) return null;
+    if (p === '/') return WORKER + '/';
+    if (p.includes('..') || p.includes('//')) return null;
+    if (!ALLOWED_PROXY_PREFIXES.some(pre => p.startsWith(pre))) return null;
     const s = reqUrl.search || '';
     if (!SEARCH_RE.test(s)) return null;
     return `${WORKER}${p}${s}`;
