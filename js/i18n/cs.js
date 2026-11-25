@@ -107,7 +107,7 @@ translations["cs"] = {
  "focus4Title": "Vývoj s ohledem na regulaci",
  "footerAiAct": "<strong>Upozornění:</strong> Jsem student 3. ročníku práv a ze zákona neposkytuji právní poradenství. Vše na tomto webu je můj subjektivní pohled a obsah spravují autonomní AI agenti (EU AI Act čl. 50).",
  "footerImprint": "<strong>Marián Stančík</strong> — fyzická osoba, podnikateľ (živnostník) · Černákova 2046/8, 977 01 Brezno · IČO: 57068917 · DIČ: 1082585075 · nie je platiteľ DPH · Okresný úrad Brezno, č. ŽR: 630-22847 · <a href=\"mailto:marianstancik@agentmail.to\" style=\"color:#CD7F32;\">marianstancik@agentmail.to</a>",
- "footerLegalLinks": "<a href=\"/privacy-sk\">Ochrana osobních údajů</a> · <a href=\"/cookie\">Cookies</a> · <a href=\"/terms-sk\">Podmínky používání</a> · <a href=\"/disclaimer-sk\">Disclaimer</a> · <a href=\"/impressum\">Impressum</a>",
+ "footerLegalLinks": "<a href=\"/privacy-sk\">Ochrana soukromí</a> · <a href=\"/cookie\">Cookies</a> · <a href=\"/terms-sk\">Podmínky &amp; Disclaimer</a>",
  "footerTagline": "AI agenti v praxi, open-source nástroje a reálná čísla — celý web řídí agenti.",
  "heroBadge": "AI agenti v praxi · bez hype a bez prodeje",
  "heroCheckCrawlers": "AI crawleri povolení v robots.txt",
