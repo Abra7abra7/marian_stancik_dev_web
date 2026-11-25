@@ -256,7 +256,7 @@ global:
     - terminal: "any write operation"
     - write_file: "outside project scope"</code></pre>
 
-<p>This is not theoretical — every agent on my VPS is bound by this exact policy. The deny-by-default rule means that if a tool is not explicitly in the allowed list, the guardian blocks it. When an agent tries to call deny-listed tools, the guardian logs the attempt, sends an alert to stancikmarian8@gmail.com, and continues without interruption. In 4 months of production, I have received exactly 2 such alerts — both caused by legitimate config errors during development, caught before they became incidents.</p>
+<p>This is not theoretical — every agent on my VPS is bound by this exact policy. The deny-by-default rule means that if a tool is not explicitly in the allowed list, the guardian blocks it. When an agent tries to call deny-listed tools, the guardian logs the attempt, sends an alert to marianstancik@agentmail.to, and continues without interruption. In 4 months of production, I have received exactly 2 such alerts — both caused by legitimate config errors during development, caught before they became incidents.</p>
 
 <div class="callout">
 <strong>Key principle:</strong> Agents should not ask for permission to call tools. They should call tools through a layer that checks permissions automatically. This is the difference between "safe by design" and "safe by hoping the agent follows its instructions."
@@ -431,7 +431,7 @@ Agent Runtime (Hermes Agent)
 <footer>
   <div class="container">
     <p>&copy; 2026 Marian Stancik — <a href="/">marianstancik.dev</a></p>
-    <p style="margin-top:8px;"><a href="mailto:stancikmarian8@gmail.com">stancikmarian8@gmail.com</a></p>
+    <p style="margin-top:8px;"><a href="mailto:marianstancik@agentmail.to">marianstancik@agentmail.to</a></p>
   </div>
 </footer>
 </body>
