@@ -30,7 +30,7 @@
 <meta name="twitter:creator" content="@marian_s_ai">
 <meta name="twitter:image" content="https://www.marianstancik.dev/og-image.webp">
 <meta name="ai-generated-content" content="true">
-<link rel="stylesheet" href="/css/main.min.css?v=138">
+<link rel="stylesheet" href="/css/main.min.css?v=141">
 
 <script type="application/ld+json">
 {
@@ -82,17 +82,11 @@
       <span class="nav-logo-text">marian<span class="highlight">stancik</span><span class="tld">.dev</span></span>
     </a>
     <div class="nav-right">
-      <div class="lang-switcher" aria-label="Language selector">
-        <button class="lang-btn active" id="btnEn" data-lang-switch="en">EN</button>
-        <button class="lang-btn" id="btnSk" data-lang-switch="sk">SK</button>
-        <button class="lang-btn" id="btnDe" data-lang-switch="de">DE</button>
-        <button class="lang-btn" id="btnPl" data-lang-switch="pl">PL</button>
-      </div>
-      <button class="mobile-toggle" aria-expanded="false"><span aria-hidden="true">☰</span><span class="visually-hidden">Menu</span></button>
       <div class="nav-links">
-        <div class="lang-switcher lang-switcher-mobile">
+        <div class="lang-switcher lang-switcher-mobile" aria-label="Language selector">
           <button class="lang-btn active" data-lang-switch="en">EN</button>
           <button class="lang-btn" data-lang-switch="sk">SK</button>
+          <button class="lang-btn" data-lang-switch="cs">CS</button>
           <button class="lang-btn" data-lang-switch="de">DE</button>
           <button class="lang-btn" data-lang-switch="pl">PL</button>
         </div>
@@ -100,8 +94,19 @@
         <a href="/how-it-works" class="nav-link" id="navHow" data-i18n="navHowItWorks">How it works</a>
         <a href="/tools" class="nav-link" id="navTools" data-i18n="navTools">Free Tools</a>
         <a href="/blog" class="nav-link" id="navBlog" data-i18n="navBlog">Blog</a>
-        <a href="/contact" class="nav-link nav-cta active" id="navContact" data-i18n="navContact">✦ Contact</a>
+        <a href="/contact" class="nav-link nav-cta active" id="navContact" data-i18n="navContact">Contact</a>
       </div>
+      <div class="lang-switcher" aria-label="Language selector">
+        <button class="lang-btn active" id="btnEn" data-lang-switch="en">EN</button>
+        <button class="lang-btn" id="btnSk" data-lang-switch="sk">SK</button>
+        <button class="lang-btn" id="btnCs" data-lang-switch="cs">CS</button>
+        <button class="lang-btn" id="btnDe" data-lang-switch="de">DE</button>
+        <button class="lang-btn" id="btnPl" data-lang-switch="pl">PL</button>
+      </div>
+      <button class="mobile-toggle" aria-expanded="false" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="8" x2="21" y2="8"/><line x1="3" y1="16" x2="21" y2="16"/></svg>
+        <span class="visually-hidden">Menu</span>
+      </button>
     </div>
   </div>
 </nav>
@@ -109,47 +114,53 @@
 <main id="main-content">
 
 <!-- === HERO & PRIMARY CONTACT === -->
-<section id="connect" aria-label="Contact Marian Stancik" style="padding-top: 130px;">
+<section id="connect" class="contact-hero-section" aria-label="Contact Marian Stancik">
   <div class="container">
-    <div class="section-label fade-in" id="connLabel" data-i18n="connLabel">✦ Direct Contact</div>
+    <div class="section-label fade-in" id="connLabel" data-i18n="connLabel">Direct Contact</div>
     <h1 class="fade-in" id="connHeading" data-i18n="connHeading">Write to me directly.</h1>
-    <p class="section-intro fade-in" id="connIntro" data-i18n="connIntro" style="margin-bottom: 32px;">
+    <p class="section-intro conn-intro fade-in" id="connIntro" data-i18n="connIntro">
       Fastest way to reach me personally is WhatsApp. My email is managed and triaged by my AI agent.
     </p>
 
     <div class="collab-grid fade-in">
       <!-- WHATSAPP -->
       <div class="collab-card">
-        <div class="collab-icon-box">💬</div>
+        <div class="collab-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
         <span class="collab-card-tag" id="cWaTag" data-i18n="cWaTag">Fastest · Personal</span>
         <h3 id="cWaTitle" data-i18n="cWaTitle">WhatsApp</h3>
         <p id="cWaDesc" data-i18n="cWaDesc">Write directly to me — whether you run a business or want to save time with AI agents in your own work. No forms, no friction.</p>
-        <a href="https://wa.me/421940377855" target="_blank" rel="noopener" class="btn-whatsapp" style="margin-top:auto;">+421 940 377 855 →</a>
+        <a href="https://wa.me/421940377855" target="_blank" rel="noopener" class="btn-whatsapp card-cta-bottom">+421 940 377 855 →</a>
       </div>
 
       <!-- AGENT EMAIL -->
       <div class="collab-card">
-        <div class="collab-icon-box">🤖</div>
+        <div class="collab-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </div>
         <span class="collab-card-tag" id="cMailTag" data-i18n="cMailTag">Managed by AI Agent</span>
         <h3 id="cMailTitle" data-i18n="cMailTitle">Agent-Managed Email</h3>
         <p id="cMailDesc" data-i18n="cMailDesc">My AI agent reads, sorts, and drafts replies for this inbox. Great for longer briefs, links, or testing how an agent-run inbox works.</p>
-        <a href="mailto:marianstancik@agentmail.to" class="btn-primary" style="margin-top:auto; text-align:center;">marianstancik@agentmail.to</a>
+        <a href="mailto:marianstancik@agentmail.to" class="btn-secondary card-cta-bottom">marianstancik@agentmail.to</a>
       </div>
 
       <!-- CALL -->
       <div class="collab-card">
-        <div class="collab-icon-box">📅</div>
+        <div class="collab-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
         <span class="collab-card-tag" id="cCallTag" data-i18n="cCallTag">20 min · Free</span>
         <h3 id="cCallTitle" data-i18n="cCallTitle">Short Online Call</h3>
         <p id="cCallDesc" data-i18n="cCallDesc">Prefer a quick video call to walk through your process, agent setup, or token costs? Pick an open slot on Google Meet.</p>
-        <a href="https://calendar.app.google/hu1vx3nqLgK65u5C7" target="_blank" rel="noopener" class="btn-primary" style="margin-top:auto; text-align:center;" id="connCalText" data-i18n="connCalText">Book a 20-min call</a>
+        <a href="https://calendar.app.google/hu1vx3nqLgK65u5C7" target="_blank" rel="noopener" class="btn-secondary card-cta-bottom" id="connCalText" data-i18n="connCalText">Book a 20-min call</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- === SOCIAL LINKS === -->
-<section id="socials" aria-label="Social profiles" style="padding-top: 20px;">
+<section id="socials" class="socials-section" aria-label="Social profiles">
   <div class="container">
     <div class="connect-grid fade-in">
       <a href="https://www.linkedin.com/in/marian-stancik-924b41298/?utm_source=marianstancik.dev&amp;utm_medium=profile" target="_blank" rel="noopener" aria-label="LinkedIn">
@@ -170,7 +181,7 @@
       </a>
     </div>
 
-    <p class="section-intro fade-in" id="cLegalNote" data-i18n="cLegalNote" style="margin-top: 28px; font-size: 0.85rem;">
+    <p class="section-intro contact-legal-note fade-in" id="cLegalNote" data-i18n="cLegalNote">
       Note: I am a 3rd-year law student — I do not provide legal advice. Everything I share about privacy or the EU AI Act is purely subjective.
     </p>
   </div>
@@ -190,11 +201,11 @@
         </div>
         <p class="footer-tagline" id="footerTagline" data-i18n="footerTagline">Practical AI agents, open-source tools, and honest numbers — run by agents.</p>
         <div class="footer-social">
-          <a href="https://wa.me/421940377855" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-circle">💬</a>
-          <a href="https://www.linkedin.com/in/marian-stancik-924b41298/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-circle"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.238-5-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-          <a href="https://github.com/Abra7abra7" target="_blank" rel="noopener" aria-label="GitHub" class="social-circle"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
-          <a href="https://x.com/marian_s_ai" target="_blank" rel="noopener" aria-label="X/Twitter" class="social-circle"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-          <a href="mailto:marianstancik@agentmail.to" aria-label="Email" class="social-circle"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+          <a href="https://wa.me/421940377855" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-circle"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+          <a href="https://www.linkedin.com/in/marian-stancik-924b41298/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-circle"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+          <a href="https://github.com/Abra7abra7" target="_blank" rel="noopener" aria-label="GitHub" class="social-circle"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
+          <a href="https://x.com/marian_s_ai" target="_blank" rel="noopener" aria-label="X / Twitter" class="social-circle"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="mailto:marianstancik@agentmail.to" aria-label="Email" class="social-circle"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.85" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
         </div>
       </div>
       <div class="footer-col">
@@ -218,17 +229,25 @@
         <a href="https://calendar.app.google/hu1vx3nqLgK65u5C7" target="_blank" rel="noopener" data-i18n="connCalText">Book a 20-min call</a>
       </div>
     </div>
+
     <div class="footer-divider"></div>
+
     <div class="footer-bottom">
       <p>© 2026 Marian Stancik — <span id="fMotto" data-i18n="fMotto">AI is a tool. Measure what matters.</span></p>
-      <p class="footer-tag">Run with <span class="bronze">✦</span> by Hermes Agent &amp; OpenBot</p>
+      <p class="footer-tag">Operated by Hermes Agent &amp; OpenBot</p>
     </div>
-    <div class="footer-legal" style="margin-top:1.2rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.06); font-size:0.7rem; color:#8A7A6A; line-height:1.6; text-align:center;">
-      <p style="margin:0 0 8px 0; color:#9A8A7A;" id="footerImprint" data-i18n="footerImprint"><strong>Marián Stančík</strong> — fyzická osoba, podnikateľ (živnostník) · Černákova 2046/8, 977 01 Brezno · IČO: 57068917 · DIČ: 1082585075 · nie je platiteľ DPH · Okresný úrad Brezno, č. ŽR: 630-22847 · <a href="mailto:marianstancik@agentmail.to" style="color:#CD7F32;">marianstancik@agentmail.to</a></p>
-      <p style="margin:0;" id="footerAiAct" data-i18n="footerAiAct"><strong>⚠️ Disclaimer:</strong> I am a 3rd-year law student and by law do not provide legal advice. Everything on this website is my subjective view and is managed by autonomous AI agents (EU AI Act Art. 50). <a href="/disclaimer" style="color:#CD7F32;text-decoration:underline;">Disclaimer</a> · <a href="/privacy" style="color:#CD7F32;text-decoration:underline;">Privacy Policy</a> · <a href="/privacy-sk" style="color:#CD7F32;text-decoration:underline;">Privacy (SK)</a> · <a href="/terms" style="color:#CD7F32;text-decoration:underline;">Terms</a> · <a href="/cookie" style="color:#CD7F32;text-decoration:underline;">Cookies</a> · <a href="/impressum" style="color:#CD7F32;text-decoration:underline;">Impressum</a>.</p>
+
+    <div class="footer-legal">
+      <p id="footerImprint" data-i18n="footerImprint">
+        <strong>Marián Stančík</strong> — fyzická osoba, podnikateľ (živnostník) · Černákova 2046/8, 977 01 Brezno · IČO: 57068917 · DIČ: 1082585075 · nie je platiteľ DPH · Okresný úrad Brezno, č. ŽR: 630-22847 · <a href="mailto:marianstancik@agentmail.to">marianstancik@agentmail.to</a>
+      </p>
+      <p id="footerAiAct" data-i18n="footerAiAct">
+        <strong>Disclaimer:</strong> I am a 3rd-year law student and by law do not provide legal advice. Everything on this website is my subjective view and is managed by autonomous AI agents (EU AI Act Art. 50). <a href="/disclaimer">Disclaimer</a> · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms</a> · <a href="/cookie">Cookies</a> · <a href="/impressum">Impressum</a>.
+      </p>
     </div>
   </div>
 </footer>
+
 </div>
 
 <!-- FLOATING WHATSAPP -->
@@ -237,7 +256,7 @@
   <span data-i18n="waFloatText">WhatsApp</span>
 </a>
 
-<script defer src="/js/three-bg.min.js?v=138"></script>
-<script defer src="/js/i18n.min.js?v=20261031_v2"></script>
+<script defer src="/js/three-bg.min.js?v=141"></script>
+<script defer src="/js/i18n.min.js?v=20261125_v2"></script>
 </body>
 </html>

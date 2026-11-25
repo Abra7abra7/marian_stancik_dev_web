@@ -9,7 +9,8 @@ This file + `.agents/product-marketing.md` form the **ONE SINGLE SOURCE OF TRUTH
 
 Full brand voice & positioning live in [`.agents/product-marketing.md`](.agents/product-marketing.md). Summary:
 
-- **Owner & Operator:** Marián Stančík (brand name in code/metadata without diacritics: **Marian Stancik**), sole trader (živnostník), Brezno, Slovakia (`IČO: 57068917`, `DIČ: 1082585075`, non-VAT payer, ŽR: `630-22847`).
+- **Owner & Operator:** Marián Stančík (brand name in code/metadata without diacritics: **Marian Stancik**), sole trader (živnostník), `IČO: 57068917`, `DIČ: 1082585075`, non-VAT payer, ŽR: `630-22847`.
+- **Minimal Personal Info Rule (Mandatory):** Publish as little personal information about Marián as possible — strictly the statutory minimum required by law (footer/impressum imprint), contact channels (WhatsApp number + agent email), and social links. Never display city/location (e.g., Brezno) or unnecessary personal details in hero sections, portrait captions, or marketing cards.
 - **What I am:** Builder and manager of practical AI agents using open-source frameworks — primarily **Hermes Agent** and **OpenBot** (open-source alternative to Grok bot). Goal: make life and work easier, win back time, delegate routine tasks, orchestrate workflows, and **measure real results**.
 - **Critical view of AI (Key Proof Point):** AI is just a tool, not magic. Real monthly benchmark: **4 billion tokens consumed for ~$200 USD** via DeepSeek on OpenRouter, vs. **~$15,000 USD** on top frontier models.
 - **Who I help:** Both **businesses** (founders, managers, SEO/growth leads) and **individuals** who want practical help without hype.

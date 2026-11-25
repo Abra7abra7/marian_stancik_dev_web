@@ -53,7 +53,7 @@
 <meta content="I build and manage AI agents (Hermes Agent, OpenBot) to save time, delegate tasks, and measure real results. No hype, no selling — message me on WhatsApp." name="twitter:description"/>
 <meta content="https://www.marianstancik.dev/og-image.webp" name="twitter:image"/>
 <meta content="true" name="ai-generated-content"/>
-<link href="/css/main.min.css?v=138" rel="stylesheet"/>
+<link href="/css/main.min.css?v=141" rel="stylesheet"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -106,62 +106,100 @@
 <span class="nav-logo-text">marian<span class="highlight">stancik</span><span class="tld">.dev</span></span>
 </a>
 <div class="nav-right">
-<div aria-label="Language selector" class="lang-switcher"><a aria-current="true" class="lang-btn active" data-lang-btn="en" href="/en/" hreflang="en" id="btnEn" lang="en">EN</a><a class="lang-btn" data-lang-btn="sk" href="/sk/" hreflang="sk" id="btnSk" lang="sk">SK</a><a class="lang-btn" data-lang-btn="cs" href="/cs/" hreflang="cs" id="btnCs" lang="cs">CS</a><a class="lang-btn" data-lang-btn="de" href="/de/" hreflang="de" id="btnDe" lang="de">DE</a><a class="lang-btn" data-lang-btn="pl" href="/pl/" hreflang="pl" id="btnPl" lang="pl">PL</a></div>
-<button aria-expanded="false" class="mobile-toggle"><span aria-hidden="true">☰</span><span class="visually-hidden">Menu</span></button>
 <div class="nav-links">
-<div class="lang-switcher lang-switcher-mobile"><a aria-current="true" class="lang-btn active" data-lang-btn="en" href="/en/" hreflang="en" lang="en">EN</a><a class="lang-btn" data-lang-btn="sk" href="/sk/" hreflang="sk" lang="sk">SK</a><a class="lang-btn" data-lang-btn="cs" href="/cs/" hreflang="cs" lang="cs">CS</a><a class="lang-btn" data-lang-btn="de" href="/de/" hreflang="de" lang="de">DE</a><a class="lang-btn" data-lang-btn="pl" href="/pl/" hreflang="pl" lang="pl">PL</a></div>
+<div aria-label="Language selector" class="lang-switcher lang-switcher-mobile"><a aria-current="true" class="lang-btn active" data-lang-btn="en" href="/en/" hreflang="en" lang="en">EN</a><a class="lang-btn" data-lang-btn="sk" href="/sk/" hreflang="sk" lang="sk">SK</a><a class="lang-btn" data-lang-btn="cs" href="/cs/" hreflang="cs" lang="cs">CS</a><a class="lang-btn" data-lang-btn="de" href="/de/" hreflang="de" lang="de">DE</a><a class="lang-btn" data-lang-btn="pl" href="/pl/" hreflang="pl" lang="pl">PL</a></div>
 <a class="nav-link active" data-i18n="navHome" href="/en/" id="navHome">Home</a>
 <a class="nav-link" data-i18n="navHowItWorks" href="/en/how-it-works" id="navHow">How it works</a>
 <a class="nav-link" data-i18n="navTools" href="/en/tools/" id="navTools">Free Tools</a>
 <a class="nav-link" data-i18n="navBlog" href="/en/blog/" id="navBlog">Blog</a>
-<a class="nav-link nav-cta" data-i18n="navContact" href="/en/contact" id="navContact">✦ Contact</a>
+<a class="nav-link nav-cta" data-i18n="navContact" href="/en/contact" id="navContact">Contact</a>
 </div>
+<div aria-label="Language selector" class="lang-switcher"><a aria-current="true" class="lang-btn active" data-lang-btn="en" href="/en/" hreflang="en" id="btnEn" lang="en">EN</a><a class="lang-btn" data-lang-btn="sk" href="/sk/" hreflang="sk" id="btnSk" lang="sk">SK</a><a class="lang-btn" data-lang-btn="cs" href="/cs/" hreflang="cs" id="btnCs" lang="cs">CS</a><a class="lang-btn" data-lang-btn="de" href="/de/" hreflang="de" id="btnDe" lang="de">DE</a><a class="lang-btn" data-lang-btn="pl" href="/pl/" hreflang="pl" id="btnPl" lang="pl">PL</a></div>
+<button aria-expanded="false" aria-label="Toggle menu" class="mobile-toggle">
+<svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-width="1.75" viewbox="0 0 24 24" width="22"><line x1="3" x2="21" y1="8" y2="8"></line><line x1="3" x2="21" y1="16" y2="16"></line></svg>
+<span class="visually-hidden">Menu</span>
+</button>
 </div>
 </div>
 </nav>
 <main id="main-content">
-<!-- === HERO SECTION === -->
-<section id="hero">
-<div class="container hero-inner">
-<div class="profile-frame" style="width: 128px; height: 128px; margin-bottom: 20px;">
+<!-- === EDITORIAL HERO === -->
+<section class="hero-editorial-section" id="hero">
+<div class="container">
+<div class="hero-editorial">
+<!-- Mobile-first compact author row (desktop shows portrait card on right) -->
+<div class="hero-copy-col">
+<p class="hero-eyebrow" data-i18n="heroEyebrow" id="heroEyebrow">Practical AI Agents · No Hype</p>
+<h1 data-i18n="heroTitle" id="heroTitle">I build <span class="highlight">AI agents</span> to win back time — and measure the result.</h1>
+<p class="hero-lead" data-i18n="heroTagline" id="heroTagline">I create and manage AI agents using open-source frameworks like <strong>Hermes Agent</strong> and <strong>OpenBot</strong> (open-source alternative to Grok bot). The goal is simple: make life and work easier, delegate routine tasks, orchestrate them cleanly, and actually measure what they save.</p>
+<div class="hero-actions">
+<a class="btn-whatsapp" href="https://wa.me/421940377855" rel="noopener" target="_blank">
+<span data-i18n="heroWaCta" id="heroWaCta">Message me on WhatsApp</span>
+<svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.85" viewbox="0 0 24 24" width="18"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+</a>
+<a class="btn-secondary" data-i18n="ctaExplore" href="/en/tools/" id="ctaExplore">Explore free tools →</a>
+</div>
+</div>
+<aside aria-label="Author profile" class="hero-portrait-card">
+<div class="hero-portrait-media">
 <picture>
 <source srcset="/profile.webp" type="image/webp"/>
-<img alt="Marian Stancik" fetchpriority="high" height="128" loading="eager" src="/profile.webp" width="128"/>
+<img alt="Marian Stancik" fetchpriority="high" height="400" loading="eager" src="/profile.webp" width="400"/>
 </picture>
 </div>
-<div class="badge" data-i18n="heroBadge" id="heroBadge" style="margin-bottom: 14px;">✦ Practical AI agents · no hype, no selling</div>
-<h1 data-i18n="heroTitle" id="heroTitle">I build <span class="highlight">AI agents</span> to win back time — and measure the result.</h1>
-<p class="tagline" data-i18n="heroTagline" id="heroTagline" style="max-width: 680px; font-size: 1.05rem; line-height: 1.75; color: #BACAD9;">I create and manage AI agents using open-source frameworks like <strong>Hermes Agent</strong> and <strong>OpenBot</strong> (open-source alternative to Grok bot). The goal is simple: make life and work easier, delegate routine tasks, orchestrate them cleanly, and actually measure what they save.</p>
-<!-- ACTION BUTTONS -->
-<div class="hero-links" style="margin-top: 24px;">
-<a class="btn-whatsapp" data-i18n="heroWaCta" href="https://wa.me/421940377855" id="heroWaCta" rel="noopener" target="_blank">Message me on WhatsApp</a>
-<a data-i18n="ctaExplore" href="/en/tools/" id="ctaExplore" style="color:#EBC37D; font-weight:600; text-decoration:none;">Explore free tools →</a>
-<a data-i18n="ctaHow" href="/en/how-it-works" id="ctaHow">How it works →</a>
+<div class="hero-portrait-meta">
+<div class="hero-portrait-name" data-i18n="heroPortraitLocation" id="heroPortraitLocation">Marian Stancik · AI Agents</div>
+<div class="hero-portrait-status">
+<span aria-hidden="true" class="live-dot"></span>
+<span data-i18n="heroPortraitStatus" id="heroPortraitStatus">Building with Hermes Agent &amp; OpenBot</span>
 </div>
-<div class="glow-line"></div>
+</div>
+</aside>
+</div>
+<!-- === REAL NUMBERS LEDGER (ABOVE / EDGE OF FOLD) === -->
+<div aria-label="Real monthly numbers" class="ledger-strip">
+<div class="ledger-cell">
+<div class="ledger-val" data-i18n="numM1Val" id="numM1Val">4B tokens</div>
+<div class="ledger-label" data-i18n="numM1Label" id="numM1Label">Real monthly volume across my autonomous agents and workflows.</div>
+</div>
+<div class="ledger-cell">
+<div class="ledger-val" data-i18n="numM2Val" id="numM2Val">~$200 vs $15,000</div>
+<div class="ledger-label" data-i18n="numM2Label" id="numM2Label">DeepSeek via OpenRouter instead of overpaying for frontier models.</div>
+</div>
+<div class="ledger-cell">
+<div class="ledger-val" data-i18n="numM3Val" id="numM3Val">Open-Source</div>
+<div class="ledger-label" data-i18n="numM3Label" id="numM3Label">Hermes Agent &amp; OpenBot (open-source Grok bot alternative) — full control, measurable output.</div>
+</div>
+</div>
 </div>
 </section>
 <!-- === WHAT YOU GET === -->
 <section aria-label="What you get here" id="what-you-get">
 <div class="container">
-<div class="section-label fade-in" data-i18n="getLabel" id="getLabel">✦ Simple &amp; Clear</div>
+<div class="section-label fade-in" data-i18n="getLabel" id="getLabel">Simple &amp; Clear</div>
 <h2 class="fade-in" data-i18n="getHeading" id="getHeading">What you actually get here.</h2>
 <p class="section-intro fade-in" data-i18n="getIntro" id="getIntro">Whether you run a company or just want less repetitive work in your own day — here is what I share and how I can help.</p>
 <div class="collab-grid fade-in">
 <div class="collab-card">
-<div class="collab-icon-box">⏱️</div>
+<div aria-hidden="true" class="collab-icon-box">
+<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24" width="22"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+</div>
 <span class="collab-card-tag" data-i18n="get1Tag" id="get1Tag">More time</span>
 <h3 data-i18n="get1Title" id="get1Title">Delegate routine tasks</h3>
 <p data-i18n="get1Desc" id="get1Desc">Inbox triage, research, document summaries, and recurring workflows. Agents handle the busywork; you make the final decision.</p>
 </div>
 <div class="collab-card">
-<div class="collab-icon-box">🧰</div>
+<div aria-hidden="true" class="collab-icon-box">
+<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24" width="22"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" x2="20" y1="19" y2="19"></line></svg>
+</div>
 <span class="collab-card-tag" data-i18n="get2Tag" id="get2Tag">Free tools</span>
 <h3 data-i18n="get2Title" id="get2Title">Copy what already works</h3>
 <p data-i18n="get2Desc" id="get2Desc">15 tested agent prompts, a Starter Kit, and a transparent look at my own agent setup — free, with known failures included.</p>
 </div>
 <div class="collab-card">
-<div class="collab-icon-box">💬</div>
+<div aria-hidden="true" class="collab-icon-box">
+<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24" width="22"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+</div>
 <span class="collab-card-tag" data-i18n="get3Tag" id="get3Tag">Direct contact</span>
 <h3 data-i18n="get3Title" id="get3Title">Practical help without hype</h3>
 <p data-i18n="get3Desc" id="get3Desc">Want to connect your workflows, cut AI token costs, or build your first open-source agent? Write to me directly on WhatsApp.</p>
@@ -172,49 +210,35 @@
 <!-- === CRITICAL VIEW OF AI & REAL NUMBERS === -->
 <section aria-label="Critical view of AI and real numbers" id="real-numbers">
 <div class="container">
-<div class="section-label fade-in" data-i18n="numLabel" id="numLabel">✦ Real Numbers, Not Hype</div>
+<div class="section-label fade-in" data-i18n="numLabel" id="numLabel">Real Numbers, Not Hype</div>
 <h2 class="fade-in" data-i18n="numHeading" id="numHeading">AI is just a tool. Here is what it actually costs.</h2>
 <div class="proof-banner fade-in">
 <p class="proof-lead" data-i18n="numLead" id="numLead">I look at AI critically. It is not magic — it is a tool that can easily burn your budget if you use it blindly. Last month my agents used <strong>4 billion tokens</strong> for roughly <strong>$200</strong> on DeepSeek via OpenRouter. Running the exact same workload on the most expensive frontier models would have cost <strong>$15,000</strong>.</p>
-<div class="proof-metrics">
-<div class="proof-metric-box">
-<div class="proof-metric-val" data-i18n="numM1Val" id="numM1Val">4B tokens</div>
-<div class="proof-metric-label" data-i18n="numM1Label" id="numM1Label">Real monthly volume across my autonomous agents and workflows.</div>
-</div>
-<div class="proof-metric-box">
-<div class="proof-metric-val" data-i18n="numM2Val" id="numM2Val">~$200 vs $15k</div>
-<div class="proof-metric-label" data-i18n="numM2Label" id="numM2Label">DeepSeek via OpenRouter instead of overpaying for frontier models.</div>
-</div>
-<div class="proof-metric-box">
-<div class="proof-metric-val" data-i18n="numM3Val" id="numM3Val">Open-Source</div>
-<div class="proof-metric-label" data-i18n="numM3Label" id="numM3Label">Hermes Agent &amp; OpenBot (open-source Grok bot alternative) — full control, measurable output.</div>
-</div>
-</div>
 </div>
 </div>
 </section>
 <!-- === WHO I AM / WHO I AM NOT === -->
 <section aria-label="Who I am and who I am not" id="identity">
 <div class="container">
-<div class="section-label fade-in" data-i18n="idLabel" id="idLabel">✦ Honesty First</div>
+<div class="section-label fade-in" data-i18n="idLabel" id="idLabel">Honesty First</div>
 <h2 class="fade-in" data-i18n="idHeading" id="idHeading">Who I am — and who I am NOT.</h2>
 <p class="section-intro fade-in" data-i18n="idIntro" id="idIntro">Clear boundaries from day one so you know exactly who you are talking to.</p>
 <div class="identity-grid fade-in">
 <div class="identity-card is-yes">
 <h3 data-i18n="idYesTitle" id="idYesTitle">What I am</h3>
 <ul class="identity-list">
-<li><span class="mark-yes">✓</span> <span data-i18n="idYes1" id="idYes1"><strong>AI agent builder &amp; manager:</strong> I use open-source frameworks (Hermes Agent, OpenBot) to delegate work, orchestrate workflows, and measure results.</span></li>
-<li><span class="mark-yes">✓</span> <span data-i18n="idYes2" id="idYes2"><strong>Practical &amp; critical:</strong> I treat AI as an everyday tool, watch token costs closely, and share what actually fails.</span></li>
-<li><span class="mark-yes">✓</span> <span data-i18n="idYes3" id="idYes3"><strong>3rd-year law student:</strong> I follow privacy (GDPR) and the EU AI Act out of genuine interest in how tech meets regulation.</span></li>
-<li><span class="mark-yes">✓</span> <span data-i18n="idYes4" id="idYes4"><strong>Open about automation:</strong> This entire website and my agent inbox (<code>marianstancik@agentmail.to</code>) are run by my AI agents.</span></li>
+<li><span aria-hidden="true" class="mark-yes">✓</span> <span data-i18n="idYes1" id="idYes1"><strong>AI agent builder &amp; manager:</strong> I use open-source frameworks (Hermes Agent, OpenBot) to delegate work, orchestrate workflows, and measure results.</span></li>
+<li><span aria-hidden="true" class="mark-yes">✓</span> <span data-i18n="idYes2" id="idYes2"><strong>Practical &amp; critical:</strong> I treat AI as an everyday tool, watch token costs closely, and share what actually fails.</span></li>
+<li><span aria-hidden="true" class="mark-yes">✓</span> <span data-i18n="idYes3" id="idYes3"><strong>3rd-year law student:</strong> I follow privacy (GDPR) and the EU AI Act out of genuine interest in how tech meets regulation.</span></li>
+<li><span aria-hidden="true" class="mark-yes">✓</span> <span data-i18n="idYes4" id="idYes4"><strong>Open about automation:</strong> This entire website and my agent inbox (<code>marianstancik@agentmail.to</code>) are run by my AI agents.</span></li>
 </ul>
 </div>
 <div class="identity-card is-no">
 <h3 data-i18n="idNoTitle" id="idNoTitle">What I am NOT</h3>
 <ul class="identity-list">
-<li><span class="mark-no">✕</span> <span data-i18n="idNo1" id="idNo1"><strong>Not a lawyer:</strong> I am only in my 3rd year of law school and by law I cannot provide legal advice. Everything here is my subjective view — for legal matters, consult a licensed attorney.</span></li>
-<li><span class="mark-no">✕</span> <span data-i18n="idNo2" id="idNo2"><strong>Not an AI guru:</strong> I don't promise overnight miracles, one-click riches, or magic autonomous systems that need zero human judgment.</span></li>
-<li><span class="mark-no">✕</span> <span data-i18n="idNo3" id="idNo3"><strong>Not pushing a shop:</strong> I am not selling packaged products right now. Use the free tools, read the notes, or message me if you want to talk.</span></li>
+<li><span aria-hidden="true" class="mark-no">✕</span> <span data-i18n="idNo1" id="idNo1"><strong>Not a lawyer:</strong> I am only in my 3rd year of law school and by law I cannot provide legal advice. Everything here is my subjective view — for legal matters, consult a licensed attorney.</span></li>
+<li><span aria-hidden="true" class="mark-no">✕</span> <span data-i18n="idNo2" id="idNo2"><strong>Not an AI guru:</strong> I don't promise overnight miracles, one-click riches, or magic autonomous systems that need zero human judgment.</span></li>
+<li><span aria-hidden="true" class="mark-no">✕</span> <span data-i18n="idNo3" id="idNo3"><strong>Not pushing a shop:</strong> I am not selling packaged products right now. Use the free tools, read the notes, or message me if you want to talk.</span></li>
 </ul>
 </div>
 </div>
@@ -223,7 +247,7 @@
 <!-- === WHERE TO GO NEXT === -->
 <section aria-label="Explore the site" id="explore">
 <div class="container">
-<div class="section-label fade-in" data-i18n="entryLabel" id="entryLabel">✦ Start here</div>
+<div class="section-label fade-in" data-i18n="entryLabel" id="entryLabel">Start here</div>
 <h2 class="fade-in" data-i18n="entryHeading" id="entryHeading">Three ways in.</h2>
 <p class="section-intro fade-in" data-i18n="entryIntro" id="entryIntro">Free tools you can use today, the story of the team behind them, and the build log.</p>
 <div class="entry-grid tools-grid fade-in">
@@ -251,54 +275,62 @@
 <!-- === NEWSLETTER / LEAD CAPTURE === -->
 <section aria-label="Newsletter signup" id="lead-capture">
 <div class="container">
-<div class="section-label fade-in" data-i18n="leadLabel" id="leadLabel">✦ Updates</div>
-<h2 class="fade-in" data-i18n="leadHeading" id="leadHeading">Get practical AI agent notes by email.</h2>
-<p class="section-intro fade-in" data-i18n="leadIntro" id="leadIntro" style="margin-bottom: 0;">Real experiments, token cost lessons, and new free tools — plus the AI Agent Starter Kit right away. No spam, no hype.</p>
-<form class="lead-form fade-in" id="leadForm">
+<div class="lead-panel fade-in">
+<div class="section-label" data-i18n="leadLabel" id="leadLabel">Updates</div>
+<h2 data-i18n="leadHeading" id="leadHeading">Get practical AI agent notes by email.</h2>
+<p class="section-intro lead-intro" data-i18n="leadIntro" id="leadIntro">Real experiments, token cost lessons, and new free tools — plus the AI Agent Starter Kit right away. No spam, no hype.</p>
+<form class="lead-form" id="leadForm">
+<div class="lead-input-row">
 <input aria-label="Email address" autocomplete="email" id="leadEmail" name="email" placeholder="your@email.com" required="" type="email"/>
+<button data-i18n="subscribeBtn" id="subscribeBtn" type="submit">Subscribe</button>
+</div>
 <input name="source" type="hidden" value="homepage-newsletter"/>
-<label style="display:flex;align-items:flex-start;gap:8px;font-size:0.78rem;color:#B5C6DA;margin:10px 0;text-align:left;">
-<input aria-label="GDPR consent" name="gdpr_consent_check" required="" style="margin-top:3px;" type="checkbox"/>
+<label class="lead-consent">
+<input aria-label="GDPR consent" name="gdpr_consent_check" required="" type="checkbox"/>
 <span data-i18n="leadConsentText" id="leadConsentText">I agree to the <a href="/privacy" style="color:#CD7F32;text-decoration:underline;">Privacy Policy</a> and consent to processing my email for updates and the Starter Kit.</span>
 </label>
 <div aria-hidden="true" class="cf-turnstile" data-sitekey="" data-theme="dark" hidden=""></div>
-<button data-i18n="subscribeBtn" id="subscribeBtn" type="submit">Subscribe</button>
 </form>
 <div class="lead-status" id="leadStatus" role="alert"></div>
 <p class="lead-note" data-i18n="leadNote" id="leadNote">Double opt-in: we send a confirmation email first. Unsubscribe with one click anytime.</p>
+</div>
 </div>
 </section>
 <!-- === DIRECT CONNECT === -->
 <section aria-label="Direct contact" id="connect">
 <div class="container">
-<div class="section-label fade-in" data-i18n="connLabel" id="connLabel">✦ Direct Contact</div>
+<div class="section-label fade-in" data-i18n="connLabel" id="connLabel">Direct Contact</div>
 <h2 class="fade-in" data-i18n="connHeading" id="connHeading">Write to me directly.</h2>
-<p class="section-intro fade-in" data-i18n="connIntro" id="connIntro" style="margin-bottom: 28px;">Fastest way to reach me personally is WhatsApp. My email is managed and triaged by my AI agent.</p>
+<p class="section-intro conn-intro fade-in" data-i18n="connIntro" id="connIntro">Fastest way to reach me personally is WhatsApp. My email is managed and triaged by my AI agent.</p>
 <div class="connect-grid fade-in">
 <a aria-label="WhatsApp +421 940 377 855" href="https://wa.me/421940377855" rel="noopener" target="_blank">
-<span class="social-icon">💬</span>
+<span aria-hidden="true" class="social-icon">
+<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.85" viewbox="0 0 24 24" width="16"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+</span>
 <span data-i18n="connWaText" id="connWaText">WhatsApp: +421 940 377 855</span>
 </a>
 <a aria-label="Agent-managed Email" href="mailto:marianstancik@agentmail.to">
-<span class="social-icon">
-<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="16" rx="2" width="20" x="2" y="4"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+<span aria-hidden="true" class="social-icon">
+<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.85" viewbox="0 0 24 24" width="16"><rect height="16" rx="2" width="20" x="2" y="4"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
 </span>
 <span>marianstancik@agentmail.to</span>
 </a>
 <a aria-label="Book a 20-minute call" href="https://calendar.app.google/hu1vx3nqLgK65u5C7" rel="noopener" target="_blank">
-<span class="social-icon">📅</span>
+<span aria-hidden="true" class="social-icon">
+<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.85" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+</span>
 <span data-i18n="connCalText" id="connCalText">Book a 20-min call</span>
 </a>
 <a aria-label="LinkedIn" href="https://www.linkedin.com/in/marian-stancik-924b41298/?utm_source=marianstancik.dev&amp;utm_medium=profile" rel="noopener" target="_blank">
-<span class="social-icon"><svg fill="currentColor" height="16" viewbox="0 0 24 24" width="16"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></span>
+<span aria-hidden="true" class="social-icon"><svg fill="currentColor" height="16" viewbox="0 0 24 24" width="16"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></span>
 <span>LinkedIn</span>
 </a>
 <a aria-label="GitHub" href="https://github.com/Abra7abra7?utm_source=marianstancik.dev&amp;utm_medium=profile" rel="noopener" target="_blank">
-<span class="social-icon"><svg fill="currentColor" height="16" viewbox="0 0 24 24" width="16"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg></span>
+<span aria-hidden="true" class="social-icon"><svg fill="currentColor" height="16" viewbox="0 0 24 24" width="16"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg></span>
 <span>GitHub</span>
 </a>
 <a aria-label="X / Twitter" href="https://x.com/marian_s_ai?utm_source=marianstancik.dev&amp;utm_medium=profile" rel="noopener" target="_blank">
-<span class="social-icon"><svg fill="currentColor" height="16" viewbox="0 0 24 24" width="16"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></span>
+<span aria-hidden="true" class="social-icon"><svg fill="currentColor" height="16" viewbox="0 0 24 24" width="16"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></span>
 <span>@marian_s_ai</span>
 </a>
 </div>
@@ -317,11 +349,11 @@
 </div>
 <p class="footer-tagline" data-i18n="footerTagline" id="footerTagline">Practical AI agents, open-source tools, and honest numbers — run by agents.</p>
 <div class="footer-social">
-<a aria-label="WhatsApp" class="social-circle" href="https://wa.me/421940377855" rel="noopener" target="_blank">💬</a>
-<a aria-label="LinkedIn" class="social-circle" href="https://www.linkedin.com/in/marian-stancik-924b41298/" rel="noopener" target="_blank"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.238-5-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
-<a aria-label="GitHub" class="social-circle" href="https://github.com/Abra7abra7" rel="noopener" target="_blank"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg></a>
-<a aria-label="X / Twitter" class="social-circle" href="https://x.com/marian_s_ai" rel="noopener" target="_blank"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
-<a aria-label="Email" class="social-circle" href="mailto:marianstancik@agentmail.to"><svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><rect height="16" rx="2" width="20" x="2" y="4"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></a>
+<a aria-label="WhatsApp" class="social-circle" href="https://wa.me/421940377855" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.85" viewbox="0 0 24 24" width="15"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></a>
+<a aria-label="LinkedIn" class="social-circle" href="https://www.linkedin.com/in/marian-stancik-924b41298/" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
+<a aria-label="GitHub" class="social-circle" href="https://github.com/Abra7abra7" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg></a>
+<a aria-label="X / Twitter" class="social-circle" href="https://x.com/marian_s_ai" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+<a aria-label="Email" class="social-circle" href="mailto:marianstancik@agentmail.to"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-width="1.85" viewbox="0 0 24 24" width="14"><rect height="16" rx="2" width="20" x="2" y="4"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></a>
 </div>
 </div>
 <div class="footer-col">
@@ -348,11 +380,11 @@
 <div class="footer-divider"></div>
 <div class="footer-bottom">
 <p>© 2026 Marian Stancik — <span data-i18n="fMotto" id="fMotto">AI is a tool. Measure what matters.</span></p>
-<p class="footer-tag">Run with <span class="bronze">✦</span> by Hermes Agent &amp; OpenBot</p>
+<p class="footer-tag">Operated by Hermes Agent &amp; OpenBot</p>
 </div>
-<div class="footer-legal" style="margin-top:1.2rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.06); font-size:0.7rem; color:#8A7A6A; line-height:1.6; text-align:center;">
-<p data-i18n="footerImprint" id="footerImprint" style="margin:0 0 8px 0; color:#9A8A7A;"><strong>Marian Stancik</strong> — Sole Proprietor (Trade License) · Černákova 2046/8, 977 01 Brezno, Slovakia · ID (IČO): 57068917 · Tax ID: 1082585075 · Non-VAT payer · Trade Register Brezno No. 630-22847 · <a href="mailto:marianstancik@agentmail.to" style="color:#CD7F32;">marianstancik@agentmail.to</a></p>
-<p data-i18n="footerAiAct" id="footerAiAct" style="margin:0;"><strong>⚠️ Disclaimer:</strong> I am a 3rd-year law student and by law do not provide legal advice. Everything on this website is my subjective view and is managed by autonomous AI agents (EU AI Act Art. 50). <a href="/disclaimer" style="color:#CD7F32;text-decoration:underline;">Disclaimer</a> · <a href="/privacy" style="color:#CD7F32;text-decoration:underline;">Privacy Policy</a> · <a href="/terms" style="color:#CD7F32;text-decoration:underline;">Terms</a> · <a href="/cookie" style="color:#CD7F32;text-decoration:underline;">Cookies</a> · <a href="/impressum" style="color:#CD7F32;text-decoration:underline;">Impressum</a>.</p><p id="footerLegalLinks" style="margin:8px 0 0 0;"><a href="/disclaimer" style="color:#CD7F32;text-decoration:underline;">Full disclaimer</a> · <a href="/privacy" style="color:#CD7F32;text-decoration:underline;">Privacy Policy</a> · <a href="/terms" style="color:#CD7F32;text-decoration:underline;">Terms of Service</a> · <a href="/cookie" style="color:#CD7F32;text-decoration:underline;">Cookie Policy</a> · <a href="/impressum" style="color:#CD7F32;text-decoration:underline;">Impressum</a></p>
+<div class="footer-legal">
+<p data-i18n="footerImprint" id="footerImprint"><strong>Marian Stancik</strong> — Sole Proprietor (Trade License) · Černákova 2046/8, 977 01 Brezno, Slovakia · ID (IČO): 57068917 · Tax ID: 1082585075 · Non-VAT payer · Trade Register Brezno No. 630-22847 · <a href="mailto:marianstancik@agentmail.to" style="color:#CD7F32;">marianstancik@agentmail.to</a></p>
+<p data-i18n="footerAiAct" id="footerAiAct"><strong>Disclaimer:</strong> I am a 3rd-year law student and by law do not provide legal advice. Everything on this website is my subjective view and is managed by autonomous AI agents (EU AI Act Art. 50). <a href="/disclaimer" style="color:#CD7F32;text-decoration:underline;">Disclaimer</a> · <a href="/privacy" style="color:#CD7F32;text-decoration:underline;">Privacy Policy</a> · <a href="/terms" style="color:#CD7F32;text-decoration:underline;">Terms</a> · <a href="/cookie" style="color:#CD7F32;text-decoration:underline;">Cookies</a> · <a href="/impressum" style="color:#CD7F32;text-decoration:underline;">Impressum</a>.</p><p id="footerLegalLinks" style="margin:8px 0 0 0;"><a href="/disclaimer" style="color:#CD7F32;text-decoration:underline;">Full disclaimer</a> · <a href="/privacy" style="color:#CD7F32;text-decoration:underline;">Privacy Policy</a> · <a href="/terms" style="color:#CD7F32;text-decoration:underline;">Terms of Service</a> · <a href="/cookie" style="color:#CD7F32;text-decoration:underline;">Cookie Policy</a> · <a href="/impressum" style="color:#CD7F32;text-decoration:underline;">Impressum</a></p>
 </div>
 </div>
 </footer>
@@ -362,7 +394,7 @@
 <span aria-hidden="true" class="wa-float-dot"></span>
 <span data-i18n="waFloatText">WhatsApp</span>
 </a>
-<script defer="" src="/js/three-bg.min.js?v=138"></script>
-<script defer="" src="/js/i18n.min.js?v=20261031_v2"></script>
+<script defer="" src="/js/three-bg.min.js?v=141"></script>
+<script defer="" src="/js/i18n.min.js?v=20261125_v2"></script>
 </body>
 </html>

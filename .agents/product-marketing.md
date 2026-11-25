@@ -61,6 +61,10 @@
 - **15 otestovaných promptov** zdieľaných zadarmo vrátane známych zlyhaní.
 - **Celý tento web a e-mail** (`marianstancik@agentmail.to`) spravujú AI agenti.
 
+## Privacy & Minimal Personal Info (Mandatory)
+- Na webe má byť **čo najmenej osobných informácií o autorovi** — len absolútne minimálne požiadavky zo zákona (povinné údaje živnostníka v pätičke/impressum), priamy kontakt (WhatsApp číslo, agent email) a sociálne siete.
+- **Nikdy nezobrazovať mesto (Brezno) ani zbytočné osobné detaily** v hero sekcii, pri fotke alebo v marketingových kartách. Pri fotke uvádzať len meno a čo robí/stavia (AI agenti, Hermes Agent & OpenBot).
+
 ## Contact & Channels
 - **WhatsApp (priamy kontakt):** `+421 940 377 855` (`https://wa.me/421940377855`)
 - **Profesionálny e-mail spravovaný agentom:** `marianstancik@agentmail.to`
