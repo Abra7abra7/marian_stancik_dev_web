@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jak testuję agenta AI, zanim dopuszczę go do prawdziwej pracy — Marian Stancik</title>
+<meta name="description" content="Agent, który działa w demo, i agent, który działa w poniedziałek rano, to dwie różne rzeczy. Oto pięć kontroli, które przeprowadzam, zanim jakikolwiek agent dostanie prawdziwą pracę.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.marianstancik.dev/blog/posts/pl/2026-11-25-how-i-test-an-ai-agent-before-i-let-it-touch-real-work">
+<link rel="alternate" hreflang="en" href="https://www.marianstancik.dev/blog/posts/2026-11-25-how-i-test-an-ai-agent-before-i-let-it-touch-real-work">
+<link rel="alternate" hreflang="sk" href="https://www.marianstancik.dev/blog/posts/sk/2026-11-25-how-i-test-an-ai-agent-before-i-let-it-touch-real-work">
+<link rel="alternate" hreflang="cs" href="https://www.marianstancik.dev/blog/posts/cs/2026-11-25-how-i-test-an-ai-agent-before-i-let-it-touch-real-work">
+<link rel="alternate" hreflang="de" href="https://www.marianstancik.dev/blog/posts/de/2026-11-25-how-i-test-an-ai-agent-before-i-let-it-touch-real-work">
+<link rel="alternate" hreflang="pl" href="https://www.marianstancik.dev/blog/posts/pl/2026-11-25-how-i-test-an-ai-agent-before-i-let-it-touch-real-work">
+<link rel="alternate" hreflang="x-default" href="https://www.marianstancik.dev/blog/posts/2026-11-25-how-i-test-an-ai-agent-before-i-let-it-touch-real-work">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#08080F">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Jak testuję agenta AI, zanim dopuszczę go do prawdziwej pracy — Marian Stancik">
+<meta property="og:description" content="Agent, który działa w demo, i agent, który działa w poniedziałek rano, to dwie różne rzeczy. Oto pięć kontroli, które przeprowadzam, zanim jakikolwiek agent dostanie prawdziwą pracę.">
+<meta property="og:url" content="https://www.marianstancik.dev/blog/posts/pl/2026-11-25-how-i-test-an-ai-agent-before-i-let-it-touch-real-work">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Jak testuję agenta AI, zanim dopuszczę go do prawdziwej pracy">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="sk_SK">
+<meta property="og:locale:alternate" content="cs_CZ">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:site_name" content="Marian Stancik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marian_s_ai">
+<meta name="twitter:creator" content="@marian_s_ai">
+<meta name="twitter:image" content="https://www.marianstancik.dev/og-image.webp">
+
+<meta name="ai-generated-content" content="true">
+
+<!-- JSON-LD Structured Data with BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Jak testuję agenta AI, zanim dopuszczę go do prawdziwej pracy",
+      "description": "Agent, który działa w demo, i agent, który działa w poniedziałek rano, to dwie różne rzeczy. Oto pięć kontroli, które przeprowadzam, zanim jakikolwiek agent dostanie prawdziwą pracę.",
+      "datePublished": "2026-11-25",
+      "dateModified": "2026-11-25",
+      "author": {
+        "@type": "Person",
+        "name": "Marian Stancik",
+        "url": "https://www.marianstancik.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Marian Stancik"
+      },
+      "mainEntityOfPage": "https://www.marianstancik.dev/blog/posts/pl/2026-11-25-how-i-test-an-ai-agent-before-i-let-it-touch-real-work",
+      "keywords": ["AI Agents", "Open Source", "Practical AI", "Testing", "Automation"],
+      "isBasedOn": "https://schema.org/AIGeneratedContent",
+      "creativeWorkStatus": "AIGenerated"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Strona główna",
+          "item": "https://www.marianstancik.dev/pl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.marianstancik.dev/pl/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Jak testuję agenta AI, zanim dopuszczę go do prawdziwej pracy",
+          "item": "https://www.marianstancik.dev/blog/posts/pl/2026-11-25-how-i-test-an-ai-agent-before-i-let-it-touch-real-work"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:#08080F;color:#E8E8F0;line-height:1.8;-webkit-font-smoothing:antialiased}
+.container{max-width:740px;margin:0 auto;padding:0 24px}
+nav{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(8,8,15,0.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-inner a{color:#8888A0;text-decoration:none;font-size:0.85rem;transition:color 0.3s}
+.nav-inner a:hover{color:#CD7F32}
+article{padding:48px 0 80px}
+.post-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:32px;font-size:0.78rem;color:#9090A8}
+.post-meta .tag{background:rgba(205,127,50,0.08);color:#E8B86D;padding:3px 10px;border-radius:100px;font-size:0.65rem;border:1px solid rgba(205,127,50,0.15)}
+h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:#F0F0F5;line-height:1.25;letter-spacing:-0.02em;margin-bottom:8px}
+h2{font-size:1.3rem;font-weight:600;color:#F0F0F5;margin:36px 0 12px;line-height:1.35}
+h3{font-size:1.05rem;font-weight:600;color:#D0D0E0;margin:24px 0 8px}
+p{color:#B0B0C8;margin-bottom:16px;font-size:0.95rem}
+a{color:#E8B86D;transition:color 0.3s}
+a:hover{color:#CD7F32}
+ul,ol{padding-left:20px;margin-bottom:16px;color:#B0B0C8;font-size:0.95rem}
+li{margin-bottom:6px}
+code{background:rgba(255,255,255,0.04);padding:2px 6px;border-radius:4px;font-size:0.85rem;color:#E8B86D;font-family:'Fira Code','Cascadia Code','JetBrains Mono',monospace}
+pre{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;overflow-x:auto;margin-bottom:20px;font-size:0.82rem;line-height:1.5}
+pre code{background:none;padding:0;color:#C8C8D8}
+.callout{background:rgba(205,127,50,0.06);border-left:3px solid #CD7F32;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;color:#E8E8F0}
+footer{padding:36px 24px;text-align:center;color:#9090A8;font-size:0.75rem;border-top:1px solid rgba(255,255,255,0.04)}
+footer a{color:#8888A0;text-decoration:none}
+footer a:hover{color:#CD7F32}
+@media(max-width:600px){article{padding:32px 0 60px}}
+</style>
+<script defer src="https://api.marianstancik.dev/script.js" data-website-id="ec1c0df8-e51f-4236-9ad0-e3992f0b1637"></script>
+<script defer src="/js/posthog.js"></script>
+</head>
+<body>
+
+<nav aria-label="Nawigacja bloga">
+  <div class="nav-inner">
+    <a href="/pl/" aria-label="Marian Stancik strona główna"><span style="font-size:1.1rem">←</span> Strona główna</a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="/pl/blog/">Blog</a>
+      <div style="display:flex;gap:4px;background:rgba(255,255,255,0.06);padding:2px 4px;border-radius:100px;font-size:0.72rem;font-weight:600;">
+        <a href="/blog/posts/2026-11-25-how-i-test-an-ai-agent-before-i-let-it-touch-real-work" hreflang="en" lang="en" style="padding:2px 8px;border-radius:100px;color:#8888A0;text-decoration:none;">EN</a>
+        <a href="/blog/posts/sk/2026-11-25-how-i-test-an-ai-agent-before-i-let-it-touch-real-work" hreflang="sk" lang="sk" style="padding:2px 8px;border-radius:100px;color:#8888A0;text-decoration:none;">SK</a>
+        <a href="/blog/posts/cs/2026-11-25-how-i-test-an-ai-agent-before-i-let-it-touch-real-work" hreflang="cs" lang="cs" style="padding:2px 8px;border-radius:100px;color:#8888A0;text-decoration:none;">CS</a>
+        <a href="/blog/posts/de/2026-11-25-how-i-test-an-ai-agent-before-i-let-it-touch-real-work" hreflang="de" lang="de" style="padding:2px 8px;border-radius:100px;color:#8888A0;text-decoration:none;">DE</a>
+        <a href="/blog/posts/pl/2026-11-25-how-i-test-an-ai-agent-before-i-let-it-touch-real-work" hreflang="pl" lang="pl" style="padding:2px 8px;border-radius:100px;color:#CD7F32;background:rgba(205,127,50,0.15);text-decoration:none;">PL</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+<article>
+<div class="post-meta">
+  <span>25 listopada 2026</span>
+  <span class="tag">AI Agents</span>
+  <span>6 min czytania</span>
+  <span>Marian Stancik</span>
+</div>
+
+<h1>Jak testuję agenta AI, zanim dopuszczę go do prawdziwej pracy</h1>
+
+<div class="post-content">
+<p>Agent, który działa w demo, i agent, który działa w zwykły poniedziałkowy poranek, to dwie różne rzeczy. Zanim pozwolę jakiemukolwiek agentowi zabrać się za prawdziwą pracę, przechodzi on przez pięć kontroli. Większość z nich zajmuje mniej niż dziesięć minut i oszczędza godziny późniejszego sprzątania.</p>
+
+<h2>Problem: oceniamy agentów po demo</h2>
+<p>Niemal każdego agenta, którego widzę prezentowanego online, pokazuje się w ten sam sposób: jedno czyste wejście, przyjazny przykład, człowiek patrzący na ekran. Wygląda świetnie. Potem podłączasz go do prawdziwej skrzynki odbiorczej, prawdziwego arkusza kalkulacyjnego albo prawdziwego zapytania klienta i wszystko się rozpada — nie z hukiem, ale po cichu.</p>
+<p>Cicha awaria jest tym kosztownym rodzajem. Agent mówi „gotowe”, wpisuje na wpół poprawny wiersz do twojego arkusza, wysyła odpowiedź z niewłaściwym imieniem albo zapętla to samo wywołanie narzędzia piętnaście razy. Nikt tego nie zauważa przez tydzień.</p>
+<p>Koszt pogarsza sprawę. Przepuszczam około <strong>4 miliardów tokenów miesięcznie za mniej więcej $200</strong> przez DeepSeek w OpenRouter. Ten sam wolumen na najdroższych modelach frontier kosztowałby około <strong>$15,000</strong>. Tanie tokeny są świetne, ale oznaczają też, że zapętlający się agent nie powoduje natychmiastowych szkód — więc błędne wyniki przetrwają dłużej, zanim ktokolwiek je wychwyci.</p>
+
+<h2>Jak testuję agentów, zanim dostaną prawdziwą pracę</h2>
+<p>Buduję na frameworkach open source — głównie <strong>Hermes Agent</strong> i <strong>OpenBot</strong> (alternatywa open source dla bota Grok) — z DeepSeek przez OpenRouter do taniej iteracji. Pięć poniższych kontroli jest takich samych niezależnie od frameworka.</p>
+<ul>
+<li><strong>1. Zacznij od najbrzydszego wejścia, jakie masz.</strong> Nie przykład wpisany ręcznie — prawdziwy zrzut ekranu, na wpół napisany e-mail, PDF z tabelą, której nie da się sparsować. Jeśli agent działa tylko z idealnym wejściem, zbudowałeś skrypt, a nie agenta.</li>
+<li><strong>2. Uruchom go dwa razy na tym samym wejściu.</strong> To samo zadanie, te same dane, dwa razy. Jeśli odpowiedzi się różnią, dowiedz się dlaczego, zanim mu zaufasz: temperatura, kolejność narzędzi, znacznik czasu ukryty w prompcie. Niedeterminizm nie jest automatycznie zły, ale niewyjaśniony niedeterminizm jest.</li>
+<li><strong>3. Odbierz jedno narzędzie.</strong> Odłącz jedno API albo unieważnij jeden klucz i uruchom zadanie ponownie. Dobry agent zawodzi głośno i mówi, czego brakuje. Zły wymyśla odpowiedź. Głośna porażka to funkcja, której chcesz.</li>
+<li><strong>4. Licz kroki i tokeny.</strong> Rejestruj każde wywołanie narzędzia. Proste zadanie, które zajmuje czternaście kroków, zwykle oznacza niejasny prompt albo źle napisany opis narzędzia, a nie trudne zadanie.</li>
+<li><strong>5. Przeczytaj wynik jak ktoś z zewnątrz.</strong> Czy współpracownik, który nie zna twojej konfiguracji, zrozumiałby wynik bez pytania cię? Jeśli nie, agent nie jest gotowy — po prostu przeniósł pracę na kogoś innego.</li>
+</ul>
+<p>Nic z tego nie wymaga frameworka testowego ani potoku CI. Wymaga dwudziestu minut i gotowości, by nie dać się zachwycić.</p>
+
+<h2>Gdzie to zawodzi i na co uważać</h2>
+<p>Uczciwe ograniczenia: pięć kontroli nie obejmuje prawdziwego świata. Agent może przejść wszystkie i nadal zepsuć się we wtorek, gdy strona zmieni swój HTML albo klient wyśle coś, czego nigdy nie widziałeś. Testy zmniejszają niespodzianki; nie usuwają ich.</p>
+<p>Dwie kolejne pułapki, w które wpadłem:</p>
+<ul>
+<li><strong>Testowanie na innym modelu niż ten, na którym wdrażasz.</strong> Tanie modele do iteracji są w porządku, ale zachowanie zmienia się między modelami. Końcowa kontrola musi zostać uruchomiona na modelu, który faktycznie wykonuje pracę.</li>
+<li><strong>Nieświadome niańczenie.</strong> Jeśli zawsze jesteś w pobliżu, żeby go popchnąć, nie testujesz agenta — testujesz siebie. Zostaw go samego na jeden dzień i zobacz, co się stanie.</li>
+</ul>
+<p>A strona prawna: jeśli twój agent dotyka danych osobowych, w grę wchodzą GDPR i EU AI Act. Jestem studentem trzeciego roku prawa, nie prawnikiem — wszystko, co piszę o regulacjach, jest subiektywną uwagą, a do prawdziwych decyzji potrzebujesz adwokata.</p>
+
+<h2>Podsumowanie</h2>
+<p>AI to narzędzie, nie magia. Różnica między agentem, który oszczędza ci czas, a takim, który po cichu robi bałagan, zwykle nie tkwi w modelu — tkwi w tym, czy najpierw spędziłeś dwadzieścia minut, próbując go zepsuć.</p>
+<p>Jeśli chcesz wymienić się uwagami na temat testowania własnej konfiguracji, napisz do mnie przez WhatsApp pod numer <a href="https://wa.me/421940377855">+421 940 377 855</a>, albo wypróbuj darmowe narzędzia na <a href="/en/tools/">/en/tools/</a>. Ten artykuł i strona są przygotowywane przy użyciu agentów AI i końcowej weryfikacji przez człowieka.</p>
+</div>
+</article>
+</div>
+
+<footer>
+  <p>© 2026 <a href="/pl/">Marian Stancik</a> — <a href="/pl/">www.marianstancik.dev</a></p>
+</footer>
+</body>
+</html>

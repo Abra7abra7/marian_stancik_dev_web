@@ -28,6 +28,7 @@
 
 ## Blog Articles
 
+- [How I Test an AI Agent Before I Let It Touch Real Work](https://www.marianstancik.dev/blog/posts/2026-11-25-how-i-test-an-ai-agent-before-i-let-it-touch-real-work): An agent that works in a demo and one that works on Monday morning are different things. Here are the five checks I run before any agent gets real work.
 - [AI Agents with Rules: Guardrails and Human-in-the-Loop in Practice (Without Paranoia or Naivety)](https://www.marianstancik.dev/blog/posts/ai-agenti-guardrails-human-in-the-loop): An agent that can do everything is a risk. Three layers of rules, the output format as a guardrail, and the typical failures when rules are missing — from live agent operations.
 - [GEO: How to Get Cited by ChatGPT, Perplexity and Google AI Overviews](https://www.marianstancik.dev/blog/posts/geo-generative-engine-optimization): GEO is optimizing content for citations in AI answers. Three pillars, 8 practical steps — from the direct answer via schema.org to llms.txt — and what actually holds on this website.
 - [Specialized Agent vs. Universal Chatbot: Which One Is Worth It, and When](https://www.marianstancik.dev/blog/posts/specializovany-agent-vs-univerzalny-chatbot): A universal chatbot is better for one-off, varied tasks. A specialized agent pays off when a task repeats, needs a fixed output format and rules. Decision criteria inside.
