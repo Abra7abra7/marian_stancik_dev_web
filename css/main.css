@@ -3152,3 +3152,195 @@ a.entry-card:hover .home-prod-arrow { transform: translateX(4px); color: var(--c
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+
+/* === SIMPLE IDENTITY (WHAT I AM / WHAT I AM NOT) & REAL NUMBERS === */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: #060B12 !important;
+  background: linear-gradient(135deg, #EBC37D 0%, #CD7F32 100%);
+  border: 1px solid rgba(235, 195, 125, 0.65);
+  box-shadow: 0 8px 24px rgba(205, 127, 50, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(235, 195, 125, 0.38);
+  filter: brightness(1.05);
+}
+.btn-whatsapp svg {
+  flex-shrink: 0;
+}
+
+.proof-banner {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-hover);
+  border-radius: 18px;
+  padding: 32px 28px;
+  margin-top: 28px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.38);
+}
+.proof-banner p.proof-lead {
+  font-size: 1.02rem;
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 760px;
+}
+.proof-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+@media (max-width: 768px) {
+  .proof-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+.proof-metric-box {
+  background: rgba(14, 25, 42, 0.82);
+  border: 1px solid rgba(235, 195, 125, 0.22);
+  border-radius: 14px;
+  padding: 22px 20px;
+}
+.proof-metric-val {
+  font-size: clamp(1.3rem, 2.2vw, 1.55rem);
+  font-weight: 800;
+  color: var(--color-accent);
+  line-height: 1.25;
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+.proof-metric-label {
+  font-size: 0.9rem;
+  color: #D2DFEE;
+  line-height: 1.55;
+}
+
+/* Higher contrast for secondary Hero links & cards */
+.hero-links a:not(.btn-whatsapp) {
+  color: #E2EBF5 !important;
+  border-color: rgba(235, 195, 125, 0.28);
+  background: rgba(14, 25, 42, 0.55);
+}
+.hero-links a:not(.btn-whatsapp):hover {
+  color: #EBC37D !important;
+  border-color: rgba(235, 195, 125, 0.6);
+  background: rgba(22, 38, 62, 0.85);
+}
+.collab-card p {
+  color: #C7D5E5;
+}
+
+.identity-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+@media (max-width: 768px) {
+  .identity-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.identity-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 28px 26px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+.identity-card.is-yes {
+  border-top: 2px solid var(--color-accent);
+}
+.identity-card.is-no {
+  border-top: 2px solid rgba(205, 127, 50, 0.5);
+}
+.identity-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+.identity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.identity-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: #C7D5E5;
+  line-height: 1.6;
+}
+.identity-list .mark-yes {
+  color: #EBC37D;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.identity-list .mark-no {
+  color: #CD7F32;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* Floating WhatsApp Quick Button */
+.wa-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 950;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: 9999px;
+  background: rgba(10, 17, 28, 0.92);
+  border: 1px solid rgba(235, 195, 125, 0.55);
+  color: #EBC37D;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.55), 0 0 16px rgba(205, 127, 50, 0.22);
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+.wa-float:hover {
+  transform: translateY(-2px);
+  border-color: #EBC37D;
+  background: rgba(18, 30, 48, 0.96);
+}
+.wa-float-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #25D366;
+  box-shadow: 0 0 8px #25D366;
+  flex-shrink: 0;
+}
+@media (max-width: 540px) {
+  .wa-float {
+    right: 14px;
+    bottom: 14px;
+    padding: 10px 14px;
+    font-size: 0.8rem;
+  }
+}
