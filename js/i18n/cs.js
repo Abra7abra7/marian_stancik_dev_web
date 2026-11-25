@@ -368,6 +368,6 @@ translations["cs"] = {
  "cLegalNote": "Upozornění: Jsem student 3. ročníku práv — ze zákona neposkytuji právní poradenství. Vše o soukromí a EU AI Act jsou jen mé subjektivní poznámky.",
  "waFloatText": "WhatsApp",
  "heroEyebrow": "Praktičtí AI agenti · Bez hype",
- "heroPortraitLocation": "Marian Stancik · Brezno, SK",
- "heroPortraitStatus": "14 open-source agentů v provozu"
+ "heroPortraitLocation": "Marian Stancik · AI agenti",
+ "heroPortraitStatus": "Stavím na Hermes Agent & OpenBot"
 };

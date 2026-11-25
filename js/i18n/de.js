@@ -368,6 +368,6 @@ translations["de"] = {
  "cLegalNote": "Hinweis: Ich bin Jurastudent im 3. Jahr und leiste keine Rechtsberatung. Alle Hinweise zu Datenschutz und EU AI Act sind rein subjektiv.",
  "waFloatText": "WhatsApp",
  "heroEyebrow": "Praktische KI-Agenten · Ohne Hype",
- "heroPortraitLocation": "Marian Stancik · Brezno, SK",
- "heroPortraitStatus": "14 Open-Source-Agenten aktiv"
+ "heroPortraitLocation": "Marian Stancik · KI-Agenten",
+ "heroPortraitStatus": "Entwicklung mit Hermes Agent & OpenBot"
 };

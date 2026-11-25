@@ -368,6 +368,6 @@ translations["en"] = {
  "cLegalNote": "Note: I am a 3rd-year law student — I do not provide legal advice. Everything I share about privacy or the EU AI Act is purely subjective.",
  "waFloatText": "WhatsApp",
  "heroEyebrow": "Practical AI Agents · No Hype",
- "heroPortraitLocation": "Marian Stancik · Brezno, SK",
- "heroPortraitStatus": "14 open-source agents live"
+ "heroPortraitLocation": "Marian Stancik · AI Agents",
+ "heroPortraitStatus": "Building with Hermes Agent & OpenBot"
 };

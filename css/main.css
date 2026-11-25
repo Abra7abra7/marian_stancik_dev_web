@@ -4296,3 +4296,209 @@ footer {
     display: none;
   }
 }
+
+
+/* ==========================================================================
+   SUBPAGE EDITORIAL UNIFICATION (How it works, Tools, Prompts, Kit, Blog)
+   Compact left-aligned headers -> content visible immediately above the fold
+   ========================================================================== */
+
+#hero:not(.hero-editorial-section) {
+  min-height: auto;
+  padding: 108px 24px 36px;
+  align-items: stretch;
+}
+
+#hero:not(.hero-editorial-section) .hero-inner {
+  align-items: flex-start;
+  text-align: left;
+  gap: 14px;
+}
+
+#hero:not(.hero-editorial-section) h1 {
+  font-size: clamp(2rem, 3.8vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+  margin-bottom: 4px;
+  max-width: 24ch;
+}
+
+#hero:not(.hero-editorial-section) .tagline {
+  color: var(--color-text-muted);
+  font-size: clamp(0.98rem, 1.3vw, 1.08rem);
+  line-height: 1.65;
+  max-width: 64ch;
+  text-align: left;
+}
+
+.glow-line {
+  display: none;
+}
+
+.team-strip {
+  justify-content: flex-start;
+  border-radius: var(--radius-md);
+  margin-top: 8px;
+  padding: 10px 16px;
+}
+
+@media (max-width: 860px) {
+  #hero:not(.hero-editorial-section) {
+    padding: 82px 18px 28px;
+  }
+}
+
+/* Compact jump bar & direct actions on subpages */
+.subpage-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.subpage-actions .btn-whatsapp,
+.subpage-actions .btn-secondary {
+  min-height: 44px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
+
+/* Blog index editorial alignment */
+.blog-hero {
+  padding: 108px 0 32px;
+  text-align: left;
+}
+
+.blog-hero h1 {
+  font-size: clamp(2rem, 3.8vw, 2.9rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 0 12px;
+}
+
+.blog-hero p,
+.blog-hero .section-intro {
+  margin: 0;
+  max-width: 64ch;
+  color: var(--color-text-muted);
+}
+
+.post-list {
+  max-width: 860px;
+  margin: 0;
+  padding: 0 0 80px;
+  width: 100%;
+}
+
+.post-item {
+  padding: 26px 28px;
+  margin-bottom: 16px;
+}
+
+.post-item h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-bottom: 10px;
+}
+
+.post-tags span {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: rgba(148, 163, 184, 0.08);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+@media (max-width: 860px) {
+  .blog-hero {
+    padding: 82px 0 24px;
+  }
+  .blog-page > .container {
+    padding: 0 18px;
+  }
+  .post-item {
+    padding: 20px;
+  }
+}
+
+/* Prompt Library & Filters */
+#pl-filters {
+  padding: 8px 24px 24px;
+}
+
+.filter-row {
+  justify-content: flex-start;
+  margin: 0;
+}
+
+.filter-btn {
+  border-radius: var(--radius-md);
+  min-height: 40px;
+  padding: 6px 16px;
+}
+
+.filter-btn.active {
+  border-color: var(--color-accent);
+  color: #0A111C;
+  background: var(--color-accent);
+  font-weight: 700;
+}
+
+.prompt-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 820px) {
+  #pl-filters {
+    padding: 8px 18px 20px;
+  }
+  .prompt-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Team grid (How it works) */
+.team-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Contact & Tools spacing helpers (zero inline styles) */
+.socials-section {
+  padding-top: 16px;
+}
+
+.contact-legal-note {
+  margin-top: 28px;
+  margin-bottom: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-dim);
+}
+
+.tools-inline-kit {
+  padding-top: 16px;
+}
+
+.tools-note-text {
+  margin-top: 24px;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
