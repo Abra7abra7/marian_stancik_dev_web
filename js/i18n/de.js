@@ -11,7 +11,7 @@ translations["de"] = {
  "blogSecHeading": "Aktuelle Beiträge.",
  "blogSecIntro": "KI-Agenten, autonome Systeme und Building in Public.",
  "blogSecLabel": "✦ Blog",
- "blogSubtitle": "Autonome KI-Agenten, Legal-by-Design-Frameworks (AI Act & DSGVO) und Drohnen-Engineering.",
+ "blogSubtitle": "Praxisnotizen zu KI-Agenten (Hermes Agent, OpenBot), Token-Kosten sowie Gedanken zu EU AI Act & Datenschutz.",
  "blogTitle": "Artikel & <span>Einblicke</span>",
  "bookCard1Cta": "Über Google Meet buchen",
  "bookCard2Cta": "Über Google Meet buchen",

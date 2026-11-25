@@ -11,7 +11,7 @@ translations["sk"] = {
  "blogSecHeading": "Najnovšie myšlienky.",
  "blogSecIntro": "AI agenti, autonómne systémy a building in public.",
  "blogSecLabel": "✦ Blog",
- "blogSubtitle": "Autonómni AI agenti, legal-by-design rámce (AI Act & GDPR) a inžinierstvo dronov.",
+ "blogSubtitle": "Praktické poznámky o AI agentoch (Hermes Agent, OpenBot), nákladoch na tokeny a pohľade na EU AI Act a súkromie.",
  "blogTitle": "Články & <span>Poznatky</span>",
  "bookCard1Cta": "Rezervovať cez Google Meet",
  "bookCard2Cta": "Rezervovať cez Google Meet",

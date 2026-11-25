@@ -42,7 +42,7 @@
 </head>
 <body class="blog-page">
 
-<nav aria-label="Blog navigation">
+<nav aria-label="Main navigation">
   <div class="nav-container">
     <a href="/" class="nav-logo" aria-label="marianstancik.dev home">
       <div class="brand-mark" aria-hidden="true"><img src="/profile-56.webp" srcset="/profile-56.webp 56w, /profile.webp 400w" sizes="28px" alt="Marian Stancik" width="28" height="28" class="brand-avatar" loading="eager"></div>
@@ -55,16 +55,29 @@
         <button class="lang-btn" id="btnDe" data-lang-switch="de">DE</button>
         <button class="lang-btn" id="btnPl" data-lang-switch="pl">PL</button>
       </div>
-      <a href="/" class="nav-link" id="blogHomeLink">← Home</a>
+      <button class="mobile-toggle" aria-expanded="false"><span aria-hidden="true">☰</span><span class="visually-hidden">Menu</span></button>
+      <div class="nav-links">
+        <div class="lang-switcher lang-switcher-mobile">
+          <button class="lang-btn active" data-lang-switch="en">EN</button>
+          <button class="lang-btn" data-lang-switch="sk">SK</button>
+          <button class="lang-btn" data-lang-switch="de">DE</button>
+          <button class="lang-btn" data-lang-switch="pl">PL</button>
+        </div>
+        <a href="/" class="nav-link" id="navHome" data-i18n="navHome">Home</a>
+        <a href="/how-it-works" class="nav-link" id="navHow" data-i18n="navHowItWorks">How it works</a>
+        <a href="/tools" class="nav-link" id="navTools" data-i18n="navTools">Free Tools</a>
+        <a href="/blog" class="nav-link active" id="navBlog" data-i18n="navBlog">Blog</a>
+        <a href="/contact" class="nav-link nav-cta" id="navContact" data-i18n="navContact">✦ Contact</a>
+      </div>
     </div>
   </div>
 </nav>
 
 <div class="container">
   <header class="blog-hero">
-    <div class="badge" id="blogBadge">✦ Engineering &amp; Thought Log</div>
-    <h1 id="blogTitle">Articles &amp; <span>Insights</span></h1>
-    <p class="section-intro" id="blogSubtitle">Autonomous AI agents, legal-by-design frameworks (AI Act &amp; GDPR), and UAV engineering.</p>
+    <div class="badge" id="blogBadge" data-i18n="blogBadge">✦ Build Log &amp; Notes</div>
+    <h1 id="blogTitle" data-i18n="blogTitle">Articles &amp; <span>Insights</span></h1>
+    <p class="section-intro" id="blogSubtitle" data-i18n="blogSubtitle">Practical notes on AI agents (Hermes Agent, OpenBot), token costs, and EU AI Act &amp; privacy reflections.</p>
   </header>
 
   <main class="post-list" id="postContainer">
