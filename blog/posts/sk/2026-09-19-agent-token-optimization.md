@@ -167,7 +167,7 @@ agents:
 global:
   daily_spend_limit: €2.00
   weekly_spend_limit: €10.00
-  alert_channel: stancikmarian8@gmail.com
+  alert_channel: marianstancik@agentmail.to
 ```
 
 ```

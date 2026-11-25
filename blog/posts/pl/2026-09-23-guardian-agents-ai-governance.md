@@ -124,7 +124,7 @@ global:
 
 ```
 
-This is not theoretical — every agent on my VPS is bound by this exact policy. The deny-by-default rule means that if a tool is not explicitly in the allowed list, the guardian blocks it. When an agent tries to call deny-listed tools, the guardian logs the attempt, sends an alert to stancikmarian8@gmail.com, and continues without interruption. In 4 months of production, I have received exactly 2 such alerts — both caused by legitimate config errors during development, caught before they became incidents.
+This is not theoretical — every agent on my VPS is bound by this exact policy. The deny-by-default rule means that if a tool is not explicitly in the allowed list, the guardian blocks it. When an agent tries to call deny-listed tools, the guardian logs the attempt, sends an alert to marianstancik@agentmail.to, and continues without interruption. In 4 months of production, I have received exactly 2 such alerts — both caused by legitimate config errors during development, caught before they became incidents.
 
 Key principle: Agents should not ask for permission to call tools. They should call tools through a layer that checks permissions automatically. This is the difference between "safe by design" and "safe by hoping the agent follows its instructions."
 

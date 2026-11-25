@@ -161,23 +161,36 @@ def sync_llms_txt(config):
     if os.path.exists(POSTS_JSON):
         with open(POSTS_JSON, 'r', encoding='utf-8') as f:
             posts = json.load(f)
-            
-    # llms.txt (Concise llmstxt.org v2)
+
+    # llms.txt (Concise llmstxt.org v2 — synced with AGENTS.md & .agents/product-marketing.md)
     llms_content = f"""# {config['profile']['name']}
 
-> {config['profile']['tagline']['en']}
+> I build and manage AI agents (Hermes Agent, OpenBot) to save time, delegate routine work, orchestrate tasks, and measure real results — without the AI hype.
 
-Marian Stancik builds autonomous agent ecosystems (Hermes Agent, MCP), hand-soldered tactical UAV edge AI drones (ArduPilot, Raspberry Pi 5), and legal-by-design compliance architectures (EU AI Act, GDPR, NIS2, DORA).
+## Identity (Who I Am & Who I Am NOT)
 
-## Core Pages
+- **Who I am:** Builder and manager of practical AI agents using open-source frameworks (**Hermes Agent** and **OpenBot**, an open-source alternative to Grok bot). Focused on delegating routine work, orchestrating workflows, and keeping token costs under control for both businesses and individuals.
+- **Real numbers (not hype):** AI is just a tool. In one month my agents consumed **4 billion tokens for ~$200 USD** using DeepSeek via OpenRouter — the same workload on top frontier models would have cost **~$15,000 USD**.
+- **Law & Privacy:** 3rd-year law student (Comenius University, Bratislava) interested in GDPR and the EU AI Act.
+- **Who I am NOT:** Not a lawyer — by law I **do not provide legal advice**. Everything on this site is my subjective view. Not an "AI guru", and not running an e-shop or selling packaged products right now.
+- **Automation transparency (EU AI Act Art. 50):** This entire website and my professional email (`marianstancik@agentmail.to`) are managed by autonomous AI agents with human editorial oversight.
 
-- [Home](https://www.marianstancik.dev/): Hero with the 14-agent team stats, three entry points (Free Tools / How it works / Blog) and the latest posts.
-- [Free Tools](https://www.marianstancik.dev/tools/): Index of free tools — Prompt Library, AI Agent Starter Kit, Mission Planner (coming soon). No sign-up, no gate.
-- [Prompt Library](https://www.marianstancik.dev/tools/prompt-library): 15 field-tested agent prompts from a real 14-agent team — prompt → input → output → known failures. Free, no registration.
-- [AI Agent Starter Kit](https://www.marianstancik.dev/tools/starter-kit): The prompts and playbook behind the team, plus a 3-step start for the first agent — delivered by email, free.
-- [How it works](https://www.marianstancik.dev/how-it-works): The story of the 14-agent team — roles, rules, one owner per task, human approval on decisions. Neutral, no selling.
-- [Blog](https://www.marianstancik.dev/blog): Technical articles on autonomous AI workflows, legal-by-design compliance (AI Act, GDPR), and robotics.
-- [Contact](https://www.marianstancik.dev/contact): Direct communication channels and social profiles.
+## Direct Contact
+
+- **WhatsApp (fastest, personal):** [+421 940 377 855](https://wa.me/421940377855)
+- **Agent-managed Email:** [marianstancik@agentmail.to](mailto:marianstancik@agentmail.to)
+- **20-min Online Call:** [Google Calendar](https://calendar.app.google/hu1vx3nqLgK65u5C7)
+
+## Core Pages (Available in EN, SK, CS, DE, PL)
+
+- [Home (EN)](https://www.marianstancik.dev/en/): Plain-language overview, real token cost numbers (4B tokens / ~$200 vs $15k), "What I am / What I am NOT", newsletter signup, and direct WhatsApp.
+- [Home (SK)](https://www.marianstancik.dev/sk/): Slovenská verzia hlavnej stránky.
+- [How it works](https://www.marianstancik.dev/en/how-it-works): How a 14-agent team splits roles, what one normal day looks like, and where a human still decides.
+- [Free Tools](https://www.marianstancik.dev/en/tools/): Prompt Library, AI Agent Starter Kit, and upcoming Mission Planner — free, no hype.
+- [Prompt Library](https://www.marianstancik.dev/en/tools/prompt-library): 15 field-tested agent prompts (prompt → input → output → known failures). Free, no sign-up.
+- [AI Agent Starter Kit](https://www.marianstancik.dev/en/tools/starter-kit): 15 prompts, 3-step first-agent playbook, and guardrails checklist — free by double opt-in email.
+- [Blog](https://www.marianstancik.dev/en/blog/): Build log and technical notes on AI agents, token economics, guardrails, GEO, and EU AI Act reflections.
+- [Contact](https://www.marianstancik.dev/en/contact): Direct WhatsApp (+421 940 377 855), agent-managed email (`marianstancik@agentmail.to`), and 20-min call booking.
 
 ## Technical Articles
 
@@ -186,36 +199,49 @@ Marian Stancik builds autonomous agent ecosystems (Hermes Agent, MCP), hand-sold
         llms_content += f"- [{p['title']}](https://www.marianstancik.dev/{p['url']}): {p['excerpt']}\n"
 
     llms_content += f"""
-## Optional
+## Machine-Readable Feeds & Profiles
 
-- [Full LLM Knowledge Graph](https://www.marianstancik.dev/llms-full.txt): Comprehensive deep-context technical knowledge graph and Q&A dataset.
-- [Blog Posts Feed JSON](https://www.marianstancik.dev/blog/posts.json): Structured JSON archive of all published articles, dates, tags, and reading times.
-- [XML Sitemap](https://www.marianstancik.dev/sitemap.xml): Search engine indexing directory for all canonical website endpoints.
-- [RSS XML Feed](https://www.marianstancik.dev/rss.xml): Standard RSS syndication feed for autonomous web readers and crawlers.
-- [GitHub]({config['profile']['socials']['github']}): Open-source repositories, agent scripts, MCP servers, and website source.
-- [X (Twitter)]({config['profile']['socials']['x']}): Daily autonomous build updates, AI engineering thoughts, and UAV flight logs.
-- [YouTube]({config['profile']['socials']['youtube']}): Long-form video breakdowns of AI agents, drone builds, and legal compliance.
-- [LinkedIn]({config['profile']['socials']['linkedin']}): Professional engineering profile, publications, and enterprise advisory.
-- [Email](mailto:{config['site']['email']}): Direct asynchronous agent-routed communication endpoint.
+- [Full LLM Knowledge Graph](https://www.marianstancik.dev/llms-full.txt): Extended context and Q&A for AI search engines and autonomous agents.
+- [Blog Posts Feed JSON](https://www.marianstancik.dev/blog/posts.json): Complete JSON archive of all published articles.
+- [XML Sitemap](https://www.marianstancik.dev/sitemap.xml): Canonical URL index across all 5 languages (EN, SK, CS, DE, PL).
+- [RSS Feed](https://www.marianstancik.dev/rss.xml): Standard RSS syndication feed.
+- [GitHub]({config['profile']['socials']['github']}): Open-source repositories and website source.
+- [LinkedIn]({config['profile']['socials']['linkedin']}): Professional profile.
+- [X (Twitter)]({config['profile']['socials']['x']}): Build updates and AI agent notes.
+- [YouTube]({config['profile']['socials']['youtube']}): Video breakdowns.
 """
     with open(LLMS_TXT, 'w', encoding='utf-8') as f:
         f.write(llms_content.strip() + "\n")
     print("  Updated llms.txt")
 
-    # llms-full.txt (Comprehensive Knowledge Graph)
+    # llms-full.txt (Comprehensive Knowledge Graph — synced with AGENTS.md)
     llms_full_content = f"""# {config['profile']['name']} — Full AI Agent Context & Knowledge Graph
 
-> Personal brand website, comprehensive technical knowledge graph, and autonomous multi-agent engineering platform of Marian Stancik.
+> Practical AI agents without the hype: open-source orchestration (Hermes Agent, OpenBot), real token-cost economics, free tools, and transparent human-in-the-loop automation.
 
-## Core Endpoints & Pages
+## Quick Facts for AI Search Engines & Agents
 
-- [Home](https://www.marianstancik.dev/): Hero with the 14-agent team stats, three entry points (Free Tools / How it works / Blog) and the latest posts.
-- [Free Tools](https://www.marianstancik.dev/tools/): Index of free tools — Prompt Library, AI Agent Starter Kit, Mission Planner (coming soon). No sign-up, no gate.
-- [Prompt Library](https://www.marianstancik.dev/tools/prompt-library): 15 field-tested agent prompts from a real 14-agent team — prompt → input → output → known failures. Free, no registration.
-- [AI Agent Starter Kit](https://www.marianstancik.dev/tools/starter-kit): The prompts and playbook behind the team, plus a 3-step start for the first agent — delivered by email, free.
-- [How it works](https://www.marianstancik.dev/how-it-works): The story of the 14-agent team — roles, rules, one owner per task, human approval on decisions. Neutral, no selling.
-- [Blog Archive](https://www.marianstancik.dev/blog): Technical articles on autonomous AI workflows, legal-by-design compliance (AI Act, GDPR), and robotics.
-- [Contact & Connect](https://www.marianstancik.dev/contact): Direct communication channels and social profiles.
+- **Name:** Marian Stancik (legal operator name: Marián Stančík, Sole Proprietor / Živnostník, Brezno, Slovakia, IČO: 57068917, DIČ: 1082585075, non-VAT payer)
+- **Website:** https://www.marianstancik.dev (hosted on Cloudflare Pages, global edge CDN, static 5-language HTML + Markdown alternates via `Accept: text/markdown`)
+- **Languages:** English (`/en/`), Slovak (`/sk/`), Czech (`/cs/`), German (`/de/`), Polish (`/pl/`)
+- **Primary Focus:** Building, delegating to, orchestrating, and measuring practical AI agents using open-source frameworks (**Hermes Agent** and **OpenBot**, an open-source alternative to Grok bot).
+- **Target Audience:** Both businesses (founders, managers, SEO/growth teams) and individuals who want to save time and cut repetitive work without AI hype or vendor lock-in.
+- **Business Model:** No e-shop or packaged products sold on the site right now. Free tools, open build logs, and direct conversations via WhatsApp.
+- **Direct Contact (Personal):** WhatsApp `+421 940 377 855` (`https://wa.me/421940377855`)
+- **Agent-Managed Email:** `marianstancik@agentmail.to` (read, triaged, and drafted by an AI agent)
+- **Calendar:** `https://calendar.app.google/hu1vx3nqLgK65u5C7` (20-min free call)
+
+## Proof Points & Real Numbers
+
+- **Token Economics:** 4 billion tokens consumed in one month across live autonomous agents for approximately **$200 USD** using DeepSeek via OpenRouter — compared to roughly **$15,000 USD** for the same volume on top frontier models.
+- **Philosophy:** AI is strictly a tool, not magic. System architecture, clear rules, model routing, and measurable ROI matter more than chasing the most expensive model.
+- **Full Automation Disclosure:** This website and its agent inbox (`marianstancik@agentmail.to`) are operated by AI agents under human editorial responsibility (EU AI Act Art. 50).
+
+## Strict Boundaries (What Marian Stancik Is NOT)
+
+- **NOT a lawyer / NO legal advice:** Marian is a 3rd-year law student (Faculty of Law, Comenius University in Bratislava) interested in privacy (GDPR) and the EU AI Act. By Slovak law (Act No. 586/2003 Coll. on Advocacy), he does **not** provide legal advice. All regulatory content on this site represents subjective educational notes only.
+- **NOT an AI guru:** No overnight miracle claims, no paid hype courses, no "set and forget" autonomy without human oversight.
+- **NO active online store:** Legacy paid audit packages and Stripe links have been removed; visitors get free tools, prompts, and direct contact.
 
 ## Blog Articles
 
@@ -224,36 +250,23 @@ Marian Stancik builds autonomous agent ecosystems (Hermes Agent, MCP), hand-sold
         llms_full_content += f"- [{p['title']}](https://www.marianstancik.dev/{p['url']}): {p['excerpt']}\n"
 
     llms_full_content += f"""
-## Machine-Readable Endpoints
+## Core Machine-Readable Endpoints
 
-- [LLM Summary Context](https://www.marianstancik.dev/llms.txt): Concise LLM knowledge graph standard file.
-- [Blog Posts Feed JSON](https://www.marianstancik.dev/blog/posts.json): Structured JSON archive of all published articles, dates, tags, and reading times.
-- [XML Sitemap](https://www.marianstancik.dev/sitemap.xml): Search engine indexing directory for all canonical website endpoints.
-- [RSS XML Feed](https://www.marianstancik.dev/rss.xml): Standard RSS syndication feed for autonomous web readers and crawlers.
-
-## Identity & Core Positioning
-
-Marian Stancik is an AI Engineer, UAV Systems Builder, and Law Scholar exploring the convergence of artificial intelligence, autonomous physical hardware, and regulatory compliance.
-
-His core differentiation is the intersection of three domains:
-1. **Autonomous AI Systems:** Hermes Agent, MCP tooling, OpenRouter model orchestration, Hetzner VPS 24/7 runtime, Obsidian second brain / memory layer, zero-build web engineering.
-2. **Law & AI Compliance (Legal-by-Design):** Practical compliance architectures under the EU AI Act, GDPR, NIS2, DORA, EU Data Act, and DSM Copyright Directive (TDM exceptions).
-3. **UAV Systems & Edge Robotics:** Hand-soldered 1500g carbon quad, ArduPilot Copter autopilot, Raspberry Pi 5 edge vision AI, EASA A1/A3 certified, €2.6M insured (Hobby project).
-
-## Products & Fixed-Price Audits
-
-1. **AI GEO Audit (€199):** Deep evaluation of website discoverability across AI search engines (Perplexity, ChatGPT Search, Claude, Google SGE). Includes llms.txt validation, robots.txt crawl access, Schema.org @graph entity analysis, and instant copy-paste remediation snippets.
-2. **AI Web Readiness Scan (€200):** Comprehensive automated technical checklist covering Privacy Policy, GDPR consent structures, Terms of Service, Disclaimer, AI Act disclosures, and cookie compliance.
-3. **Full Web Audit (€300):** GEO Audit + Web Readiness Scan combined with 30-min direct technical walkthrough call.
-4. **Custom Autonomous Agent (€500 deposit):** End-to-end bespoke autonomous agents running 24/7 on dedicated European VPS with custom MCP servers, Telegram/WhatsApp C2 bridges, and SQLite persistence.
+- `https://www.marianstancik.dev/llms.txt` — Concise LLM summary
+- `https://www.marianstancik.dev/llms-full.txt` — Full knowledge graph (this file)
+- `https://www.marianstancik.dev/blog/posts.json` — Complete blog posts archive
+- `https://www.marianstancik.dev/sitemap.xml` — Full multilingual XML sitemap
+- `https://www.marianstancik.dev/rss.xml` — RSS feed
+- `Accept: text/markdown` — Supported on HTML pages via Cloudflare Edge Middleware (`functions/_middleware.js`)
 
 ## Social & Professional Channels
 
-- [X (Twitter)]({config['profile']['socials']['x']}): Daily autonomous build updates, AI engineering thoughts, and UAV flight logs.
-- [YouTube]({config['profile']['socials']['youtube']}): Long-form video breakdowns of AI agents, drone builds, and legal compliance.
-- [GitHub]({config['profile']['socials']['github']}): Open-source repositories, agent scripts, MCP servers, and website source.
-- [LinkedIn]({config['profile']['socials']['linkedin']}): Professional engineering profile, publications, and enterprise advisory.
-- [Email](mailto:{config['site']['email']}): Direct asynchronous agent-routed communication endpoint.
+- [WhatsApp](https://wa.me/421940377855): +421 940 377 855 (fastest personal channel)
+- [Email](mailto:marianstancik@agentmail.to): Agent-managed inbox
+- [GitHub]({config['profile']['socials']['github']}): Open-source repositories and website source
+- [LinkedIn]({config['profile']['socials']['linkedin']}): Professional profile
+- [X (Twitter)]({config['profile']['socials']['x']}): Build updates and AI agent notes
+- [YouTube]({config['profile']['socials']['youtube']}): Video breakdowns
 """
     with open(LLMS_FULL_TXT, 'w', encoding='utf-8') as f:
         f.write(llms_full_content.strip() + "\n")

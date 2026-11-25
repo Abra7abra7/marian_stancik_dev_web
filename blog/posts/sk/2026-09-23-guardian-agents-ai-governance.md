@@ -124,7 +124,7 @@ global:
 
 ```
 
-Toto nie je teória — každý agent na mojom VPS je viazaný touto presnou politikou. Pravidlo deny-by-default znamená, že ak nástroj nie je explicitne v povolenom zozname, guardian ho zablokuje. Keď sa agent pokúsi zavolať deny-listovaný nástroj, guardian zaloguje pokus, pošle alert na stancikmarian8@gmail.com a pokračuje bez prerušenia. Za 4 mesiace v produkcii som dostal presne 2 takéto alerty — oba spôsobené legitímnymi chybami v konfigurácii počas vývoja, zachytené skôr než sa stali incidentmi.
+Toto nie je teória — každý agent na mojom VPS je viazaný touto presnou politikou. Pravidlo deny-by-default znamená, že ak nástroj nie je explicitne v povolenom zozname, guardian ho zablokuje. Keď sa agent pokúsi zavolať deny-listovaný nástroj, guardian zaloguje pokus, pošle alert na marianstancik@agentmail.to a pokračuje bez prerušenia. Za 4 mesiace v produkcii som dostal presne 2 takéto alerty — oba spôsobené legitímnymi chybami v konfigurácii počas vývoja, zachytené skôr než sa stali incidentmi.
 
 Kľúčový princíp: Agenti by nemali žiadať o povolenie volať nástroje. Mali by volať nástroje cez vrstvu, ktorá kontroluje povolenia automaticky. Toto je rozdiel medzi "bezpečné dizajnom" a "bezpečné dúfaním, že agent dodrží inštrukcie."
 
