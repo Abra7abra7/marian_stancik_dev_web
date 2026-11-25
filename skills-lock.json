@@ -1,152 +1,166 @@
 {
-  "version": 1,
+  "version": 2,
   "skills": {
     "code-review": {
       "source": "mattpocock/skills",
       "sourceType": "github",
       "skillPath": "skills/engineering/code-review/SKILL.md",
-      "computedHash": "caa9a086baaf9e0f7cd71f64edfa83da6821c05e826b083221f3d02e3d6a1905"
+      "computedHash": ""
     },
     "codebase-design": {
       "source": "mattpocock/skills",
       "sourceType": "github",
       "skillPath": "skills/engineering/codebase-design/SKILL.md",
-      "computedHash": "caea3cb8a8281ff829fd1a2b985044e77601b62f301adf43f689ccfc74c15f6f"
+      "computedHash": "ae9516079d0dcc67318c9fb15e48211b820277f4680978cbb00a55741b943f09"
     },
     "competitive-landscape": {
       "source": "every-app/open-seo",
       "sourceType": "github",
       "skillPath": ".agents/skills/competitive-landscape/SKILL.md",
-      "computedHash": "72378a015246e1d8d28cfb0c4f585c80735c4b1f8b9baa274dad29c0757a7a0b"
+      "computedHash": "6d5d74e76d511eac7fb1d3c8161edcc673108938b7771c18be7315abc835be5b"
     },
     "competitor-analysis": {
       "source": "every-app/open-seo",
       "sourceType": "github",
       "skillPath": ".agents/skills/competitor-analysis/SKILL.md",
-      "computedHash": "68ffdeed7d261cc31dc194085566bffee5ea1b0036e76ea4ca326b2b18fce594"
+      "computedHash": "987d6a5811626a4d96341790b9cb195e91becdfbfec025990ac8f7d94bbdd680"
     },
     "connect-recommend": {
       "source": "docs.stripe.com",
       "sourceUrl": "https://docs.stripe.com",
       "sourceType": "well-known",
-      "computedHash": "f67b2c7a27cd815e66af7e5bc3e2efa85fca0b134961a977a5fa549df80ae455",
+      "computedHash": "",
       "wellKnownDigest": "sha256:69cbda6604f21bc684ae62dc38413bb62f762871e34d5ecf7fe66aaaacd60fec"
     },
     "connect-required-verification-information": {
       "source": "docs.stripe.com",
       "sourceUrl": "https://docs.stripe.com",
       "sourceType": "well-known",
-      "computedHash": "2aab50320b9ebde437ef8ae3d963a70c189b8f400855fe4e3fab2eadbca7db60",
+      "computedHash": "",
       "wellKnownDigest": "sha256:3de1f9190e319f05a76f867cad991426c5c8ff20b657b001daea277daa16d481"
     },
     "improve-ui": {
       "source": "ibelick/ui-skills",
       "sourceType": "github",
       "skillPath": "skills/improve-ui/SKILL.md",
-      "computedHash": "31c09b79a1c196adccb1637a225cef54f537da87430fda0ba309ef83e78f10e5"
+      "computedHash": "7f913010ca7e6b5c224d928d4f2500438d7daacebb25f00e2f4df3bed513d51d"
+    },
+    "ios-design": {
+      "source": "uizze.sh",
+      "sourceUrl": "https://uizze.sh/",
+      "sourceType": "well-known",
+      "computedHash": "bf6f8ac938352d92b8a1150f069c7c0a8ae4d9e18feccacc81862e2e7c72ebdb",
+      "wellKnownDigest": "sha256:ae3d720aa60c1655c3dae48bc07c448527e367ab24ed829020ba0a5f6268b691"
     },
     "keyword-clustering": {
       "source": "every-app/open-seo",
       "sourceType": "github",
       "skillPath": ".agents/skills/keyword-clustering/SKILL.md",
-      "computedHash": "dace5ceb1f01ca9cef1bc11b80b4226872a65a7156cfab9a449fe1f1bf1be66d"
+      "computedHash": "ea488d9230b5dbac0c9e1f385cd5ab1118b484abf84f34bc9a2e0449b11a9576"
     },
     "keyword-research": {
       "source": "every-app/open-seo",
       "sourceType": "github",
       "skillPath": ".agents/skills/keyword-research/SKILL.md",
-      "computedHash": "020ef18264d53432bdf1e37b52cdce3a7110bd482606af78f8da34a159cddf93"
+      "computedHash": "73daca7dd70535f7426e53746adef5816a9b86f1c956730361bf322a87d0b7d6"
     },
     "link-prospecting": {
       "source": "every-app/open-seo",
       "sourceType": "github",
       "skillPath": ".agents/skills/link-prospecting/SKILL.md",
-      "computedHash": "226bd387cd752a03dd9c24ae662c5f8e253e64a4474a164c4eebd3b2df3bdb84"
+      "computedHash": "dd653a8bd2bb478868fb8339ca1f6f335625e23e02c3068d042e23b4b9a9b525"
     },
     "local-seo": {
       "source": "every-app/open-seo",
       "sourceType": "github",
       "skillPath": ".agents/skills/local-seo/SKILL.md",
-      "computedHash": "9dee609c80927eedb2b1e13eefdcdbe5531304da25023d59cfb821f7eaea65e3"
+      "computedHash": "69743f4ffc99daf7e30eba2ae90b35c5a4988c9ed00f67b6118b116894a53887"
     },
     "metronome": {
       "source": "docs.stripe.com",
       "sourceUrl": "https://docs.stripe.com",
       "sourceType": "well-known",
-      "computedHash": "ed8825c580b58b1282de25524108e7ff7afb4894e89e857bb5d6adf87658925f",
+      "computedHash": "",
       "wellKnownDigest": "sha256:b0f82b36ed78c95c5344d3b21a38b0a3b20475545b33be1751ef27d1427b5630"
     },
     "seo-audit": {
       "source": "every-app/open-seo",
       "sourceType": "github",
       "skillPath": ".agents/skills/seo-audit/SKILL.md",
-      "computedHash": "7a38fb55220890d7b776cfb2f6689814710c9da9cca6c44c84179142ed7e7ece"
+      "computedHash": "254adf4f0d8c84e6300152d3dc6412d80101e4c44c6d58902f05d088b3aae138"
     },
     "seo-coach": {
       "source": "every-app/open-seo",
       "sourceType": "github",
       "skillPath": ".agents/skills/seo-coach/SKILL.md",
-      "computedHash": "756018974642ff99923d7752ede639dac275f9c34d2be88b8ddb9575338f6ab9"
+      "computedHash": "37a795ea6e81c1c61a4ddee88f167e25b5cdafa56dee09efe43f46dc16bf85e2"
     },
     "seo-project-setup": {
       "source": "every-app/open-seo",
       "sourceType": "github",
       "skillPath": ".agents/skills/seo-project-setup/SKILL.md",
-      "computedHash": "8e3a0300746d77b2ee26f121f85404bbc746ef4b9b80deb90844c908b95450bb"
+      "computedHash": "184974f84edccd885624c9fcb0797696c03d2e8f8b42f55008ec9cc4986bf88b"
     },
     "seo-report": {
       "source": "every-app/open-seo",
       "sourceType": "github",
       "skillPath": ".agents/skills/seo-report/SKILL.md",
-      "computedHash": "78069483802cc1047c01f0613f4e24a9ccabfb4847c7071d19b87aec41254b63"
+      "computedHash": "7032ae5bf5859fd5b4485973cacc46cb23852bac657980befeb88960d82a22d4"
     },
     "stripe-apps": {
       "source": "docs.stripe.com",
       "sourceUrl": "https://docs.stripe.com",
       "sourceType": "well-known",
-      "computedHash": "ea7eabb9af43148ddc9539177f942de6ab3c4b20fc07688ecc177f3d34d87a8e",
+      "computedHash": "",
       "wellKnownDigest": "sha256:9cda5d8ff2640ac14d2f6acdfac31eb0081a32528021a83d0b66d918509465d2"
     },
     "stripe-best-practices": {
       "source": "docs.stripe.com",
       "sourceUrl": "https://docs.stripe.com",
       "sourceType": "well-known",
-      "computedHash": "517e425060fe9cbed9f7d17cc900cbfc812c5248c2d09ec89818937eb3c5cb0f",
+      "computedHash": "",
       "wellKnownDigest": "sha256:cd21bec03f0bec16d06df4c818c7f13c3a5d1f9c7a287ea193dd9a7bbef1a77d"
     },
     "stripe-directory": {
       "source": "docs.stripe.com",
       "sourceUrl": "https://docs.stripe.com",
       "sourceType": "well-known",
-      "computedHash": "07ad90a28d62dcaab561413f97603bb9abb31c762c14b303ad7878eb6e2eab6a",
+      "computedHash": "",
       "wellKnownDigest": "sha256:7fff24f219bc53d779bcdbddcbecac6b89972df53a56b9aff67918304d5f32b8"
     },
     "stripe-docs": {
       "source": "docs.stripe.com",
       "sourceUrl": "https://docs.stripe.com",
       "sourceType": "well-known",
-      "computedHash": "ee4a51d34f11386fe6c9f991d5b2d32da69c851124a78a01403412bcf87e73d7",
+      "computedHash": "",
       "wellKnownDigest": "sha256:354fb04e9c979223bfecabc994fff41c8da5b5ea155684f1b4ade3a6fed07bac"
     },
     "stripe-pay": {
       "source": "docs.stripe.com",
       "sourceUrl": "https://docs.stripe.com",
       "sourceType": "well-known",
-      "computedHash": "716111154a2f568cd6834cba7660b00be2c10f243bbc44b2e76cd97960d20d4e",
+      "computedHash": "",
       "wellKnownDigest": "sha256:9577944516f408c0367ecc63d5425ec5288dd9faeb044bc5d32e09679dd49c78"
     },
     "stripe-projects": {
       "source": "docs.stripe.com",
       "sourceUrl": "https://docs.stripe.com",
       "sourceType": "well-known",
-      "computedHash": "45ed7a7dab034f961e102d73fefd0f8498df44bef18e6ca01ce3a2e9a7ba7116",
+      "computedHash": "",
       "wellKnownDigest": "sha256:f50bdb39096e80876612dd824ebe22ae6a44867039098021848bda3c9ae3bf5d"
+    },
+    "ui-taste": {
+      "source": "uizze.sh",
+      "sourceUrl": "https://uizze.sh/",
+      "sourceType": "well-known",
+      "computedHash": "85da37a788dc4b5b63411e5681403d930b1077604a20497739fa05c8d21f01fc",
+      "wellKnownDigest": "sha256:f26d607ceb3f3a6fa8c98f8dbcb2b1aeb0392de1953e826bb8893d9e49983bf9"
     },
     "upgrade-stripe": {
       "source": "docs.stripe.com",
       "sourceUrl": "https://docs.stripe.com",
       "sourceType": "well-known",
-      "computedHash": "f53a70db6a4d106a7c2fd2530f97b2937468bd71316eb3172fecdf059a42e2b8",
+      "computedHash": "",
       "wellKnownDigest": "sha256:a0eabbf9e4eaa1118d8f0c40ba1f4a4544c2875d2140a79acc31b012763eda11"
     }
   }
