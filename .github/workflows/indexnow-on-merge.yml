@@ -1,0 +1,45 @@
+name: IndexNow Ping on Blog Merge
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'blog/posts/**'
+      - 'sitemap.xml'
+
+jobs:
+  indexnow-ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Submit changed URLs to IndexNow (Bing, Seznam, Yandex)
+        run: |
+          python3 - <<'PY'
+          import json, subprocess, urllib.request
+
+          diff = subprocess.check_output(['git', 'diff', '--name-only', 'HEAD~1', 'HEAD'], text=True).splitlines()
+          urls = ['https://www.marianstancik.dev/sitemap.xml']
+          for f in diff:
+              if f.startswith('blog/posts/') and f.endswith('.html'):
+                  urls.append('https://www.marianstancik.dev/' + f[:-5])
+
+          urls = sorted(set(urls))
+          print('Submitting URLs:', urls)
+          key = '47a47bfd9de94eb79d5cbf3f33a254ba'
+          payload = json.dumps({
+              'host': 'www.marianstancik.dev',
+              'key': key,
+              'keyLocation': f'https://www.marianstancik.dev/{key}.txt',
+              'urlList': urls,
+          }).encode('utf-8')
+
+          for ep in ['https://api.indexnow.org/indexnow', 'https://www.bing.com/indexnow']:
+              req = urllib.request.Request(ep, data=payload, headers={'Content-Type': 'application/json; charset=utf-8'})
+              with urllib.request.urlopen(req, timeout=15) as r:
+                  print(ep, '-> HTTP', r.status)
+          PY

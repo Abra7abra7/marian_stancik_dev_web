@@ -1,239 +1,114 @@
 /**
- * Three.js Ambient Particle Background
- * Non-blocking, mobile-optimized, adaptive WebGL neural network visualizer
- * Mobile: skipped entirely (CSS gradient fallback) — 0 TBT
+ * Lightweight 2D Canvas Ambient Constellation Background
+ * Zero external dependencies (replaces ~650KB Three.js CDN bundle).
+ * Mobile / low-end / reduced-motion: skipped completely (0 ms TBT).
+ * Automatically pauses when tab is hidden to save laptop battery.
  */
+(function initAmbientCanvas() {
+  const isMobile = window.innerWidth < 768 || ('ontouchstart' in window && window.innerWidth < 1024);
+  const lowEnd = (navigator.hardwareConcurrency || 8) < 4;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (isMobile || lowEnd || reducedMotion) return;
 
-const _isMobile = window.innerWidth < 768 || ('ontouchstart' in window && window.innerWidth < 1024);
-const _lowEndDevice = (navigator.hardwareConcurrency || 8) < 4;
-const _prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-// Skip on mobile / low-end hardware / reduced motion (saves 250KB download + 2.5s TBT)
-// The seamless fixed body background provides the visual backdrop without any cutoff
-
-
-async function initThreeBackground() {
-  if (_isMobile || _lowEndDevice || _prefersReducedMotion) return;
   const canvas = document.getElementById('three-canvas');
   if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
 
-  // Check WebGL support on a throwaway canvas — calling getContext('webgl') on the real
-  // canvas would lock it to WebGL1 and make three.js fail with
-  // "Canvas has an existing context of a different type" when it requests WebGL2.
-  const probe = document.createElement('canvas');
-  const gl = probe.getContext('webgl2') || probe.getContext('webgl');
-  if (!gl) return;
-  const loseProbe = gl.getExtension('WEBGL_lose_context');
-  if (loseProbe) loseProbe.loseContext();
+  let w = 0;
+  let h = 0;
+  let rafId = 0;
+  const COUNT = 48;
+  const MAX_DIST = 140;
+  const pts = [];
 
-  try {
-    // Dynamic import — no importmap in HTML, avoid early pre-fetch of 250KB
-    const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js');
-
-    const isMobile = window.innerWidth < 768;
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 45;
-
-    const renderer = new THREE.WebGLRenderer({
-      canvas,
-      alpha: true,
-      antialias: !isMobile,
-      powerPreference: 'high-performance'
-    });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2));
-
-    // Particle count: 220 on mobile, 650 on desktop
-    const count = isMobile ? 220 : 650;
-    const positions = new Float32Array(count * 3);
-    const colors = new Float32Array(count * 3);
-
-    for (let i = 0; i < count; i++) {
-      const r = 30 + Math.random() * 40;
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
-
-      positions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
-      positions[i * 3 + 1] = r * Math.cos(phi) * Math.sin(theta * 0.5);
-      positions[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta);
-
-      const bronze = new THREE.Color().setHSL(0.08, 0.4, 0.3 + Math.random() * 0.35);
-      colors[i * 3] = bronze.r;
-      colors[i * 3 + 1] = bronze.g;
-      colors[i * 3 + 2] = bronze.b;
-    }
-
-    const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-    const material = new THREE.PointsMaterial({
-      size: isMobile ? 0.16 : 0.12,
-      vertexColors: true,
-      transparent: true,
-      opacity: 0.6,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false,
-      sizeAttenuation: true
-    });
-
-    const particles = new THREE.Points(geometry, material);
-    scene.add(particles);
-
-    // Efficient Line Connections - Linear Sampling O(N)
-    const linePositions = [];
-    const maxLineDist = 12;
-    const maxLineDistSq = maxLineDist * maxLineDist;
-    const lineStep = isMobile ? 4 : 2;
-
-    for (let i = 0; i < count; i += lineStep) {
-      // Connect to a few adjacent particles rather than checking all N^2 pairs
-      const neighbors = Math.min(i + 12, count);
-      for (let j = i + 1; j < neighbors; j++) {
-        const dx = positions[i * 3] - positions[j * 3];
-        const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
-        const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
-        const distSq = dx * dx + dy * dy + dz * dz;
-
-        if (distSq < maxLineDistSq) {
-          linePositions.push(positions[i * 3], positions[i * 3 + 1], positions[i * 3 + 2]);
-          linePositions.push(positions[j * 3], positions[j * 3 + 1], positions[j * 3 + 2]);
-        }
-      }
-    }
-
-    const lineGeo = new THREE.BufferGeometry();
-    lineGeo.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
-    const lines = new THREE.LineSegments(
-      lineGeo,
-      new THREE.LineBasicMaterial({ color: 0xA27B50, transparent: true, opacity: 0.08 })
-    );
-    scene.add(lines);
-
-    // Floating neural nodes
-    const nodeCount = isMobile ? 12 : 30;
-    const nodeMat = new THREE.MeshBasicMaterial({ color: 0xEBC37D, transparent: true, opacity: 0.15 });
-    const nodeGeom = new THREE.SphereGeometry(0.3, 6, 6);
-    const nodes = [];
-
-    for (let i = 0; i < nodeCount; i++) {
-      const mesh = new THREE.Mesh(nodeGeom, nodeMat.clone());
-      const idx = Math.floor(Math.random() * count);
-      mesh.position.set(positions[idx * 3], positions[idx * 3 + 1], positions[idx * 3 + 2]);
-      mesh.userData = {
-        baseX: positions[idx * 3],
-        baseY: positions[idx * 3 + 1],
-        baseZ: positions[idx * 3 + 2],
-        speed: 0.2 + Math.random() * 0.5
-      };
-      scene.add(mesh);
-      nodes.push(mesh);
-    }
-
-    // Pointer parallax
-    let mouseX = 0, mouseY = 0;
-    if (!isMobile) {
-      document.addEventListener('mousemove', (e) => {
-        mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-        mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-      }, { passive: true });
-    }
-
-    // Resize handler with debounce
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-      }, 150);
-    }, { passive: true });
-
-    let time = 0;
-    let isAnimating = true;
-
-    function animate() {
-      if (!isAnimating) return;
-      requestAnimationFrame(animate);
-
-      time += 0.001;
-      particles.rotation.y += 0.0003;
-      lines.rotation.y += 0.0003;
-
-      for (let i = 0; i < nodes.length; i++) {
-        const node = nodes[i];
-        const d = node.userData;
-        node.position.x = d.baseX + Math.sin(time * d.speed + i) * 1.5;
-        node.position.y = d.baseY + Math.cos(time * d.speed * 0.7 + i * 0.5) * 1.5;
-        node.position.z = d.baseZ + Math.sin(time * d.speed * 0.5 + i * 0.3) * 1.5;
-        node.material.opacity = 0.08 + Math.sin(time * 2 + i) * 0.06;
-      }
-
-      if (!isMobile) {
-        particles.rotation.x += (mouseY * 0.02 - particles.rotation.x) * 0.02;
-        particles.rotation.y += (mouseX * 0.02 - particles.rotation.y) * 0.02;
-        lines.rotation.x = particles.rotation.x;
-        lines.rotation.y = particles.rotation.y;
-      }
-
-      renderer.render(scene, camera);
-    }
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        isAnimating = false;
-      } else {
-        if (!isAnimating && !prefersReducedMotion) {
-          isAnimating = true;
-          animate();
-        }
-      }
-    });
-
-    if (prefersReducedMotion) {
-      renderer.render(scene, camera);
-    } else {
-      animate();
-    }
-  } catch (err) {
-    // Graceful fallback if WebGL or Three.js fails to load
-    console.warn('Three.js background initialization skipped:', err);
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = window.innerWidth;
+    h = window.innerHeight;
+    canvas.width = Math.floor(w * dpr);
+    canvas.height = Math.floor(h * dpr);
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
-}
 
-// User-interaction or deferred idle initialization (0ms TBT during critical load)
-let initialized = false;
-function triggerInit() {
-  if (initialized || _isMobile || _lowEndDevice || _prefersReducedMotion) return;
-  initialized = true;
-  cleanupListeners();
+  resize();
+  for (let i = 0; i < COUNT; i++) {
+    pts.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.28,
+      vy: (Math.random() - 0.5) * 0.28,
+      r: Math.random() * 1.4 + 0.6,
+      gold: Math.random() > 0.45
+    });
+  }
+
+  let mx = -9999;
+  let my = -9999;
+  window.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; }, { passive: true });
+  window.addEventListener('resize', resize, { passive: true });
+
+  function draw() {
+    if (document.hidden) {
+      rafId = 0;
+      return;
+    }
+    ctx.clearRect(0, 0, w, h);
+
+    for (let i = 0; i < COUNT; i++) {
+      const p = pts[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.gold ? 'rgba(235, 195, 125, 0.55)' : 'rgba(148, 174, 206, 0.35)';
+      ctx.fill();
+
+      for (let j = i + 1; j < COUNT; j++) {
+        const q = pts[j];
+        const dx = p.x - q.x;
+        const dy = p.y - q.y;
+        const dist = Math.hypot(dx, dy);
+        if (dist < MAX_DIST) {
+          const alpha = (1 - dist / MAX_DIST) * 0.14;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = `rgba(205, 127, 50, ${alpha.toFixed(3)})`;
+          ctx.lineWidth = 0.7;
+          ctx.stroke();
+        }
+      }
+
+      const mdx = p.x - mx;
+      const mdy = p.y - my;
+      const mdist = Math.hypot(mdx, mdy);
+      if (mdist < 160) {
+        const alpha = (1 - mdist / 160) * 0.22;
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(mx, my);
+        ctx.strokeStyle = `rgba(235, 195, 125, ${alpha.toFixed(3)})`;
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      }
+    }
+
+    rafId = requestAnimationFrame(draw);
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && !rafId) rafId = requestAnimationFrame(draw);
+  });
+
   if ('requestIdleCallback' in window) {
-    requestIdleCallback(initThreeBackground);
+    requestIdleCallback(() => { rafId = requestAnimationFrame(draw); }, { timeout: 1200 });
   } else {
-    setTimeout(initThreeBackground, 50);
+    setTimeout(() => { rafId = requestAnimationFrame(draw); }, 250);
   }
-}
-
-function cleanupListeners() {
-  window.removeEventListener('scroll', triggerInit, { passive: true });
-  window.removeEventListener('mousemove', triggerInit, { passive: true });
-  window.removeEventListener('touchstart', triggerInit, { passive: true });
-  window.removeEventListener('pointerdown', triggerInit, { passive: true });
-  window.removeEventListener('keydown', triggerInit, { passive: true });
-}
-
-if (!_isMobile && !_lowEndDevice && !_prefersReducedMotion) {
-  window.addEventListener('scroll', triggerInit, { passive: true, once: true });
-  window.addEventListener('mousemove', triggerInit, { passive: true, once: true });
-  window.addEventListener('touchstart', triggerInit, { passive: true, once: true });
-  window.addEventListener('pointerdown', triggerInit, { passive: true, once: true });
-  window.addEventListener('keydown', triggerInit, { passive: true, once: true });
-
-  // Fallback idle timeout if no interaction occurs
-  setTimeout(triggerInit, 2500);
-}
-
+})();

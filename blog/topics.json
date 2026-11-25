@@ -1,0 +1,37 @@
+[
+  {
+    "id": "4-billion-tokens-200-usd-deepseek-openrouter",
+    "status": "pending",
+    "topic": "4 miliardy tokenov za 200 USD namiesto 15 000 USD: Ako reálne šetriť na AI agentoch cez DeepSeek a OpenRouter",
+    "angle": "Concrete breakdown of why running AI agents blindly on top frontier models burns money, how routing routine tasks to DeepSeek via OpenRouter cuts cost by ~98%, and how to measure token ROI.",
+    "tags": "AI Agents, Token Economics, DeepSeek, OpenRouter, Cost Control"
+  },
+  {
+    "id": "hermes-agent-vs-openbot-open-source-stack",
+    "status": "pending",
+    "topic": "Hermes Agent a OpenBot: Prečo som prešiel z uzavretých botov na open-source alternatívu Grok bota",
+    "angle": "Practical comparison of closed vs open-source agent frameworks, avoiding vendor lock-in, delegating routine work, and keeping control over your own data and workflows.",
+    "tags": "Hermes Agent, OpenBot, Open Source, AI Agents, Orchestration"
+  },
+  {
+    "id": "delegating-email-inbox-to-ai-agent-safely",
+    "status": "pending",
+    "topic": "Ako som zveril e-mailovú schránku AI agentovi (a prečo mu stále nedovolím odosielať bez súhlasu)",
+    "angle": "How agentmail.to triage works in practice: sorting, drafting replies, human-in-the-loop approval rules, and why WhatsApp remains the fastest personal channel.",
+    "tags": "AI Agents, Email Automation, Guardrails, Productivity"
+  },
+  {
+    "id": "eu-ai-act-art-50-transparency-in-practice",
+    "status": "pending",
+    "topic": "EU AI Act čl. 50 v praxi: Ako transparentne označiť web a blog, ktorý riadia AI agenti (pohľad študenta práva)",
+    "angle": "Subjective educational notes from a 3rd-year law student (explicitly not legal advice) on practical transparency: ai-generated-content meta tags, clear footers, and human-in-the-loop PR reviews.",
+    "tags": "EU AI Act, Transparency, AI Agents, Privacy"
+  },
+  {
+    "id": "measuring-ai-agent-roi-simple-metrics",
+    "status": "pending",
+    "topic": "Ako zmerať, či ti AI agent naozaj šetrí čas (a nie len páli tokeny)",
+    "angle": "Simple, non-corporate metrics for solo builders and managers: time saved per week, cost per completed task, failure rate, and when a plain script beats an LLM agent.",
+    "tags": "AI Agents, Metrics, ROI, Practical AI"
+  }
+]

@@ -1,0 +1,58 @@
+name: Auto-Blog Generator (OpenRouter -> PR)
+
+on:
+  schedule:
+    # Runs every Monday & Thursday at 08:00 UTC
+    - cron: '0 8 * * 1,4'
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Optional custom topic (leave empty to pick next pending from blog/topics.json)'
+        required: false
+        default: ''
+      dry_run:
+        description: 'Dry run (generate only, do not open PR)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate-blog-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install BeautifulSoup4 for i18n build
+        run: pip install beautifulsoup4
+
+      - name: Configure git author (Autonomous Blog Agent)
+        run: |
+          git config user.name "marianstancik-blog-agent[bot]"
+          git config user.email "marianstancik@agentmail.to"
+
+      - name: Generate multilingual blog post and open Pull Request
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          BLOG_GEN_MODEL: ${{ vars.BLOG_GEN_MODEL || 'deepseek/deepseek-chat' }}
+          HERMES_TRANSLATE_MODEL: ${{ vars.HERMES_TRANSLATE_MODEL || 'deepseek/deepseek-chat' }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          EXTRA_ARGS=""
+          if [ -n "${{ github.event.inputs.topic }}" ]; then
+            EXTRA_ARGS="$EXTRA_ARGS --topic \"${{ github.event.inputs.topic }}\""
+          fi
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            EXTRA_ARGS="$EXTRA_ARGS --dry-run"
+          fi
+          eval python3 scripts/generate_blog_draft.py $EXTRA_ARGS
