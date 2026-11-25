@@ -249,6 +249,26 @@
 </div>
 </div>
 </section>
+<!-- === NEWSLETTER / LEAD CAPTURE === -->
+<section aria-label="Newsletter signup" id="lead-capture">
+<div class="container">
+<div class="section-label fade-in" data-i18n="leadLabel" id="leadLabel">✦ Bleiben Sie informiert</div>
+<h2 class="fade-in" data-i18n="leadHeading" id="leadHeading">Updates aus der Entwicklung.</h2>
+<p class="section-intro fade-in" data-i18n="leadIntro" id="leadIntro" style="margin-bottom: 0;">KI-Agenten-Einblicke, Drohnen-Builds, Tech-Notizen — direkt in Ihr Postfach.</p>
+<form class="lead-form fade-in" id="leadForm">
+<input aria-label="Email address" autocomplete="email" id="leadEmail" name="email" placeholder="your@email.com" required="" type="email"/>
+<input name="source" type="hidden" value="homepage-newsletter"/>
+<label style="display:flex;align-items:flex-start;gap:8px;font-size:0.78rem;color:#B5C6DA;margin:10px 0;text-align:left;">
+<input aria-label="GDPR consent" name="gdpr_consent_check" required="" style="margin-top:3px;" type="checkbox"/>
+<span data-i18n="leadConsentText" id="leadConsentText">Ich stimme der <a href="/privacy" style="color:#CD7F32;text-decoration:underline;">Datenschutzerklärung</a> zu und willige ein, dass meine E-Mail verarbeitet wird, damit mir das Starter-Kit zugesendet werden kann.</span>
+</label>
+<div aria-hidden="true" class="cf-turnstile" data-sitekey="" data-theme="dark" hidden=""></div>
+<button data-i18n="subscribeBtn" id="subscribeBtn" type="submit">Abonnieren</button>
+</form>
+<div class="lead-status" id="leadStatus" role="alert"></div>
+<p class="lead-note" data-i18n="leadNote" id="leadNote">Kein Spam. Jederzeit abbestellbar.</p>
+</div>
+</section>
 <!-- === DIRECT CONNECT === -->
 <section aria-label="Direct contact" id="connect">
 <div class="container">

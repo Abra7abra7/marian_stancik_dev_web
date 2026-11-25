@@ -286,6 +286,29 @@
   </div>
 </section>
 
+<!-- === NEWSLETTER / LEAD CAPTURE === -->
+<section id="lead-capture" aria-label="Newsletter signup">
+  <div class="container">
+    <div class="section-label fade-in" id="leadLabel" data-i18n="leadLabel">✦ Updates</div>
+    <h2 class="fade-in" id="leadHeading" data-i18n="leadHeading">Get practical AI agent notes by email.</h2>
+    <p class="section-intro fade-in" id="leadIntro" data-i18n="leadIntro" style="margin-bottom: 0;">
+      Real experiments, token cost lessons, and new free tools — plus the AI Agent Starter Kit right away. No spam, no hype.
+    </p>
+    <form class="lead-form fade-in" id="leadForm">
+      <input autocomplete="email" type="email" name="email" id="leadEmail" placeholder="your@email.com" required aria-label="Email address">
+      <input type="hidden" name="source" value="homepage-newsletter">
+      <label style="display:flex;align-items:flex-start;gap:8px;font-size:0.78rem;color:#B5C6DA;margin:10px 0;text-align:left;">
+        <input type="checkbox" name="gdpr_consent_check" required aria-label="GDPR consent" style="margin-top:3px;">
+        <span id="leadConsentText" data-i18n="leadConsentText">I agree to the <a href="/privacy" style="color:#CD7F32;text-decoration:underline;">Privacy Policy</a> and consent to processing my email for updates and the Starter Kit.</span>
+      </label>
+      <div class="cf-turnstile" data-sitekey="" data-theme="dark" hidden aria-hidden="true"></div>
+      <button type="submit" id="subscribeBtn" data-i18n="subscribeBtn">Subscribe</button>
+    </form>
+    <div id="leadStatus" class="lead-status" role="alert"></div>
+    <p class="lead-note" id="leadNote" data-i18n="leadNote">Double opt-in: we send a confirmation email first. Unsubscribe with one click anytime.</p>
+  </div>
+</section>
+
 <!-- === DIRECT CONNECT === -->
 <section id="connect" aria-label="Direct contact">
   <div class="container">
