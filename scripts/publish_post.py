@@ -51,7 +51,7 @@ POSTS_JSON = os.path.join(BASE_DIR, 'blog', 'posts.json')
 REPO_SLUG = 'Abra7abra7/marian_stancik_dev_web'
 ALL_LANGS = ['en', 'sk', 'cs', 'de', 'pl']
 DEFAULT_LANGS = 'sk,en,cs,de,pl'
-DEFAULT_TRANSLATE_MODEL = 'google/gemini-3.5-flash'
+DEFAULT_TRANSLATE_MODEL = 'deepseek/deepseek-v4.1-flash-1017'
 SUFFIX = {'en': '', 'sk': 'Sk', 'cs': 'Cs', 'de': 'De', 'pl': 'Pl'}
 LANG_NAME = {'en': 'English', 'sk': 'Slovak', 'cs': 'Czech', 'de': 'German', 'pl': 'Polish'}
 

@@ -26,7 +26,7 @@ TOPICS_PATH = os.path.join(BASE_DIR, 'blog', 'topics.json')
 WRITER_RULES_MD = os.path.join(BASE_DIR, 'blog', 'writer-rules.md')
 AGENTS_MD = os.path.join(BASE_DIR, 'AGENTS.md')
 BRAND_MD = os.path.join(BASE_DIR, '.agents', 'product-marketing.md')
-DEFAULT_MODEL = os.environ.get('BLOG_GEN_MODEL', 'deepseek/deepseek-chat')
+DEFAULT_MODEL = os.environ.get('BLOG_GEN_MODEL', 'deepseek/deepseek-v4.1-flash-1017')
 
 
 def read_text(path, max_chars=4500):
@@ -56,9 +56,8 @@ def pick_topic(custom_topic=None):
 
 
 FALLBACK_MODELS = [
-    'deepseek/deepseek-chat',
-    'google/gemini-2.5-flash',
-    'openai/gpt-4o-mini',
+    'deepseek/deepseek-v4.1-flash-1017',
+    'openai/gpt-6-luna',
 ]
 
 

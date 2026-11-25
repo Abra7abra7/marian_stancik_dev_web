@@ -78,7 +78,7 @@ scripts/                         # dev_server.py, build_i18n.py, check_i18n.py, 
    - Language blog indexes (`/{lang}/blog/index.html`), `sitemap.xml`, and `llms.txt` are generated automatically — never hand-edit generated `/en`, `/sk`, `/cs`, `/de`, `/pl` files.
 2. **How Publishing Works:**
    - Posts are published via `scripts/publish_post.py --langs sk,en,cs,de,pl --pr`:
-     1. Writes the HTML + Markdown files and translates missing languages via OpenRouter (`OPENROUTER_API_KEY`) with structure QA.
+     1. Writes the HTML + Markdown files and translates missing languages via OpenRouter (`OPENROUTER_API_KEY`) using the preferred model order: **`deepseek/deepseek-v4.1-flash-1017`** (primary) → **`openai/gpt-6-luna`** (fallback), with retry/backoff and structure QA.
      2. Updates `blog/posts.json`, `sitemap.xml`, `llms.txt` (`scripts/sync_site.py`), and rebuilds static language pages (`scripts/build_i18n.py`).
      3. Creates a branch `hermes/blog-<slug>` and opens a **Pull Request** for human review. Never pushes directly to `main`.
      4. After Marián merges the PR, ping search engines with `--ping-slug <slug>` (IndexNow).

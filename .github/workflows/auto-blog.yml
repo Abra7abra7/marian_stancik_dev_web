@@ -44,8 +44,8 @@ jobs:
       - name: Generate multilingual blog post and open Pull Request
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          BLOG_GEN_MODEL: ${{ vars.BLOG_GEN_MODEL || 'deepseek/deepseek-chat' }}
-          HERMES_TRANSLATE_MODEL: ${{ vars.HERMES_TRANSLATE_MODEL || 'deepseek/deepseek-chat' }}
+          BLOG_GEN_MODEL: ${{ vars.BLOG_GEN_MODEL || 'deepseek/deepseek-v4.1-flash-1017' }}
+          HERMES_TRANSLATE_MODEL: ${{ vars.HERMES_TRANSLATE_MODEL || 'deepseek/deepseek-v4.1-flash-1017' }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           EXTRA_ARGS=""
