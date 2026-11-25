@@ -14,6 +14,8 @@ import re
 import subprocess
 import sys
 import tempfile
+import time
+import urllib.error
 import urllib.request
 
 if hasattr(sys.stdout, 'reconfigure'):
@@ -53,34 +55,64 @@ def pick_topic(custom_topic=None):
     return topics, None, None
 
 
-def call_openrouter(system_prompt, user_prompt, api_key, model):
-    payload = json.dumps({
-        'model': model,
-        'temperature': 0.5,
-        'response_format': {'type': 'json_object'},
-        'messages': [
-            {'role': 'system', 'content': system_prompt},
-            {'role': 'user', 'content': user_prompt},
-        ],
-    }).encode('utf-8')
+FALLBACK_MODELS = [
+    'deepseek/deepseek-chat',
+    'google/gemini-2.5-flash',
+    'openai/gpt-4o-mini',
+]
 
-    req = urllib.request.Request(
-        'https://openrouter.ai/api/v1/chat/completions',
-        data=payload,
-        headers={
-            'Authorization': f'Bearer {api_key}',
-            'Content-Type': 'application/json',
-            'HTTP-Referer': 'https://www.marianstancik.dev',
-            'X-Title': 'marianstancik.dev Auto-Blog Generator',
-        },
-    )
-    with urllib.request.urlopen(req, timeout=120) as resp:
-        data = json.loads(resp.read().decode('utf-8'))
 
-    content = data['choices'][0]['message']['content'].strip()
-    if content.startswith('```'):
-        content = content.split('\n', 1)[1].rsplit('```', 1)[0].strip()
-    return json.loads(content)
+def call_openrouter(system_prompt, user_prompt, api_key, primary_model):
+    models_to_try = [primary_model] + [m for m in FALLBACK_MODELS if m != primary_model]
+    last_err = None
+
+    for model in models_to_try:
+        payload = json.dumps({
+            'model': model,
+            'temperature': 0.5,
+            'response_format': {'type': 'json_object'},
+            'messages': [
+                {'role': 'system', 'content': system_prompt},
+                {'role': 'user', 'content': user_prompt},
+            ],
+        }).encode('utf-8')
+
+        for attempt, wait_s in enumerate((5, 15, 30), start=1):
+            req = urllib.request.Request(
+                'https://openrouter.ai/api/v1/chat/completions',
+                data=payload,
+                headers={
+                    'Authorization': f'Bearer {api_key}',
+                    'Content-Type': 'application/json',
+                    'HTTP-Referer': 'https://www.marianstancik.dev',
+                    'X-Title': 'marianstancik.dev Auto-Blog Generator',
+                },
+            )
+            try:
+                with urllib.request.urlopen(req, timeout=120) as resp:
+                    data = json.loads(resp.read().decode('utf-8'))
+                content = data['choices'][0]['message']['content'].strip()
+                if content.startswith('```'):
+                    content = content.split('\n', 1)[1].rsplit('```', 1)[0].strip()
+                print(f"[+] OpenRouter succeeded with model: {model}")
+                return json.loads(content)
+            except urllib.error.HTTPError as e:
+                last_err = e
+                if e.code in (429, 500, 502, 503, 504):
+                    retry_after = e.headers.get('Retry-After') if e.headers else None
+                    delay = int(retry_after) if (retry_after and retry_after.isdigit()) else wait_s
+                    print(f"[!] {model} returned HTTP {e.code} (attempt {attempt}/3) — waiting {delay}s...")
+                    time.sleep(min(delay, 60))
+                    continue
+                raise
+            except Exception as e:
+                last_err = e
+                print(f"[!] {model} error on attempt {attempt}/3: {e} — waiting {wait_s}s...")
+                time.sleep(wait_s)
+
+        print(f"[!] Switching away from {model} due to repeated rate limits/errors...")
+
+    raise SystemExit(f"ERROR: All OpenRouter models failed. Last error: {last_err}")
 
 
 def main():
