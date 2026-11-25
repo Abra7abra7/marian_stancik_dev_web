@@ -1,29 +1,29 @@
-# Disclaimer (Odborný vylučovací prehlás) — SK
+# Vyhlásenie o vylúčení zodpovednosti (Disclaimer)
 
+Verzia 3.1 · Účinnosť od 25. novembra 2026
 
 ## 1. Povaha webu a prevádzkovateľ
 
-Táto stránka (marianstancik.dev) je osobný a podnikateľský web Marian Stančíka — developera AI agentov a autonómnych systémov.
+Táto stránka (marianstancik.dev) je osobný a podnikateľský web Mariána Stančíka — developera AI agentov a autonómnych systémov.
 
-- **Prevádzkovateľ:** Marian Stancik — fyzická osoba – podnikateľ
-- **Miesto podnikania:** Černákova 2046/8, 977 01 Brezno, Slovenská republika
-- **IČO:** 57068917 | **DIČ:** 1082585075 | neplatiteľ DPH
-- **Živnostenský register:** Okresný úrad Brezno, č. 630-22847
-- **Kontakt:** stancikmarian8@gmail.com
+- Prevádzkovateľ: Marian Stancik — fyzická osoba – podnikateľ
+- Miesto podnikania: Černákova 2046/8, 977 01 Brezno, Slovenská republika
+- IČO: 57068917 | DIČ: 1082585075 | neplatiteľ DPH
+- Živnostenský register: Okresný úrad Brezno, č. 630-22847
+- Kontakt: marianstancik@agentmail.to
 
 ## 2. AI-generovaný obsah a autonómna prevádzka
 
-Časť obsahu je generovaná alebo asistovaná autonómnymi AI systémami. Podľa **čl. 50 nariadenia (EÚ) 2024/1689 (AI Act, uplatňovaný od 2. 8. 2026)** je AI-generovaný obsah zverejňovaný s označením a podlieha redakčnej kontrole človeka (human-in-the-loop) pred alebo bezodkladne po zverejnení. Finálna redakčná zodpovednosť je na Marianovi Stančíkovi ako prevádzkovateľovi.
+Časť obsahu je generovaná alebo asistovaná autonómnymi AI systémami. Podľa čl. 50 nariadenia (EÚ) 2024/1689 (AI Act, uplatňovaný od 2. 8. 2026) je AI-generovaný obsah zverejňovaný s označením a podlieha redakčnej kontrole človeka (human-in-the-loop) pred alebo bezodkladne po zverejnení. Finálna redakčná zodpovednosť je na Marianovi Stančíkovi ako prevádzkovateľovi.
 
 ## 3. Len informačný účel — žiadne odborné poradenstvo
 
 Všetok obsah (blogy, benchmarky, ukážky kódu, analýzy) je výlučne informatívny a edukačný. Nič na tomto webe nepredstavuje:
 
-- **právne poradenstvo** (zákon č. 586/2003 Z. z. o advokácii),
-- **investičné poradenstvo** (zákon č. 566/2001 Z. z. o cenných papieroch),
-- **daňové poradenstvo** (zákon č. 78/1992 Z. z.),
-- účtovné, audítorské ani **medicínske** poradenstvo.
-
+- právne poradenstvo (prevádzkovateľ je študentom 3. ročníka práva, nie je advokátom podľa zákona č. 586/2003 Z. z. o advokácii; všetky právne a regulačné poznámky sú čisto subjektívne),
+- investičné poradenstvo (zákon č. 566/2001 Z. z. o cenných papieroch),
+- daňové poradenstvo (zákon č. 78/1992 Z. z.),
+- účtovné, audítorské ani medicínske poradenstvo.
 
 ## 4. Obmedzenie zodpovednosti
 
@@ -31,7 +31,7 @@ Všetok obsah (blogy, benchmarky, ukážky kódu, analýzy) je výlučne informa
 
 4.2 Zodpovednosť za škodu spôsobenú úmyslom alebo veľkou ľahostajnosťou sa nevylučuje ani neobmedzuje (§ 424 OZ, č. 40/1964 Z. z.).
 
-4.3 Vo vzťahoch s podnikateľmi (ObchZ, č. 513/1991 Z. z.) sa použijú zákonné pravidlá zodpovednosti; nič tu neobmedzuje zmluvnú ochranu dohodnutú v individuálnej zmluve.
+4.3 Vo vzťahoch s podnikateľmi (ObchZ, č. 513/1991 Zb.) sa použijú zákonné pravidlá zodpovednosti; nič tu neobmedzuje zmluvnú ochranu dohodnutú v individuálnej zmluve.
 
 4.4 Nič tu neobmedzuje zákonné práva spotrebiteľov podľa zákona č. 108/2024 Z. z. a OZ.
 
@@ -44,3 +44,7 @@ Všetok obsah (blogy, benchmarky, ukážky kódu, analýzy) je výlučne informa
 ## 6. Právo a jurisdikcia
 
 Upravuje právo Slovenskej republiky; spory podliehajú príslušným súdom SR.
+
+Anglické znenie je k dispozícii na marianstancik.dev/disclaimer .
+
+Privacy · Terms · Impressum
