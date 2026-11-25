@@ -91,9 +91,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <meta property="og:description" content="{excerpt}">
 <meta property="og:url" content="{url}">
 <meta property="og:type" content="article">
-<meta property="og:image" content="https://www.marianstancik.dev/profile.webp">
-<meta property="og:image:width" content="800">
-<meta property="og:image:height" content="800">
+<meta property="og:image" content="https://www.marianstancik.dev/og-image.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="{title}">
 <meta property="og:locale" content="{og_locale}">
 {og_locale_alts}
@@ -101,7 +101,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@marian_s_ai">
 <meta name="twitter:creator" content="@marian_s_ai">
-<meta name="twitter:image" content="https://www.marianstancik.dev/profile.webp">
+<meta name="twitter:image" content="https://www.marianstancik.dev/og-image.webp">
 
 <meta name="ai-generated-content" content="true">
 

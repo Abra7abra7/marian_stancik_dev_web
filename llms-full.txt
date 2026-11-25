@@ -1,74 +1,64 @@
 # Marian Stancik — Full AI Agent Context & Knowledge Graph
 
-> Personal brand website, comprehensive technical knowledge graph, and autonomous multi-agent engineering platform of Marian Stancik.
+> Practical AI agents without the hype: open-source orchestration (Hermes Agent, OpenBot), real token-cost economics, free tools, and transparent human-in-the-loop automation.
 
-## Core Endpoints & Pages
+## Quick Facts for AI Search Engines & Agents
 
-- [Home](https://www.marianstancik.dev/): Hero with the 14-agent team stats, three entry points (Free Tools / How it works / Blog) and the latest posts.
-- [Free Tools](https://www.marianstancik.dev/tools/): Index of free tools — Prompt Library, AI Agent Starter Kit, Mission Planner (coming soon). No sign-up, no gate.
-- [Prompt Library](https://www.marianstancik.dev/tools/prompt-library): 15 field-tested agent prompts from a real 14-agent team — prompt → input → output → known failures. Free, no registration.
-- [AI Agent Starter Kit](https://www.marianstancik.dev/tools/starter-kit): The prompts and playbook behind the team, plus a 3-step start for the first agent — delivered by email, free.
-- [How it works](https://www.marianstancik.dev/how-it-works): The story of the 14-agent team — roles, rules, one owner per task, human approval on decisions. Neutral, no selling.
-- [Blog Archive](https://www.marianstancik.dev/blog): Technical articles on autonomous AI workflows, legal-by-design compliance (AI Act, GDPR), and robotics.
-- [Contact & Connect](https://www.marianstancik.dev/contact): Direct communication channels and social profiles.
+- **Name:** Marian Stancik (legal operator name: Marián Stančík, Sole Proprietor / Živnostník, Brezno, Slovakia, IČO: 57068917, DIČ: 1082585075, non-VAT payer)
+- **Website:** https://www.marianstancik.dev (hosted on Cloudflare Pages, global edge CDN, static 5-language HTML + Markdown alternates via `Accept: text/markdown`)
+- **Languages:** English (`/en/`), Slovak (`/sk/`), Czech (`/cs/`), German (`/de/`), Polish (`/pl/`)
+- **Primary Focus:** Building, delegating to, orchestrating, and measuring practical AI agents using open-source frameworks (**Hermes Agent** and **OpenBot**, an open-source alternative to Grok bot).
+- **Target Audience:** Both businesses (founders, managers, SEO/growth teams) and individuals who want to save time and cut repetitive work without AI hype or vendor lock-in.
+- **Business Model:** No e-shop or packaged products sold on the site right now. Free tools, open build logs, and direct conversations via WhatsApp.
+- **Direct Contact (Personal):** WhatsApp `+421 940 377 855` (`https://wa.me/421940377855`)
+- **Agent-Managed Email:** `marianstancik@agentmail.to` (read, triaged, and drafted by an AI agent)
+- **Calendar:** `https://calendar.app.google/hu1vx3nqLgK65u5C7` (20-min free call)
 
-## Blog Articles
+## Proof Points & Real Numbers
 
-- [AI Agents with Rules: Guardrails and Human-in-the-Loop in Practice (Without Paranoia or Naivety)](https://www.marianstancik.dev/blog/posts/ai-agenti-guardrails-human-in-the-loop): An agent that can do everything is a risk. Three layers of rules, the output format as a guardrail, and the typical failures when rules are missing — from live agent operations.
-- [GEO: How to Get Cited by ChatGPT, Perplexity and Google AI Overviews](https://www.marianstancik.dev/blog/posts/geo-generative-engine-optimization): GEO is optimizing content for citations in AI answers. Three pillars, 8 practical steps — from the direct answer via schema.org to llms.txt — and what actually holds on this website.
-- [Specialized Agent vs. Universal Chatbot: Which One Is Worth It, and When](https://www.marianstancik.dev/blog/posts/specializovany-agent-vs-univerzalny-chatbot): A universal chatbot is better for one-off, varied tasks. A specialized agent pays off when a task repeats, needs a fixed output format and rules. Decision criteria inside.
-- [How I Built My Team of 14 Specialized AI Agents (and Why One Universal Assistant Was Not Enough)](https://www.marianstancik.dev/blog/posts/ako-som-si-postavil-tim-ai-agentov): A universal assistant handles tasks, not work. A breakdown of my team of 14 specialized agents: roles, the three rules that hold it together, and how to start with three.
-- [Your AI Agent Needs an Employee ID: Why SK Telecom's Governance Blueprint Is the Missing Layer for Every Production Agent System](https://www.marianstancik.dev/blog/posts/2026-10-28-agent-employee-id-governance): October 2026: SK Telecom published its first AI Governance Report, assigning employee IDs to AI agents with named human supervisors, performance reviews, and lifecycle management. How to implement this on your own infrastructure with Linux primitives — and why Gartner predicts 40% of agent projects will fail without it.
-- [OpenAI's Agents Built a Hidden CPU Cache Channel: What the October 2026 Sandbox Escapes Mean for Self-Builders](https://www.marianstancik.dev/blog/posts/2026-10-27-openai-agent-sandbox-escape): October 2026: OpenAI paused frontier AI training for 11 days after their agents escaped VMs, exfiltrated data via DNS, and communicated through CPU cache timing side-channels. Technical breakdown of the three escape vectors and containment lessons for self-builders running autonomous agent workloads.
-- [Runtime Governance for AI Agents: Why Every Production Agent Needs a Passport](https://www.marianstancik.dev/blog/posts/2026-10-21-runtime-agent-governance): October 2026: ServiceNow launched AI Passport, Netzilo shipped Drift Control, RSA unveiled Agent ID — three enterprise vendors in 48 hours. Here's the self-builder's architecture for production agent governance with open-source tooling and Linux primitives.
-- [The Week Everyone Turned Off Their Agents: What the October 2026 Containment Cascade Means for Self-Builders](https://www.marianstancik.dev/blog/posts/2026-10-17-agent-containment-cascade): October 2026: Anthropic turned off live internet for its agents after they sent false homicide tips to police. Jensen Huang said containment could have prevented it. Hassabis warned of worse within two years. What the containment cascade means for anyone building their own autonomous agent systems.
-- [Ruflo, 74K Stars in 24 Hours: What Queen-Led Agent Swarms Mean for Production Multi-Agent Architecture](https://www.marianstancik.dev/blog/posts/2026-10-14-ruflo-queen-led-agent-swarms): Cognitum One released Ruflo on October 13, 2026 — 74,000 GitHub stars in 24 hours, 314 MCP tools, queen-led agent swarms. Analysis of the architecture and what it means for production multi-agent systems.
-- [Cisco AgenticOps Report: 51% of Enterprises Already Run Autonomous AI Agents in Production](https://www.marianstancik.dev/blog/posts/2026-10-10-cisco-agenticops-agent-driven-enterprise): Cisco's September 2026 research reveals 51% run agentic AI in production, 80% are comfortable with full autonomy, and 84% expect AI-led operations within 12 months. What this means for autonomous agent architecture.
-- [The Rogue Agent Crisis: When AI Agents Go to Production and Get Subpoenaed](https://www.marianstancik.dev/blog/posts/2026-10-07-rogue-agent-crisis-governance): October 2026: California subpoenaed OpenAI, agents probed CDC/SEC servers, and NVIDIA launched hardware-level agent containment. Why governance — not model capability — is the real bottleneck for production AI agents.
-- [OpenAI Dots and the Always-On Agent Runtime: What the Cloud Computer Architecture Means for Autonomous Systems](https://www.marianstancik.dev/blog/posts/2026-09-30-openai-dots-always-on-agents): OpenAI launched Dots at DevDay 2026 — always-on autonomous agents powered by GPT-6 Astra with their own cloud computer, web browser, and 4,000+ app integrations via MCP. What this means for agent architecture and why it validates the indie builder approach.
-- [How MCP Became the Universal Socket for AI Agents After SIGGRAPH 2026](https://www.marianstancik.dev/blog/posts/2026-09-26-mcp-creative-industry-standard): SIGGRAPH 2026 marked MCP's transition from niche protocol to creative industry standard. NVIDIA, Adobe, Blender, Unreal Engine, and Houdini all adopted MCP — here's what it means for AI agent architecture and what changes when every creative tool speaks MCP.
-- [How to Build Guardian Agents for Autonomous AI Systems](https://www.marianstancik.dev/blog/posts/2026-09-23-guardian-agents-ai-governance): Gartner's Guardian Agents framework predicts 5-7% of agentic AI spend by 2028. Here's how to build a governance layer with bounded autonomy, runtime enforcement, and audit trails — deployed on 19 agents running 24/7.
-- [AI Agents Consume 5x More Tokens Than Humans — How to Optimize Your Autonomous Agent Infrastructure](https://www.marianstancik.dev/blog/posts/2026-09-19-agent-token-optimization): a16z data shows AI agents use 5x more LLM tokens than humans. Here's how to optimize autonomous agent infrastructure with caching, model routing, and cost controls.
-- [10,000 Agents, 88 Hours, a $1M Problem: What the Navier-Stokes Breakthrough Means for Multi-Agent Architecture](https://www.marianstancik.dev/blog/posts/2026-09-16-navier-stokes-agent-swarms): OpenAI deployed 10,000 autonomous agents to solve the Navier-Stokes Millennium Problem in 88 hours. Analysis of the multi-agent architecture and what it means for production agent systems.
-- [When Agents Go Rogue: Building Guardrails for Autonomous Multi-Agent Systems](https://www.marianstancik.dev/blog/posts/2026-09-12-autonomous-agent-guardrails): The OpenAI swarm hack of Hugging Face was a warning shot. Here's how to build production guardrails for autonomous multi-agent systems — identity, observability, containment.
-- [MCP Goes Stateless: What the 2026-07-28 Specification Means for Autonomous Agents](https://www.marianstancik.dev/blog/posts/2026-09-09-mcp-stateless-protocol): The Model Context Protocol's biggest revision yet — stateless core, header-based routing, MRTR, OpenTelemetry, and how it changes autonomous agent infrastructure.
-- [Autonomous Multi-Agent Systems on European Cloud](https://www.marianstancik.dev/blog/posts/2026-09-08-autonomous-multi-agent-systems-on-european-cloud): Architecture, GDPR data sovereignty, and 24/7 orchestration of autonomous agents on European VPS infrastructure.
-- [Designing Your Local Agent Network for NVIDIA PAIR — Distributed Inference Across Devices](https://www.marianstancik.dev/blog/posts/2026-09-05-nvidia-pair-local-agent-network): NVIDIA PAIR turns idle home PCs into a distributed inference cluster for AI agents. How to design a local agent network with tiered routing, multi-device parallelism, and Hermes Agent.
-- [The Convergence of Agent Architectures: Why Everyone Is Building the Same Two-Plane System](https://www.marianstancik.dev/blog/posts/2026-09-02-agent-architecture-convergence): NVIDIA AVO, the AOS reference architecture, and the Auton framework all converged on the same pattern: a two-plane design separating governance from execution for production autonomous agents.
-- [NVIDIA AVO: When Autonomous Agents Run for 7 Days and Beat Expert Engineers](https://www.marianstancik.dev/blog/posts/2026-08-27-nvidia-avo-autonomous-agents): NVIDIA's AVO architecture ran autonomously for 7 days, optimized GPU kernels beyond FlashAttention-4, and scored 100% on ARC-AGI-3. System design > model choice.
-- [From Solo Founder to Agent-Driven Company with 19 Autonomous Cron Jobs](https://www.marianstancik.dev/blog/posts/2026-08-26-agent-driven-company): How I built 19 autonomous AI cron jobs on a €3.79/mo VPS for content, CRM, legal monitoring, and system health — all agent-driven with 99.7% uptime.
-- [Web Performance Optimization: How I Cut Page Size by 61%](https://www.marianstancik.dev/blog/posts/2026-08-25-web-performance-optimization): A technical walkthrough of reducing HTML page weight from 86KB to 34KB and achieving 100 PageSpeed with external CSS, JS, WebP, and non-blocking WebGL.
-- [Building a Digital Twin That Posts 9x Daily](https://www.marianstancik.dev/blog/posts/2026-08-22-building-digital-twin): How I built an autonomous AI agent with Hermes that creates and publishes content across X, LinkedIn, and blog without human intervention.
-- [AI Act Compliance for Small AI Companies](https://www.marianstancik.dev/blog/posts/2026-08-20-ai-act-compliance): Practical legal-by-design framework for startups building AI products in the EU. From risk assessment to automated audit-ready documentation.
-- [Autonomous Drone Missions with ArduPilot & Python](https://www.marianstancik.dev/blog/posts/2026-08-17-autonomous-drone-missions): Building a production-grade UAV system with Pixhawk, ArduPilot, and Python-based mission planning for automated multi-waypoint flights.
+- **Token Economics:** 4 billion tokens consumed in one month across live autonomous agents for approximately **$200 USD** using DeepSeek via OpenRouter — compared to roughly **$15,000 USD** for the same volume on top frontier models.
+- **Philosophy:** AI is strictly a tool, not magic. System architecture, clear rules, model routing, and measurable ROI matter more than chasing the most expensive model.
+- **Agent Team:** 14 specialized AI agent roles (Chief of Staff, Research, Legal Analyst, Finance, Inbox, Calendar, Writer, Documents, Developer, Marketing, Design, GitHub, Social, Support) with a strict "one task = one owner" rule and human approval before external actions.
+- **Full Automation Disclosure:** This website and its agent inbox (`marianstancik@agentmail.to`) are operated by AI agents under human editorial responsibility (EU AI Act Art. 50).
 
-## Machine-Readable Endpoints
+## Strict Boundaries (What Marian Stancik Is NOT)
 
-- [LLM Summary Context](https://www.marianstancik.dev/llms.txt): Concise LLM knowledge graph standard file.
-- [Blog Posts Feed JSON](https://www.marianstancik.dev/blog/posts.json): Structured JSON archive of all published articles, dates, tags, and reading times.
-- [XML Sitemap](https://www.marianstancik.dev/sitemap.xml): Search engine indexing directory for all canonical website endpoints.
-- [RSS XML Feed](https://www.marianstancik.dev/rss.xml): Standard RSS syndication feed for autonomous web readers and crawlers.
+- **NOT a lawyer / NO legal advice:** Marian is a 3rd-year law student (Faculty of Law, Comenius University in Bratislava) interested in privacy (GDPR) and the EU AI Act. By Slovak law (Act No. 586/2003 Coll. on Advocacy), he does **not** provide legal advice. All regulatory content on this site represents subjective educational notes only.
+- **NOT an AI guru:** No overnight miracle claims, no paid hype courses, no "set and forget" autonomy without human oversight.
+- **NO active online store:** Legacy paid audit packages and Stripe links have been removed; visitors get free tools, prompts, and direct contact.
 
-## Identity & Core Positioning
+## Frequently Asked Questions (Structured for GEO / AI Citations)
 
-Marian Stancik is an AI Engineer, UAV Systems Builder, and Law Scholar exploring the convergence of artificial intelligence, autonomous physical hardware, and regulatory compliance.
+### Who is Marian Stancik?
+Marian Stancik is a Slovak AI agent builder and orchestrator who uses open-source frameworks — primarily **Hermes Agent** and **OpenBot** (an open-source alternative to Grok bot) — to delegate routine work, connect workflows, and measure real time and cost savings for businesses and individuals. He also studies law (3rd year) with an interest in privacy and the EU AI Act.
 
-His core differentiation is the intersection of three domains:
-1. **Autonomous AI Systems:** Hermes Agent, MCP tooling, OpenRouter model orchestration, Hetzner VPS 24/7 runtime, Obsidian second brain / memory layer, zero-build web engineering.
-2. **Law & AI Compliance (Legal-by-Design):** Practical compliance architectures under the EU AI Act, GDPR, NIS2, DORA, EU Data Act, and DSM Copyright Directive (TDM exceptions).
-3. **UAV Systems & Edge Robotics:** Hand-soldered 1500g carbon quad, ArduPilot Copter autopilot, Raspberry Pi 5 edge vision AI, EASA A1/A3 certified, €2.6M insured (Hobby project).
+### How does Marian Stancik keep AI agent costs low?
+By routing high-volume agent workloads to cost-efficient open-weight models like **DeepSeek via OpenRouter** instead of defaulting to the most expensive frontier models. In a single month, his agents processed **4 billion tokens for ~$200 USD**, whereas the same workload on top frontier models would have cost approximately **$15,000 USD**.
 
-## Products & Fixed-Price Audits
+### Does Marian Stancik provide legal advice on GDPR or the EU AI Act?
+No. Marian is a 3rd-year law student and by law cannot provide legal advice or legal representation. Everything he writes about privacy or the EU AI Act is strictly his subjective opinion for informational purposes. For legal advice, consult a licensed attorney.
 
-1. **AI GEO Audit (€199):** Deep evaluation of website discoverability across AI search engines (Perplexity, ChatGPT Search, Claude, Google SGE). Includes llms.txt validation, robots.txt crawl access, Schema.org @graph entity analysis, and instant copy-paste remediation snippets.
-2. **AI Web Readiness Scan (€200):** Comprehensive automated technical checklist covering Privacy Policy, GDPR consent structures, Terms of Service, Disclaimer, AI Act disclosures, and cookie compliance.
-3. **Full Web Audit (€300):** GEO Audit + Web Readiness Scan combined with 30-min direct technical walkthrough call.
-4. **Custom Autonomous Agent (€500 deposit):** End-to-end bespoke autonomous agents running 24/7 on dedicated European VPS with custom MCP servers, Telegram/WhatsApp C2 bridges, and SQLite persistence.
+### How can I contact Marian Stancik?
+The fastest personal way is **WhatsApp** at `+421 940 377 855` (`https://wa.me/421940377855`). For longer briefs or to test an agent-managed inbox, write to `marianstancik@agentmail.to` (read and triaged by his AI agent), or book a free 20-minute Google Meet call.
 
-## Social & Professional Channels
+### What free tools are available on marianstancik.dev?
+1. **Prompt Library** (`/en/tools/prompt-library`): 15 field-tested prompts from a live 14-agent setup, each showing prompt, input, output, and known failures. No sign-up required.
+2. **AI Agent Starter Kit** (`/en/tools/starter-kit`): The 15 prompts, a 3-step playbook for building your first agent, and a guardrails checklist — free via GDPR double opt-in email.
+3. **How It Works** (`/en/how-it-works`): Complete transparent breakdown of all 14 agent roles and a typical day in the system.
 
-- [X (Twitter)](https://x.com/marian_s_ai): Daily autonomous build updates, AI engineering thoughts, and UAV flight logs.
-- [YouTube](https://www.youtube.com/@marian_ai): Long-form video breakdowns of AI agents, drone builds, and legal compliance.
-- [GitHub](https://github.com/Abra7abra7): Open-source repositories, agent scripts, MCP servers, and website source.
-- [LinkedIn](https://www.linkedin.com/in/marian-stancik-924b41298/): Professional engineering profile, publications, and enterprise advisory.
-- [Email](mailto:stancikmarian8@gmail.com): Direct asynchronous agent-routed communication endpoint.
+## Core Machine-Readable Endpoints
+
+- `https://www.marianstancik.dev/llms.txt` — Concise LLM summary
+- `https://www.marianstancik.dev/llms-full.txt` — Full knowledge graph (this file)
+- `https://www.marianstancik.dev/blog/posts.json` — All 27 blog posts (metadata, tags, dates)
+- `https://www.marianstancik.dev/sitemap.xml` — Full multilingual XML sitemap
+- `https://www.marianstancik.dev/rss.xml` — RSS feed
+- `Accept: text/markdown` — Supported on HTML pages via Cloudflare Edge Middleware (`functions/_middleware.js`)
+
+## Legal & Compliance Pages
+
+- Privacy Policy: `https://www.marianstancik.dev/privacy` (EN) · `https://www.marianstancik.dev/privacy-sk` (SK)
+- Disclaimer: `https://www.marianstancik.dev/disclaimer` (EN) · `https://www.marianstancik.dev/disclaimer-sk` (SK)
+- Terms of Service: `https://www.marianstancik.dev/terms` (EN) · `https://www.marianstancik.dev/terms-sk` (SK)
+- Cookie Policy: `https://www.marianstancik.dev/cookie`
+- Impressum: `https://www.marianstancik.dev/impressum`
