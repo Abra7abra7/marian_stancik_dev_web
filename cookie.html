@@ -60,7 +60,7 @@ a:hover { color: #E8B86D; }
 <a href="/" class="back-link">← Späť na marianstancik.dev</a>
 
 <h1>Cookie a úložisková politika</h1>
-<p><em>Verzia 3.0 · Účinnosť od 1. novembra 2026</em></p>
+<p><em>Verzia 3.1 · Účinnosť od 25. novembra 2026</em></p>
 <p>Pre webovú stránku https://marianstancik.dev</p>
 <h2>1. Právny základ (ePrivacy)</h2>
 <p>Podľa § 109 ods. 8 zákona č. 452/2021 Z. z. (v platnom znení; transpozícia čl. 5 ods. 3 smernice 2002/58/ES) je každý, kto ukladá alebo získava prístup k informáciám uloženým v koncovom zariadení užívateľa, oprávnený na to <strong>iba so súhlasom užívateľa</strong>. To nebráni <strong>technickému uloženiu údajov alebo prístupu k nim</strong>, ktorých jediným účelom je prenos alebo uľahčenie prenosu správy, alebo ktoré je <strong>bezpodmienečne potrebné na poskytovanie služby informačnej spoločnosti, ktorú si užívateľ výslovne vyžiadal</strong> (výnimka pre technicky nevyhnutné ukladanie).</p>
@@ -76,7 +76,7 @@ a:hover { color: #E8B86D; }
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">LocalStorage: jazyk (SK/EN/DE/PL), svetlý/tmavý režim</td>
+<td style="text-align: left;">LocalStorage: <code>ms_lang</code> — zvolený jazyk (EN/SK/CS/DE/PL)</td>
 <td style="text-align: left;">Uloženie zvolených preferencií</td>
 <td style="text-align: left;">Do vymazania používateľom</td>
 </tr>
@@ -87,7 +87,7 @@ a:hover { color: #E8B86D; }
 </tr>
 <tr>
 <td style="text-align: left;">Session storage / token: <strong>Cloudflare Turnstile</strong></td>
-<td style="text-align: left;">Ochrana formulára Starter Kit proti spamu/botom (bez sledovania, bez marketingu)</td>
+<td style="text-align: left;">Ochrana formulára <code>#leadForm</code> (novinky a Starter Kit) proti spamu/botom (bez sledovania, bez marketingu)</td>
 <td style="text-align: left;">Krátkodobo, pri odoslaní formulára</td>
 </tr>
 <tr>
@@ -101,7 +101,7 @@ a:hover { color: #E8B86D; }
 <ul>
 <li>Po kliknutí na „Súhlasím“ (dialog „Cookies a analytika“ v pätičke) sa načíta <strong>PostHog EU Cloud (Frankfurt, Nemecko)</strong> s persistence <code>localStorage+cookie</code> a začne sa zaznamenávať návštevnosť (page views, udalosti používania nástrojov).</li>
 <li><strong>Bez súhlasu sa nič neukladá ani sa neposiela žiadny request na PostHog</strong> (overené v js/posthog.js: pred opt-inom nie je vytvorený žiadny ph_* cookie ani localStorage záznam).</li>
-<li>Nesťa sa žiadne krížové sledovanie medzi webmi ani remarketing.</li>
+<li>Nevykonáva sa žiadne krížové sledovanie medzi webmi ani remarketing.</li>
 <li>Súhlas môžete kedykoľvek zmeniť cez „Nastavenia cookies“ (odhlásenie = opt-out, ďalšie zaznamenávanie sa zastaví).</li>
 </ul>
 <h3>C. Čo web NEPOUŽÍVA</h3>
@@ -122,7 +122,7 @@ a:hover { color: #E8B86D; }
 
 <hr>
 <p style="font-size:0.8rem; color:#7A6A5A; text-align:center;">
-  © 2026 Marian Stancik · Všetky práva vyhradené · Účinné od 5. októbra 2026
+  © 2026 Marian Stancik · Všetky práva vyhradené · Účinné od 25. novembra 2026
 </p>
 
 <p style="font-size:0.8rem;color:#7A6A5A;text-align:center;margin-top:6px;"><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/impressum">Impressum</a></p>
