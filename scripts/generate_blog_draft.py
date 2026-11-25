@@ -2,19 +2,15 @@
 """
 Autonomous Blog Draft Generator (Hermes Agent replacement via GitHub Actions + OpenRouter)
 
-Reads AGENTS.md and .agents/product-marketing.md as the single source of truth for brand voice,
+Reads blog/writer-rules.md, AGENTS.md, and .agents/product-marketing.md as the single source of truth,
 picks the next pending topic from blog/topics.json (or a custom --topic), generates a structured
 EN + SK article via OpenRouter (default: deepseek/deepseek-chat), and delegates multilingual
 publishing + PR creation to scripts/publish_post.py --langs sk,en,cs,de,pl --pr.
-
-Environment:
-  OPENROUTER_API_KEY   Required. API key for OpenRouter.
-  BLOG_GEN_MODEL       Optional. Default: deepseek/deepseek-chat
-  GH_TOKEN             Used by publish_post.py to open the Pull Request.
 """
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -25,12 +21,13 @@ if hasattr(sys.stdout, 'reconfigure'):
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TOPICS_PATH = os.path.join(BASE_DIR, 'blog', 'topics.json')
+WRITER_RULES_MD = os.path.join(BASE_DIR, 'blog', 'writer-rules.md')
 AGENTS_MD = os.path.join(BASE_DIR, 'AGENTS.md')
 BRAND_MD = os.path.join(BASE_DIR, '.agents', 'product-marketing.md')
 DEFAULT_MODEL = os.environ.get('BLOG_GEN_MODEL', 'deepseek/deepseek-chat')
 
 
-def read_text(path, max_chars=5000):
+def read_text(path, max_chars=4500):
     if not os.path.exists(path):
         return ''
     with open(path, encoding='utf-8') as f:
@@ -102,11 +99,15 @@ def main():
         print('No pending topics left in blog/topics.json. Add more topics or pass --topic.')
         return
 
-    agents_ctx = read_text(AGENTS_MD, 4000)
-    brand_ctx = read_text(BRAND_MD, 3500)
+    writer_rules = read_text(WRITER_RULES_MD, 4000)
+    agents_ctx = read_text(AGENTS_MD, 3000)
+    brand_ctx = read_text(BRAND_MD, 2500)
 
     system_prompt = f"""You write practical, honest blog posts for Marian Stancik (marianstancik.dev).
-Follow these exact brand rules and legal boundaries:
+Follow these exact writing rules, brand voice, and legal boundaries:
+
+=== WRITER RULES (blog/writer-rules.md) ===
+{writer_rules}
 
 === AGENTS.md ===
 {agents_ctx}
@@ -114,21 +115,15 @@ Follow these exact brand rules and legal boundaries:
 === BRAND VOICE ===
 {brand_ctx}
 
-MANDATORY RULES:
-1. Slovak version MUST use informal "tykanie", plain everyday Slovak, short sentences, zero corporate/IT jargon.
-2. English version MUST be plain, direct, honest English.
-3. Critical view of AI: treat AI as a tool, not magic. Never promise overnight miracles or guaranteed compliance.
-4. Legal boundary: Marian is a 3rd-year law student and does NOT provide legal advice. If mentioning GDPR or EU AI Act, explicitly state it is a subjective note, not legal advice.
-5. Do NOT invent fake clients, fake testimonials, or Stripe/product pricing.
-6. Return ONLY valid JSON with these exact keys:
-   - title_en (string, concise, max 85 chars)
-   - excerpt_en (string, 1-2 sentences, max 180 chars)
-   - html_en (string, semantic HTML using <h2>, <p>, <ul>, <li>, <strong>, <code>; NO <h1>, NO <html>/<body> wrappers; 600-900 words)
-   - title_sk (string, concise Slovak, max 85 chars)
-   - excerpt_sk (string, 1-2 sentences in Slovak tykanie, max 180 chars)
-   - html_sk (string, semantic HTML in Slovak tykanie matching html_en structure; 600-900 words)
-   - tags (string, comma-separated 3-5 tags)
-   - read_time (string, e.g. "5 min read")
+OUTPUT FORMAT — Return ONLY valid JSON with these exact keys:
+- title_en (string, concise, max 85 chars)
+- excerpt_en (string, 1-2 sentences, max 180 chars)
+- html_en (string, semantic HTML using <h2>, <p>, <ul>, <li>, <strong>, <code>; NO <h1>, NO <html>/<body> wrappers; 600-900 words)
+- title_sk (string, concise Slovak, max 85 chars)
+- excerpt_sk (string, 1-2 sentences in Slovak tykanie, max 180 chars)
+- html_sk (string, semantic HTML in Slovak tykanie matching html_en structure; 600-900 words)
+- tags (string, comma-separated 3-5 tags)
+- read_time (string, e.g. "5 min read")
 """
 
     user_prompt = (
@@ -153,13 +148,7 @@ MANDATORY RULES:
         print('[*] Dry run enabled — skipping publish_post.py and PR creation.')
         return
 
-    # Mark topic as done before publish_post commits on the PR branch
-    if idx is not None:
-        topics[idx]['status'] = 'done'
-        with open(TOPICS_PATH, 'w', encoding='utf-8') as f:
-            json.dump(topics, f, ensure_ascii=False, indent=2)
-            f.write('\n')
-
+    # Keep working tree clean BEFORE calling publish_post.py --pr (prepare_branch requires clean tree!)
     with tempfile.TemporaryDirectory() as tmp:
         en_file = os.path.join(tmp, 'en.html')
         sk_file = os.path.join(tmp, 'sk.html')
@@ -180,10 +169,32 @@ MANDATORY RULES:
             '--tags', draft.get('tags', item.get('tags', 'AI Agents')),
             '--read-time', draft.get('read_time', '5 min read'),
             '--langs', args.langs,
+            '--allow-missing',
             '--pr',
         ]
         print('[*] Invoking publish_post.py to translate, sync, verify, and open PR...')
-        subprocess.run(cmd, cwd=BASE_DIR, check=True)
+        res = subprocess.run(cmd, cwd=BASE_DIR, text=True, capture_output=True)
+        print(res.stdout)
+        if res.stderr:
+            print(res.stderr, file=sys.stderr)
+        if res.returncode != 0:
+            raise SystemExit(res.returncode)
+
+    # Mark topic as done on the newly created PR branch so main stays untouched until merge
+    if idx is not None:
+        m = re.search(r'Article\s+([0-9a-zA-Z_-]+):', res.stdout)
+        if m:
+            branch = f"hermes/blog-{m.group(1)}"
+            subprocess.run(['git', 'checkout', branch], cwd=BASE_DIR, check=True)
+            topics[idx]['status'] = 'done'
+            with open(TOPICS_PATH, 'w', encoding='utf-8') as f:
+                json.dump(topics, f, ensure_ascii=False, indent=2)
+                f.write('\n')
+            subprocess.run(['git', 'add', 'blog/topics.json'], cwd=BASE_DIR, check=True)
+            subprocess.run(['git', 'commit', '-m', f"chore(blog): mark topic '{item['id']}' as done"], cwd=BASE_DIR, check=True)
+            subprocess.run(['git', 'push', 'origin', branch], cwd=BASE_DIR, check=True)
+            subprocess.run(['git', 'checkout', 'main'], cwd=BASE_DIR, check=False)
+            print(f"[+] Marked topic '{item['id']}' as done on branch {branch}")
 
 
 if __name__ == '__main__':
