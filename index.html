@@ -40,7 +40,7 @@
 <meta name="twitter:image" content="https://www.marianstancik.dev/og-image.webp">
 <meta name="ai-generated-content" content="true">
 
-<link rel="stylesheet" href="/css/main.min.css?v=141">
+<link rel="stylesheet" href="/css/main.min.css?v=142">
 
 <script type="application/ld+json">
 {
@@ -170,18 +170,18 @@
     </div>
 
     <!-- === REAL NUMBERS LEDGER (ABOVE / EDGE OF FOLD) === -->
-    <div class="ledger-strip" aria-label="Real monthly numbers">
+    <div class="ledger-strip" aria-label="Real OpenRouter 12-month telemetry">
       <div class="ledger-cell">
-        <div class="ledger-val" id="numM1Val" data-i18n="numM1Val">4B tokens</div>
-        <div class="ledger-label" id="numM1Label" data-i18n="numM1Label">Real monthly volume across my autonomous agents and workflows.</div>
+        <div class="ledger-val" id="numM1Val" data-i18n="numM1Val">11.5B tokens</div>
+        <div class="ledger-label" id="numM1Label" data-i18n="numM1Label">113K requests across Hermes Agent &amp; OpenBot (past 12 months).</div>
       </div>
       <div class="ledger-cell">
-        <div class="ledger-val" id="numM2Val" data-i18n="numM2Val">~$200 vs $15,000</div>
-        <div class="ledger-label" id="numM2Label" data-i18n="numM2Label">DeepSeek via OpenRouter instead of overpaying for frontier models.</div>
+        <div class="ledger-val" id="numM2Val" data-i18n="numM2Val">$416.19 total</div>
+        <div class="ledger-label" id="numM2Label" data-i18n="numM2Label">$0.04 / 1M blended cost via OpenRouter instead of overpaying for frontier models.</div>
       </div>
       <div class="ledger-cell">
-        <div class="ledger-val" id="numM3Val" data-i18n="numM3Val">Open-Source</div>
-        <div class="ledger-label" id="numM3Label" data-i18n="numM3Label">Hermes Agent &amp; OpenBot (open-source Grok bot alternative) — full control, measurable output.</div>
+        <div class="ledger-val" id="numM3Val" data-i18n="numM3Val">86.1% cache hit</div>
+        <div class="ledger-label" id="numM3Label" data-i18n="numM3Label">Prompt caching + smart routing across DeepSeek Flash &amp; GLM — full control.</div>
       </div>
     </div>
   </div>
@@ -235,8 +235,24 @@
 
     <div class="proof-banner fade-in">
       <p class="proof-lead" id="numLead" data-i18n="numLead">
-        I look at AI critically. It is not magic — it is a tool that can easily burn your budget if you use it blindly. Last month my agents used <strong>4 billion tokens</strong> for roughly <strong>$200</strong> on DeepSeek via OpenRouter. Running the exact same workload on the most expensive frontier models would have cost <strong>$15,000</strong>.
+        I look at AI critically. It is not magic — it is a tool that can easily burn your budget if you use it blindly. Over the past 12 months my agents processed <strong>11.5 billion tokens</strong> across <strong>113K requests</strong> for <strong>$416.19 total</strong> (<strong>$0.04 / 1M blended</strong>, <strong>86.1% cache hit rate</strong>) via OpenRouter — instead of burning tens of thousands on flagship models.
       </p>
+      <div class="model-mix" aria-label="Real OpenRouter request share by model family">
+        <div class="model-mix-head">
+          <span id="mixTitle" data-i18n="mixTitle">OpenRouter 12-month model routing (113K requests)</span>
+          <strong>$0.04 / 1M blended · 86.1% cache</strong>
+        </div>
+        <div class="model-mix-bar" role="img" aria-label="DeepSeek Flash 82 percent, GLM Flash 10 percent, other models 8 percent">
+          <span class="mix-seg-primary" style="width: 82%;"></span>
+          <span class="mix-seg-secondary" style="width: 10%;"></span>
+          <span class="mix-seg-other" style="width: 8%;"></span>
+        </div>
+        <div class="model-mix-legend">
+          <span class="mix-item"><span class="mix-dot mix-seg-primary" aria-hidden="true"></span><strong>DeepSeek V4 / V4.1 Flash</strong> ~82%</span>
+          <span class="mix-item"><span class="mix-dot mix-seg-secondary" aria-hidden="true"></span><strong>GLM 5.2 / 5.3 Flash</strong> ~10%</span>
+          <span class="mix-item"><span class="mix-dot mix-seg-other" aria-hidden="true"></span><strong>GPT-4o-mini, DeepSeek Pro, Claude</strong> ~8%</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>

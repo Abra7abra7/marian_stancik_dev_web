@@ -335,13 +335,13 @@ translations["pl"] = {
  "get3Desc": "Chcesz połączyć procesy, obniżyć koszty tokenów AI lub uruchomić pierwszego agenta open-source? Napisz na WhatsApp.",
  "numLabel": "Prawdziwe liczby, bez bajek",
  "numHeading": "AI to tylko narzędzie. Tyle naprawdę kosztuje.",
- "numLead": "Patrzę na AI krytycznie. To nie magia — to narzędzie, na którym łatwo przepalić budżet. W ostatnim miesiącu moi agenci zużyli <strong>4 miliardy tokenów</strong> za ok. <strong>200 USD</strong> na DeepSeek (OpenRouter). Na najdroższych modelach kosztowałoby to <strong>15 000 USD</strong>.",
- "numM1Val": "4 mld tokenów",
- "numM1Label": "Realne miesięczne zużycie moich autonomicznych agentów.",
- "numM2Val": "~$200 vs $15 000",
- "numM2Label": "DeepSeek przez OpenRouter zamiast przepłacania za najdroższe modele.",
- "numM3Val": "Open-Source",
- "numM3Label": "Hermes Agent & OpenBot (open-source alternatywa Grok bota) — pełna kontrola.",
+ "numLead": "Patrzę na AI krytycznie. To nie magia — to narzędzie, które potrafi szybko przepalić budżet. W ostatnich 12 miesiącach moi agenci przetworzyli <strong>11,5 miliarda tokenów</strong> w <strong>113 tys. zapytań</strong> za łącznie <strong>$416,19</strong> (<strong>$0,04 / 1M tokenów</strong>, <strong>86,1% cache hit</strong>) przez OpenRouter.",
+ "numM1Val": "11,5 mld tokenów",
+ "numM1Label": "113 tys. zapytań przez Hermes Agent i OpenBot (ostatnie 12 miesięcy).",
+ "numM2Val": "$416,19 łącznie",
+ "numM2Label": "Średnio $0,04 / 1M tokenów przez OpenRouter zamiast przepłacania za drogie modele.",
+ "numM3Val": "86,1% cache hit",
+ "numM3Label": "Prompt caching + mądre routowanie na DeepSeek Flash i GLM — pełna kontrola.",
  "idLabel": "Uczciwość na start",
  "idHeading": "Kim jestem — a kim NIE jestem.",
  "idIntro": "Jasne granice od samego początku, żebyś wiedział, z kim rozmawiasz.",
@@ -369,5 +369,6 @@ translations["pl"] = {
  "waFloatText": "WhatsApp",
  "heroEyebrow": "Praktyczni agenci AI · Bez hype’u",
  "heroPortraitLocation": "Marian Stancik · Agenci AI",
- "heroPortraitStatus": "Buduję na Hermes Agent & OpenBot"
+ "heroPortraitStatus": "Buduję na Hermes Agent & OpenBot",
+ "mixTitle": "Rzeczywisty routing modeli na OpenRouter (12 mies., 113 tys. zapytań)"
 };

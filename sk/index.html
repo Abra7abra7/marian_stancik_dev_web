@@ -53,7 +53,7 @@
 <meta content="Vytváram a manažujem AI agentov (Hermes Agent, OpenBot), aby si mal viac času, vedel delegovať rutinu a zmerať výsledok. Napíš mi rovno na WhatsApp." name="twitter:description"/>
 <meta content="https://www.marianstancik.dev/og-image.webp" name="twitter:image"/>
 <meta content="true" name="ai-generated-content"/>
-<link href="/css/main.min.css?v=141" rel="stylesheet"/>
+<link href="/css/main.min.css?v=142" rel="stylesheet"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -157,18 +157,18 @@
 </aside>
 </div>
 <!-- === REAL NUMBERS LEDGER (ABOVE / EDGE OF FOLD) === -->
-<div aria-label="Real monthly numbers" class="ledger-strip">
+<div aria-label="Real OpenRouter 12-month telemetry" class="ledger-strip">
 <div class="ledger-cell">
-<div class="ledger-val" data-i18n="numM1Val" id="numM1Val">4 mld. tokenov</div>
-<div class="ledger-label" data-i18n="numM1Label" id="numM1Label">Reálna mesačná spotreba mojich autonómnych agentov a procesov.</div>
+<div class="ledger-val" data-i18n="numM1Val" id="numM1Val">11,5 mld. tokenov</div>
+<div class="ledger-label" data-i18n="numM1Label" id="numM1Label">113 tis. požiadaviek cez Hermes Agent &amp; OpenBot (za posledných 12 mesiacov).</div>
 </div>
 <div class="ledger-cell">
-<div class="ledger-val" data-i18n="numM2Val" id="numM2Val">~$200 vs $15 000</div>
-<div class="ledger-label" data-i18n="numM2Label" id="numM2Label">DeepSeek cez OpenRouter namiesto preplácania za najdrahšie modely.</div>
+<div class="ledger-val" data-i18n="numM2Val" id="numM2Val">$416,19 spolu</div>
+<div class="ledger-label" data-i18n="numM2Label" id="numM2Label">Priemer $0,04 / 1M tokenov cez OpenRouter namiesto preplácania za drahé modely.</div>
 </div>
 <div class="ledger-cell">
-<div class="ledger-val" data-i18n="numM3Val" id="numM3Val">Open-Source</div>
-<div class="ledger-label" data-i18n="numM3Label" id="numM3Label">Hermes Agent &amp; OpenBot (open-source alternatíva Grok bota) — plná kontrola a merateľný výkon.</div>
+<div class="ledger-val" data-i18n="numM3Val" id="numM3Val">86,1 % cache hit</div>
+<div class="ledger-label" data-i18n="numM3Label" id="numM3Label">Prompt caching + rozumné smerovanie na DeepSeek Flash a GLM — plná kontrola.</div>
 </div>
 </div>
 </div>
@@ -213,7 +213,23 @@
 <div class="section-label fade-in" data-i18n="numLabel" id="numLabel">Reálne čísla, žiadne rozprávky</div>
 <h2 class="fade-in" data-i18n="numHeading" id="numHeading">AI je len nástroj. Pozri, koľko naozaj stojí.</h2>
 <div class="proof-banner fade-in">
-<p class="proof-lead" data-i18n="numLead" id="numLead">Na AI sa pozerám kriticky. Nie je to zázrak — je to len nástroj, na ktorom ľahko spáliš peniaze, ak ho používaš naslepo. Za posledný mesiac moji agenti spotrebovali <strong>4 miliardy tokenov</strong> za cca <strong>200 USD</strong> cez DeepSeek (OpenRouter). Keby som to isté pustil na najdrahších modeloch, stálo by to <strong>15 000 USD</strong>.</p>
+<p class="proof-lead" data-i18n="numLead" id="numLead">Na AI sa pozerám kriticky. Nie je to zázrak — je to nástroj, ktorý ti vie potichu spáliť rozpočet, ak ho používaš naslepo. Za posledných 12 mesiacov moji agenti spracovali <strong>11,5 miliardy tokenov</strong> v <strong>113 tis. požiadavkách</strong> za celkovo <strong>$416,19</strong> (<strong>$0,04 / 1M tokenov</strong>, <strong>86,1 % cache hit rate</strong>) cez OpenRouter — namiesto desiatok tisíc dolárov na najdrahších modeloch.</p>
+<div aria-label="Real OpenRouter request share by model family" class="model-mix">
+<div class="model-mix-head">
+<span data-i18n="mixTitle" id="mixTitle">Reálne smerovanie modelov na OpenRouter (12 mesiacov, 113 tis. požiadaviek)</span>
+<strong>$0.04 / 1M blended · 86.1% cache</strong>
+</div>
+<div aria-label="DeepSeek Flash 82 percent, GLM Flash 10 percent, other models 8 percent" class="model-mix-bar" role="img">
+<span class="mix-seg-primary" style="width: 82%;"></span>
+<span class="mix-seg-secondary" style="width: 10%;"></span>
+<span class="mix-seg-other" style="width: 8%;"></span>
+</div>
+<div class="model-mix-legend">
+<span class="mix-item"><span aria-hidden="true" class="mix-dot mix-seg-primary"></span><strong>DeepSeek V4 / V4.1 Flash</strong> ~82%</span>
+<span class="mix-item"><span aria-hidden="true" class="mix-dot mix-seg-secondary"></span><strong>GLM 5.2 / 5.3 Flash</strong> ~10%</span>
+<span class="mix-item"><span aria-hidden="true" class="mix-dot mix-seg-other"></span><strong>GPT-4o-mini, DeepSeek Pro, Claude</strong> ~8%</span>
+</div>
+</div>
 </div>
 </div>
 </section>

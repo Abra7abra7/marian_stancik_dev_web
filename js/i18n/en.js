@@ -335,13 +335,13 @@ translations["en"] = {
  "get3Desc": "Want to connect your workflows, cut AI token costs, or build your first open-source agent? Write to me directly on WhatsApp.",
  "numLabel": "Real Numbers, Not Hype",
  "numHeading": "AI is just a tool. Here is what it actually costs.",
- "numLead": "I look at AI critically. It is not magic — it is a tool that can easily burn your budget if you use it blindly. Last month my agents used <strong>4 billion tokens</strong> for roughly <strong>$200</strong> on DeepSeek via OpenRouter. Running the exact same workload on the most expensive frontier models would have cost <strong>$15,000</strong>.",
- "numM1Val": "4B tokens",
- "numM1Label": "Real monthly volume across my autonomous agents and workflows.",
- "numM2Val": "~$200 vs $15,000",
- "numM2Label": "DeepSeek via OpenRouter instead of overpaying for frontier models.",
- "numM3Val": "Open-Source",
- "numM3Label": "Hermes Agent & OpenBot (open-source Grok bot alternative) — full control, measurable output.",
+ "numLead": "I look at AI critically. It is not magic — it is a tool that can easily burn your budget if you use it blindly. Over the past 12 months my agents processed <strong>11.5 billion tokens</strong> across <strong>113K requests</strong> for <strong>$416.19 total</strong> (<strong>$0.04 / 1M blended</strong>, <strong>86.1% cache hit rate</strong>) via OpenRouter — instead of burning tens of thousands on flagship models.",
+ "numM1Val": "11.5B tokens",
+ "numM1Label": "113K requests across Hermes Agent & OpenBot (past 12 months).",
+ "numM2Val": "$416.19 total",
+ "numM2Label": "$0.04 / 1M blended cost via OpenRouter instead of overpaying for frontier models.",
+ "numM3Val": "86.1% cache hit",
+ "numM3Label": "Prompt caching + smart routing across DeepSeek Flash & GLM — full control.",
  "idLabel": "Honesty First",
  "idHeading": "Who I am — and who I am NOT.",
  "idIntro": "Clear boundaries from day one so you know exactly who you are talking to.",
@@ -369,5 +369,6 @@ translations["en"] = {
  "waFloatText": "WhatsApp",
  "heroEyebrow": "Practical AI Agents · No Hype",
  "heroPortraitLocation": "Marian Stancik · AI Agents",
- "heroPortraitStatus": "Building with Hermes Agent & OpenBot"
+ "heroPortraitStatus": "Building with Hermes Agent & OpenBot",
+ "mixTitle": "OpenRouter 12-month model routing (113K requests)"
 };

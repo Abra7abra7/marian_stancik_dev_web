@@ -335,13 +335,13 @@
   "get3Desc": "Chceš propojit své procesy, snížit náklady na AI tokeny nebo rozjet prvního open-source agenta? Napiš mi přímo na WhatsApp.",
   "numLabel": "Reálná čísla, ne pohádky",
   "numHeading": "AI je jen nástroj. Tady je, kolik doopravdy stojí.",
-  "numLead": "Na AI se dívám kriticky. Není to zázrak — je to nástroj, na kterém snadno spálíš rozpočet, když ho používáš naslepo. Za poslední měsíc moji agenti spotřebovali <strong>4 miliardy tokenů</strong> za cca <strong>200 USD</strong> přes DeepSeek (OpenRouter). Na nejdražších modelech by to samé stálo <strong>15 000 USD</strong>.",
-  "numM1Val": "4 mld. tokenů",
-  "numM1Label": "Reálná měsíční spotřeba mých autonomních agentů a procesů.",
-  "numM2Val": "~$200 vs $15 000",
-  "numM2Label": "DeepSeek přes OpenRouter místo přeplácení za nejdražší modely.",
-  "numM3Val": "Open-Source",
-  "numM3Label": "Hermes Agent & OpenBot (open-source alternativa Grok bota) — plná kontrola a měřitelný výkon.",
+  "numLead": "Na AI se dívám kriticky. Není to zázrak — je to nástroj, který umí rychle spálit rozpočet, když se používá naslepo. Za posledních 12 měsíců moji agenti zpracovali <strong>11,5 miliardy tokenů</strong> ve <strong>113 tis. požadavcích</strong> za celkem <strong>$416,19</strong> (<strong>$0,04 / 1M tokenů</strong>, <strong>86,1 % cache hit rate</strong>) přes OpenRouter.",
+  "numM1Val": "11,5 mld. tokenů",
+  "numM1Label": "113 tis. požadavků přes Hermes Agent & OpenBot (za posledních 12 měsíců).",
+  "numM2Val": "$416,19 celkem",
+  "numM2Label": "Průměr $0,04 / 1M tokenů přes OpenRouter místo přeplácení drahých modelů.",
+  "numM3Val": "86,1 % cache hit",
+  "numM3Label": "Prompt caching + chytré směrování na DeepSeek Flash a GLM — plná kontrola.",
   "idLabel": "Upřímně od začátku",
   "idHeading": "Co jsem — a co NEJSEM.",
   "idIntro": "Jasné hranice hned na začátku, abys přesně věděl, s kým mluvíš.",
@@ -369,5 +369,6 @@
   "waFloatText": "WhatsApp",
   "heroEyebrow": "Praktičtí AI agenti · Bez hype",
   "heroPortraitLocation": "Marian Stancik · AI agenti",
-  "heroPortraitStatus": "Stavím na Hermes Agent & OpenBot"
+  "heroPortraitStatus": "Stavím na Hermes Agent & OpenBot",
+  "mixTitle": "Reálné směrování modelů na OpenRouter (12 měsíců, 113 tis. požadavků)"
 }
