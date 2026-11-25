@@ -4502,3 +4502,93 @@ footer {
   margin-bottom: 0;
   font-size: 0.9rem;
 }
+
+
+/* ==========================================================================
+   FIXES & REAL TELEMETRY BREAKDOWN (v2.2)
+   ========================================================================== */
+
+/* Fix HTML [hidden] overridden by .prompt-card { display: flex } */
+[hidden],
+.prompt-card[hidden] {
+  display: none !important;
+}
+
+/* Real OpenRouter Model Routing Breakdown inside #real-numbers */
+.model-mix {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.model-mix-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.model-mix-head strong {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.model-mix-bar {
+  display: flex;
+  height: 10px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  background: rgba(148, 163, 184, 0.12);
+  gap: 2px;
+}
+
+.mix-seg-primary { background: var(--color-accent); }
+.mix-seg-secondary { background: var(--color-primary); }
+.mix-seg-other { background: #475569; }
+
+.model-mix-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.mix-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mix-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.mix-item strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* Keep mobile floating WhatsApp compact so it never crowds content */
+@media (max-width: 540px) {
+  .wa-float {
+    min-height: 40px;
+    padding: 8px 13px;
+    font-size: 0.78rem;
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+}

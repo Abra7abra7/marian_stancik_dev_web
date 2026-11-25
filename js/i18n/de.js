@@ -335,13 +335,13 @@ translations["de"] = {
  "get3Desc": "Du willst Prozesse verbinden, Token-Kosten senken oder deinen ersten Open-Source-Agenten starten? Schreib mir direkt auf WhatsApp.",
  "numLabel": "Echte Zahlen statt Hype",
  "numHeading": "KI ist nur ein Werkzeug. Das kostet es wirklich.",
- "numLead": "Ich sehe KI kritisch. Sie ist kein Zaubertrick — sondern ein Werkzeug, das schnell teuer wird. Letzten Monat verbrauchten meine Agenten <strong>4 Milliarden Token</strong> für rund <strong>200 USD</strong> über DeepSeek (OpenRouter). Auf den teuersten Modellen hätte dasselbe <strong>15.000 USD</strong> gekostet.",
- "numM1Val": "4 Mrd. Token",
- "numM1Label": "Reales monatliches Volumen meiner autonomen Agenten.",
- "numM2Val": "~$200 vs $15.000",
- "numM2Label": "DeepSeek via OpenRouter statt überteuerter Frontier-Modelle.",
- "numM3Val": "Open-Source",
- "numM3Label": "Hermes Agent & OpenBot (Open-Source-Alternative zum Grok Bot) — volle Kontrolle.",
+ "numLead": "Ich betrachte KI kritisch. Sie ist keine Magie, sondern ein Werkzeug, das blind eingesetzt schnell Budgets verbrennt. In den letzten 12 Monaten verarbeiteten meine Agenten <strong>11,5 Milliarden Tokens</strong> in <strong>113 Tsd. Anfragen</strong> für insgesamt <strong>$416,19</strong> (<strong>$0,04 / 1M</strong>, <strong>86,1 % Cache-Hit-Rate</strong>) über OpenRouter.",
+ "numM1Val": "11,5 Mrd. Tokens",
+ "numM1Label": "113 Tsd. Anfragen über Hermes Agent & OpenBot (letzte 12 Monate).",
+ "numM2Val": "$416,19 gesamt",
+ "numM2Label": "$0,04 / 1M Mischpreis via OpenRouter statt überteuerter Frontier-Modelle.",
+ "numM3Val": "86,1 % Cache-Hit",
+ "numM3Label": "Prompt-Caching + smartes Routing über DeepSeek Flash & GLM — volle Kontrolle.",
  "idLabel": "Ehrlichkeit zuerst",
  "idHeading": "Was ich bin — und was NICHT.",
  "idIntro": "Klare Grenzen von Anfang an, damit du genau weißt, mit wem du sprichst.",
@@ -369,5 +369,6 @@ translations["de"] = {
  "waFloatText": "WhatsApp",
  "heroEyebrow": "Praktische KI-Agenten · Ohne Hype",
  "heroPortraitLocation": "Marian Stancik · KI-Agenten",
- "heroPortraitStatus": "Entwicklung mit Hermes Agent & OpenBot"
+ "heroPortraitStatus": "Entwicklung mit Hermes Agent & OpenBot",
+ "mixTitle": "Echtes OpenRouter-Routing (12 Monate, 113 Tsd. Anfragen)"
 };

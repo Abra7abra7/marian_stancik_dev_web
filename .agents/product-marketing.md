@@ -30,7 +30,7 @@
 ## Differentiation
 **Key differentiators:**
 - **Kritický a realistický pohľad na AI:** AI je len nástroj, nie zázrak.
-- **Reálne čísla namiesto sľubov:** Za posledný mesiac 4 miliardy spotrebovaných tokenov za cca 200 USD (DeepSeek cez OpenRouter) namiesto ~15 000 USD na najdrahších modeloch.
+- **Reálne čísla namiesto sľubov (OpenRouter, 12 mesiacov):** **11,5 miliardy tokenov** cez **113 tis. požiadaviek** za celkovo **$416,19** (**$0,04 / 1M tokenov**, **86,1 % cache hit rate**) na DeepSeek V4/V4.1 Flash (~82 %) a GLM Flash (~10 %) — namiesto desiatok tisíc dolárov na najdrahších modeloch.
 - **Open-source stack:** Hermes Agent a OpenBot (open-source alternatíva Grok bota) — žiadna závislosť na jednom drahom dodávateľovi.
 - **Plná transparentnosť („Čo som a čo NIE som“):** Študent 3. ročníka práva so záujmom o súkromie a EU AI Act, ktorý otvorene hovorí, že neposkytuje právne poradenstvo a že celý tento web aj e-mail riadia agenti.
 - **Priamy kontakt bez bariér:** WhatsApp (`+421 940 377 855`) priamo na stránke.

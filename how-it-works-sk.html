@@ -39,7 +39,7 @@
 }
 </script>
 <script defer src="/js/posthog.min.js?v=consent2"></script>
-<link rel="stylesheet" href="/css/main.min.css?v=141">
+<link rel="stylesheet" href="/css/main.min.css?v=142">
 
 <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph">
 </head>
@@ -64,14 +64,6 @@
       <span class="nav-logo-text">marian<span class="highlight">stancik</span><span class="tld">.dev</span></span>
     </a>
     <div class="nav-right">
-      <div class="lang-switcher" aria-label="Language selector">
-        <button class="lang-btn active" id="btnEn" data-lang-switch="en">EN</button>
-        <button class="lang-btn" id="btnSk" data-lang-switch="sk">SK</button>
-        <button class="lang-btn" id="btnCs" data-lang-switch="cs">CS</button>
-        <button class="lang-btn" id="btnDe" data-lang-switch="de">DE</button>
-        <button class="lang-btn" id="btnPl" data-lang-switch="pl">PL</button>
-      </div>
-      <button class="mobile-toggle" aria-expanded="false" aria-label="Toggle menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="8" x2="21" y2="8"/><line x1="3" y1="16" x2="21" y2="16"/></svg><span class="visually-hidden">Menu</span></button>
       <div class="nav-links"><div class="lang-switcher lang-switcher-mobile"><button class="lang-btn active" data-lang-switch="en">EN</button>
         <button class="lang-btn" data-lang-switch="sk">SK</button>
           <button class="lang-btn" data-lang-switch="cs">CS</button>
@@ -83,6 +75,14 @@
         <a href="/blog" class="nav-link" id="navBlog" data-i18n="navBlog">Blog</a>
         <a href="/contact" class="nav-link nav-cta" id="navContact" data-i18n="navContact">Contact</a>
       </div>
+      <div class="lang-switcher" aria-label="Language selector">
+        <button class="lang-btn active" id="btnEn" data-lang-switch="en">EN</button>
+        <button class="lang-btn" id="btnSk" data-lang-switch="sk">SK</button>
+        <button class="lang-btn" id="btnCs" data-lang-switch="cs">CS</button>
+        <button class="lang-btn" id="btnDe" data-lang-switch="de">DE</button>
+        <button class="lang-btn" id="btnPl" data-lang-switch="pl">PL</button>
+      </div>
+      <button class="mobile-toggle" aria-expanded="false" aria-label="Toggle menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="8" x2="21" y2="8"/><line x1="3" y1="16" x2="21" y2="16"/></svg><span class="visually-hidden">Menu</span></button>
     </div>
   </div>
 </nav>
@@ -97,14 +97,14 @@
       Jeden agent na rolu, jeden vlastník na úlohu, ľudské rozhodnutie vo všetkom dôležitom. Žiadny predaj — len systém.
     </p>
 
-    <div class="team-strip" id="teamStrip" role="status" aria-label="Živý stav tímu">
-      <span class="strip-item"><span class="live-dot" aria-hidden="true"></span><span id="stripAgents"><strong>19+</strong> cron agents</span></span>
+    <div class="team-strip" id="teamStrip" role="status" aria-label="Reálna telemetria OpenRouter">
+      <span class="strip-item"><span class="live-dot" aria-hidden="true"></span><span><strong>11,5 mld.</strong> tokenov (12 mes.)</span></span>
       <span class="strip-sep" aria-hidden="true">·</span>
-      <span class="strip-item" id="stripDomains"><strong>5+</strong> domains covered</span>
+      <span class="strip-item"><strong>113 tis.</strong> požiadaviek</span>
       <span class="strip-sep" aria-hidden="true">·</span>
-      <span class="strip-item" id="stripYears"><strong>3+</strong> years building</span>
+      <span class="strip-item"><strong>86,1 %</strong> cache hit</span>
       <span class="strip-sep" aria-hidden="true">·</span>
-      <span class="strip-item" id="stripVps"><strong>24/7</strong> on EU VPS</span>
+      <span class="strip-item"><strong>$0,04</strong> / 1M priemer</span>
     </div>
     <div class="glow-line"></div>
   </div>
