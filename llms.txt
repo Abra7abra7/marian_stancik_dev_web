@@ -29,6 +29,7 @@
 
 ## Technical Articles
 
+- [4 Billion Tokens for $200 Instead of $15,000: Real Savings on AI Agents](https://www.marianstancik.dev/blog/posts/2026-11-26-4-billion-tokens-for-200-instead-of-15000-real-savings-on-ai-agents): Running every agent task on a frontier model is how budgets quietly disappear. Here is how routing routine work to DeepSeek via OpenRouter cut my token bill by roughly 98%.
 - [Five Tests I Run Before an AI Agent Touches Real Work](https://www.marianstancik.dev/blog/posts/2026-11-25-five-tests-i-run-before-an-ai-agent-touches-real-work): A cheap agent that fails silently costs more than an expensive one that stops. Five boring checks I run before handing over a real task.
 - [AI Agents with Rules: Guardrails and Human-in-the-Loop in Practice (Without Paranoia or Naivety)](https://www.marianstancik.dev/blog/posts/ai-agenti-guardrails-human-in-the-loop): An agent that can do everything is a risk. Three layers of rules, the output format as a guardrail, and the typical failures when rules are missing — from live agent operations.
 - [GEO: How to Get Cited by ChatGPT, Perplexity and Google AI Overviews](https://www.marianstancik.dev/blog/posts/geo-generative-engine-optimization): GEO is optimizing content for citations in AI answers. Three pillars, 8 practical steps — from the direct answer via schema.org to llms.txt — and what actually holds on this website.
