@@ -1,7 +1,7 @@
 [
   {
     "id": "4-billion-tokens-200-usd-deepseek-openrouter",
-    "status": "pending",
+    "status": "done",
     "topic": "4 miliardy tokenov za 200 USD namiesto 15 000 USD: Ako reálne šetriť na AI agentoch cez DeepSeek a OpenRouter",
     "angle": "Concrete breakdown of why running AI agents blindly on top frontier models burns money, how routing routine tasks to DeepSeek via OpenRouter cuts cost by ~98%, and how to measure token ROI.",
     "tags": "AI Agents, Token Economics, DeepSeek, OpenRouter, Cost Control"
